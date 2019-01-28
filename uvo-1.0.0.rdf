@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://mswimmer.github.io/utim/uvo#"
+     xml:base="https://mswimmer.github.io/utim/uvo"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cvssv1="http://first.org/cvss/v1#"
+     xmlns:cvssv2="http://first.org/cvss/v2#"
+     xmlns:core="https://mswimmer.github.io/utim/core#"
+     xmlns:mitrecve1="http://cve.mitre.org/cve/downloads/1.0"
+     xmlns:cvssv3="http://first.org/cvss/v3#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:nvdcve12="http://nvd.nist.gov/feeds/cve/1.2"
+     xmlns:nvdcve20="http://scap.nist.gov/schema/feed/vulnerability/2.0">
+    <owl:Ontology rdf:about="https://mswimmer.github.io/utim/uvo">
+        <owl:versionIRI rdf:resource="https://mswimmer.github.io/utim/uvo-1.0.0"/>
+        <owl:imports rdf:resource="https://mswimmer.github.io/utim/core-1.0.0"/>
+        <terms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
+        <rdfs:comment xml:lang="en">Incorporating CVE, CVSS, CPE, CWE, etc. Eventually, this will be related strongly to VDO, once that is published.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-126r3.pdf</rdfs:seeAlso>
+        <rdfs:label xml:lang="en">Unified vulnerability ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#summary -->
+
+    <owl:AnnotationProperty rdf:about="https://mswimmer.github.io/utim/uvo#summary">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/uvo#Entry"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#xsdElementName -->
+
+    <owl:AnnotationProperty rdf:about="https://mswimmer.github.io/utim/uvo#xsdElementName">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#assessmentCheck -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/uvo#assessmentCheck">
+        <rdfs:comment>Range is defined as scap-core:checkReferenceType in the schema</rdfs:comment>
+        <xsdElementName>assessment_check</xsdElementName>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#cvss -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/uvo#cvss">
+        <rdfs:range rdf:resource="http://first.org/cvss/v2#CVSS"/>
+        <rdfs:comment>range is defined as cvssv2:cvssImpactType so perhaps the cvss2 ontology needs to be adapted</rdfs:comment>
+        <xsdElementName>cvss</xsdElementName>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#fixAction -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/uvo#fixAction">
+        <rdfs:comment>Range is fixActionType in the schema</rdfs:comment>
+        <xsdElementName>fix_action</xsdElementName>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#hasSoftwareProduct -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/uvo#hasSoftwareProduct"/>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#reference -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/uvo#reference">
+        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/uvo#Reference"/>
+        <xsdElementName>references</xsdElementName>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#scanner -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/uvo#scanner">
+        <rdfs:comment xml:lang="en">Denotes a scanner and required configuration that is capable of detecting the referenced vulnerability.  May also be an OVAL definition and omit scanner name.</rdfs:comment>
+        <rdfs:comment>Range is toolConfigurationType in the schema</rdfs:comment>
+        <xsdElementName>scanner</xsdElementName>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#securityProtection -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/uvo#securityProtection">
+        <rdfs:comment xml:lang="en">the schema defines the range as securityProtectionType</rdfs:comment>
+        <xsdElementName>security-protection</xsdElementName>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#cwe -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#cwe">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#disclosure -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#disclosure">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <xsdElementName>disclosure-datetime</xsdElementName>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#discovered -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#discovered">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <xsdElementName>discovered-datetime</xsdElementName>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#exploitPublished -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#exploitPublished">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <xsdElementName>exploit-publish-datetime</xsdElementName>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#lastModified -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#lastModified">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <xsdElementName>last-modified-datetime</xsdElementName>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#published -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#published">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <xsdElementName>published-datetime</xsdElementName>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#referenceDeprecated -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#referenceDeprecated">
+        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/uvo#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#referenceSource -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#referenceSource">
+        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/uvo#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#referenceTitle -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#referenceTitle">
+        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/uvo#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#referenceURL -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#referenceURL">
+        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/uvo#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#version -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#version">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>version</rdfs:label>
+        <core:xpath>//nvdcve12:entry[@version]</core:xpath>
+        <core:xpath>//nvdcve20:entry[@nvd_xml_version]</core:xpath>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#vulnerability-identifier -->
+
+    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/uvo#vulnerability-identifier">
+        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/uvo#Vulnerability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+        <rdfs:comment xml:lang="en">An identifier for a vulnerability supplied by a source.
+Examples include a knowledge base article number, patch number, a bug tracking database identifier or a common identifier such as a Common Vulnerabilities and Exposures (CVE) identifier. CVE is a widely adopted identifier used across many organizations.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Note that the Range must be of XSD:Token type, so something like cve.mitre.org:CVE-2015-1234
+
+TODO: evaluate if an IRI would be better</rdfs:comment>
+        <rdfs:seeAlso xml:lang="en">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:seeAlso>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+    <!-- https://mswimmer.github.io/utim/uvo#PATCHReference -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/uvo#PATCHReference">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/uvo#Reference"/>
+        <rdfs:label>PATCH</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#Reference -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/uvo#Reference"/>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#UNKNOWNReference -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/uvo#UNKNOWNReference">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/uvo#Reference"/>
+        <rdfs:label>UNKNOWN</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#VENDOR_ADVISORYReference -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/uvo#VENDOR_ADVISORYReference">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/uvo#Reference"/>
+        <rdfs:label>VENDOR_ADVISORY</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#Vulnerability -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/uvo#Vulnerability">
+        <rdfs:comment xml:lang="en">A Vulnerability is any weakness in the computational logic found in products or devices that could be exploited by a threat source.</rdfs:comment>
+        <rdfs:comment xml:lang="en">mandatory</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:isDefinedBy>
+        <core:xpath xml:lang="en">/nvdcve20:nvd/nvdcve20:entry</core:xpath>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#VulnerableSoftwareList -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/uvo#VulnerableSoftwareList">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/uvo#hasSoftwareProduct"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://mswimmer.github.io/utim/uvo#VulnerableSoftwareProduct"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#VulnerableSoftwareProduct -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/uvo#VulnerableSoftwareProduct"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#configuration_change -->
+
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/uvo#configuration_change"/>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#external_mitigation -->
+
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/uvo#external_mitigation"/>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#patch -->
+
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/uvo#patch"/>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#policy_change -->
+
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/uvo#policy_change"/>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/uvo#software_update -->
+
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/uvo#software_update"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
