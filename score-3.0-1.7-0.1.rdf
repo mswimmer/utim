@@ -511,30 +511,6 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#AdministratorPrivilegeLevel -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#AdministratorPrivilegeLevel">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#PrivilegeLevel"/>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#ApplicationContext -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#ApplicationContext">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Context"/>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#AttackTheater -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#AttackTheater">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Metric"/>
-    </owl:Class>
-    
-
-
     <!-- https://mswimmer.github.io/utim/score#AttackVector -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#AttackVector">
@@ -582,14 +558,6 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <cvss_v2_code xml:lang="en">AR</cvss_v2_code>
         <cvss_v3_code xml:lang="en">AR</cvss_v3_code>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#Barrier -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#Barrier">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Metric"/>
     </owl:Class>
     
 
@@ -755,16 +723,6 @@ Other vulnerabilities, however, may require additional steps in order to be expl
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3HighAttackComplexity">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSv3AttackComplexity"/>
-        <rdfs:comment xml:lang="en">A successful attack depends on conditions beyond the attacker&apos;s control. That is, a successful attack cannot be accomplished at will, but requires the attacker to invest in some measurable amount of effort in preparation or execution against the vulnerable component before a successful attack can be expected. For example, a successful attack may depend on an attacker overcoming any of the following conditions:
-
-- The attacker must conduct target-specific reconnaissance. For example, on target configuration settings, sequence numbers, shared secrets, etc.
-
-- The attacker must prepare the target environment to improve exploit reliability. For example, repeated exploitation to win a race condition, or overcoming advanced exploit mitigation techniques.
-
-- The attacker must inject herself into the logical network path between the target and the resource requested by the victim in order to read and/or modify network communications (e.g. man in the middle attack).</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-1-2-Attack-Complexity-AC</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">High</rdfs:label>
-        <cvss_v3_code>H</cvss_v3_code>
     </owl:Class>
     
 
@@ -773,10 +731,6 @@ Other vulnerabilities, however, may require additional steps in order to be expl
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3LowAttackComplexity">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSv3AttackComplexity"/>
-        <rdfs:comment xml:lang="en">Specialized access conditions or extenuating circumstances do not exist. An attacker can expect repeatable success against the vulnerable component.</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-1-2-Attack-Complexity-AC</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Low</rdfs:label>
-        <cvss_v3_code>L</cvss_v3_code>
     </owl:Class>
     
 
@@ -910,34 +864,6 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#Context -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#Context">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Metric"/>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#Criticality -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#Criticality">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Metric"/>
-        <rdfs:comment xml:lang="en">A measure of the relative importance of the associated Scope. This noun
-group is only relevant when the Scope has a value of &apos;Limited&apos;. When
-Scope is &apos;Limited&apos;, Criticality must be used in order to provide additional
-information about its importance.
-Criticality must be considered in concert with the Context to which it is
-associated. That is, for a given Context (such as Guest OS or Application),
-the Criticality should reflect how significant an associated impact could be
-for the specific Context. An impact in a &apos;Guest OS&apos; Context may be of
-lower significance than the same impact in a &apos;Host OS&apos; Context and should
-be reflected accordingly by its associated Criticality.</rdfs:comment>
-        <rdfs:comment xml:lang="en">might be an object property</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:isDefinedBy>
-    </owl:Class>
-    
-
-
     <!-- https://mswimmer.github.io/utim/score#EnvironmentalMetric -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#EnvironmentalMetric">
@@ -1047,16 +973,6 @@ be reflected accordingly by its associated Criticality.</rdfs:comment>
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#HighCriticality -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#HighCriticality">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Criticality"/>
-        <rdfs:comment xml:lang="en">The impact is relatively significant.</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:isDefinedBy>
-    </owl:Class>
-    
-
-
     <!-- https://mswimmer.github.io/utim/score#HighExploitCodeMaturity -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#HighExploitCodeMaturity">
@@ -1106,15 +1022,6 @@ be reflected accordingly by its associated Criticality.</rdfs:comment>
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#HostOSContext -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#HostOSContext">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Context"/>
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Metric"/>
-    </owl:Class>
-    
-
-
     <!-- https://mswimmer.github.io/utim/score#ImpactMetric -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#ImpactMetric">
@@ -1153,14 +1060,6 @@ If a scope change has not occurred, the Impact metrics should reflect the confid
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#LimitedScope -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#LimitedScope">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Scope"/>
-    </owl:Class>
-    
-
-
     <!-- https://mswimmer.github.io/utim/score#LocalAccessVector -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#LocalAccessVector">
@@ -1173,14 +1072,6 @@ If a scope change has not occurred, the Impact metrics should reflect the confid
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#LocalAttackVector">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#AttackVector"/>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#LogicalImpact -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#LogicalImpact">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Metric"/>
     </owl:Class>
     
 
@@ -1221,16 +1112,6 @@ If a scope change has not occurred, the Impact metrics should reflect the confid
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#LowConfidentialityRequirement">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#ConfidentialityRequirement"/>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#LowCriticality -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#LowCriticality">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Criticality"/>
-        <rdfs:comment xml:lang="en">The impact is relatively insignificant.</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:isDefinedBy>
     </owl:Class>
     
 
@@ -1355,7 +1236,6 @@ The intent of this metric is to define the mitigations in place for a given envi
     <!-- https://mswimmer.github.io/utim/score#NetworkAccessVector -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#NetworkAccessVector">
-        <owl:equivalentClass rdf:resource="https://mswimmer.github.io/utim/score#RemoteAttackTheater"/>
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#AccessVector"/>
     </owl:Class>
     
@@ -1364,7 +1244,6 @@ The intent of this metric is to define the mitigations in place for a given envi
     <!-- https://mswimmer.github.io/utim/score#NetworkAttackVector -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#NetworkAttackVector">
-        <owl:equivalentClass rdf:resource="https://mswimmer.github.io/utim/score#RemoteAttackTheater"/>
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#AttackVector"/>
     </owl:Class>
     
@@ -1523,68 +1402,10 @@ The intent of this metric is to define the mitigations in place for a given envi
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#PartialConfidentialityImpact -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#PartialConfidentialityImpact">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#LimitedScope"/>
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#LowCriticality"/>
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#ReadLogicalImpact"/>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#ApplicationContext"/>
-                            <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#HostOSContext"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#ConfidentialityImpact"/>
-    </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="https://mswimmer.github.io/utim/score#PartialConfidentialityImpact"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#equivalentClass"/>
-        <owl:annotatedTarget>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#LimitedScope"/>
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#LowCriticality"/>
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#ReadLogicalImpact"/>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#ApplicationContext"/>
-                            <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#HostOSContext"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:annotatedTarget>
-        <rdfs:comment xml:lang="en">The VDO justification is:
-
-In regards to the application, there is a read available of Low Criticality and a Scope of Limited. This does not grant any reason to go past the Confidentiality: Partial CVSS metric
-
-AND
-
-CVSS v2.0 scores are relative to the host device the vulnerability has been exploited on. In regards to the HostOS, there is a read available of High Criticality. While the information gained may be considered of great importance, the Scope is Limited and still constitutes the Confidentiality: Partial CVSS metric.</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:isDefinedBy>
-    </owl:Axiom>
-    
-
-
     <!-- https://mswimmer.github.io/utim/score#PhysicalAttackVector -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#PhysicalAttackVector">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#AttackVector"/>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#PrivilegeLevel -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#PrivilegeLevel">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Metric"/>
     </owl:Class>
     
 
@@ -1597,15 +1418,6 @@ CVSS v2.0 scores are relative to the host device the vulnerability has been expl
         <rdfs:comment xml:lang="en">This metric describes the level of privileges an attacker must possess before successfully exploiting the vulnerability. This metric if greatest if no privileges are required.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#2-1-3-Privileges-Required-PR</rdfs:isDefinedBy>
         <cvss_v3_code>PR</cvss_v3_code>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#PrivilegesRequiredBarrier -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#PrivilegesRequiredBarrier">
-        <owl:equivalentClass rdf:resource="https://mswimmer.github.io/utim/score#SingleAuthentication"/>
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Barrier"/>
     </owl:Class>
     
 
@@ -1623,14 +1435,6 @@ CVSS v2.0 scores are relative to the host device the vulnerability has been expl
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#ProofOfConceptExploitability">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Exploitability"/>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#ReadLogicalImpact -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#ReadLogicalImpact">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#LogicalImpact"/>
     </owl:Class>
     
 
@@ -1655,14 +1459,6 @@ CVSS v2.0 scores are relative to the host device the vulnerability has been expl
         <rdfs:label xml:lang="en">Remediation Level</rdfs:label>
         <cvss_v2_code xml:lang="en">RL</cvss_v2_code>
         <cvss_v3_code xml:lang="en">RL</cvss_v3_code>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#RemoteAttackTheater -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#RemoteAttackTheater">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#AttackTheater"/>
     </owl:Class>
     
 
@@ -1817,22 +1613,6 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#VDOv0Metric -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#VDOv0Metric">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Metric"/>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#VDOv0Scope -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#VDOv0Scope">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#VDOv0Scope"/>
-    </owl:Class>
-    
-
-
     <!-- https://mswimmer.github.io/utim/score#WorkaroundRemediation -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#WorkaroundRemediation">
@@ -1892,6 +1672,24 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#CVSSv2LowAccessComplexity">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#CVSSv2LowAccessComplexity"/>
+        <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.77</cvss_v3_score>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/score#CVSSv3HighAttackComplexity -->
+
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#CVSSv3HighAttackComplexity">
+        <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#CVSSv3HighAttackComplexity"/>
+        <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.44</cvss_v3_score>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/score#CVSSv3LowAttackComplexity -->
+
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#CVSSv3LowAttackComplexity">
+        <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#CVSSv3LowAttackComplexity"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.77</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -1961,14 +1759,6 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#FunctionalExploitability">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#FunctionalExploitability"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.95</cvss_v2_score>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#HighAccessComplexity -->
-
-    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighAccessComplexity">
-        <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.35</cvss_v2_score>
     </owl:NamedIndividual>
     
 
@@ -2284,15 +2074,6 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#NetworkAttackVector">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#NetworkAttackVector"/>
-        <rdf:type>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#NetworkAccessVector"/>
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#NetworkAttackVector"/>
-                    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#RemoteAttackTheater"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdf:type>
         <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#AdjacentAttackVector"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.85</cvss_v3_score>
     </owl:NamedIndividual>
@@ -2484,7 +2265,6 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <!-- https://mswimmer.github.io/utim/score#PartialConfidentialityImpact -->
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#PartialConfidentialityImpact">
-        <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#PartialConfidentialityImpact"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.275</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2684,6 +2464,24 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:label xml:lang="en">Low</rdfs:label>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-1-2-Access-Complexity-AC</rdfs:isDefinedBy>
         <cvss_v2_code>L</cvss_v2_code>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3HighAttackComplexity">
+        <cvss_v3_code>H</cvss_v3_code>
+        <rdfs:comment xml:lang="en">A successful attack depends on conditions beyond the attacker&apos;s control. That is, a successful attack cannot be accomplished at will, but requires the attacker to invest in some measurable amount of effort in preparation or execution against the vulnerable component before a successful attack can be expected. For example, a successful attack may depend on an attacker overcoming any of the following conditions:
+
+- The attacker must conduct target-specific reconnaissance. For example, on target configuration settings, sequence numbers, shared secrets, etc.
+
+- The attacker must prepare the target environment to improve exploit reliability. For example, repeated exploitation to win a race condition, or overcoming advanced exploit mitigation techniques.
+
+- The attacker must inject herself into the logical network path between the target and the resource requested by the victim in order to read and/or modify network communications (e.g. man in the middle attack).</rdfs:comment>
+        <rdfs:label xml:lang="en">High</rdfs:label>
+        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-1-2-Attack-Complexity-AC</rdfs:isDefinedBy>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3LowAttackComplexity">
+        <cvss_v3_code>L</cvss_v3_code>
+        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-1-2-Attack-Complexity-AC</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Specialized access conditions or extenuating circumstances do not exist. An attacker can expect repeatable success against the vulnerable component.</rdfs:comment>
+        <rdfs:label xml:lang="en">Low</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#ChangedScope">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-2-Scope-S</rdfs:isDefinedBy>
@@ -3066,12 +2864,6 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Partial</rdfs:label>
         <rdfs:comment xml:lang="en">There is reduced performance or interruptions in resource availability. An example is a network-based flood attack that permits a limited number of successful connections to an Internet service.</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#PartialConfidentialityImpact">
-        <cvss_v2_code>P</cvss_v2_code>
-        <rdfs:label xml:lang="en">Partial</rdfs:label>
-        <rdfs:comment xml:lang="en">There is considerable informational disclosure. Access to some system files is possible, but the attacker does not have control over what is obtained, or the scope of the loss is constrained. An example is a vulnerability that divulges only certain tables in a database.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#PhysicalAttackVector">
         <cvss_v3_code xml:lang="en">P</cvss_v3_code>
