@@ -97,14 +97,14 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#greaterThan -->
+    <!-- https://mswimmer.github.io/utim/score#greaterScoreThan -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/score#greaterThan">
-        <owl:inverseOf rdf:resource="https://mswimmer.github.io/utim/score#lessThan"/>
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/score#greaterScoreThan">
+        <owl:inverseOf rdf:resource="https://mswimmer.github.io/utim/score#lesserScoreThan"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/score#Metric"/>
         <rdfs:range rdf:resource="https://mswimmer.github.io/utim/score#Metric"/>
-        <rdfs:comment xml:lang="en">A given metric is greater than the subject metric</rdfs:comment>
+        <rdfs:comment xml:lang="en">A given score for a metric is greater than the subject metric score by some arbitrary amount.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -207,13 +207,13 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#lessThan -->
+    <!-- https://mswimmer.github.io/utim/score#lesserScoreThan -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/score#lessThan">
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/score#lesserScoreThan">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/score#Metric"/>
         <rdfs:range rdf:resource="https://mswimmer.github.io/utim/score#Metric"/>
-        <rdfs:comment xml:lang="en">A given metric is less than the subject metric</rdfs:comment>
+        <rdfs:comment xml:lang="en">A given metric score is less than the subject metric score by some arbitrary amount.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -594,79 +594,25 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
     
 
 
-    <!-- https://mswimmer.github.io/utim/score#CVSS -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSS">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#vector"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines Common Vulnerability Score System for a vulnerability</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
-        <rdfs:label>CVSS</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#CVSSImpact -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSImpact">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSS"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#baseMetrics"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#environmentalMetrics"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#termporalMetrics"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#cvss_v3_baseScore"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#cvss_v3_environmentalScore"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#cvss_v3_overallScore"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#cvss_v3_temporalScore"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines Common Vulnerability Score System for a vulnerability.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
-        <rdfs:label>CVSS Impact</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://mswimmer.github.io/utim/score#CVSSMetric -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSMetric">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Metric"/>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/score#CVSSMetricGroup -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSMetricGroup">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#MetricGroup"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#vector"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -689,7 +635,7 @@ Other vulnerabilities, however, may require additional steps in order to be expl
     <!-- https://mswimmer.github.io/utim/score#CVSSv2BaseMetricGroup -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv2BaseMetricGroup">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#MetricGroup"/>
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSv2MetricGroup"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#generationTime"/>
@@ -705,6 +651,14 @@ Other vulnerabilities, however, may require additional steps in order to be expl
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the intrinsic and fundamental characteristics of a vulnerability that are constant with time and across user environments</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
         <rdfs:label>CVSS Base Metrics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/score#CVSSv2EnvironmentalMetricGroup -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv2EnvironmentalMetricGroup">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSv2MetricGroup"/>
     </owl:Class>
     
 
@@ -750,6 +704,22 @@ Other vulnerabilities, however, may require additional steps in order to be expl
     
 
 
+    <!-- https://mswimmer.github.io/utim/score#CVSSv2MetricGroup -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv2MetricGroup">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSMetricGroup"/>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/score#CVSSv2TemporalMetricGroup -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv2TemporalMetricGroup">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSv2MetricGroup"/>
+    </owl:Class>
+    
+
+
     <!-- https://mswimmer.github.io/utim/score#CVSSv3AttackComplexity -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3AttackComplexity">
@@ -761,6 +731,22 @@ Other vulnerabilities, however, may require additional steps in order to be expl
         <rdfs:label xml:lang="en">Attack Complexity</rdfs:label>
         <cvss_v2_code xml:lang="en">AC</cvss_v2_code>
         <cvss_v3_code>AC</cvss_v3_code>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/score#CVSSv3BaseMetricGroup -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3BaseMetricGroup">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSv3MetricGroup"/>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/score#CVSSv3EnvironmentalMetricGroup -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3EnvironmentalMetricGroup">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSv3MetricGroup"/>
     </owl:Class>
     
 
@@ -804,6 +790,14 @@ Other vulnerabilities, however, may require additional steps in order to be expl
     
 
 
+    <!-- https://mswimmer.github.io/utim/score#CVSSv3MetricGroup -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3MetricGroup">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSMetricGroup"/>
+    </owl:Class>
+    
+
+
     <!-- https://mswimmer.github.io/utim/score#CVSSv3Scope -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3Scope">
@@ -819,6 +813,14 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#2-2-Scope-S</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Scope</rdfs:label>
         <cvss_v3_code>S</cvss_v3_code>
+    </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/score#CVSSv3TemporalMetricGroup -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3TemporalMetricGroup">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#CVSSv3MetricGroup"/>
     </owl:Class>
     
 
@@ -940,18 +942,6 @@ be reflected accordingly by its associated Criticality.</rdfs:comment>
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#EnvironmentalMetric">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#Metric"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#generationTime"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/score#vector"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the characteristics of a vulnerability that are relevant and unique to a particular user&apos;s environment.</rdfs:comment>
         <rdfs:comment xml:lang="en">These metrics enable the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user’s organization, measured in terms of complementary/alternative security controls in place, Confidentiality, Integrity, and Availability. The metrics are the modified equivalent of base metrics and are assigned metrics value based on the component placement in organization infrastructure.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
@@ -1883,7 +1873,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#AdjacentAttackVector">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#AdjacentAttackVector"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LocalAttackVector"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LocalAttackVector"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.62</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -1919,7 +1909,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#CompleteAvailabilityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#CompleteAvailabilityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#HighAvailabilityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#HighAvailabilityImpact"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.660</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -1929,7 +1919,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#CompleteConfidentialityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#CompleteConfidentialityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#HighConfidentialityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#HighConfidentialityImpact"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.660</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -1939,7 +1929,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#CompleteIntegrityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#CompleteIntegrityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#partial_integrity_impact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#partial_integrity_impact"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.660</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -1949,8 +1939,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#ConfirmedReportConfidence">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#ConfirmedReportConfidence"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#ReasonableReportConfidence"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#UncorroboratedReportConfidence"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#ReasonableReportConfidence"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#UncorroboratedReportConfidence"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cvss_v2_score>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cvss_v3_score>
     </owl:NamedIndividual>
@@ -1987,7 +1977,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighAvailabilityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#HighAvailabilityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#PartialAvailabilityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#PartialAvailabilityImpact"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.56</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -1997,7 +1987,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighAvailabilityRequirement">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#HighAvailabilityRequirement"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#MediumAvailabilityRequirement"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#MediumAvailabilityRequirement"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.51</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2007,7 +1997,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighCollateralDamagePotential">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#HighCollateralDamagePotential"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#MediumHighCollateralDamagePotential"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#MediumHighCollateralDamagePotential"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.5</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2017,7 +2007,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighConfidentialityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#HighConfidentialityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowConfidentialityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowConfidentialityImpact"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.56</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2027,7 +2017,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighConfidentialityRequirement">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#HighConfidentialityRequirement"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#MediumConfidentialityRequirement"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#MediumConfidentialityRequirement"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.51</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2055,7 +2045,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighIntegrityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#HighIntegrityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowIntegrityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowIntegrityImpact"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.56</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2065,7 +2055,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighIntegrityRequirement">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#HighIntegrityRequirement"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#MediumIntegrityRequirement"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#MediumIntegrityRequirement"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.51</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2084,6 +2074,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#HighTargetCount">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#HighTargetCount"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#MediumTargetCount"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2102,7 +2093,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#LocalAttackVector">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#LocalAttackVector"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#PhysicalAttackVector"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#PhysicalAttackVector"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.55</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2120,7 +2111,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#LowAvailabilityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#LowAvailabilityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#NoAvailabilityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#NoAvailabilityImpact"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.22</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2139,7 +2130,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#LowCollateralDamagePotential">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#LowCollateralDamagePotential"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#NoCollateralDamagePotential"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#NoCollateralDamagePotential"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2149,7 +2140,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#LowConfidentialityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#LowConfidentialityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#NoConfidentialityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#NoConfidentialityImpact"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.22</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2168,7 +2159,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#LowIntegrityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#LowIntegrityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#NoIntegrityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#NoIntegrityImpact"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.22</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2187,7 +2178,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#LowMediumCollateralDamagePotential">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#LowMediumCollateralDamagePotential"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowCollateralDamagePotential"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowCollateralDamagePotential"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.3</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2197,7 +2188,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#LowPrivilegesRequired">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#LowPrivilegesRequired"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#HighPrivilegesRequired"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#HighPrivilegesRequired"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.62</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2207,7 +2198,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#LowTargetCount">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#LowTargetCount"/>
-        <lessThan rdf:resource="https://mswimmer.github.io/utim/score#MediumTargetCount"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#NilTargetCount"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.25</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2225,7 +2216,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#MediumAvailabilityRequirement">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#MediumAvailabilityRequirement"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowAvailabilityRequirement"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowAvailabilityRequirement"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2235,7 +2226,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#MediumConfidentialityRequirement">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#MediumConfidentialityRequirement"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowConfidentialityRequirement"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowConfidentialityRequirement"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2245,7 +2236,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#MediumHighCollateralDamagePotential">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#MediumHighCollateralDamagePotential"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowMediumCollateralDamagePotential"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowMediumCollateralDamagePotential"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.4</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2255,7 +2246,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#MediumIntegrityRequirement">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#MediumIntegrityRequirement"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowIntegrityRequirement"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowIntegrityRequirement"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2265,7 +2256,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#MediumTargetCount">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#MediumTargetCount"/>
-        <lessThan rdf:resource="https://mswimmer.github.io/utim/score#HighTargetCount"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowTargetCount"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.75</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2302,7 +2293,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
                 </owl:unionOf>
             </owl:Class>
         </rdf:type>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#AdjacentAttackVector"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#AdjacentAttackVector"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.85</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2312,7 +2303,6 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#NilTargetCount">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#NilTargetCount"/>
-        <lessThan rdf:resource="https://mswimmer.github.io/utim/score#LowTargetCount"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2322,7 +2312,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#NoAuthentication">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#NoAuthentication"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#SingleAuthentication"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#SingleAuthentication"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.704</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2371,7 +2361,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#NoPrivilegesRequired">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#NoPrivilegesRequired"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowPrivilegesRequired"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowPrivilegesRequired"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.85</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2381,7 +2371,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#NoUserInteraction">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#NoUserInteraction"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#RequiredUserInteraction"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#RequiredUserInteraction"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.85</cvss_v2_score>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.85</cvss_v3_score>
     </owl:NamedIndividual>
@@ -2485,7 +2475,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#PartialAvailabilityImpact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#PartialAvailabilityImpact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#LowAvailabilityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#LowAvailabilityImpact"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.275</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2531,7 +2521,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#ReasonableReportConfidence">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#ReasonableReportConfidence"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#UnknownReportConfidence"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#UnknownReportConfidence"/>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.96</cvss_v3_score>
     </owl:NamedIndividual>
     
@@ -2551,7 +2541,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#SingleAuthentication">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#SingleAuthentication"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#MultipleAuthentications"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#MultipleAuthentications"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.56</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2561,7 +2551,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#TemporaryFixRemediation">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#TemporaryFixRemediation"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#OfficialFixRemediation"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#OfficialFixRemediation"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.9</cvss_v2_score>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.96</cvss_v3_score>
     </owl:NamedIndividual>
@@ -2572,7 +2562,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#UnavailableRemediation">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#UnavailableRemediation"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#WorkaroundRemediation"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#WorkaroundRemediation"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cvss_v2_score>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</cvss_v3_score>
     </owl:NamedIndividual>
@@ -2583,7 +2573,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#UnchangedScope">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#UnchangedScope"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#ChangedScope"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#ChangedScope"/>
     </owl:NamedIndividual>
     
 
@@ -2601,7 +2591,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#UncorroboratedReportConfidence">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#UncorroboratedReportConfidence"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#UnconfirmedReportConfidence"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#UnconfirmedReportConfidence"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.95</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2638,7 +2628,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#WorkaroundRemediation">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#WorkaroundRemediation"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#TemporaryFixRemediation"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#TemporaryFixRemediation"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.95</cvss_v2_score>
         <cvss_v3_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.97</cvss_v3_score>
     </owl:NamedIndividual>
@@ -2649,7 +2639,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/score#partial_integrity_impact">
         <rdf:type rdf:resource="https://mswimmer.github.io/utim/score#partial_integrity_impact"/>
-        <greaterThan rdf:resource="https://mswimmer.github.io/utim/score#NoIntegrityImpact"/>
+        <greaterScoreThan rdf:resource="https://mswimmer.github.io/utim/score#NoIntegrityImpact"/>
         <cvss_v2_score rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.275</cvss_v2_score>
     </owl:NamedIndividual>
     
@@ -2870,8 +2860,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#LowMediumCollateralDamagePotential">
         <cvss_v2_code>LM</cvss_v2_code>
         <rdfs:label xml:lang="en">Low-Medium</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">A successful exploit of this vulnerability may result in moderate physical or property damage. Or, there may be a moderate loss of revenue or productivity to the organization.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#LowPrivilegesRequired">
         <rdfs:label xml:lang="en">Low</rdfs:label>
@@ -2926,8 +2916,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#NetworkAccessVector">
         <cvss_v2_code>N</cvss_v2_code>
-        <rdfs:comment xml:lang="en">A vulnerability exploitable with network access means the vulnerable software is bound to the network stack and the attacker does not require local network access or local access. Such a vulnerability is often termed &quot;remotely exploitable&quot;. An example of a network attack is an RPC buffer overflow.</rdfs:comment>
         <rdfs:label xml:lang="en">Network</rdfs:label>
+        <rdfs:comment xml:lang="en">A vulnerability exploitable with network access means the vulnerable software is bound to the network stack and the attacker does not require local network access or local access. Such a vulnerability is often termed &quot;remotely exploitable&quot;. An example of a network attack is an RPC buffer overflow.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#NetworkAttackVector">
