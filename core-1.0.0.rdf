@@ -51,6 +51,18 @@
     <owl:Class rdf:about="https://mswimmer.github.io/utim/core#Catalog">
         <rdfs:comment xml:lang="en">Characterizes a collection of software security issues (flaws, faults, bugs, vulnerabilities, weaknesses, etc).</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/core#Component -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/core#Component"/>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/core#System -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/core#System"/>
 </rdf:RDF>
 
 
