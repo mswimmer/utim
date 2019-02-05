@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://mswimmer.github.io/utim/score#"
      xml:base="https://mswimmer.github.io/utim/score"
-     xmlns:score="https://mswimmer.github.io/utim/score#"
-     xmlns:core="https://mswimmer.github.io/utim/core#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:core="https://mswimmer.github.io/utim/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:score="https://mswimmer.github.io/utim/score#"
+     xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://mswimmer.github.io/utim/score">
         <owl:versionIRI rdf:resource="https://mswimmer.github.io/utim/score-3.0-1.7-0.1"/>
         <owl:imports rdf:resource="https://mswimmer.github.io/utim/core-1.0.0"/>
         <terms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment xml:lang="en">This ontology provides a vocabulary and representation for a unified form of the Common Vulnerability Scoring System (CVSS) which provides an open framework for communicating the characteristics and impacts of IT vulnerabilities.</rdfs:comment>
-        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document</rdfs:seeAlso>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document</rdfs:seeAlso>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:seeAlso>
     </owl:Ontology>
     
@@ -1585,6 +1585,22 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     
 
 
+    <!-- https://mswimmer.github.io/utim/score#CVSSv3ModifiedBaseMetric -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3ModifiedBaseMetric">
+        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#EnvironmentalMetric"/>
+        <rdfs:comment xml:lang="en">These metrics enable the analyst to adjust the Base metrics according to modifications that exist within the analyst’s environment. That is, if an environment has made general changes for the affected software that differs in a way which would affect its Exploitability, Scope, or Impact, then the environment can reflect this via an appropriately-modified, Environmental score.
+
+The full effect on the Environmental score is determined by the corresponding Base metrics. That is, these metrics modify the Environmental score by reassigning the (Base) metrics values, prior to applying the (Environmental) Security Requirements. For example, the default configuration for a vulnerable component may be to run a listening service with administrator privileges, for which a compromise might grant an attacker Confidentiality, Integrity, and Availability impacts that are all High. Yet, in the analyst’s environment, that same Internet service might be running with reduced privileges; in that case, the Modified Confidentiality, Modified Integrity, and Modified Availability might each be set to Low.
+
+For brevity, only the names of the Modified Base metrics are mentioned. Each Modified Environmental metric has the same values as its corresponding Base metric, plus a value of Not Defined.
+
+The intent of this metric is to define the mitigations in place for a given environment. It is acceptable to use the Modified metrics to describe situations that increase the Base score. For example, the default configuration of a component may be to require high privileges (PR: High) in order to access a particular function, but in the analyst’s environment, there may be no privileges required (PR: None). The analyst can set MPR: None to reflect this more serious condition for their environment.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-2-Modified-Base-Metrics</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
     <!-- https://mswimmer.github.io/utim/score#CVSSv3NetworkAttackVector -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#CVSSv3NetworkAttackVector">
@@ -1903,22 +1919,6 @@ If a scope change has not occurred, the Impact metrics should reflect the confid
     <!-- https://mswimmer.github.io/utim/score#MetricGroup -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/score#MetricGroup"/>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/score#ModifiedBaseMetric -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/score#ModifiedBaseMetric">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/score#EnvironmentalMetric"/>
-        <rdfs:comment xml:lang="en">These metrics enable the analyst to adjust the Base metrics according to modifications that exist within the analyst’s environment. That is, if an environment has made general changes for the affected software that differs in a way which would affect its Exploitability, Scope, or Impact, then the environment can reflect this via an appropriately-modified, Environmental score.
-
-The full effect on the Environmental score is determined by the corresponding Base metrics. That is, these metrics modify the Environmental score by reassigning the (Base) metrics values, prior to applying the (Environmental) Security Requirements. For example, the default configuration for a vulnerable component may be to run a listening service with administrator privileges, for which a compromise might grant an attacker Confidentiality, Integrity, and Availability impacts that are all High. Yet, in the analyst’s environment, that same Internet service might be running with reduced privileges; in that case, the Modified Confidentiality, Modified Integrity, and Modified Availability might each be set to Low.
-
-For brevity, only the names of the Modified Base metrics are mentioned. Each Modified Environmental metric has the same values as its corresponding Base metric, plus a value of Not Defined.
-
-The intent of this metric is to define the mitigations in place for a given environment. It is acceptable to use the Modified metrics to describe situations that increase the Base score. For example, the default configuration of a component may be to require high privileges (PR: High) in order to access a particular function, but in the analyst’s environment, there may be no privileges required (PR: None). The analyst can set MPR: None to reflect this more serious condition for their environment.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
-    </owl:Class>
     
 
 
@@ -2867,8 +2867,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2CompleteConfidentialityImpact">
         <rdfs:comment xml:lang="en">There is total information disclosure, resulting in all system files being revealed. The attacker is able to read all of the system&apos;s data (memory, files, etc.)</rdfs:comment>
-        <rdfs:label xml:lang="en">Complete</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-4-Confidentiality-Impact-C</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Complete</rdfs:label>
         <cvss_v2_code>C</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2CompleteIntegrityImpact">
@@ -2954,8 +2954,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v2_code xml:lang="en">L</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2LowCollateralDamagePotential">
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">A successful exploit of this vulnerability may result in slight physical or property damage. Or, there may be a slight loss of revenue or productivity to the organization.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Low</rdfs:label>
         <cvss_v2_code>L</cvss_v2_code>
     </rdf:Description>
@@ -2970,8 +2970,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have only a limited adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2LowMediumCollateralDamagePotential">
-        <rdfs:label xml:lang="en">Low-Medium</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Low-Medium</rdfs:label>
         <rdfs:comment xml:lang="en">A successful exploit of this vulnerability may result in moderate physical or property damage. Or, there may be a moderate loss of revenue or productivity to the organization.</rdfs:comment>
         <cvss_v2_code>LM</cvss_v2_code>
     </rdf:Description>
@@ -2992,8 +2992,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v2_code xml:lang="en">M</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2MediumHighCollateralDamagePotential">
-        <rdfs:label xml:lang="en">Medium-High</rdfs:label>
         <rdfs:comment xml:lang="en">A successful exploit of this vulnerability may result in significant physical or property damage or loss. Or, there may be a significant loss of revenue or productivity.</rdfs:comment>
+        <rdfs:label xml:lang="en">Medium-High</rdfs:label>
         <cvss_v2_code>MH</cvss_v2_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
     </rdf:Description>
@@ -3004,8 +3004,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2MediumTargetCount">
         <cvss_v2_code>M</cvss_v2_code>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-2-Target-Distribution-TD</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Medium</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-2-Target-Distribution-TD</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Targets exist inside the environment, but on a medium scale. Between 26% - 75% of the total environment is at risk.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2MultipleAuthentications">
@@ -3035,8 +3035,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2NoAvailabilityImpact">
         <rdfs:comment xml:lang="en">There is no impact to the availability of the system.</rdfs:comment>
         <cvss_v2_code>N</cvss_v2_code>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">None</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2NoCollateralDamagePotential">
         <cvss_v2_code>N</cvss_v2_code>
@@ -3070,8 +3070,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2NotDefinedCollateralDamagePotential">
         <rdfs:label xml:lang="en">Not Defined</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
-        <cvss_v2_code>ND</cvss_v2_code>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
+        <cvss_v2_code>ND</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2NotDefinedConfidentialityRequirement">
         <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
@@ -3086,8 +3086,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2NotDefinedIntegrityRequirement">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
-        <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
+        <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2NotDefinedRemediation">
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to a scoring equation to skip this metric.</rdfs:comment>
@@ -3102,24 +3102,24 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v2_code>ND</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2OfficialFixRemediation">
-        <rdfs:comment xml:lang="en">A complete vendor solution is available. Either the vendor has issued an official patch, or an upgrade is available.</rdfs:comment>
         <cvss_v2_code>O</cvss_v2_code>
+        <rdfs:comment xml:lang="en">A complete vendor solution is available. Either the vendor has issued an official patch, or an upgrade is available.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-2-2-Remediation-Level-RL</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Official Fix</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2PartialAvailabilityImpact">
         <cvss_v2_code>P</cvss_v2_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">There is reduced performance or interruptions in resource availability. An example is a network-based flood attack that permits a limited number of successful connections to an Internet service.</rdfs:comment>
         <rdfs:label xml:lang="en">Partial</rdfs:label>
+        <rdfs:comment xml:lang="en">There is reduced performance or interruptions in resource availability. An example is a network-based flood attack that permits a limited number of successful connections to an Internet service.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2PartialConfidentialityImpact">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-1-4-Confidentiality-Impact-C</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">There is considerable informational disclosure. Access to some system files is possible, but the attacker does not have control over what is obtained, or the scope of the loss is constrained. An example is a vulnerability that divulges only certain tables in a database.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2PartialIntegrityImpact">
-        <cvss_v2_code>P</cvss_v2_code>
         <rdfs:comment xml:lang="en">Modification of some system files or information is possible, but the attacker does not have control over what can be modified, or the scope of what the attacker can affect is limited. For example, system or application files may be overwritten or modified, but either the attacker has no control over which files are affected or the attacker can modify files within only a limited context or scope.</rdfs:comment>
+        <cvss_v2_code>P</cvss_v2_code>
         <rdfs:label xml:lang="en">Partial</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
     </rdf:Description>
@@ -3166,8 +3166,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-1-Exploitability-E</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv2WorkaroundRemediation">
-        <rdfs:label xml:lang="en">Workaround</rdfs:label>
         <rdfs:comment xml:lang="en">There is an unofficial, non-vendor solution available. In some cases, users of the affected technology will create a patch of their own or provide steps to work around or otherwise mitigate the vulnerability.</rdfs:comment>
+        <rdfs:label xml:lang="en">Workaround</rdfs:label>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-2-2-Remediation-Level-RL</rdfs:isDefinedBy>
         <cvss_v2_code>W</cvss_v2_code>
     </rdf:Description>
@@ -3217,9 +3217,9 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:comment xml:lang="en">Loss of Availability is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3HighConfidentialityImpact">
-        <cvss_v3_code xml:lang="en">H</cvss_v3_code>
         <rdfs:comment xml:lang="en">There is total loss of confidentiality, resulting in all resources within the
  impacted component being divulged to the attacker. Alternatively, access to only some restricted information is obtained, but the disclosed information presents a direct, serious impact. For example, an attacker steals the administrator&apos;s password, or private encryption keys of a web server.</rdfs:comment>
+        <cvss_v3_code xml:lang="en">H</cvss_v3_code>
         <rdfs:label xml:lang="en">High</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3HighExploitCodeMaturity">
@@ -3230,8 +3230,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3HighIntegrityImpact">
         <cvss_v3_code>H</cvss_v3_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-3-2-Integrity-Impact-I</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">There is a total loss of integrity, or a complete loss of protection. For example, the attacker is able to modify any/all files protected by the impacted component. Alternatively, only some files can be modified, but malicious modification would present a direct, serious consequence to the impacted component.</rdfs:comment>
         <rdfs:label xml:lang="en">High</rdfs:label>
+        <rdfs:comment xml:lang="en">There is a total loss of integrity, or a complete loss of protection. For example, the attacker is able to modify any/all files protected by the impacted component. Alternatively, only some files can be modified, but malicious modification would present a direct, serious consequence to the impacted component.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3HighPrivilegesRequired">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-1-3-Privileges-Required-PR</rdfs:isDefinedBy>
@@ -3262,8 +3262,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3LowConfidentialityImpact">
-        <rdfs:comment xml:lang="en">There is some loss of confidentiality. Access to some restricted information is obtained, but the attacker does not have control over what information is obtained, or the amount or kind of loss is constrained. The information disclosure does not cause a direct, serious loss to the impacted component.</rdfs:comment>
         <rdfs:label xml:lang="en">Low</rdfs:label>
+        <rdfs:comment xml:lang="en">There is some loss of confidentiality. Access to some restricted information is obtained, but the attacker does not have control over what information is obtained, or the amount or kind of loss is constrained. The information disclosure does not cause a direct, serious loss to the impacted component.</rdfs:comment>
         <cvss_v3_code xml:lang="en">L</cvss_v3_code>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3LowIntegrityImpact">
@@ -3284,9 +3284,9 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3NetworkAttackVector">
+        <cvss_v3_code xml:lang="en">N</cvss_v3_code>
         <rdfs:label xml:lang="en">Network</rdfs:label>
         <rdfs:comment xml:lang="en">A vulnerability exploitable with network access means the vulnerable component is bound to the network stack and the attacker&apos;s path is through OSI layer 3 (the network layer). Such a vulnerability is often termed “remotely exploitable” and can be thought of as an attack being exploitable one or more network hops away (e.g. across layer 3 boundaries from routers). An example of a network attack is an attacker causing a denial of service (DoS) by sending a specially crafted TCP packet from across the public Internet (e.g. CVE-2004-0230).</rdfs:comment>
-        <cvss_v3_code xml:lang="en">N</cvss_v3_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-1-1-Attack-Vector-AV</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3NoAvailabilityImpact">
@@ -3304,9 +3304,9 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">N</cvss_v3_code>
         <rdfs:label xml:lang="en">None</rdfs:label>
         <rdfs:comment xml:lang="en">There is no impact to the integrity of the system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-3-2-Integrity-Impact-I</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">There is no loss of integrity within the impacted component.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
     </rdf:Description>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://mswimmer.github.io/utim/score#CVSSv3NoIntegrityImpact"/>
@@ -3333,9 +3333,9 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#2-1-4-User-Interaction-UI</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3NotDefinedAvailabilityRequirement">
-        <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <cvss_v3_code xml:lang="en">X</cvss_v3_code>
+        <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3NotDefinedExploitCodeMaturity">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
@@ -3403,8 +3403,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3UnknownReportConfidence">
         <rdfs:comment>There are reports of impacts that indicate a vulnerability is present. The reports indicate that the cause of the vulnerability is unknown, or reports may differ on the cause or impacts of the vulnerability. Reporters are uncertain of the true nature of the vulnerability, and there is little confidence in the validity of the reports or whether a static Base score can be applied given the differences described. An example is a bug report which notes that an intermittent but non-reproducible crash occurs, with evidence of memory corruption suggesting that denial of service, or possible more serious impacts, may result.</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-3-Report-Confidence-RC</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Unknown</rdfs:label>
+        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-3-Report-Confidence-RC</rdfs:isDefinedBy>
         <cvss_v3_code>U</cvss_v3_code>
     </rdf:Description>
     <rdf:Description rdf:about="https://mswimmer.github.io/utim/score#CVSSv3UnprovenExploitCodeMaturity">
@@ -3422,5 +3422,5 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
 
 
-<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.7.2018-12-02T02:23:35Z) https://github.com/owlcs/owlapi -->
 
