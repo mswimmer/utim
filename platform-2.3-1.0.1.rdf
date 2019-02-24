@@ -1,23 +1,42 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://mswimmer.github.io/utim/platform#"
      xml:base="https://mswimmer.github.io/utim/platform"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:cpe="https://mswimmer.github.io/utim/platform#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:dcterms="http://purl.org/dc/terms/"
-     xmlns:cpe="https://mswimmer.github.io/utim/platform#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:core="https://mswimmer.github.io/utim/core#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://mswimmer.github.io/utim/platform">
         <owl:versionIRI rdf:resource="https://mswimmer.github.io/utim/platform-2.3-1.0.1"/>
+        <owl:imports rdf:resource="https://mswimmer.github.io/utim/core-1.0.0"/>
+        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology that provides a vocabulary and representation for the Common Platform Enumeration (CPE) which provides a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&apos;s computing assets.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvd.nist.gov/products/cpe</rdfs:isDefinedBy>
         <rdfs:label>Ontology based on the Common Platform Enumeration (CPE)</rdfs:label>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/mswimmer/cti-ontology/tree/master/cpe</rdfs:seeAlso>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvd.nist.gov/products/cpe</rdfs:isDefinedBy>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology that provides a vocabulary and representation for the Common Platform Enumeration (CPE) which provides a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&apos;s computing assets.</rdfs:comment>
-        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
     
 
 
@@ -29,6 +48,14 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://scap.nist.gov/scap_core#generator -->
+
+    <owl:ObjectProperty rdf:about="http://scap.nist.gov/scap_core#generator">
+        <rdfs:range rdf:resource="http://cybox.mitre.org/cyboxCommon#ToolInformation"/>
+    </owl:ObjectProperty>
     
 
 
@@ -136,7 +163,29 @@
     <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#logicalTest">
         <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#LogicalTest"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies logical tests to form a complex logical test using AND, OR, and/or negate operators.  This result of evaluating the nested logical test will result in TRUE, FALSE, or ERROR.</rdfs:comment>
-        <rdfs:label>Logical Test</rdfs:label>
+        <rdfs:label>logical test</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/platform#operator -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#operator">
+        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/platform#LogicalTest"/>
+        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#LogicalOperator"/>
+        <rdfs:comment xml:lang="en">Specifies the logical operator applied to the results of evaluating the factRef, checkFactRef, and logicalTest elements. The permitted operators are entities for “AND” and “OR”.</rdfs:comment>
+        <rdfs:label xml:lang="en">operator</rdfs:label>
+        <core:xpath>//logical-test[@operator]</core:xpath>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/platform#product -->
+
+    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#product">
+        <rdfs:comment xml:lang="en">A reference to a URI form of a product or platform specification.</rdfs:comment>
+        <rdfs:label xml:lang="en">product</rdfs:label>
+        <core:xpath>//logical-test/fact-ref</core:xpath>
     </owl:ObjectProperty>
     
 
@@ -197,14 +246,6 @@
         <rdfs:range rdf:resource="http://www.oasis-open.org/ciq_xpil#Organization"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the identity of the person or organization that manufactured or created the product</rdfs:comment>
         <rdfs:label>Vendor</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://scap.nist.gov/scap_core#generator -->
-
-    <owl:ObjectProperty rdf:about="http://scap.nist.gov/scap_core#generator">
-        <rdfs:range rdf:resource="http://cybox.mitre.org/cyboxCommon#ToolInformation"/>
     </owl:ObjectProperty>
     
 
@@ -392,23 +433,14 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#logicalOperator -->
-
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#logicalOperator">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the logical operator applied to the results of evaluating the factRef, checkFactRef, and 
-logicalTest elements. The permitted operators are “AND” and “OR”.</rdfs:comment>
-        <rdfs:label>Logical Operator</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- https://mswimmer.github.io/utim/platform#negate -->
 
     <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#negate">
+        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/platform#LogicalTest"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies whether the result of applying the operator should be negated. Possible values are “TRUE” and “FALSE”. Ignored if the result of applying the operator is “ERROR”</rdfs:comment>
         <rdfs:label>Negate</rdfs:label>
+        <core:xpath>//logical-test[@negate]</core:xpath>
     </owl:DatatypeProperty>
     
 
@@ -439,16 +471,6 @@ logicalTest elements. The permitted operators are “AND” and “OR”.</rdfs:
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the type of part to which the CPE refers.  Valid part values are &apos;a&apos; for application, &apos;o&apos; for operating system, and &apos;h&apos; for hardware devices.</rdfs:comment>
         <rdfs:label>Type of Part</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/platform#platformIdentifier -->
-
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#platformIdentifier">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the unique identifier associated with the platform.</rdfs:comment>
-        <rdfs:label>Platform Identifier</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -562,6 +584,42 @@ logicalTest elements. The permitted operators are “AND” and “OR”.</rdfs:
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://cybox.mitre.org/cyboxCommon#ToolInformation -->
+
+    <owl:Class rdf:about="http://cybox.mitre.org/cyboxCommon#ToolInformation"/>
+    
+
+
+    <!-- http://cybox.mitre.org/objects/Device#Device -->
+
+    <owl:Class rdf:about="http://cybox.mitre.org/objects/Device#Device"/>
+    
+
+
+    <!-- http://cybox.mitre.org/objects/Product#Product -->
+
+    <owl:Class rdf:about="http://cybox.mitre.org/objects/Product#Product"/>
+    
+
+
+    <!-- http://cybox.mitre.org/objects/System#OperatingSystemInfo -->
+
+    <owl:Class rdf:about="http://cybox.mitre.org/objects/System#OperatingSystemInfo"/>
+    
+
+
+    <!-- http://scap.nist.gov/scap_core#Catalog -->
+
+    <owl:Class rdf:about="http://scap.nist.gov/scap_core#Catalog"/>
+    
+
+
+    <!-- http://www.oasis-open.org/ciq_xpil#Organization -->
+
+    <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Organization"/>
     
 
 
@@ -784,15 +842,18 @@ logicalTest elements. The permitted operators are “AND” and “OR”.</rdfs:
     
 
 
+    <!-- https://mswimmer.github.io/utim/platform#LogicalOperator -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#LogicalOperator">
+        <rdfs:comment xml:lang="en">Operator applied to fact-ref, check-fact-ref and logical-test elements. Only instances allowed are AND and OR.</rdfs:comment>
+        <rdfs:label xml:lang="en">operator</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://mswimmer.github.io/utim/platform#LogicalTest -->
 
     <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#LogicalTest">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#logicalOperator"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#negate"/>
@@ -818,13 +879,7 @@ logicalTest elements. The permitted operators are “AND” and “OR”.</rdfs:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#logicalTest"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#platformIdentifier"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+                <owl:someValuesFrom rdf:resource="https://mswimmer.github.io/utim/platform#LogicalTest"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a description or qualifications of a particular IT platform type.</rdfs:comment>
@@ -840,13 +895,13 @@ logicalTest elements. The permitted operators are “AND” and “OR”.</rdfs:
         <rdfs:subClassOf rdf:resource="http://scap.nist.gov/scap_core#Catalog"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#generator"/>
+                <owl:onProperty rdf:resource="http://scap.nist.gov/scap_core#generator"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://scap.nist.gov/scap_core#generator"/>
+                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#generator"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -885,36 +940,33 @@ logicalTest elements. The permitted operators are “AND” and “OR”.</rdfs:
     
 
 
-    <!-- http://cybox.mitre.org/cyboxCommon#ToolInformation -->
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-    <owl:Class rdf:about="http://cybox.mitre.org/cyboxCommon#ToolInformation"/>
     
 
 
-    <!-- http://cybox.mitre.org/objects/Device#Device -->
+    <!-- https://mswimmer.github.io/utim/platform#AND -->
 
-    <owl:Class rdf:about="http://cybox.mitre.org/objects/Device#Device"/>
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/platform#AND">
+        <rdf:type rdf:resource="https://mswimmer.github.io/utim/platform#LogicalOperator"/>
+    </owl:NamedIndividual>
     
 
 
-    <!-- http://cybox.mitre.org/objects/Product#Product -->
+    <!-- https://mswimmer.github.io/utim/platform#OR -->
 
-    <owl:Class rdf:about="http://cybox.mitre.org/objects/Product#Product"/>
-    
-
-
-    <!-- http://cybox.mitre.org/objects/System#OperatingSystemInfo -->
-
-    <owl:Class rdf:about="http://cybox.mitre.org/objects/System#OperatingSystemInfo"/>
-    
-
-
-    <!-- http://scap.nist.gov/scap_core#Catalog -->
-
-    <owl:Class rdf:about="http://scap.nist.gov/scap_core#Catalog"/>
+    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/platform#OR">
+        <rdf:type rdf:resource="https://mswimmer.github.io/utim/platform#LogicalOperator"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.7.2018-12-02T02:23:35Z) https://github.com/owlcs/owlapi -->
 
