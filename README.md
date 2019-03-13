@@ -9,7 +9,7 @@ This is an OWL2 ontology that tries to unify the various threat and vulnerabilit
 
 ## core ##
 
-The core ontology that others depend on
+The core ontology that others depend on.
 
 ## platform ##
 
