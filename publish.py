@@ -58,12 +58,12 @@ ontologies = [
 # useful functions to stay DRY
 
 def transfer(localFile, bucket, destKey, ct="application/html"):
-    print("Getting S3 info from s3://{}/{}".format(bucket, destKey))
+    #print("Getting S3 info from s3://{}/{}".format(bucket, destKey))
     try:
         response = s3_client.get_object(Bucket=bucket, Key=destKey)
-        print(response)
+        #print(response)
         file_datetime = datetime.fromtimestamp(os.path.getmtime(localFile)).astimezone()
-        print("Is", response['LastModified'], "<", file_datetime, "?")
+        #print("Is", response['LastModified'], "<", file_datetime, "?")
         if response['LastModified'] < file_datetime:
             with open(localFile, 'rb') as f:
                 print("Transferring", bucket, destKey)
