@@ -1,19 +1,16 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://mswimmer.github.io/utim/cwe3#"
-     xml:base="https://mswimmer.github.io/utim/cwe3"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<rdf:RDF xmlns="http://ontologies.ti-semantics.com/weakness#"
+     xml:base="http://ontologies.ti-semantics.com/weakness"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:dcterms="http://purl.org/dc/terms/"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="https://mswimmer.github.io/utim/cwe3">
-        <owl:versionIRI rdf:resource="https://mswimmer.github.io/utim/cwe3-3.1-v1.0.1"/>
-        <rdfs:label>Common Weakness Enumeration (CWE) Ontology</rdfs:label>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://cwe.mitre.org/cwe-6</owl:versionInfo>
-        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cwe.mitre.org/data/xsd/cwe_schema_v6.0.1.xsd</rdfs:seeAlso>
-        <rdfs:comment
-            rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://ontologies.ti-semantics.com/weakness">
+        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/weakness-3.1-v1.0.1"/>
+        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This
         ontology provides a vocabulary and representation for the
         Common Weakness Enumeration (CWE). A weakness in this context
         is a mistake or condition that, if left unaddressed, could
@@ -22,9 +19,9 @@
         function in unintended ways. This complexType is used to describe a
         specific type of weakness and provide a variety of information related
         to it.</rdfs:comment>
-        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://cwe.mitre.org/data/xsd/cwe_schema_v6.0.1.xsd</rdfs:isDefinedBy>
+        <rdfs:label>Common Weakness Enumeration (CWE) Ontology</rdfs:label>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://cwe.mitre.org/data/index.html</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://cwe.mitre.org/data/xsd/cwe_schema_v6.0.1.xsd</rdfs:seeAlso>
     </owl:Ontology>
     
 
@@ -36,6 +33,14 @@
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
 
 
     <!-- 
@@ -72,39 +77,39 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#alternateTerms -->
+    <!-- http://ontologies.ti-semantics.com/weakness#alternateTerms -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#alternateTerms">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Term"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#alternateTerms">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Term"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or more  alternate terms by which this weakness may be known and a description to explain the context in which the term may be relevant</rdfs:comment>
         <rdfs:label>Alternate Terms</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicableLanguages -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicableLanguages -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicableLanguages">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#ProgrammingLanguage"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicableLanguages">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#ProgrammingLanguage"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Languages which each represent a language in which this mitigation may exist.</rdfs:comment>
         <rdfs:label>Applicable Languages</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicablePlatforms.ArchitectureParadigms -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicablePlatforms.ArchitectureParadigms -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicablePlatforms.ArchitectureParadigms">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#ArchitectureParadigm"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicablePlatforms.ArchitectureParadigms">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#ArchitectureParadigm"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Architectural Paradigms  represent an architecture on which this weakness is likely to exist.</rdfs:comment>
         <rdfs:label>Applicable Architecture Paradigms</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicablePlatforms.CommonPlatformReferences -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicablePlatforms.CommonPlatformReferences -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicablePlatforms.CommonPlatformReferences">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicablePlatforms.CommonPlatformReferences">
         <rdfs:range rdf:resource="http://cpe.mitre.org/cpe#CPE"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines references to the Common Platform Enumeration, CPE, which will identify common platforms on which this weakness may occur. It has one or more Common_Platform elements as children and each child will point to a single CPE entry which is associated with this weakness.</rdfs:comment>
         <rdfs:label>Common Platform References</rdfs:label>
@@ -112,79 +117,79 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicablePlatforms.Environments -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicablePlatforms.Environments -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicablePlatforms.Environments">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Environment"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicablePlatforms.Environments">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Environment"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Environments which each represent an environment in which this weakness may exist.</rdfs:comment>
         <rdfs:label>Applicable Environments</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicablePlatforms.HardwareArchitecture -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicablePlatforms.HardwareArchitecture -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicablePlatforms.HardwareArchitecture">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#HardwareArchitecture"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicablePlatforms.HardwareArchitecture">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#HardwareArchitecture"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Hardware Architectures which each represent an architecture in which this weakness is likely to exist.</rdfs:comment>
         <rdfs:label>Applicable Hardware Architectures</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicablePlatforms.Languages -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicablePlatforms.Languages -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicablePlatforms.Languages">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#ProgrammingLanguage"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicablePlatforms.Languages">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#ProgrammingLanguage"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a contains one or more Language elements which each represent a language in which this weakness may exist.</rdfs:comment>
         <rdfs:label>Applicable Programming Languages</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicablePlatforms.OperatingSystems -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicablePlatforms.OperatingSystems -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicablePlatforms.OperatingSystems">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#OperatingSystem"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicablePlatforms.OperatingSystems">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#OperatingSystem"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Operating System in which this weakness is likely to exist.</rdfs:comment>
         <rdfs:label>Applicable Operating Systems</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicablePlatforms.PlatformNotes -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicablePlatforms.PlatformNotes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicablePlatforms.PlatformNotes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicablePlatforms.PlatformNotes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a additional information related to the applicable platforms of a weakness if needed.</rdfs:comment>
         <rdfs:label>Platform Notes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#applicablePlatforms.TechnologyClasses -->
+    <!-- http://ontologies.ti-semantics.com/weakness#applicablePlatforms.TechnologyClasses -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#applicablePlatforms.TechnologyClasses">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#TechnologyClass"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#applicablePlatforms.TechnologyClasses">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#TechnologyClass"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more individual Technology Class which each represent a technology class in which this weakness is likely to exist.</rdfs:comment>
         <rdfs:label>Applicable Technology Classes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#audience -->
+    <!-- http://ontologies.ti-semantics.com/weakness#audience -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#audience">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Audience"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#audience">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Audience"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a reference to the targeted audiences or groups for this view.</rdfs:comment>
         <rdfs:label>Audience</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#author -->
+    <!-- http://ontologies.ti-semantics.com/weakness#author -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#author">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#author">
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -200,9 +205,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#authorOrganization -->
+    <!-- http://ontologies.ti-semantics.com/weakness#authorOrganization -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#authorOrganization">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#authorOrganization">
         <rdfs:range rdf:resource="http://www.oasis-open.org/ciq_xpil#Organization"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more references tothe organization which submitted, contributed, or modified the Weakness, View, Category, or CompoundElement</rdfs:comment>
         <rdfs:label>Author Organization</rdfs:label>
@@ -210,70 +215,70 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#backgroundDetails -->
+    <!-- http://ontologies.ti-semantics.com/weakness#backgroundDetails -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#backgroundDetails">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#BackgroundDetail"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#backgroundDetails">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#BackgroundDetail"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more Background Details, each of which holds information regarding the entry or any technologies that are related to it, where the background information is not related to the nature of the entry itself. It should be filled out where appropriate.</rdfs:comment>
         <rdfs:label>Background Details</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#blackBoxDefinitons -->
+    <!-- http://ontologies.ti-semantics.com/weakness#blackBoxDefinitons -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#blackBoxDefinitons">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#BlackBoxDefinition"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#blackBoxDefinitons">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#BlackBoxDefinition"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  one or more Black Box Definitions, each of which describes the weakness from an external perspective, 	meaning that the view includes no knowledge of how the software is processing data other than what can be inferred from observing the software&apos;s behavior.</rdfs:comment>
         <rdfs:label>Black Box Definitions</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#block -->
+    <!-- http://ontologies.ti-semantics.com/weakness#block -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#block">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Block"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#block">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Block"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a block of text</rdfs:comment>
         <rdfs:label>Block</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#categories -->
+    <!-- http://ontologies.ti-semantics.com/weakness#categories -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#categories">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Category"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#categories">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Category"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  zero or more Category 	elements. Each Category element represents what used to be referred to in CWE as a &quot;Grouping&quot; entry. That is, a category is now a collection of 	weaknesses based on a common attribute, such as CWE-310 Cryptographic Issues or CWE-355 User Interface Security Issues.</rdfs:comment>
         <rdfs:label>Categories</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#chains -->
+    <!-- http://ontologies.ti-semantics.com/weakness#chains -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#chains">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#CompoundElement"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#chains">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#CompoundElement"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifes a list of the individual Chains this relationship pertains to.</rdfs:comment>
         <rdfs:label>Chains</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#commonConsequences -->
+    <!-- http://ontologies.ti-semantics.com/weakness#commonConsequences -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#commonConsequences">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Consequence"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#commonConsequences">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Consequence"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or more  the common consequences associated with this weakness.  This should be included and completed as much as possible for all weaknesses.</rdfs:comment>
         <rdfs:label>Common Consequences</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#compoundElements -->
+    <!-- http://ontologies.ti-semantics.com/weakness#compoundElements -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#compoundElements">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#CompoundElement"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#compoundElements">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#CompoundElement"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  zero or more Compound_Element elements. 
 Each Compound_Element represents a meaningful 	aggregation of several weaknesses, as in a chain like CWE-690: CWE-252 Unchecked Return Value can result in CWE-476 NULL Pointer Dereference or as in a composite like CWE-352 Cross-Site Request Forgery.</rdfs:comment>
         <rdfs:label>CompoundElements</rdfs:label>
@@ -281,189 +286,189 @@ Each Compound_Element represents a meaningful 	aggregation of several weaknesses
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#consequenceNote -->
+    <!-- http://ontologies.ti-semantics.com/weakness#consequenceNote -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#consequenceNote">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#consequenceNote">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines additional commentary about this consequence.</rdfs:comment>
         <rdfs:label>Consequence Note</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#consequenceTechnicalImpact -->
+    <!-- http://ontologies.ti-semantics.com/weakness#consequenceTechnicalImpact -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#consequenceTechnicalImpact">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#TechnicalImpact"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#consequenceTechnicalImpact">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#TechnicalImpact"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the technical impacts that can arise if an attacker attempts to exploit this weakness.</rdfs:comment>
         <rdfs:label>Technical Impact</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#contentHistory -->
+    <!-- http://ontologies.ti-semantics.com/weakness#contentHistory -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#contentHistory">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#HistoryRecord"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#contentHistory">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#HistoryRecord"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or more Content History elements used to keep track of the author of the weakness entry and anyone who has made modifications to the content.</rdfs:comment>
         <rdfs:label>Content History</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#demoExampleRefs -->
+    <!-- http://ontologies.ti-semantics.com/weakness#demoExampleRefs -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#demoExampleRefs">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Reference"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#demoExampleRefs">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Reference"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more References, each of which provide further reading and insight into this demonstrative example. This should be filled out when appropriate.</rdfs:comment>
         <rdfs:label>References</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#demonstrativeExamples -->
+    <!-- http://ontologies.ti-semantics.com/weakness#demonstrativeExamples -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#demonstrativeExamples">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#DemonstrativeExample"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#demonstrativeExamples">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#DemonstrativeExample"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Demonstrative Examples, each of which should contain an example illustrating the problem being described in this weakness.</rdfs:comment>
         <rdfs:label>Demonstrative Examples</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#detectionMethods -->
+    <!-- http://ontologies.ti-semantics.com/weakness#detectionMethods -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#detectionMethods">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#DetectionMethod"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#detectionMethods">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#DetectionMethod"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a one or more 	Detection Method which identify methods that may be employed to detect this weakness.</rdfs:comment>
         <rdfs:label>Detection Methods</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#enablingExploitationFactors -->
+    <!-- http://ontologies.ti-semantics.com/weakness#enablingExploitationFactors -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#enablingExploitationFactors">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#ExploitationFactor"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#enablingExploitationFactors">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#ExploitationFactor"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Enabling Factor for Exploitation, each of which points out conditions or factors that could increase the likelihood of exploit for this weakness. This should be filled out for most weakness bases.</rdfs:comment>
         <rdfs:label>Enableing Factors for Exploitation</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#extendedDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#extendedDescription -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#extendedDescription">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#extendedDescription">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a place for details important to the description of this entry  to be included that are not necessary to convery the fundamental concept behind the entry.</rdfs:comment>
         <rdfs:label>Extended Description</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#maintenanceNotes -->
+    <!-- http://ontologies.ti-semantics.com/weakness#maintenanceNotes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#maintenanceNotes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#maintenanceNotes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or more maintenance notes associated with the View.</rdfs:comment>
         <rdfs:label>Maintenance Notes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#methodEffectivenessNotes -->
+    <!-- http://ontologies.ti-semantics.com/weakness#methodEffectivenessNotes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#methodEffectivenessNotes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#methodEffectivenessNotes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a description of the strengths and shortcomings of this detection method. This should be filled out for some weakness classes and bases.</rdfs:comment>
         <rdfs:label>Method Effectiveness Notes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mitigationEffectivenessNotes -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mitigationEffectivenessNotes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mitigationEffectivenessNotes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mitigationEffectivenessNotes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the strengths and shortcomings of this mitigation on a specific weakness.</rdfs:comment>
         <rdfs:label>Mitigation Effectiveness Notes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#modesOfIntroduction -->
+    <!-- http://ontologies.ti-semantics.com/weakness#modesOfIntroduction -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#modesOfIntroduction">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#IntroductionMode"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#modesOfIntroduction">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#IntroductionMode"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the typical scenarios under which this weakness can be introduced into the software. It should be filled out as needed.</rdfs:comment>
         <rdfs:label>Modes of Introduction</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#nonPrimaryViews -->
+    <!-- http://ontologies.ti-semantics.com/weakness#nonPrimaryViews -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#nonPrimaryViews">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#View"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#nonPrimaryViews">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#View"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the list of non-ChildOf Views to which this relationship pertains.</rdfs:comment>
         <rdfs:label>Relationship Views</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#objective -->
+    <!-- http://ontologies.ti-semantics.com/weakness#objective -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#objective">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#ViewObjective"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#objective">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#ViewObjective"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a description the perspective from which this View is constructed.</rdfs:comment>
         <rdfs:label>Objective</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#observedExamples -->
+    <!-- http://ontologies.ti-semantics.com/weakness#observedExamples -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#observedExamples">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#ObservedExample"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#observedExamples">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#ObservedExample"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more ObservedExample elements, each of which is a reference to a specific observed instance of this weakness in the real world; typically this will be a CVE reference.</rdfs:comment>
         <rdfs:label>Observed Examples</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#otherNotes -->
+    <!-- http://ontologies.ti-semantics.com/weakness#otherNotes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#otherNotes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#otherNotes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or ore other notes assoicated with the View.</rdfs:comment>
         <rdfs:label>Other Notes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#potentialMitigations -->
+    <!-- http://ontologies.ti-semantics.com/weakness#potentialMitigations -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#potentialMitigations">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Mitigation"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#potentialMitigations">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Mitigation"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the potential mitigations associated with this weakness. It contains one or more mitigation subelements which each represent individual mitigations for this weakness. This should be included and completed to the extent possible for all weakness bases and variants.</rdfs:comment>
         <rdfs:label>Potential Mitigations</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#primaryViews -->
+    <!-- http://ontologies.ti-semantics.com/weakness#primaryViews -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#primaryViews">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#View"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#primaryViews">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#View"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the list of Views to which this relationship pertains, where the relationship represents the primary ChildOf relationship for this weakness entry.</rdfs:comment>
         <rdfs:label>Primary Parent/Child Views</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceAuthor -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceAuthor -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceAuthor">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceAuthor">
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -479,9 +484,9 @@ Each Compound_Element represents a meaningful 	aggregation of several weaknesses
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referencePublisher -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referencePublisher -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referencePublisher">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referencePublisher">
         <rdfs:range rdf:resource="http://www.oasis-open.org/ciq_xpil#Organization"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the publisher of the reference material, if one exists</rdfs:comment>
         <rdfs:label>Reference Publisher</rdfs:label>
@@ -489,19 +494,19 @@ Each Compound_Element represents a meaningful 	aggregation of several weaknesses
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#references -->
+    <!-- http://ontologies.ti-semantics.com/weakness#references -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#references">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Reference"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#references">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Reference"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or more sources from which more information and deeper insight can be obtained, such as a 	research paper or an excerpt from a publication</rdfs:comment>
         <rdfs:label>References</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#relatedAttackPatterns -->
+    <!-- http://ontologies.ti-semantics.com/weakness#relatedAttackPatterns -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#relatedAttackPatterns">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#relatedAttackPatterns">
         <rdfs:range rdf:resource="http://capec.mitre.org/capec#AttackPattern"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more references to CAPEC entries which will identify related attack patterns to this weakness. This should be filled out to the extent possible for most weaknesses.</rdfs:comment>
         <rdfs:label>Related Attack Patterns</rdfs:label>
@@ -509,92 +514,92 @@ Each Compound_Element represents a meaningful 	aggregation of several weaknesses
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#relationshipNotes -->
+    <!-- http://ontologies.ti-semantics.com/weakness#relationshipNotes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#relationshipNotes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#relationshipNotes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or more relationship notes associated with the View</rdfs:comment>
         <rdfs:label>Relationship Notes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#relationships -->
+    <!-- http://ontologies.ti-semantics.com/weakness#relationships -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#relationships">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Category"/>
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#CompoundElement"/>
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#View"/>
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Weakness"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#relationships">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Category"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#CompoundElement"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#View"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Weakness"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more associations between this structure, whether it is a Weakness, Category, or Compound_Element and another structure.</rdfs:comment>
         <rdfs:label>Relationships</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#researchGaps -->
+    <!-- http://ontologies.ti-semantics.com/weakness#researchGaps -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#researchGaps">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#ResearchGap"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#researchGaps">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#ResearchGap"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or more gaps in the research associated with this Weakness, Category, View, or Compound Element</rdfs:comment>
         <rdfs:label>Research Gaps</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#subMitigations -->
+    <!-- http://ontologies.ti-semantics.com/weakness#subMitigations -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#subMitigations">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Mitigation"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#subMitigations">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Mitigation"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more sub-mitigations</rdfs:comment>
         <rdfs:label>Submitigations</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#taxonomyMappings -->
+    <!-- http://ontologies.ti-semantics.com/weakness#taxonomyMappings -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#taxonomyMappings">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#TaxonomyMapping"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#taxonomyMappings">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#TaxonomyMapping"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Taxonomy Mappings which provide a mapping from this entry to an entry in a different taxonomy.</rdfs:comment>
         <rdfs:label>Taxonomy Mappings</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#terminologyNotes -->
+    <!-- http://ontologies.ti-semantics.com/weakness#terminologyNotes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#terminologyNotes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#terminologyNotes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies zero or more notes that contain a discussion of terminology issues related to this weakness.   It is different from Alternate Terms, which is focused on discussion of specific terms that are commonly used. It should be filled out in any entry for which there is no established terminology, or if there are multiple uses of the same key term.</rdfs:comment>
         <rdfs:label>Terminology Notes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#theoreticalNotes -->
+    <!-- http://ontologies.ti-semantics.com/weakness#theoreticalNotes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#theoreticalNotes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Note"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#theoreticalNotes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Note"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more Theoretical Notes that each describe the weakness using vulnerability theory concepts. It should be filled out as needed, especially in cases where the application of 	vulnerability theory is not necessarily obvious for the weakness.</rdfs:comment>
         <rdfs:label>Theoretical Notes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#views -->
+    <!-- http://ontologies.ti-semantics.com/weakness#views -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#views">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#View"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#views">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#View"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  zero or more View elements.  Each View element represents a perspective with which one might look at the weaknesses in CWE. CWE-699 Development View and CWE-1000 Research View are two examples of Views.</rdfs:comment>
         <rdfs:label>Views</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#vulnerabilityReference -->
+    <!-- http://ontologies.ti-semantics.com/weakness#vulnerabilityReference -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#vulnerabilityReference">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#vulnerabilityReference">
         <rdfs:range rdf:resource="http://nvd.nist.gov/cve#Vulnerability"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a reference to a vulnerability entity, typically as a Common Vulnerabilty Enumeration (CVE) entry</rdfs:comment>
         <rdfs:label>Vulnerability Reference</rdfs:label>
@@ -602,30 +607,30 @@ Each Compound_Element represents a meaningful 	aggregation of several weaknesses
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#weaknessOrdinality -->
+    <!-- http://ontologies.ti-semantics.com/weakness#weaknessOrdinality -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#weaknessOrdinality">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#WeaknessOrdinality"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#weaknessOrdinality">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#WeaknessOrdinality"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies when this entry is primary - where the weakness exists independent of other weaknesses, or when this entry might be resultant - where the weakness is typically related to the presence of some other weaknesses. This should be filled out for all Weakness Base and 	Variant entries.</rdfs:comment>
         <rdfs:label>Weakness Ordinality</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#weaknesses -->
+    <!-- http://ontologies.ti-semantics.com/weakness#weaknesses -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#weaknesses">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#Weakness"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#weaknesses">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#Weakness"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines zero or more Weakness entities that represents an actual weakness entry in CWE, such as CWE-311 Failure to Encrypt Sensitive Data or CWE-326 Weak Encryption.</rdfs:comment>
         <rdfs:label>Weakness</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#whiteBoxDefinitions -->
+    <!-- http://ontologies.ti-semantics.com/weakness#whiteBoxDefinitions -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/cwe3#whiteBoxDefinitions">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/cwe3#WhiteBoxDefinition"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#whiteBoxDefinitions">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/weakness#WhiteBoxDefinition"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more White Box Definitions, each of which describes the weakness from a white box perspective, meaning that the view includes the knowledge of control flow, data flow, and all other inner workings of the software in which the weakness exists.</rdfs:comment>
         <rdfs:label>White Box Definitions</rdfs:label>
     </owl:ObjectProperty>
@@ -643,9 +648,9 @@ Each Compound_Element represents a meaningful 	aggregation of several weaknesses
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#abstraction -->
+    <!-- http://ontologies.ti-semantics.com/weakness#abstraction -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#abstraction">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#abstraction">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the abstraction level for this weakness.  The abstractions levels for Compound Elements and Weaknesses are the same. For example, if the Compound Element is a chain, and all elements of the chain are Class level, then the Compound Element Abstraction attribute is Class. 
 
@@ -655,9 +660,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#affectedResources -->
+    <!-- http://ontologies.ti-semantics.com/weakness#affectedResources -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#affectedResources">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#affectedResources">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more system resources affected by this 	entry.</rdfs:comment>
         <rdfs:label>Affected Resources</rdfs:label>
@@ -665,9 +670,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#authorName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#authorName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#authorName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#authorName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the names of one or more individuals that authored the submitted, contributed, or modified the Weakness, View, Category, or CompoundElement.</rdfs:comment>
         <rdfs:label>Author Name</rdfs:label>
@@ -675,9 +680,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#authorOrganizationName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#authorOrganizationName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#authorOrganizationName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#authorOrganizationName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the name of the organization which submitted, contributed, or modified the Weakness, View, Category, or CompoundElement</rdfs:comment>
         <rdfs:label>Author Organization Name</rdfs:label>
@@ -685,9 +690,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#blockNature -->
+    <!-- http://ontologies.ti-semantics.com/weakness#blockNature -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#blockNature">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#blockNature">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the nature of the content contained within the Block.</rdfs:comment>
         <rdfs:label>Block Nature</rdfs:label>
@@ -695,9 +700,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#casualNature -->
+    <!-- http://ontologies.ti-semantics.com/weakness#casualNature -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#casualNature">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#casualNature">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the nature of the underlying cause of the weakness. Is it an implicit underlying weakness or is it an issue of behavior on the part of the software developer? Appropriate values are 	either Implicit, occurring regardless of developer behavior, or Explicit, an explicit weakness resulting from behavior of the developer.</rdfs:comment>
         <rdfs:label>Casual Nature</rdfs:label>
@@ -705,9 +710,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#categoryName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#categoryName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#categoryName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#categoryName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a descriptive name used to give the reader an idea of what the commonality is amongst the children of this category.  All words in the name should be capitalized except for articles and prepositions unless they begin or end the name.  Subsequent words in a hyphenated chain are also not capitalized.</rdfs:comment>
         <rdfs:label>Category Name</rdfs:label>
@@ -715,9 +720,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#causalNature -->
+    <!-- http://ontologies.ti-semantics.com/weakness#causalNature -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#causalNature">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#causalNature">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the nature of the underlying cause of the weakness. Is it an implicit underlying weakness or is it an issue of behavior on the part of the software developer? Appropriate values are either Implicit, occurring regardless of developer behavior, or Explicit, an explicit weakness resulting from behavior of the developer.</rdfs:comment>
         <rdfs:label>Nature of Cause</rdfs:label>
@@ -725,9 +730,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#code -->
+    <!-- http://ontologies.ti-semantics.com/weakness#code -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#code">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#code">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a line of code.</rdfs:comment>
         <rdfs:label>Code</rdfs:label>
@@ -735,9 +740,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#codeExampleLanguage -->
+    <!-- http://ontologies.ti-semantics.com/weakness#codeExampleLanguage -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#codeExampleLanguage">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#codeExampleLanguage">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the programming language being used in the following block of Code</rdfs:comment>
         <rdfs:label>Code Language</rdfs:label>
@@ -745,9 +750,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#comment -->
+    <!-- http://ontologies.ti-semantics.com/weakness#comment -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#comment">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#comment">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a comment in code</rdfs:comment>
         <rdfs:label>Comment</rdfs:label>
@@ -755,9 +760,9 @@ Acceptable values are &quot;Class&quot;, which is the most abstract type of Weak
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#compoundElementName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#compoundElementName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#compoundElementName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#compoundElementName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a descriptive name used to give the reader an idea of the meaning behind the compound weakness structure. 
 
@@ -767,9 +772,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#compoundElementStructure -->
+    <!-- http://ontologies.ti-semantics.com/weakness#compoundElementStructure -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#compoundElementStructure">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#compoundElementStructure">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the structural nature of this compound element - that is, composed of other weaknesses concurrently, as in a composite, or consecutively, as in a chain.</rdfs:comment>
         <rdfs:label>Compound Element Structure</rdfs:label>
@@ -777,9 +782,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#consequenceId -->
+    <!-- http://ontologies.ti-semantics.com/weakness#consequenceId -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#consequenceId">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#consequenceId">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the value for the related Common Consequence entry identifier. However, Common Consequences across CWE with the same ID should only vary in small details.</rdfs:comment>
         <rdfs:label>Consequence Identifier</rdfs:label>
@@ -787,9 +792,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#consequenceScope -->
+    <!-- http://ontologies.ti-semantics.com/weakness#consequenceScope -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#consequenceScope">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#consequenceScope">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines an individual consequence that may be associated with this weakness. Possible effects are detailed in 	Consequence Effect.</rdfs:comment>
         <rdfs:label>Consequence Scope</rdfs:label>
@@ -797,9 +802,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#contributionMode -->
+    <!-- http://ontologies.ti-semantics.com/weakness#contributionMode -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#contributionMode">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#contributionMode">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines whether the contribution was part of feedback given to the CWE team or actual content that was donated.</rdfs:comment>
         <rdfs:label>Contribution Mode</rdfs:label>
@@ -807,9 +812,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#demoExampleId -->
+    <!-- http://ontologies.ti-semantics.com/weakness#demoExampleId -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#demoExampleId">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#demoExampleId">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  the identifier for the related Demonstrative Example. Only one Demonstrative Example ID can exist for each Demonstrative Example (ex: DX-1). However, Demonstrative Examples across CWE with the same ID should only vary in small details.</rdfs:comment>
         <rdfs:label>Demonstration Example Identifier</rdfs:label>
@@ -817,9 +822,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#descriptionSummary -->
+    <!-- http://ontologies.ti-semantics.com/weakness#descriptionSummary -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#descriptionSummary">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#descriptionSummary">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a minimalistic description which provides the information necessary to understand the primary focus of this entry.  The description text should be short and should limit itself to describing the key points that define this entry.  Further explanation can be included in the extended description element.</rdfs:comment>
         <rdfs:label>Description Summary</rdfs:label>
@@ -827,9 +832,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#detectionMethodId -->
+    <!-- http://ontologies.ti-semantics.com/weakness#detectionMethodId -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#detectionMethodId">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#detectionMethodId">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines an identifier for the related Detection Method. Only one Detection_Method_ID element can exist for each Detection Method element (ex: DM-1). However, Detection Methods across CWE with the same ID should only vary in small details.</rdfs:comment>
         <rdfs:label>Identifier</rdfs:label>
@@ -837,9 +842,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#dictionaryLink -->
+    <!-- http://ontologies.ti-semantics.com/weakness#dictionaryLink -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#dictionaryLink">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#dictionaryLink">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies an external link to the weakness contained at the Common Weakness Enumeration (CWE) dictionary.  The link should be in the following form:  http://cwe.mitre.org/data/definitions/{weakness-id}.html, where {weakness-id) should be the integer Identifier of the specific weakness.</rdfs:comment>
         <rdfs:label>Dictionary Link</rdfs:label>
@@ -847,9 +852,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#entryComment -->
+    <!-- http://ontologies.ti-semantics.com/weakness#entryComment -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#entryComment">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#entryComment">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines any comments regarding the content of this weakness entry, such as assumptions made, reasons for omitting 	elements, contact information, pending questions, etc.</rdfs:comment>
         <rdfs:label>Comments</rdfs:label>
@@ -857,9 +862,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#entryDate -->
+    <!-- http://ontologies.ti-semantics.com/weakness#entryDate -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#entryDate">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#entryDate">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the date on which the content was authored, contributed, or modified in YYYY-MM-DD format.</rdfs:comment>
         <rdfs:label>Entry Date</rdfs:label>
@@ -867,9 +872,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#entryType -->
+    <!-- http://ontologies.ti-semantics.com/weakness#entryType -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#entryType">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#entryType">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the type of the Content History.</rdfs:comment>
         <rdfs:label>Entry Type</rdfs:label>
@@ -877,9 +882,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#environmentName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#environmentName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#environmentName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#environmentName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the name of the Environment we are identifying.</rdfs:comment>
         <rdfs:label>Environment Name</rdfs:label>
@@ -887,9 +892,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#exampleBody -->
+    <!-- http://ontologies.ti-semantics.com/weakness#exampleBody -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#exampleBody">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#exampleBody">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a description which should hold  the code and some explanatory information for the reader.</rdfs:comment>
         <rdfs:label>Example Body</rdfs:label>
@@ -897,9 +902,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#externalLink -->
+    <!-- http://ontologies.ti-semantics.com/weakness#externalLink -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#externalLink">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#externalLink">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a valid URL where more information regarding this example can be obtained.</rdfs:comment>
         <rdfs:label>Reference Link</rdfs:label>
@@ -907,9 +912,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#form -->
+    <!-- http://ontologies.ti-semantics.com/weakness#form -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#form">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#form">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the form of the weakness.
 
@@ -921,9 +926,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#formattedIdentifier -->
+    <!-- http://ontologies.ti-semantics.com/weakness#formattedIdentifier -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#formattedIdentifier">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#formattedIdentifier">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the Common Weakness Enumeration (CWE) identifier associated with the weakness.  The weakness identifier should follow the CWE identifier pattern of &quot;CWE-nnnn&quot; where &apos;nnnnn&apos; specifies an numerically incrementing number.</rdfs:comment>
         <rdfs:label>Common Weakness Enumeration (CWE) identifier</rdfs:label>
@@ -931,9 +936,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#functionalAreas -->
+    <!-- http://ontologies.ti-semantics.com/weakness#functionalAreas -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#functionalAreas">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#functionalAreas">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more descriptions of the functional area of the software in which the 	weakness is most likely to occur. For example,  CWE-178 Failure to Resolve Case Sensitivity is likely to occur in functional areas of software related to file processing and credentials.</rdfs:comment>
         <rdfs:label>Functional Areas</rdfs:label>
@@ -941,9 +946,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#hardwareArchitectureClassDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#hardwareArchitectureClassDescription -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#hardwareArchitectureClassDescription">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#hardwareArchitectureClassDescription">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines architectures in which this weakness is likely to exist.</rdfs:comment>
         <rdfs:label>Architecture Class Description</rdfs:label>
@@ -951,9 +956,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#hardwareArchitectureName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#hardwareArchitectureName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#hardwareArchitectureName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#hardwareArchitectureName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  the name of the hardware architectures on which this weakness is likely to exist.</rdfs:comment>
         <rdfs:label>Name</rdfs:label>
@@ -961,9 +966,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#id -->
+    <!-- http://ontologies.ti-semantics.com/weakness#id -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#id">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#id">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the Common Weakness Enumeration (CWE) Identifier for this entry.   It will be static for the lifetime of the entry. In the event that this entry becomes deprecated, the ID will not be reused and a pointer will be left in this entry to the replacement.</rdfs:comment>
         <rdfs:label>Common Weakness Enumeration (CWE) Identifier</rdfs:label>
@@ -971,9 +976,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#impactDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#impactDescription -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#impactDescription">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#impactDescription">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a description of the technical impact</rdfs:comment>
         <rdfs:label>Impact Description</rdfs:label>
@@ -981,9 +986,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#impactType -->
+    <!-- http://ontologies.ti-semantics.com/weakness#impactType -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#impactType">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#impactType">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the type of impact</rdfs:comment>
         <rdfs:label>Impact Type</rdfs:label>
@@ -991,9 +996,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#introText -->
+    <!-- http://ontologies.ti-semantics.com/weakness#introText -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#introText">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#introText">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the context and setting surrounding the example to add clarity for the reader.</rdfs:comment>
         <rdfs:label>Intro text</rdfs:label>
@@ -1001,9 +1006,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#langClass -->
+    <!-- http://ontologies.ti-semantics.com/weakness#langClass -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#langClass">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#langClass">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a description of a type of language in which this entry is likely to exist. The type may be specified by a common property, such as Languages with Automated Memory Management or Languages which support Format Strings, or it may describe a more general class of language such as All Interpreted Languages or Pseudo Code.</rdfs:comment>
         <rdfs:label>Language Class</rdfs:label>
@@ -1011,9 +1016,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#langName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#langName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#langName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#langName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  the name of the  programming language in which this entry may occur.</rdfs:comment>
         <rdfs:label>Language Name</rdfs:label>
@@ -1021,19 +1026,19 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#likelihood -->
+    <!-- http://ontologies.ti-semantics.com/weakness#likelihood -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#likelihood">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#likelihood">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a rough estimate at the likelihood of exploitation of an exposed weakness. Many factors can impact this value which is why it should only be regarded as an approximation.</rdfs:comment>
-        <rdfs:label xml:lang="en-US}">Likelihood</rdfs:label>
+        <rdfs:label xml:lang="en-us}">Likelihood</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#localReferenceId -->
+    <!-- http://ontologies.ti-semantics.com/weakness#localReferenceId -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#localReferenceId">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#localReferenceId">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies an identifier for the related Local	Reference. Only one Local Reference ID element can exist for each Reference element (ex: R.78.1). Text citing this reference should use the format [R.78.1] where &quot;78&quot; is the CWE identifier and &quot;1&quot; is the ordinal value of the reference (e.g., 1 being the first, 2 being the second).</rdfs:comment>
         <rdfs:label>Local Reference Identifier</rdfs:label>
@@ -1041,9 +1046,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mappedNodeId -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mappedNodeId -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mappedNodeId">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mappedNodeId">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the ID of the entry to which this weakness is being mapped in taxonomy Taxonomy Name.</rdfs:comment>
         <rdfs:label>Mapped Node Identifier</rdfs:label>
@@ -1051,9 +1056,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mappedNodeName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mappedNodeName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mappedNodeName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mappedNodeName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines athe name of the entry to which this weakness is being mapped in taxonomy Taxonomy_Name.</rdfs:comment>
         <rdfs:label>Mapped Node Name</rdfs:label>
@@ -1061,9 +1066,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mappingFit -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mappingFit -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mappingFit">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mappingFit">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines how close to the original taxonomy this node was mapped.</rdfs:comment>
         <rdfs:label>Mapping Fit</rdfs:label>
@@ -1071,9 +1076,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#methodDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#methodDescription -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#methodDescription">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#methodDescription">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines some context of how this Detection Method can be applied to a specific weakness. This should be filled out for some 	weakness classes and bases.</rdfs:comment>
         <rdfs:label>Method Description</rdfs:label>
@@ -1081,9 +1086,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#methodEffectiveness -->
+    <!-- http://ontologies.ti-semantics.com/weakness#methodEffectiveness -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#methodEffectiveness">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#methodEffectiveness">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines how effective the detection method may be in detecting the associated weakness. This assumes the use of best-of-breed tools, analysts, and methods. There is limited consideration for financial costs, labor, or 	time.</rdfs:comment>
         <rdfs:label>Method Effectiveness</rdfs:label>
@@ -1091,9 +1096,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#methodName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#methodName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#methodName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#methodName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a name for the particular weakness detection method. This should be filled out for some weakness classes and bases.</rdfs:comment>
         <rdfs:label>Method Name</rdfs:label>
@@ -1101,9 +1106,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mitigationDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mitigationDescription -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mitigationDescription">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mitigationDescription">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the description of this individual mitigation.</rdfs:comment>
         <rdfs:label>Mitigation Description</rdfs:label>
@@ -1111,9 +1116,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mitigationEffectiveness -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mitigationEffectiveness -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mitigationEffectiveness">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mitigationEffectiveness">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines how effective the mitigation may be in preventing the weakness.</rdfs:comment>
         <rdfs:label>Mitigation Effectiveness</rdfs:label>
@@ -1121,9 +1126,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mitigationId -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mitigationId -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mitigationId">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mitigationId">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the value for the related Mitigation entry identifier as a string. Only one Mitigation_ID element can exist for each Mitigation element (ex: MIT-1). However, Mitigations across CWE with the same ID should only vary in small details.</rdfs:comment>
         <rdfs:label>Mitigation Identifier</rdfs:label>
@@ -1131,9 +1136,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mitigationPhase -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mitigationPhase -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mitigationPhase">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mitigationPhase">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  the development life cycle phase during which this particular mitigation may be applied.</rdfs:comment>
         <rdfs:label>Mitigation Phase</rdfs:label>
@@ -1141,9 +1146,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#mitigationStrategy -->
+    <!-- http://ontologies.ti-semantics.com/weakness#mitigationStrategy -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#mitigationStrategy">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#mitigationStrategy">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a general strategy for protecting a system to which this mitigation contributes</rdfs:comment>
         <rdfs:label>Mitigation Strategy</rdfs:label>
@@ -1151,9 +1156,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#modificationImportance -->
+    <!-- http://ontologies.ti-semantics.com/weakness#modificationImportance -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#modificationImportance">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#modificationImportance">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines how significant the modification is to the weakness with regard to the meaning and interpretation of the weakness.  If a modification has a value of Critical, then the meaning of the entry or how it might be interpreted has changed and requires attention from anyone previously dependent on the weakness.</rdfs:comment>
         <rdfs:label>Modification Importance</rdfs:label>
@@ -1161,9 +1166,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#modificationSource -->
+    <!-- http://ontologies.ti-semantics.com/weakness#modificationSource -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#modificationSource">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#modificationSource">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines whether this modification was created by a CWE team member or provided by an external party.</rdfs:comment>
         <rdfs:label>Modification Source</rdfs:label>
@@ -1171,9 +1176,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#noteType -->
+    <!-- http://ontologies.ti-semantics.com/weakness#noteType -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#noteType">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#noteType">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the type of Note.</rdfs:comment>
         <rdfs:label>Note Type</rdfs:label>
@@ -1181,9 +1186,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#observationDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#observationDescription -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#observationDescription">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#observationDescription">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a product independent description of the example being cited. The description should present an unambiguous correlation between the example being described and the weakness which it is meant to exemplify. It should also be short and easy to understand.</rdfs:comment>
         <rdfs:label>Description</rdfs:label>
@@ -1191,9 +1196,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#ordinality -->
+    <!-- http://ontologies.ti-semantics.com/weakness#ordinality -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#ordinality">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#ordinality">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies whether this weakness exists independent of other weaknesses, 	Primary, or whether it is the result of the presence of some other weaknesses, Resultant.</rdfs:comment>
         <rdfs:label>Ordinality</rdfs:label>
@@ -1201,9 +1206,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#ordinalityDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#ordinalityDescription -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#ordinalityDescription">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#ordinalityDescription">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies context in which this entry is either Primary or Resultant, depending on the corresponding value for Ordinality.</rdfs:comment>
         <rdfs:label>Description</rdfs:label>
@@ -1211,9 +1216,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#osClass -->
+    <!-- http://ontologies.ti-semantics.com/weakness#osClass -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#osClass">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#osClass">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines families or groups of operating systems in which this weakness is likely to exist. Do not fill this in if a specific Operating System was specified.</rdfs:comment>
         <rdfs:label>Operating System Class Description</rdfs:label>
@@ -1221,9 +1226,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#osName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#osName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#osName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#osName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the name of the operating systems in which this weakness is likely to exist.</rdfs:comment>
         <rdfs:label>Name</rdfs:label>
@@ -1231,9 +1236,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#paradigmName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#paradigmName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#paradigmName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#paradigmName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the name of the architecture  paradigm.</rdfs:comment>
         <rdfs:label>Paradigm Name</rdfs:label>
@@ -1241,9 +1246,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#prevalence -->
+    <!-- http://ontologies.ti-semantics.com/weakness#prevalence -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#prevalence">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#prevalence">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the prevalence with which this weakness may occur within code.</rdfs:comment>
         <rdfs:label>Prevalence</rdfs:label>
@@ -1251,9 +1256,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#previousEntryName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#previousEntryName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#previousEntryName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#previousEntryName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the name by which this entry was previously known.</rdfs:comment>
         <rdfs:label>Previous Names</rdfs:label>
@@ -1261,9 +1266,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceAuthorName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceAuthorName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceAuthorName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceAuthorName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the names of one or more an individuals that authored the material being referenced.</rdfs:comment>
         <rdfs:label>Author Name</rdfs:label>
@@ -1271,9 +1276,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceDate -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceDate -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceDate">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceDate">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the date when the reference was 	included in the entry. This provides the reader with a time line for when the material in the reference, usually the link, was valid. The date should be of the format YYYY-MM-DD.</rdfs:comment>
         <rdfs:label>Date</rdfs:label>
@@ -1281,9 +1286,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceEdition -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceEdition -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceEdition">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceEdition">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the edition of the material being 	referenced in the event that multiple editions of the material exist. This will usually only be useful for book references.</rdfs:comment>
         <rdfs:label>Edition</rdfs:label>
@@ -1291,9 +1296,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceId -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceId -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceId">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceId">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the identifier for the related Reference  entry identifier as a string. Only one Reference_ID element can exist for each Reference element (ex: REF-1). However, References across CWE with the same ID should only vary in small details. Text citing this reference should use the local reference ID, as this ID is only for reference library related consistency checking and maintenance.</rdfs:comment>
         <rdfs:label>Reference Identifier</rdfs:label>
@@ -1301,9 +1306,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceIdentifier -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceIdentifier -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceIdentifier">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceIdentifier">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies  the identifier for the example being cited. For example, if a CVE is being cited it should be of the standard CVE identifier format, such as CVE-2005-1951 or CVE-1999-0046.</rdfs:comment>
         <rdfs:label>Reference Identifier</rdfs:label>
@@ -1311,9 +1316,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceLink -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceLink -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceLink">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceLink">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the URL for the material being 	referenced, if one exists. This should always be used for web references, and may optionally be used for book and other publication references.</rdfs:comment>
         <rdfs:label>Reference Link</rdfs:label>
@@ -1321,9 +1326,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referencePubDate -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referencePubDate -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referencePubDate">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referencePubDate">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines  the date when the reference was published YYYY.</rdfs:comment>
         <rdfs:label>Published Date</rdfs:label>
@@ -1331,9 +1336,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referencePublication -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referencePublication -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referencePublication">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referencePublication">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the publication source of the reference material, if one exists.</rdfs:comment>
         <rdfs:label>Publication</rdfs:label>
@@ -1341,9 +1346,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referencePublisherName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referencePublisherName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referencePublisherName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referencePublisherName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the publisher of the reference material, if one exists.</rdfs:comment>
         <rdfs:label>Publisher</rdfs:label>
@@ -1351,9 +1356,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceSection -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceSection -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceSection">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceSection">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a means of identifying the exact location of the material inside of the publication source, such as the relevant pages of a research paper, the appropriate chapters from a book, etc. This is useful for both book references and internet references.</rdfs:comment>
         <rdfs:label>Section</rdfs:label>
@@ -1361,9 +1366,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#referenceTitle -->
+    <!-- http://ontologies.ti-semantics.com/weakness#referenceTitle -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#referenceTitle">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceTitle">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the title of the material being referenced. It is not required if the material does not have a title.</rdfs:comment>
         <rdfs:label>Title</rdfs:label>
@@ -1371,9 +1376,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#relationshipNature -->
+    <!-- http://ontologies.ti-semantics.com/weakness#relationshipNature -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#relationshipNature">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#relationshipNature">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the nature of the relationship between this element and the target element, such as ChildOf, HasMember or Requires to name a few.</rdfs:comment>
         <rdfs:label>Relationship Nature</rdfs:label>
@@ -1381,9 +1386,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#relativeId -->
+    <!-- http://ontologies.ti-semantics.com/weakness#relativeId -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#relativeId">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#relativeId">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies an identifier for the related entity.  Only one relative ID element can exist for each entity (ex: R.78.1). Text citing this reference should use the format [R.78.1] where &quot;78&quot; is the entity identifier and &quot;1&quot; is the ordinal value of the reference (e.g., 1 being the first, 2 being the second)</rdfs:comment>
         <rdfs:label>Relative ID</rdfs:label>
@@ -1391,9 +1396,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#relevantProperties -->
+    <!-- http://ontologies.ti-semantics.com/weakness#relevantProperties -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#relevantProperties">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#relevantProperties">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Relevant Property.  Each Relevant Property element identifies a property that is required by the code or a resource in order to function as specified.  Correctly labeling all of the relevant properties can help to figure out 	what the root cause of a vulnerability might be.</rdfs:comment>
         <rdfs:label>Relevant Properties</rdfs:label>
@@ -1401,9 +1406,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#stakeholder -->
+    <!-- http://ontologies.ti-semantics.com/weakness#stakeholder -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#stakeholder">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#stakeholder">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies what types of members of the CWE community might be interested in this view.</rdfs:comment>
         <rdfs:label>Stakeholder</rdfs:label>
@@ -1411,9 +1416,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#stakeholderDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#stakeholderDescription -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#stakeholderDescription">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#stakeholderDescription">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a description of what properties of this View this particular Stakeholder might find useful.</rdfs:comment>
         <rdfs:label>Description</rdfs:label>
@@ -1421,9 +1426,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#status -->
+    <!-- http://ontologies.ti-semantics.com/weakness#status -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#status">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#status">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the status level for this weakness.</rdfs:comment>
         <rdfs:label>Status</rdfs:label>
@@ -1431,9 +1436,9 @@ A Category represents a collection of weaknesses sharing a common attribute, suc
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#structureType -->
+    <!-- http://ontologies.ti-semantics.com/weakness#structureType -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#structureType">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#structureType">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies how this view is being constructed. 
 
@@ -1443,9 +1448,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#submissionSource -->
+    <!-- http://ontologies.ti-semantics.com/weakness#submissionSource -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#submissionSource">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#submissionSource">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines how the initial information for this entry was obtained.</rdfs:comment>
         <rdfs:label>Submission Source</rdfs:label>
@@ -1453,9 +1458,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#taxonomyName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#taxonomyName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#taxonomyName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#taxonomyName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the taxonomy to which this weakness has a similar or equivalent entry.</rdfs:comment>
         <rdfs:label>Taxonomy Name</rdfs:label>
@@ -1463,9 +1468,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#techName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#techName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#techName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#techName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a technology class in which this weakness is likely to exist.</rdfs:comment>
         <rdfs:label>Technology Name</rdfs:label>
@@ -1473,9 +1478,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#termDescription -->
+    <!-- http://ontologies.ti-semantics.com/weakness#termDescription -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#termDescription">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#termDescription">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a short description providing context to the term.</rdfs:comment>
         <rdfs:label>Term Description</rdfs:label>
@@ -1483,9 +1488,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#termName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#termName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#termName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#termName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the actual term. Each term should follow the same 	conventions as the entry Name attribute.</rdfs:comment>
         <rdfs:label>Term</rdfs:label>
@@ -1493,9 +1498,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#text -->
+    <!-- http://ontologies.ti-semantics.com/weakness#text -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#text">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#text">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a paragraph of text.</rdfs:comment>
         <rdfs:label>Text</rdfs:label>
@@ -1503,9 +1508,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#textTitle -->
+    <!-- http://ontologies.ti-semantics.com/weakness#textTitle -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#textTitle">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#textTitle">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a bold-faced title for a subsequent block of text.</rdfs:comment>
         <rdfs:label>Text Title</rdfs:label>
@@ -1513,9 +1518,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#timeOfIntroduction -->
+    <!-- http://ontologies.ti-semantics.com/weakness#timeOfIntroduction -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#timeOfIntroduction">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#timeOfIntroduction">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the points of time in the software life cycle at which the weakness may be introduced. If there are multiple points of time at which the weakness may be introduced, then separate Introduction elements should be included for each.</rdfs:comment>
         <rdfs:label>Time of Introduction</rdfs:label>
@@ -1523,9 +1528,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#viewFilter -->
+    <!-- http://ontologies.ti-semantics.com/weakness#viewFilter -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#viewFilter">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#viewFilter">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines an XSL query for identifying 	which elements are members of an implicit slice. This should only be present for implicit slices.</rdfs:comment>
         <rdfs:label>View Filter</rdfs:label>
@@ -1533,9 +1538,9 @@ Valid values are: Implicit Slice = a slice based on a filter criteria; Explicit 
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#viewName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#viewName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#viewName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#viewName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a descriptive name used to give the reader an idea of what perspective this view represents. 
 
@@ -1545,9 +1550,9 @@ All words in the name should be capitalized except for articles and prepositions
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#weaknessName -->
+    <!-- http://ontologies.ti-semantics.com/weakness#weaknessName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/cwe3#weaknessName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/weakness#weaknessName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a name which identifies the entry. 
 
@@ -1568,977 +1573,986 @@ The name should focus on the weakness being described in the entry and should 	a
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#ArchitectureParadigm -->
+    <!-- http://capec.mitre.org/capec#AttackPattern -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#ArchitectureParadigm">
+    <owl:Class rdf:about="http://capec.mitre.org/capec#AttackPattern"/>
+    
+
+
+    <!-- http://cpe.mitre.org/cpe#CPE -->
+
+    <owl:Class rdf:about="http://cpe.mitre.org/cpe#CPE"/>
+    
+
+
+    <!-- http://nvd.nist.gov/cve#Vulnerability -->
+
+    <owl:Class rdf:about="http://nvd.nist.gov/cve#Vulnerability"/>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/weakness#ArchitectureParadigm -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#ArchitectureParadigm">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#paradigmName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#paradigmName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#prevalence"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#prevalence"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a single Architectural Paradigm in which this entry may exist and with what frequency in the specified paradigm.</rdfs:comment>
-
         <rdfs:label>Architecture Paradigm</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Audience -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Audience -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Audience">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Audience">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#stakeholder"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#stakeholder"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#stakeholderDescription"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#stakeholderDescription"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a target audience or group for this view.</rdfs:comment>
-
         <rdfs:label>Audience</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#BackgroundDetail -->
+    <!-- http://ontologies.ti-semantics.com/weakness#BackgroundDetail -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#BackgroundDetail">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#BackgroundDetail">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines background information regarding the entry or any technologies that are related to it, where the background information is not related to the nature of the weakness itself. It should be filled out where appropriate.</rdfs:comment>
-
         <rdfs:label>Background Detail</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#BlackBoxDefinition -->
+    <!-- http://ontologies.ti-semantics.com/weakness#BlackBoxDefinition -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#BlackBoxDefinition">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#BlackBoxDefinition">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Black Box Definitions, each of which describes the weakness from an external perspective, 	meaning that the view includes no knowledge of how the software is processing data other than what can be inferred from observing the software&apos;s behavior.</rdfs:comment>
-
         <rdfs:label>Black Box Definition</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Block -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Block -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Block">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Block">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a  Block of structured text</rdfs:comment>
-
         <rdfs:label>Block</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Category -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Category -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Category">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Category">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#extendedDescription"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#extendedDescription"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#categoryName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#categoryName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#descriptionSummary"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#descriptionSummary"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#formattedIdentifier"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#formattedIdentifier"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#id"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#id"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#likelihood"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#likelihood"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#status"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#status"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#timeOfIntroduction"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#timeOfIntroduction"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#weaknessName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#weaknessName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a category entity that represents a collection of weaknesses based on a common attribute, such as CWE-310 Cryptographic Issues or CWE-355 User Interface Security Issues.</rdfs:comment>
-
         <rdfs:label>Weakness Category</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#CompoundElement -->
+    <!-- http://ontologies.ti-semantics.com/weakness#CompoundElement -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#CompoundElement">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#CompoundElement">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#extendedDescription"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#extendedDescription"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#abstraction"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#abstraction"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#causalNature"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#causalNature"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#compoundElementName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#compoundElementName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#compoundElementStructure"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#compoundElementStructure"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#descriptionSummary"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#descriptionSummary"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#formattedIdentifier"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#formattedIdentifier"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#id"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#id"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#likelihood"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#likelihood"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#status"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#status"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a meaningful aggregation of several weaknesses, as in a chain like CWE-690: CWE-252 Unchecked Return Value can result in CWE-476 NULL Pointer Dereference or as in a composite like CWE-352 Cross-Site Request Forgery.</rdfs:comment>
-        
         <rdfs:label>CompoundElement</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Consequence -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Consequence -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Consequence">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Consequence">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#consequenceNote"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#consequenceNote"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#consequenceId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#consequenceId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#relativeId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#relativeId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a consequence that may be associated with the Weakness, Category, View, or Compound Element.</rdfs:comment>
-        
         <rdfs:label>Consequence</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#DemonstrativeExample -->
+    <!-- http://ontologies.ti-semantics.com/weakness#DemonstrativeExample -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#DemonstrativeExample">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#DemonstrativeExample">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#demoExampleId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#demoExampleId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#exampleBody"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#exampleBody"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#introText"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#introText"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#relativeId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#relativeId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a Demonstrative Example which should contain an example illustrating the problem being described in this weakness.</rdfs:comment>
-        
         <rdfs:label>Demonstrative Example</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#DetectionMethod -->
+    <!-- http://ontologies.ti-semantics.com/weakness#DetectionMethod -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#DetectionMethod">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#DetectionMethod">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#detectionMethodId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#detectionMethodId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#methodName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#methodName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes  information on different techniques that can be used to detect a weakness, including their strengths and limitations.  This should be filled out for some weakness classes and bases.</rdfs:comment>
-        
         <rdfs:label>Detection Method</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Environment -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Environment -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Environment">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Environment">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#environmentName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#environmentName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#prevalence"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#prevalence"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a single Environment in which this entry may exist and with what frequency in the specified environment.</rdfs:comment>
-        
         <rdfs:label>Environment</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#ExploitationFactor -->
+    <!-- http://ontologies.ti-semantics.com/weakness#ExploitationFactor -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#ExploitationFactor">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#ExploitationFactor">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a condition or factor tha could increase the likelihood of exploit for this weakness.</rdfs:comment>
-        
         <rdfs:label>Exploitation Factor</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#HardwareArchitecture -->
+    <!-- http://ontologies.ti-semantics.com/weakness#HardwareArchitecture -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#HardwareArchitecture">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#HardwareArchitecture">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#hardwareArchitectureClassDescription"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#hardwareArchitectureClassDescription"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#hardwareArchitectureName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#hardwareArchitectureName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#prevalence"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#prevalence"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a hardware achitecture on which this entry may exist and with what frequency on the specified architecture.</rdfs:comment>
-        
         <rdfs:label>Hardware Architecture</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#HistoryRecord -->
+    <!-- http://ontologies.ti-semantics.com/weakness#HistoryRecord -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#HistoryRecord">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#HistoryRecord">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#authorOrganization"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#authorOrganization"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#authorName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#authorName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#authorOrganizationName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#authorOrganizationName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#contributionMode"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#contributionMode"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#entryDate"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#entryDate"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#entryType"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#entryType"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#modificationImportance"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#modificationImportance"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#modificationSource"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#modificationSource"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#relativeId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#relativeId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#submissionSource"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#submissionSource"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a record of history to keep track of the author of the weakness entry and anyone who has made modifications to the content. This provides a means of contacting the authors and modifiers for clarifying ambiguities,  merging overlapping contributions, etc. This should be filled out for all entries.</rdfs:comment>
-        
         <rdfs:label>Content History</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#IntroductionMode -->
+    <!-- http://ontologies.ti-semantics.com/weakness#IntroductionMode -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#IntroductionMode">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#IntroductionMode">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the mode in which the weakness can be introduced.</rdfs:comment>
-        
         <rdfs:label>Introduction Mode</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Mitigation -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Mitigation -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Mitigation">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Mitigation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#mitigationEffectiveness"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#mitigationEffectiveness"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#mitigationId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#mitigationId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#relativeId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#relativeId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a method for mitigating a weakness.</rdfs:comment>
-        
         <rdfs:label>Mitigation</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Note -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Note -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Note">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#ResearchGap"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Note">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#ResearchGap"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#noteType"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#noteType"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines one or more Relationship Note elements, which each contain details regarding the relationships between CWE entries.</rdfs:comment>
-        
         <rdfs:label>Note</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#ObservedExample -->
+    <!-- http://ontologies.ti-semantics.com/weakness#ObservedExample -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#ObservedExample">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#ObservedExample">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#relativeId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#relativeId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes an observed instance of this weakness in the real-world; typically this will be a CVE reference.  If the reference identifier is for a CVE reference, the cveReference should also be completed. This element should be filled out for as many entries as possible.</rdfs:comment>
-        
         <rdfs:label>Observed Example</rdfs:label>
-
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#OperatingSystem -->
+    <!-- http://ontologies.ti-semantics.com/weakness#OperatingSystem -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#OperatingSystem">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#OperatingSystem">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#osClass"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#osClass"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#osName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#osName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#prevalence"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#prevalence"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes an Operating System in which this entry may exist and with what frequency on the specified OS.</rdfs:comment>
-        
         <rdfs:label>Operating System</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#ProgrammingLanguage -->
+    <!-- http://ontologies.ti-semantics.com/weakness#ProgrammingLanguage -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#ProgrammingLanguage">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#ProgrammingLanguage">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#langClass"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#langClass"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#langName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#langName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#prevalence"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#prevalence"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a Programming Language in which this weakness may exist. 
 
 Do not fill this in if a specific Programming Language was specified.</rdfs:comment>
-        
         <rdfs:label>Programming Language</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Reference -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Reference -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Reference">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Reference">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#localReferenceId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#localReferenceId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referenceDate"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referenceDate"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referenceEdition"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referenceEdition"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referenceId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referenceId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referenceLink"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referenceLink"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referencePubDate"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referencePubDate"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referencePublication"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referencePublication"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referencePublisherName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referencePublisherName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referenceSection"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referenceSection"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#referenceTitle"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#referenceTitle"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes  a source from which more information and deeper insight can be obtained, such as a 	research paper or an excerpt from a publication.</rdfs:comment>
-        
         <rdfs:label>Reference</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#RelationshipStatement -->
+    <!-- http://ontologies.ti-semantics.com/weakness#RelationshipStatement -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#RelationshipStatement">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#RelationshipStatement">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#chains"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#chains"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#views"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#views"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#form"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#form"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#relationshipNature"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#relationshipNature"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes an association between this structure, whether it is a Weakness, Category, or Compound_Element and another structure. The relationship also identifies the views under which the relationship is applicable.</rdfs:comment>
-        
         <rdfs:label>Relationship</rdfs:label>
-
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#ResearchGap -->
+    <!-- http://ontologies.ti-semantics.com/weakness#ResearchGap -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#ResearchGap">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#ResearchGap">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a potential opportunity for the vulnerability research community to conduct further exploration of issues related to this weakness. It is intended to highlight parts of 	CWE that have not received sufficient attention from researchers. This 	should be filled out where appropriate for weaknesses and categories.</rdfs:comment>
-        
         <rdfs:label>Research Gap</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#StructuredText -->
+    <!-- http://ontologies.ti-semantics.com/weakness#StructuredText -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#StructuredText">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#StructuredText">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#text"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#text"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#textTitle"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#textTitle"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a structured description text that can include a title, text, comments, code examples, and blocks of text.</rdfs:comment>
-        
         <rdfs:label>Structured Text</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#TaxonomyMapping -->
+    <!-- http://ontologies.ti-semantics.com/weakness#TaxonomyMapping -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#TaxonomyMapping">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#TaxonomyMapping">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#mappedNodeId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#mappedNodeId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#mappedNodeName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#mappedNodeName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#mappingFit"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#mappingFit"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#relativeId"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#relativeId"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#taxonomyName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#taxonomyName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes mappings to nodes of other taxonomies that are similar in meaning to this node.  
 
 Although this may sound similar to Source  Taxonomy, Source Taxonomy is designed to provide a history and pedigree for the entry, whereas Taxonomy Mapping allows similar nodes in other collections to be identified as matching concepts with this weakness. For example, Taxonomy Mapping should be used to map the CWE entries to their OWASP Top 10 equivalents.</rdfs:comment>
-        
         <rdfs:label>TaxonomyMapping</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#TechnicalImpact -->
+    <!-- http://ontologies.ti-semantics.com/weakness#TechnicalImpact -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#TechnicalImpact">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#TechnicalImpact">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#impactDescription"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#impactDescription"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#impactType"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#impactType"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#likelihood"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#likelihood"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a technical impact that can arise if an attacker attempts to exploit this weakness.</rdfs:comment>
-        
         <rdfs:label>Technical Impact</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#TechnologyClass -->
+    <!-- http://ontologies.ti-semantics.com/weakness#TechnologyClass -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#TechnologyClass">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#TechnologyClass">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#prevalence"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#prevalence"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#techName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#techName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a class of technology in which this entry may exist and with what frequency in the specified class.</rdfs:comment>
-        
         <rdfs:label>Technoloy Class</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Term -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Term -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Term">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Term">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#termDescription"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#termDescription"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#termName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#termName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines term by which an entity may be known and a description to explain the context in which the term may be relevant. For example, CWE-181 Incorrect Behavior Order: Validate Before Filter, has the alternate terms value &quot;Validate-before-cleanse&quot;.</rdfs:comment>
-        
         <rdfs:label>Term</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#View -->
+    <!-- http://ontologies.ti-semantics.com/weakness#View -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#View">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#View">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#objective"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#objective"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#formattedIdentifier"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#formattedIdentifier"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#id"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#id"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#status"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#status"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#structureType"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#structureType"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#viewName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#viewName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#weaknessName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#weaknessName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a perspective with which one might look at the weaknesses in CWE. CWE-699 Development Concepts, CWE-1000 Research Concepts and are two examples of Views.</rdfs:comment>
-        
         <rdfs:label>View</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#ViewObjective -->
+    <!-- http://ontologies.ti-semantics.com/weakness#ViewObjective -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#ViewObjective">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#ViewObjective">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the perspective from which this View is constructed.</rdfs:comment>
-        
         <rdfs:label>View Objective</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#Weakness -->
+    <!-- http://ontologies.ti-semantics.com/weakness#Weakness -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#Weakness">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#Weakness">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#extendedDescription"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#extendedDescription"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#abstraction"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#abstraction"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#descriptionSummary"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#descriptionSummary"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#dictionaryLink"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#dictionaryLink"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#formattedIdentifier"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#formattedIdentifier"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#id"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#id"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#status"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#status"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#weaknessName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#weaknessName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes an actual weakness entry in the Common Weakness Enumeration dictionary</rdfs:comment>
-        
         <rdfs:label>Weakness</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#WeaknessCatalog -->
+    <!-- http://ontologies.ti-semantics.com/weakness#WeaknessCatalog -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#WeaknessCatalog">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#WeaknessCatalog">
         <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/core#Catalog"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a collection of software security issues (flaws, faults, bugs, vulnerabilities, weaknesses, etc).  The name used by CWE is usually &quot;CWE&quot;.  However, if this collection is a subset of CWE, then a more appropriate name should be used.</rdfs:comment>
-        
         <rdfs:label>Weakness Catalog</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#WeaknessOrdinality -->
+    <!-- http://ontologies.ti-semantics.com/weakness#WeaknessOrdinality -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#WeaknessOrdinality">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#WeaknessOrdinality">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#ordinality"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#ordinality"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/cwe3#ordinalityDescription"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#ordinalityDescription"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a Weakness Ordinality and indicates when this entry is primary - where the weakness exists independent of other weaknesses, or when this entry might be resultant - where the weakness is typically related to the presence of some other weaknesses.</rdfs:comment>
-
         <rdfs:label>Weakness Ordinality</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/cwe3#WhiteBoxDefinition -->
+    <!-- http://ontologies.ti-semantics.com/weakness#WhiteBoxDefinition -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/cwe3#WhiteBoxDefinition">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/cwe3#StructuredText"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#WhiteBoxDefinition">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/weakness#StructuredText"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the weakness from a white box perspective, meaning that the view includes the knowledge of control flow, data flow, and all other inner workings of the software in which the weakness exists.</rdfs:comment>
-
         <rdfs:label>WhiteBox Definition</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- http://www.oasis-open.org/ciq_xpil#Organization -->
+
+    <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Organization"/>
+    
+
+
+    <!-- http://www.oasis-open.org/ciq_xpil#Party -->
+
+    <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Party"/>
+    
+
+
+    <!-- http://www.oasis-open.org/ciq_xpil#Person -->
+
+    <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Person"/>
+    
+
+
+    <!-- https://mswimmer.github.io/utim/core#Catalog -->
+
+    <owl:Class rdf:about="https://mswimmer.github.io/utim/core#Catalog"/>
 </rdf:RDF>
 
+
+
+<!-- Generated by the OWL API (version 4.5.7.2018-12-02T02:23:35Z) https://github.com/owlcs/owlapi -->
 

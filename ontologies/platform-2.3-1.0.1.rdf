@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://mswimmer.github.io/utim/platform#"
-     xml:base="https://mswimmer.github.io/utim/platform"
+<rdf:RDF xmlns="http://ontologies.ti-semantics.com/platform#"
+     xml:base="http://ontologies.ti-semantics.com/platform"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:cpe="https://mswimmer.github.io/utim/platform#"
+     xmlns:cpe="http://ontologies.ti-semantics.com/platform#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:core="https://mswimmer.github.io/utim/core#"
+     xmlns:core="http://ontologies.ti-semantics.com/core#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:core1="https://mswimmer.github.io/utim/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="https://mswimmer.github.io/utim/platform">
-        <owl:versionIRI rdf:resource="https://mswimmer.github.io/utim/platform-2.3-1.0.1"/>
-        <owl:imports rdf:resource="https://mswimmer.github.io/utim/core-1.0.0"/>
+    <owl:Ontology rdf:about="http://ontologies.ti-semantics.com/platform">
+        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/platform-2.3-1.0.1"/>
+        <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.0"/>
         <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology that provides a vocabulary and representation for the Common Platform Enumeration (CPE) which provides a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&apos;s computing assets.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvd.nist.gov/products/cpe</rdfs:isDefinedBy>
         <rdfs:label>Ontology based on the Common Platform Enumeration (CPE)</rdfs:label>
-        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/mswimmer/cti-ontology/tree/master/cpe</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvd.nist.gov/products/cpe</rdfs:seeAlso>
     </owl:Ontology>
     
 
@@ -40,6 +40,12 @@
     
 
 
+    <!-- https://mswimmer.github.io/utim/core#xpath -->
+
+    <owl:AnnotationProperty rdf:about="https://mswimmer.github.io/utim/core#xpath"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -51,27 +57,19 @@
     
 
 
-    <!-- http://scap.nist.gov/scap_core#generator -->
+    <!-- http://ontologies.ti-semantics.com/platform#alternateCPE -->
 
-    <owl:ObjectProperty rdf:about="http://scap.nist.gov/scap_core#generator">
-        <rdfs:range rdf:resource="http://cybox.mitre.org/cyboxCommon#ToolInformation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/platform#alternateCPE -->
-
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#alternateCPE">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#CPE"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#alternateCPE">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#CPE"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies an alternate CPE that refers to the same platform but in a different format</rdfs:comment>
         <rdfs:label>Alternate CPE</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#authorities -->
+    <!-- http://ontologies.ti-semantics.com/platform#authorities -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#authorities">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#authorities">
         <rdfs:range rdf:resource="http://www.oasis-open.org/ciq_xpil#Organization"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more authorities responsible  for endorsing the identifier name.   Multiple authorities may endorse the  same identifier name.</rdfs:comment>
         <rdfs:label>Authorities</rdfs:label>
@@ -79,78 +77,78 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#changes -->
+    <!-- http://ontologies.ti-semantics.com/platform#changes -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#changes">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#ChangeDescription"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#changes">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#ChangeDescription"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more descriptions of any changes made to  the identifier name or associated metadata.</rdfs:comment>
         <rdfs:label>Changes</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#checkFactRef -->
+    <!-- http://ontologies.ti-semantics.com/platform#checkFactRef -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#checkFactRef">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#checkFactRef">
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies zero or more references to a check that evaluates to TRUE, FALSE, or ERROR. Examples of types of checks are OVAL and OCIL checks.</rdfs:comment>
         <rdfs:label>Check Fact Reference</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#checks -->
+    <!-- http://ontologies.ti-semantics.com/platform#checks -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#checks">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#CheckInfo"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#checks">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#CheckInfo"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies zero or more checks, such as an OVAL definition, that can confirm or reject an IT system as an instance of the named platform</rdfs:comment>
         <rdfs:label>Checks</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#contents -->
+    <!-- http://ontologies.ti-semantics.com/platform#contents -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#contents">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#CPE"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#contents">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#CPE"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the CPE Name entries contained within the Platform Catalog.</rdfs:comment>
         <rdfs:label>Contents</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#deprecatedBy -->
+    <!-- http://ontologies.ti-semantics.com/platform#deprecatedBy -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#deprecatedBy">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#CPE"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#deprecatedBy">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#CPE"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more CPE names that deprecated the identifier name.</rdfs:comment>
         <rdfs:label>Deprecated By</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#deprecationInfo -->
+    <!-- http://ontologies.ti-semantics.com/platform#deprecationInfo -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#deprecationInfo">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#DeprecationInfo"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#deprecationInfo">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#DeprecationInfo"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more deprecation entries for the given identifier name. It is possible for a single identifier name to have multiple deprecations that occur at different time periods.</rdfs:comment>
         <rdfs:label>Deprecation Information:</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#factRef -->
+    <!-- http://ontologies.ti-semantics.com/platform#factRef -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#factRef">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#CPE"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#factRef">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#CPE"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies possible sets of product via CPE Names</rdfs:comment>
         <rdfs:label>Fact Reference</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#generator -->
+    <!-- http://ontologies.ti-semantics.com/platform#generator -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#generator">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#generator">
         <rdfs:range rdf:resource="http://cybox.mitre.org/cyboxCommon#ToolInformation"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies information about the tool used to generate a specific CPE Dictionary</rdfs:comment>
         <rdfs:label>Generator</rdfs:label>
@@ -158,51 +156,51 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#logicalTest -->
+    <!-- http://ontologies.ti-semantics.com/platform#logicalTest -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#logicalTest">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#LogicalTest"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#logicalTest">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalTest"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies logical tests to form a complex logical test using AND, OR, and/or negate operators.  This result of evaluating the nested logical test will result in TRUE, FALSE, or ERROR.</rdfs:comment>
         <rdfs:label>logical test</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#operator -->
+    <!-- http://ontologies.ti-semantics.com/platform#operator -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#operator">
-        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/platform#LogicalTest"/>
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#LogicalOperator"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#operator">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalTest"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalOperator"/>
         <rdfs:comment xml:lang="en">Specifies the logical operator applied to the results of evaluating the factRef, checkFactRef, and logicalTest elements. The permitted operators are entities for “AND” and “OR”.</rdfs:comment>
         <rdfs:label xml:lang="en">operator</rdfs:label>
-        <core:xpath>//logical-test[@operator]</core:xpath>
+        <core1:xpath xml:lang="operator]">//logical-test[</core1:xpath>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#product -->
+    <!-- http://ontologies.ti-semantics.com/platform#product -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#product">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#product">
         <rdfs:comment xml:lang="en">A reference to a URI form of a product or platform specification.</rdfs:comment>
         <rdfs:label xml:lang="en">product</rdfs:label>
-        <core:xpath>//logical-test/fact-ref</core:xpath>
+        <core1:xpath>//logical-test/fact-ref</core1:xpath>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#references -->
+    <!-- http://ontologies.ti-semantics.com/platform#references -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#references">
-        <rdfs:range rdf:resource="https://mswimmer.github.io/utim/platform#ReferenceInfo"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#references">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#ReferenceInfo"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies zero of more external references to additional descriptive material</rdfs:comment>
         <rdfs:label>References</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#relatedDevice -->
+    <!-- http://ontologies.ti-semantics.com/platform#relatedDevice -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#relatedDevice">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#relatedDevice">
         <rdfs:range rdf:resource="http://cybox.mitre.org/objects/Device#Device"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a reference to the associated device to which the CPE names refers</rdfs:comment>
         <rdfs:label>Related Device</rdfs:label>
@@ -210,9 +208,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#relatedOperatingSystem -->
+    <!-- http://ontologies.ti-semantics.com/platform#relatedOperatingSystem -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#relatedOperatingSystem">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#relatedOperatingSystem">
         <rdfs:range rdf:resource="http://cybox.mitre.org/objects/System#OperatingSystemInfo"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a reference to the associated operating system to which the CPE names refers</rdfs:comment>
         <rdfs:label>Related Operating System</rdfs:label>
@@ -220,9 +218,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#relatedProduct -->
+    <!-- http://ontologies.ti-semantics.com/platform#relatedProduct -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#relatedProduct">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#relatedProduct">
         <rdfs:range rdf:resource="http://cybox.mitre.org/objects/Product#Product"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a reference to the associated product to which the CPE names refers</rdfs:comment>
         <rdfs:label>Related Product</rdfs:label>
@@ -230,9 +228,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#submitter -->
+    <!-- http://ontologies.ti-semantics.com/platform#submitter -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#submitter">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#submitter">
         <rdfs:range rdf:resource="http://www.oasis-open.org/ciq_xpil#Organization"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the  organization responsible for submitting the identifier name.</rdfs:comment>
         <rdfs:label>Submitting Organization</rdfs:label>
@@ -240,12 +238,20 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#vendor -->
+    <!-- http://ontologies.ti-semantics.com/platform#vendor -->
 
-    <owl:ObjectProperty rdf:about="https://mswimmer.github.io/utim/platform#vendor">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#vendor">
         <rdfs:range rdf:resource="http://www.oasis-open.org/ciq_xpil#Organization"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the identity of the person or organization that manufactured or created the product</rdfs:comment>
         <rdfs:label>Vendor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://scap.nist.gov/scap_core#generator -->
+
+    <owl:ObjectProperty rdf:about="http://scap.nist.gov/scap_core#generator">
+        <rdfs:range rdf:resource="http://cybox.mitre.org/cyboxCommon#ToolInformation"/>
     </owl:ObjectProperty>
     
 
@@ -261,9 +267,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#changeDate -->
+    <!-- http://ontologies.ti-semantics.com/platform#changeDate -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#changeDate">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#changeDate">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the date and time when the change occurred.</rdfs:comment>
         <rdfs:label>Date of Change</rdfs:label>
@@ -271,9 +277,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#changeType -->
+    <!-- http://ontologies.ti-semantics.com/platform#changeType -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#changeType">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#changeType">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the type of change that occurred.</rdfs:comment>
         <rdfs:label>Change Type</rdfs:label>
@@ -281,9 +287,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#checkSystem -->
+    <!-- http://ontologies.ti-semantics.com/platform#checkSystem -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#checkSystem">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#checkSystem">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the URI for a particular version of OVAL or a related system testing language</rdfs:comment>
         <rdfs:label>Check System URI</rdfs:label>
@@ -291,9 +297,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#comments -->
+    <!-- http://ontologies.ti-semantics.com/platform#comments -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#comments">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#comments">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies comments explaining the rationale for the  change.</rdfs:comment>
         <rdfs:label>Comments</rdfs:label>
@@ -301,9 +307,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#cpeName -->
+    <!-- http://ontologies.ti-semantics.com/platform#cpeName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#cpeName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#cpeName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the name of the Common Platform Enumeration item.</rdfs:comment>
         <rdfs:label>CPE Name</rdfs:label>
@@ -311,9 +317,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#deprecated -->
+    <!-- http://ontologies.ti-semantics.com/platform#deprecated -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#deprecated">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#deprecated">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies whether the CPE has been deprecated</rdfs:comment>
         <rdfs:label>Deprecated</rdfs:label>
@@ -321,9 +327,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#deprecationDate -->
+    <!-- http://ontologies.ti-semantics.com/platform#deprecationDate -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#deprecationDate">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#deprecationDate">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specified the date and time when the deprecation occurred.</rdfs:comment>
         <rdfs:label>Date of Deprecation</rdfs:label>
@@ -331,9 +337,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#deprecationType -->
+    <!-- http://ontologies.ti-semantics.com/platform#deprecationType -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#deprecationType">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#deprecationType">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the type of the deprecation.</rdfs:comment>
         <rdfs:label>Type of Deprecation</rdfs:label>
@@ -341,9 +347,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#description -->
+    <!-- http://ontologies.ti-semantics.com/platform#description -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#description">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#description">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a description of an entity</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://mswimmer.github.io/utim/platform"/>
@@ -352,9 +358,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#edition -->
+    <!-- http://ontologies.ti-semantics.com/platform#edition -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#edition">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#edition">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies edition-related terms applied by the vendor to the product</rdfs:comment>
         <rdfs:label>Edition</rdfs:label>
@@ -362,9 +368,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#evidenceExternalLink -->
+    <!-- http://ontologies.ti-semantics.com/platform#evidenceExternalLink -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#evidenceExternalLink">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#evidenceExternalLink">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies an external link to a specific piece of evidence</rdfs:comment>
         <rdfs:label>External Link to Evidence</rdfs:label>
@@ -372,9 +378,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#evidenceType -->
+    <!-- http://ontologies.ti-semantics.com/platform#evidenceType -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#evidenceType">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#evidenceType">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the type of evidence</rdfs:comment>
         <rdfs:label>Evidence Type</rdfs:label>
@@ -382,9 +388,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#externalLink -->
+    <!-- http://ontologies.ti-semantics.com/platform#externalLink -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#externalLink">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#externalLink">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a hyperlink to an external source of additional information</rdfs:comment>
         <rdfs:label>External Link</rdfs:label>
@@ -392,9 +398,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#generationDate -->
+    <!-- http://ontologies.ti-semantics.com/platform#generationDate -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#generationDate">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#generationDate">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the date and time when the CPE Dictionary was generated.</rdfs:comment>
         <rdfs:label>Generation Date</rdfs:label>
@@ -402,9 +408,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#id -->
+    <!-- http://ontologies.ti-semantics.com/platform#id -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#id">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#id">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the unique identifier associated with the instance</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://mswimmer.github.io/utim/platform"/>
@@ -413,9 +419,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#identifier -->
+    <!-- http://ontologies.ti-semantics.com/platform#identifier -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#identifier">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#identifier">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies an identifier of a test written in that language</rdfs:comment>
         <rdfs:label>Identifier</rdfs:label>
@@ -423,9 +429,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#language -->
+    <!-- http://ontologies.ti-semantics.com/platform#language -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#language">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#language">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the language tags, per RFC5646, supported in the user interface of the product being described</rdfs:comment>
         <rdfs:label>Language</rdfs:label>
@@ -433,21 +439,21 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#negate -->
+    <!-- http://ontologies.ti-semantics.com/platform#negate -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#negate">
-        <rdfs:domain rdf:resource="https://mswimmer.github.io/utim/platform#LogicalTest"/>
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#negate">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalTest"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies whether the result of applying the operator should be negated. Possible values are “TRUE” and “FALSE”. Ignored if the result of applying the operator is “ERROR”</rdfs:comment>
         <rdfs:label>Negate</rdfs:label>
-        <core:xpath>//logical-test[@negate]</core:xpath>
+        <core1:xpath xml:lang="negate]">//logical-test[</core1:xpath>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#notes -->
+    <!-- http://ontologies.ti-semantics.com/platform#notes -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#notes">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#notes">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies additional description material for the CPE</rdfs:comment>
         <rdfs:label>Notes</rdfs:label>
@@ -455,9 +461,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#other -->
+    <!-- http://ontologies.ti-semantics.com/platform#other -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#other">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#other">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies any other general descriptive or identifying information which is vendor or product-specific and which does not logically fit in any other attribute value</rdfs:comment>
         <rdfs:label>Other</rdfs:label>
@@ -465,9 +471,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#part -->
+    <!-- http://ontologies.ti-semantics.com/platform#part -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#part">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#part">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the type of part to which the CPE refers.  Valid part values are &apos;a&apos; for application, &apos;o&apos; for operating system, and &apos;h&apos; for hardware devices.</rdfs:comment>
         <rdfs:label>Type of Part</rdfs:label>
@@ -475,9 +481,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#productName -->
+    <!-- http://ontologies.ti-semantics.com/platform#productName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#productName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#productName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the name of the product</rdfs:comment>
         <rdfs:label>Product Name</rdfs:label>
@@ -485,9 +491,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#remark -->
+    <!-- http://ontologies.ti-semantics.com/platform#remark -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#remark">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#remark">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies additional description information.</rdfs:comment>
         <rdfs:label>Remark</rdfs:label>
@@ -495,9 +501,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#softwareEdition -->
+    <!-- http://ontologies.ti-semantics.com/platform#softwareEdition -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#softwareEdition">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#softwareEdition">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies how the product is tailored to a particular market or class for end users</rdfs:comment>
         <rdfs:label>Software Edition</rdfs:label>
@@ -505,9 +511,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#targetHardware -->
+    <!-- http://ontologies.ti-semantics.com/platform#targetHardware -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#targetHardware">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#targetHardware">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the instruction set architecture (e.g., x86) on which the product being described or identified operates.  Bytecode-intermediate languages, such as Java bytecode or Microsoft CLR) should be considered instruction set architectures.</rdfs:comment>
         <rdfs:label>Target Hardware</rdfs:label>
@@ -515,9 +521,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#targetSoftware -->
+    <!-- http://ontologies.ti-semantics.com/platform#targetSoftware -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#targetSoftware">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#targetSoftware">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies how the product is tailored to a particular market or class of end users.</rdfs:comment>
         <rdfs:label>Target Software</rdfs:label>
@@ -525,9 +531,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#testIdentifer -->
+    <!-- http://ontologies.ti-semantics.com/platform#testIdentifer -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#testIdentifer">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#testIdentifer">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a unique identifier for a logical test</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://mswimmer.github.io/utim/platform"/>
@@ -536,9 +542,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#title -->
+    <!-- http://ontologies.ti-semantics.com/platform#title -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#title">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#title">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a human-readable title associated with the reference</rdfs:comment>
         <rdfs:label>Title</rdfs:label>
@@ -546,9 +552,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#updateIdentifier -->
+    <!-- http://ontologies.ti-semantics.com/platform#updateIdentifier -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#updateIdentifier">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#updateIdentifier">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the vendor-specific alphanumeric strings characterizing the particular update, service pack, or point release of the product.</rdfs:comment>
         <rdfs:label>Update</rdfs:label>
@@ -556,9 +562,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#vendorName -->
+    <!-- http://ontologies.ti-semantics.com/platform#vendorName -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#vendorName">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#vendorName">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the name of the vendor.</rdfs:comment>
         <rdfs:label>Vendor Name</rdfs:label>
@@ -566,9 +572,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#version -->
+    <!-- http://ontologies.ti-semantics.com/platform#version -->
 
-    <owl:DatatypeProperty rdf:about="https://mswimmer.github.io/utim/platform#version">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#version">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the vendor-specific alphanumeric string characterizing the particular release version of the product.</rdfs:comment>
         <rdfs:label>Version</rdfs:label>
@@ -611,120 +617,108 @@
     
 
 
-    <!-- http://scap.nist.gov/scap_core#Catalog -->
+    <!-- http://ontologies.ti-semantics.com/platform#CPE -->
 
-    <owl:Class rdf:about="http://scap.nist.gov/scap_core#Catalog"/>
-    
-
-
-    <!-- http://www.oasis-open.org/ciq_xpil#Organization -->
-
-    <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Organization"/>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/platform#CPE -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#CPE">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#CPE">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#alternateCPE"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#alternateCPE"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#relatedDevice"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#relatedDevice"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#relatedOperatingSystem"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#relatedOperatingSystem"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#relatedProduct"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#relatedProduct"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#submitter"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#submitter"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#vendor"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#vendor"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#cpeName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#cpeName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#deprecated"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#deprecated"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#edition"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#edition"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#language"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#language"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#other"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#other"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#part"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#part"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#productName"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#productName"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#softwareEdition"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#softwareEdition"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#targetSoftware"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#targetSoftware"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#updateIdentifier"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#updateIdentifier"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#version"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#version"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -735,30 +729,30 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#ChangeDescription -->
+    <!-- http://ontologies.ti-semantics.com/platform#ChangeDescription -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#ChangeDescription">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#ChangeDescription">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#changeDate"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#changeDate"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#changeType"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#changeType"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#evidenceExternalLink"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#evidenceExternalLink"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#evidenceType"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#evidenceType"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -769,31 +763,31 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#CheckInfo -->
+    <!-- http://ontologies.ti-semantics.com/platform#CheckInfo -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#CheckInfo">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/platform#FactRef"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#CheckInfo">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/platform#FactRef"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#checkSystem"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#checkSystem"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#description"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#description"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#externalLink"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#externalLink"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#identifier"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#identifier"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -804,24 +798,24 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#DeprecationInfo -->
+    <!-- http://ontologies.ti-semantics.com/platform#DeprecationInfo -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#DeprecationInfo">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#DeprecationInfo">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#deprecatedBy"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#deprecatedBy"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#deprecationDate"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#deprecationDate"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#deprecationType"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#deprecationType"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -832,9 +826,9 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#FactRef -->
+    <!-- http://ontologies.ti-semantics.com/platform#FactRef -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#FactRef">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#FactRef">
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://mswimmer.github.io/utim/platform"/>
         <rdfs:label>Fact ref</rdfs:label>
@@ -842,27 +836,27 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#LogicalOperator -->
+    <!-- http://ontologies.ti-semantics.com/platform#LogicalOperator -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#LogicalOperator">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#LogicalOperator">
         <rdfs:comment xml:lang="en">Operator applied to fact-ref, check-fact-ref and logical-test elements. Only instances allowed are AND and OR.</rdfs:comment>
         <rdfs:label xml:lang="en">operator</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#LogicalTest -->
+    <!-- http://ontologies.ti-semantics.com/platform#LogicalTest -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#LogicalTest">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#LogicalTest">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#negate"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#negate"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#testIdentifer"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#testIdentifer"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -873,13 +867,13 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#Platform -->
+    <!-- http://ontologies.ti-semantics.com/platform#Platform -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#Platform">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#Platform">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#logicalTest"/>
-                <owl:someValuesFrom rdf:resource="https://mswimmer.github.io/utim/platform#LogicalTest"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#logicalTest"/>
+                <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalTest"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a description or qualifications of a particular IT platform type.</rdfs:comment>
@@ -889,10 +883,16 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#PlatformCatalog -->
+    <!-- http://ontologies.ti-semantics.com/platform#PlatformCatalog -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#PlatformCatalog">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#PlatformCatalog">
         <rdfs:subClassOf rdf:resource="http://scap.nist.gov/scap_core#Catalog"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#generator"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://scap.nist.gov/scap_core#generator"/>
@@ -901,13 +901,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#generator"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#generationDate"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#generationDate"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -918,18 +912,18 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#ReferenceInfo -->
+    <!-- http://ontologies.ti-semantics.com/platform#ReferenceInfo -->
 
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/platform#ReferenceInfo">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#ReferenceInfo">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#externalLink"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#externalLink"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://mswimmer.github.io/utim/platform#title"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#title"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -937,6 +931,18 @@
         <rdfs:isDefinedBy rdf:resource="https://mswimmer.github.io/utim/platform"/>
         <rdfs:label>Reference</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- http://scap.nist.gov/scap_core#Catalog -->
+
+    <owl:Class rdf:about="http://scap.nist.gov/scap_core#Catalog"/>
+    
+
+
+    <!-- http://www.oasis-open.org/ciq_xpil#Organization -->
+
+    <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Organization"/>
     
 
 
@@ -951,18 +957,18 @@
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#AND -->
+    <!-- http://ontologies.ti-semantics.com/platform#AND -->
 
-    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/platform#AND">
-        <rdf:type rdf:resource="https://mswimmer.github.io/utim/platform#LogicalOperator"/>
+    <owl:NamedIndividual rdf:about="http://ontologies.ti-semantics.com/platform#AND">
+        <rdf:type rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalOperator"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- https://mswimmer.github.io/utim/platform#OR -->
+    <!-- http://ontologies.ti-semantics.com/platform#OR -->
 
-    <owl:NamedIndividual rdf:about="https://mswimmer.github.io/utim/platform#OR">
-        <rdf:type rdf:resource="https://mswimmer.github.io/utim/platform#LogicalOperator"/>
+    <owl:NamedIndividual rdf:about="http://ontologies.ti-semantics.com/platform#OR">
+        <rdf:type rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalOperator"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
