@@ -63,7 +63,7 @@ def transfer(localFile, bucket, destKey, ct="application/html"):
         response = s3_client.get_object(Bucket=bucket, Key=destKey)
         #print(response)
         file_datetime = datetime.utcfromtimestamp(os.path.getmtime(localFile)).astimezone()
-        #print(file_datetime)
+        print("Is", response['LastModified'], "<", file_datetime, "?")
         if response['LastModified'] < file_datetime:
             with open(localFile, 'rb') as f:
                 print("Transferring", bucket, destKey)
