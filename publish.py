@@ -50,6 +50,7 @@ ontologies = [
     {'file': 'ontologies/weakness-3.1-v1.0.1.rdf', 'bucket':s3ontos, 'key': 'weakness-3.1-v1.0.1.rdf', 'ct':'application/rdf+xml'},
     {'file': 'ontologies/weakness-3.1-v1.0.1.rdf', 'bucket':s3ontos, 'key': 'weakness-3.1-v1.0.1', 'ct':'application/rdf+xml'},
     {'file': 'ontologies/weakness-3.1-v1.0.1.rdf', 'bucket':s3ontos, 'key': 'weakness', 'ct':'application/rdf+xml'},
+    # TODOL need to implement versioning for attack
     {'file': 'ontologies/attack.rdf', 'bucket':s3ontos, 'key': 'attack.rdf', 'ct':'application/rdf+xml'},
 
     {'file': 'ontologies/index.html', 'bucket':s3ontos, 'key': 'index.html', 'ct':'text/html'},
