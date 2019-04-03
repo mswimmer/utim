@@ -15,6 +15,33 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#.bash_profile+and+.bashrc">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#persistence"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ADVSTORESHELL">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ADVSTORESHELL">
+    <rdfs:label>ADVSTORESHELL</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ADVSTORESHELL">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#azzy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ADVSTORESHELL">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#eviltoss"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ADVSTORESHELL">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#netui"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ADVSTORESHELL">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#sedreco"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ASPXSpy">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ASPXSpy">
+    <rdfs:label>ASPXSpy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ASPXSpy">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#aspxtool"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Accessibility+Features">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -765,6 +792,51 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Application+Shimming">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Arp">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Arp">
+    <rdfs:label>Arp</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Arp">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#arp.exe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BACKSPACE">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BACKSPACE">
+    <rdfs:label>BACKSPACE</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BACKSPACE">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#lecna"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BUBBLEWRAP">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BUBBLEWRAP">
+    <rdfs:label>BUBBLEWRAP</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BUBBLEWRAP">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#backdoor.apt.fakewinhttphelper"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Backdoor.Oldrea">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Backdoor.Oldrea">
+    <rdfs:label>Backdoor.Oldrea</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Backdoor.Oldrea">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#havex"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Bankshot">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Bankshot">
+    <rdfs:label>Bankshot</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Bankshot">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#trojan+manuscript"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Bash+History">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -773,6 +845,15 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Bash+History">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#credential-access"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BlackEnergy">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BlackEnergy">
+    <rdfs:label>BlackEnergy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#BlackEnergy">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#black+energy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Browser+Extensions">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -807,6 +888,24 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Buy+domain+name">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CHOPSTICK">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CHOPSTICK">
+    <rdfs:label>CHOPSTICK</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CHOPSTICK">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#splm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CHOPSTICK">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#webhp"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CHOPSTICK">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#x-agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CHOPSTICK">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#xagent"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#CMSTP">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -825,6 +924,27 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#CMSTP">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CORESHELL">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CORESHELL">
+    <rdfs:label>CORESHELL</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CORESHELL">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#sourface"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ChChes">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ChChes">
+    <rdfs:label>ChChes</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ChChes">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#haymaker"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#ChChes">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#scorpion"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Change+Default+File+Association">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -842,6 +962,18 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Clear+Command+History">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#defense-evasion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CloudDuke">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CloudDuke">
+    <rdfs:label>CloudDuke</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CloudDuke">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#cloudlook"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CloudDuke">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#minidionis"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Compiled+HTML+File">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -891,6 +1023,39 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Compromise+3rd+party+infrastructure+to+support+delivery">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CosmicDuke">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CosmicDuke">
+    <rdfs:label>CosmicDuke</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CosmicDuke">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#botgenstudios"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CosmicDuke">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#nemesisgemina"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CosmicDuke">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#tinybaron"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CozyCar">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CozyCar">
+    <rdfs:label>CozyCar</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CozyCar">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#cozer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CozyCar">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#cozybear"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CozyCar">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#cozyduke"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#CozyCar">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#euroapt"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Create+custom+payloads">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#PreTechnique"/>
   </rdf:Description>
@@ -902,6 +1067,36 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Create+custom+payloads">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Crimson">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Crimson">
+    <rdfs:label>Crimson</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Crimson">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#msil%2Fcrimson"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Daserf">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Daserf">
+    <rdfs:label>Daserf</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Daserf">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#muirim"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Daserf">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#nioupale"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Derusbi">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Derusbi">
+    <rdfs:label>Derusbi</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Derusbi">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#photo"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Develop+social+network+persona+digital+footprint">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#PreTechnique"/>
@@ -915,6 +1110,15 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Develop+social+network+persona+digital+footprint">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Dok">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Dok">
+    <rdfs:label>Dok</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Dok">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#retefe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Domain+registration+hijacking">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#PreTechnique"/>
   </rdf:Description>
@@ -926,6 +1130,24 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Domain+registration+hijacking">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Downdelph">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Downdelph">
+    <rdfs:label>Downdelph</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Downdelph">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#delphacy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#DustySky">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#DustySky">
+    <rdfs:label>DustySky</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#DustySky">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#ned+worm"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Dylib+Hijacking">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -950,6 +1172,36 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Dynamic+DNS">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Elise">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Elise">
+    <rdfs:label>Elise</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Elise">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#bkdr_esile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Elise">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#page"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Epic">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Epic">
+    <rdfs:label>Epic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Epic">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#tadjmakhal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Epic">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#tavdig"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Epic">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#wipbot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Epic">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#worldcupsec"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Exploitation+for+Credential+Access">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -990,6 +1242,15 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#External+Remote+Services">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#FTP">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#FTP">
+    <rdfs:label>FTP</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#FTP">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#ftp.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#File+System+Logical+Offsets">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -998,6 +1259,27 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#File+System+Logical+Offsets">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#defense-evasion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#FinFisher">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#FinFisher">
+    <rdfs:label>FinFisher</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#FinFisher">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#finspy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Flame">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Flame">
+    <rdfs:label>Flame</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Flame">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#flamer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Flame">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#skywiper"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Forced+Authentication">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1014,6 +1296,15 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Forced+Authentication">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#GLOOXMAIL">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#GLOOXMAIL">
+    <rdfs:label>GLOOXMAIL</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#GLOOXMAIL">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#trojan.gtalk"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Gatekeeper+Bypass">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1022,6 +1313,24 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Gatekeeper+Bypass">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#defense-evasion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Gazer">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Gazer">
+    <rdfs:label>Gazer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Gazer">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#whitebear"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Gooligan">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Gooligan">
+    <rdfs:label>Gooligan</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Gooligan">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#ghost+push"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Graphical+User+Interface">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1038,6 +1347,27 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Graphical+User+Interface">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HAMMERTOSS">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HAMMERTOSS">
+    <rdfs:label>HAMMERTOSS</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HAMMERTOSS">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#hammerduke"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HAMMERTOSS">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#netduke"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HDoor">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HDoor">
+    <rdfs:label>HDoor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HDoor">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#custom+hdoor"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#HISTCONTROL">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1046,6 +1376,27 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#HISTCONTROL">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#defense-evasion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HTRAN">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HTRAN">
+    <rdfs:label>HTRAN</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HTRAN">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#huc+packet+transmit+tool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HTTPBrowser">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HTTPBrowser">
+    <rdfs:label>HTTPBrowser</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HTTPBrowser">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#httpdump"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#HTTPBrowser">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#token+control"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Hardware+Additions">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1073,6 +1424,18 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Hidden+Window">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#defense-evasion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Hydraq">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Hydraq">
+    <rdfs:label>Hydraq</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Hydraq">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#9002+rat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Hydraq">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#aurora"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Hypervisor">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1131,6 +1494,27 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#InstallUtil">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#execution"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#JHUHUGIT">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#JHUHUGIT">
+    <rdfs:label>JHUHUGIT</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#JHUHUGIT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#gamefish"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#JHUHUGIT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#jkeyskw"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#JHUHUGIT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#sednit"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#JHUHUGIT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#seduploader"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#JHUHUGIT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#sofacycarberp"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Kernel+Modules+and+Extensions">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1139,6 +1523,15 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Kernel+Modules+and+Extensions">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#persistence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Keydnap">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Keydnap">
+    <rdfs:label>Keydnap</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Keydnap">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#osx%2Fkeydnap"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#LC_LOAD_DYLIB+Addition">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1169,6 +1562,63 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Launch+Daemon">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#privilege-escalation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Lurid">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Lurid">
+    <rdfs:label>Lurid</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Lurid">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#enfal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Miner-C">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Miner-C">
+    <rdfs:label>Miner-C</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Miner-C">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#mal%2Fminer-c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Miner-C">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#photominer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Net">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Net">
+    <rdfs:label>Net</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Net">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#net.exe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Net+Crawler">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Net+Crawler">
+    <rdfs:label>Net Crawler</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Net+Crawler">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#netc"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Nidiran">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Nidiran">
+    <rdfs:label>Nidiran</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Nidiran">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#backdoor.nidiran"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#OLDBAIT">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#OLDBAIT">
+    <rdfs:label>OLDBAIT</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#OLDBAIT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#sasfis"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Obfuscate+infrastructure">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#PreTechnique"/>
@@ -1221,6 +1671,63 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Office+Application+Startup">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Orz">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Orz">
+    <rdfs:label>Orz</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Orz">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#airbreak"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#P2P+ZeuS">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#P2P+ZeuS">
+    <rdfs:label>P2P ZeuS</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#P2P+ZeuS">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#gameover+zeus"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#P2P+ZeuS">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#peer-to-peer+zeus"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#POWERSOURCE">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#POWERSOURCE">
+    <rdfs:label>POWERSOURCE</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#POWERSOURCE">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#dnsmessenger"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PUNCHTRACK">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PUNCHTRACK">
+    <rdfs:label>PUNCHTRACK</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PUNCHTRACK">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#psvc"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Pegasus+for+Android">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Pegasus+for+Android">
+    <rdfs:label>Pegasus for Android</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Pegasus+for+Android">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#chrysaor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Ping">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Ping">
+    <rdfs:label>Ping</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Ping">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#ping.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Plist+Modification">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1236,6 +1743,33 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Plist+Modification">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#privilege-escalation"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PlugX">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PlugX">
+    <rdfs:label>PlugX</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PlugX">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#kaba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PlugX">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#korplug"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PlugX">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#sogu"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PoisonIvy">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PoisonIvy">
+    <rdfs:label>PoisonIvy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PoisonIvy">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#darkmoon"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#PoisonIvy">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#poison+ivy"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Port+Monitors">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1248,6 +1782,39 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Port+Monitors">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#privilege-escalation"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Power+Loader">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Power+Loader">
+    <rdfs:label>Power Loader</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Power+Loader">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#win32%2Fagent.uaw"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#QuasarRAT">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#QuasarRAT">
+    <rdfs:label>QuasarRAT</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#QuasarRAT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#xrat"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#RawPOS">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#RawPOS">
+    <rdfs:label>RawPOS</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#RawPOS">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#driftwood"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#RawPOS">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#duebrew"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#RawPOS">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#fiendcry"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Re-opened+Applications">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1256,6 +1823,24 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Re-opened+Applications">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#persistence"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#RedLeaves">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#RedLeaves">
+    <rdfs:label>RedLeaves</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#RedLeaves">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#bugjuice"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Reg">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Reg">
+    <rdfs:label>Reg</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Reg">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#reg.exe"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Regsvcs%2FRegasm">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1281,6 +1866,30 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Remote+access+tool+development">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Remsec">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Remsec">
+    <rdfs:label>Remsec</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Remsec">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#backdoor.remsec"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Remsec">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#projectsauron"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#SHOTPUT">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#SHOTPUT">
+    <rdfs:label>SHOTPUT</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#SHOTPUT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#backdoor.apt.cookiecutter"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#SHOTPUT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#pirpi"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#SIP+and+Trust+Provider+Hijacking">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1302,6 +1911,30 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#SSH+Hijacking">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#lateral-movement"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Sakula">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Sakula">
+    <rdfs:label>Sakula</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Sakula">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#sakurel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Sakula">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#viper"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#SeaDuke">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#SeaDuke">
+    <rdfs:label>SeaDuke</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#SeaDuke">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#seadaddy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#SeaDuke">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#seadesk"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Service+Registry+Permissions+Weakness">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1313,6 +1946,15 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Service+Registry+Permissions+Weakness">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#privilege-escalation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Shamoon">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Shamoon">
+    <rdfs:label>Shamoon</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Shamoon">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#disttrack"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Shared+Webroot">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1352,6 +1994,15 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Signed+Script+Proxy+Execution">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Smoke+Loader">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Smoke+Loader">
+    <rdfs:label>Smoke Loader</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Smoke+Loader">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#dofoil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Source">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1428,6 +2079,24 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Sudo">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#privilege-escalation"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Systeminfo">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Systeminfo">
+    <rdfs:label>Systeminfo</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Systeminfo">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#systeminfo.exe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#TEXTMATE">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#TEXTMATE">
+    <rdfs:label>TEXTMATE</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#TEXTMATE">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#dnsmessenger"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Template+Injection">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1464,6 +2133,18 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Trap">
     <atk:accomplishes rdf:resource="http://attack.mitre.org/attack#persistence"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#TrickBot">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#TrickBot">
+    <rdfs:label>TrickBot</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#TrickBot">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#totbrick"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#TrickBot">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#tspy_trickload"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Trusted+Relationship">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
   </rdf:Description>
@@ -1478,6 +2159,36 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Trusted+Relationship">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#UPPERCUT">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#UPPERCUT">
+    <rdfs:label>UPPERCUT</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#UPPERCUT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#anel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#USBStealer">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#USBStealer">
+    <rdfs:label>USBStealer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#USBStealer">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#usb+stealer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#USBStealer">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#win32%2Fusbstealer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Windows+Credential+Editor">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Windows+Credential+Editor">
+    <rdfs:label>Windows Credential Editor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Windows+Credential+Editor">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#wce"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#XSL+Script+Processing">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -1496,6 +2207,27 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#XSL+Script+Processing">
     <atk:observedIn rdf:resource="http://attack.mitre.org/attack#AnyIncident"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#XTunnel">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#XTunnel">
+    <rdfs:label>XTunnel</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#XTunnel">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#x-tunnel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#XTunnel">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#xaps"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Zeroaccess">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Zeroaccess">
+    <rdfs:label>Zeroaccess</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Zeroaccess">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#trojan.zeroaccess"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#accomplishes">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -1553,48 +2285,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#agent.btz">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Owner%2FUser+Discovery"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:label>alias</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#MobileThreatActor"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#PreThreatActor"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:range rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:range rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:range rdf:resource="http://attack.mitre.org/attack#MobileThreatActor"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:range rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#alias">
-    <rdfs:range rdf:resource="http://attack.mitre.org/attack#PreThreatActor"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#allwinner">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
@@ -2071,9 +2761,6 @@
     <rdfs:label>Crimson</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#crimson">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#msil%2Fcrimson"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#crimson">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Credential+Dumping"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#crimson">
@@ -2125,9 +2812,6 @@
     <rdfs:label>Dok</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dok">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#retefe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#dok">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#AppleScript"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dok">
@@ -2150,9 +2834,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#downdelph">
     <rdfs:label>Downdelph</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#downdelph">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#delphacy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#downdelph">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Bypass+User+Account+Control"/>
@@ -2365,12 +3046,6 @@
     <rdfs:label>Flame</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#flame">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#flamer"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#flame">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#skywiper"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#flame">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Audio+Capture"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#flame">
@@ -2477,9 +3152,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gooligan">
     <rdfs:label>Gooligan</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#gooligan">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#ghost+push"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gooligan">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Access+Sensitive+Data+or+Credentials+in+Files"/>
@@ -2644,9 +3316,6 @@
     <rdfs:label>HTRAN</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#htran">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#huc+packet+transmit+tool"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#htran">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Connection+Proxy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hummingbad">
@@ -2673,6 +3342,15 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hummingwhale">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Generate+Fraudulent+Advertising+Revenue"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#iKitten">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#iKitten">
+    <rdfs:label>iKitten</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#iKitten">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#osx%2Fmacdownloader"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ifconfig">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
@@ -2687,9 +3365,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ikitten">
     <rdfs:label>iKitten</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#ikitten">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#osx%2Fmacdownloader"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ikitten">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Data+Compressed"/>
@@ -2907,6 +3582,15 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#invoke-psimage">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Obfuscated+Files+or+Information"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#jRAT">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#jRAT">
+    <rdfs:label>jRAT</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#jRAT">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#trojan.maljava"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#janicab">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
@@ -2930,9 +3614,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#jrat">
     <rdfs:label>jRAT</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#jrat">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#trojan.maljava"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#jrat">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#File+Deletion"/>
@@ -3011,9 +3692,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#keydnap">
     <rdfs:label>Keydnap</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#keydnap">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#osx%2Fkeydnap"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#keydnap">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Input+Prompt"/>
@@ -3169,12 +3847,6 @@
     <rdfs:label>Miner-C</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#miner-c">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#mal%2Fminer-c"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#miner-c">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#photominer"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#miner-c">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Taint+Shared+Content"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#moonwind">
@@ -3298,12 +3970,6 @@
     <rdfs:label>P2P ZeuS</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#p2p+zeus">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#gameover+zeus"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#p2p+zeus">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#peer-to-peer+zeus"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#p2p+zeus">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Data+Obfuscation"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#pegasus+for+android">
@@ -3311,9 +3977,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#pegasus+for+android">
     <rdfs:label>Pegasus for Android</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#pegasus+for+android">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#chrysaor"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#pegasus+for+android">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Access+Calendar+Entries"/>
@@ -3416,9 +4079,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#power+loader">
     <rdfs:label>Power Loader</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#power+loader">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#win32%2Fagent.uaw"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#power+loader">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Extra+Window+Memory+Injection"/>
@@ -3784,9 +4444,6 @@
     <rdfs:label>Shamoon</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#shamoon">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#disttrack"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#shamoon">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Bypass+User+Account+Control"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#shamoon">
@@ -3893,9 +4550,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#smoke+loader">
     <rdfs:label>Smoke Loader</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#smoke+loader">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#dofoil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#smoke+loader">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Credentials+in+Files"/>
@@ -4206,17 +4860,65 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tangelo">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Microphone+or+Camera+Recordings"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdfs:label>alias</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#MobileThreatActor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#PreThreatActor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdfs:range rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdfs:range rdf:resource="http://attack.mitre.org/attack#MobileThreatActor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#threatActorAlias">
+    <rdfs:range rdf:resource="http://attack.mitre.org/attack#PreThreatActor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#toolAlias">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#toolAlias">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#toolAlias">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#toolAlias">
+    <rdfs:label>alias</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#toolAlias">
+    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#toolAlias">
+    <rdfs:domain rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#toolAlias">
+    <rdfs:range rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#toolAlias">
+    <rdfs:range rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trickbot">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trickbot">
     <rdfs:label>TrickBot</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#trickbot">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#totbrick"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#trickbot">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#tspy_trickload"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trickbot">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Account+Discovery"/>
@@ -4558,9 +5260,6 @@
     <rdfs:label>Zeroaccess</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#zeroaccess">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#trojan.zeroaccess"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#zeroaccess">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#NTFS+File+Attributes"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#zeroaccess">
@@ -4618,7 +5317,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#9002+rat">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>9002 RAT</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT-C-00">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4633,13 +5332,13 @@
     <rdfs:label>APT1</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT1">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Comment+Crew"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Comment+Crew"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT1">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Comment+Group"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Comment+Group"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT1">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Comment+Panda"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Comment+Panda"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT10">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4651,16 +5350,16 @@
     <rdfs:label>APT12</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT12">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#DNSCALC"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#DNSCALC"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT12">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#DynCalc"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#DynCalc"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT12">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#IXESHE"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#IXESHE"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT12">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Numbered+Panda"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Numbered+Panda"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT15">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4684,7 +5383,7 @@
     <rdfs:label>APT17</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT17">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Deputy+Dog"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Deputy+Dog"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT18">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4693,13 +5392,13 @@
     <rdfs:label>APT18</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT18">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Dynamite+Panda"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Dynamite+Panda"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT18">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TG-0416"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TG-0416"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT18">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Threat+Group-0416"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Threat+Group-0416"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT19">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4708,16 +5407,16 @@
     <rdfs:label>APT19</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT19">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#C0d0so0"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#C0d0so0"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT19">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Codoso"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Codoso"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT19">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Codoso+Team"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Codoso+Team"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT19">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Sunshop+Group"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Sunshop+Group"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT2">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4738,28 +5437,28 @@
     <rdfs:label>APT28</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT28">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Fancy+Bear"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Fancy+Bear"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT28">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Pawn+Storm"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Pawn+Storm"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT28">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#STRONTIUM"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#STRONTIUM"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT28">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Sednit"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Sednit"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT28">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Sofacy"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Sofacy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT28">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TG-4127"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TG-4127"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT28">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Threat+Group-4127"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Threat+Group-4127"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT28">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Tsar+Team"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Tsar+Team"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT29">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4768,13 +5467,13 @@
     <rdfs:label>APT29</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT29">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Cozy+Bear"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Cozy+Bear"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT29">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#CozyDuke"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#CozyDuke"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT29">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#The+Dukes"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#The+Dukes"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT3">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4783,22 +5482,22 @@
     <rdfs:label>APT3</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT3">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Buckeye"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Buckeye"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT3">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Gothic+Panda"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Gothic+Panda"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT3">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Pirpi"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Pirpi"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT3">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TG-0110"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TG-0110"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT3">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Threat+Group-0110"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Threat+Group-0110"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT3">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#UPS+Team"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#UPS+Team"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT30">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4813,10 +5512,10 @@
     <rdfs:label>APT32</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT32">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#APT-C-00"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#APT-C-00"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT32">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#OceanLotus+Group"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#OceanLotus+Group"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT33">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4837,16 +5536,16 @@
     <rdfs:label>APT37</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT37">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Group123"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Group123"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT37">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Reaper"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Reaper"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT37">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#ScarCruft"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#ScarCruft"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#APT37">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TEMP.Reaper"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TEMP.Reaper"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Abuse+Accessibility+Features">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#MobileTechnique"/>
@@ -4906,7 +5605,7 @@
     <rdfs:label>Axiom</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Axiom">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Group+72"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Group+72"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#BRONZE+BUTLER">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4915,10 +5614,10 @@
     <rdfs:label>BRONZE BUTLER</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#BRONZE+BUTLER">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#REDBALDKNIGHT"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#REDBALDKNIGHT"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#BRONZE+BUTLER">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Tick"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Tick"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#BRONZE+UNION">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4954,13 +5653,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Carbanak">
+    <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Carbanak">
     <rdfs:label>Carbanak</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Carbanak">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Anunak"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Anunak"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Carbanak">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Carbon+Spider"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Carbon+Spider"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#Carbanak">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#anunak"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Carbon+Spider">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4984,10 +5689,10 @@
     <rdfs:label>Cleaver</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Cleaver">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TG-2889"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TG-2889"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Cleaver">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Threat+Group+2889"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Threat+Group+2889"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Cobalt+Gang">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -4999,10 +5704,10 @@
     <rdfs:label>Cobalt Group</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Cobalt+Group">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Cobalt+Gang"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Cobalt+Gang"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Cobalt+Group">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Cobalt+Spider"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Cobalt+Spider"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Cobalt+Gypsy">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5110,19 +5815,19 @@
     <rdfs:label>Deep Panda</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Deep+Panda">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Black+Vine"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Black+Vine"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Deep+Panda">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#KungFu+Kittens"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#KungFu+Kittens"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Deep+Panda">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#PinkPanther"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#PinkPanther"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Deep+Panda">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Shell+Crew"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Shell+Crew"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Deep+Panda">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#WebMasters"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#WebMasters"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Deputy+Dog">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5158,7 +5863,7 @@
     <rdfs:label>Dragonfly</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Dragonfly">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Energetic+Bear"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Energetic+Bear"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Dragonfly+2.0">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5167,7 +5872,7 @@
     <rdfs:label>Dragonfly 2.0</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Dragonfly+2.0">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Berserk+Bear"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Berserk+Bear"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Dropping+Elephant">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5191,13 +5896,13 @@
     <rdfs:label>Elderwood</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Elderwood">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Beijing+Group"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Beijing+Group"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Elderwood">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Elderwood+Gang"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Elderwood+Gang"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Elderwood">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Sneaky+Panda"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Sneaky+Panda"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Elderwood+Gang">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5422,22 +6127,22 @@
     <rdfs:label>Ke3chang</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Ke3chang">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#APT15"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#APT15"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Ke3chang">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#GREF"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#GREF"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Ke3chang">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Mirage"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Mirage"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Ke3chang">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Playful+Dragon"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Playful+Dragon"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Ke3chang">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#RoyalAPT"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#RoyalAPT"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Ke3chang">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Vixen+Panda"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Vixen+Panda"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Kerberoasting">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -5476,16 +6181,16 @@
     <rdfs:label>Lazarus Group</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Lazarus+Group">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Guardians+of+Peace"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Guardians+of+Peace"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Lazarus+Group">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#HIDDEN+COBRA"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#HIDDEN+COBRA"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Lazarus+Group">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#NICKEL+ACADEMY"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#NICKEL+ACADEMY"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Lazarus+Group">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#ZINC"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#ZINC"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Leafminer">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5500,7 +6205,7 @@
     <rdfs:label>Leviathan</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Leviathan">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TEMP.Periscope"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TEMP.Periscope"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Local+Job+Scheduling">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -5548,7 +6253,7 @@
     <rdfs:label>Lotus Blossom</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Lotus+Blossom">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Spring+Dragon"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Spring+Dragon"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#LuckyMouse">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5566,25 +6271,25 @@
     <rdfs:label>Magic Hound</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Magic+Hound">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#APT35"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#APT35"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Magic+Hound">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Ajax+Security+Team"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Ajax+Security+Team"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Magic+Hound">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Cobalt+Gypsy"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Cobalt+Gypsy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Magic+Hound">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Newscaster"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Newscaster"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Magic+Hound">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Operation+Saffron+Rose"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Operation+Saffron+Rose"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Magic+Hound">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Operation+Woolen-Goldfish"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Operation+Woolen-Goldfish"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Magic+Hound">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Rocket+Kitten"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Rocket+Kitten"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Mirage">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5608,10 +6313,10 @@
     <rdfs:label>Molerats</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Molerats">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Gaza+Cybergang"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Gaza+Cybergang"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Molerats">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Operation+Molerats"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Operation+Molerats"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#MuddyWater">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5620,7 +6325,7 @@
     <rdfs:label>MuddyWater</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#MuddyWater">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TEMP.Zagros"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TEMP.Zagros"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Musical+Chairs">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5686,7 +6391,7 @@
     <rdfs:label>Night Dragon</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Night+Dragon">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Musical+Chairs"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Musical+Chairs"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Numbered+Panda">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5701,10 +6406,10 @@
     <rdfs:label>OilRig</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#OilRig">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#APT34"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#APT34"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#OilRig">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Helix+Kitten"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Helix+Kitten"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Operation+Hangover">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5752,16 +6457,16 @@
     <rdfs:label>Patchwork</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Patchwork">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Chinastrats"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Chinastrats"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Patchwork">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Dropping+Elephant"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Dropping+Elephant"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Patchwork">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#MONSOON"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#MONSOON"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Patchwork">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Operation+Hangover"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Operation+Hangover"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Path+Interception">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -5833,10 +6538,10 @@
     <rdfs:label>Putter Panda</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Putter+Panda">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#APT2"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#APT2"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Putter+Panda">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#MSUpdater"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#MSUpdater"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Quedagh">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -5935,10 +6640,10 @@
     <rdfs:label>Sandworm Team</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Sandworm+Team">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Quedagh"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Quedagh"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Sandworm+Team">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#VOODOO+BEAR"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#VOODOO+BEAR"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ScarCruft">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -6043,7 +6748,7 @@
     <rdfs:label>Strider</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Strider">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#ProjectSauron"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#ProjectSauron"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Suckfly">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -6154,7 +6859,7 @@
     <rdfs:label>Threat Group-1314</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-1314">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TG-1314"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TG-1314"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-3390">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -6163,22 +6868,22 @@
     <rdfs:label>Threat Group-3390</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-3390">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#APT27"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#APT27"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-3390">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#BRONZE+UNION"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#BRONZE+UNION"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-3390">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Emissary+Panda"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Emissary+Panda"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-3390">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Iron+Tiger"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Iron+Tiger"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-3390">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#LuckyMouse"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#LuckyMouse"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-3390">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#TG-3390"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#TG-3390"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Threat+Group-4127">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -6226,19 +6931,19 @@
     <rdfs:label>Turla</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Turla">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Krypton"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Krypton"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Turla">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Snake"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Snake"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Turla">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#VENOMOUS+BEAR"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#VENOMOUS+BEAR"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Turla">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Waterbug"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Waterbug"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Turla">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#WhiteBear"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#WhiteBear"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Two-Factor+Authentication+Interception">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTechnique"/>
@@ -6310,7 +7015,7 @@
     <rdfs:label>Winnti Group</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Winnti+Group">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Blackfly"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Blackfly"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ZINC">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseThreatActor"/>
@@ -6341,18 +7046,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#advstoreshell">
     <rdfs:label>ADVSTORESHELL</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#advstoreshell">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#azzy"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#advstoreshell">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#eviltoss"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#advstoreshell">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#netui"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#advstoreshell">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#sedreco"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#advstoreshell">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
@@ -6427,19 +7120,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#airbreak">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>AIRBREAK</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#anel">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#anel">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>ANEL</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#anunak">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#anunak">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Anunak</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#arp">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -6448,16 +7141,13 @@
     <rdfs:label>Arp</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#arp">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#arp.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#arp">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Configuration+Discovery"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#arp.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#arp.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>arp.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#aspxspy">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -6466,16 +7156,13 @@
     <rdfs:label>ASPXSpy</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#aspxspy">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#aspxtool"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#aspxspy">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Web+Shell"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#aspxtool">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#aspxtool">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>ASPXTool</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#at">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -6484,22 +7171,22 @@
     <rdfs:label>at</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#at">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#at.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#at">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Scheduled+Task"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#at">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#at.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#at.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#at.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>at.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#aurora">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#aurora">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Aurora</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#autoit+backdoor">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -6523,34 +7210,31 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#azzy">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>AZZY</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.apt.cookiecutter">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.apt.cookiecutter">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Backdoor.APT.CookieCutter</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.apt.fakewinhttphelper">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.apt.fakewinhttphelper">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Backdoor.APT.FakeWinHTTPHelper</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.nidiran">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.nidiran">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Backdoor.Nidiran</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.oldrea">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.oldrea">
     <rdfs:label>Backdoor.Oldrea</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.oldrea">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#havex"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.oldrea">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Credential+Dumping"/>
@@ -6592,16 +7276,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backdoor.remsec">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Backdoor.Remsec</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backspace">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backspace">
     <rdfs:label>BACKSPACE</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#backspace">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#lecna"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#backspace">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
@@ -6778,9 +7459,6 @@
     <rdfs:label>Bankshot</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#bankshot">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#trojan+manuscript"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#bankshot">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Access+Token+Manipulation"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#bankshot">
@@ -6874,13 +7552,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#bkdr_esile">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>BKDR_ESILE</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#black+energy">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#black+energy">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Black Energy</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#blackcoffee">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -6911,9 +7589,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#blackenergy">
     <rdfs:label>BlackEnergy</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#blackenergy">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#black+energy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#blackenergy">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Bypass+User+Account+Control"/>
@@ -6985,7 +7660,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#botgenstudios">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>BotgenStudios</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#briba">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -7015,9 +7690,6 @@
     <rdfs:label>BUBBLEWRAP</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#bubblewrap">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#backdoor.apt.fakewinhttphelper"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#bubblewrap">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Standard+Application+Layer+Protocol"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#bubblewrap">
@@ -7030,7 +7702,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#bugjuice">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>BUGJUICE</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cachedump">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -7073,9 +7745,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#carbanak">
     <rdfs:label>Carbanak</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#carbanak">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#anunak"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#carbanak">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
@@ -7177,9 +7846,6 @@
     <rdfs:label>certutil</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#certutil">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#certutil.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#certutil">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Deobfuscate%2FDecode+Files+or+Information"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#certutil">
@@ -7188,23 +7854,20 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#certutil">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Remote+File+Copy"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#certutil">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#certutil.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#certutil.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#certutil.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>certutil.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#chches">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#chches">
     <rdfs:label>ChChes</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#chches">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#haymaker"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#chches">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#scorpion"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#chches">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Code+Signing"/>
@@ -7270,18 +7933,6 @@
     <rdfs:label>CHOPSTICK</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#chopstick">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#splm"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#chopstick">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#webhp"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#chopstick">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#x-agent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#chopstick">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#xagent"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#chopstick">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#chopstick">
@@ -7327,19 +7978,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#chrysaor">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Chrysaor</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cloudduke">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cloudduke">
     <rdfs:label>CloudDuke</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cloudduke">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#cloudlook"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cloudduke">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#minidionis"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cloudduke">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Remote+File+Copy"/>
@@ -7354,16 +7999,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cloudlook">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>CloudLook</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cmd">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cmd">
     <rdfs:label>cmd</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cmd">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#cmd.exe"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cmd">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
@@ -7380,11 +8022,14 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cmd">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Information+Discovery"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#cmd">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#cmd.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cmd.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cmd.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>cmd.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cobalt+strike">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -7540,9 +8185,6 @@
     <rdfs:label>CORESHELL</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#coreshell">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#sourface"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#coreshell">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Binary+Padding"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#coreshell">
@@ -7574,15 +8216,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cosmicduke">
     <rdfs:label>CosmicDuke</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cosmicduke">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#botgenstudios"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cosmicduke">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#nemesisgemina"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cosmicduke">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#tinybaron"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cosmicduke">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Automated+Exfiltration"/>
@@ -7636,31 +8269,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cozer">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Cozer</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cozybear">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cozybear">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>CozyBear</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cozycar">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cozycar">
     <rdfs:label>CozyCar</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cozycar">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#cozer"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cozycar">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#cozybear"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cozycar">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#cozyduke"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#cozycar">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#euroapt"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cozycar">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
@@ -7702,7 +8323,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#cozyduke">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>CozyDuke</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#crossrat">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -7726,25 +8347,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#custom+hdoor">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Custom HDoor</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#darkmoon">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#darkmoon">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Darkmoon</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#daserf">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#daserf">
     <rdfs:label>Daserf</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#daserf">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#muirim"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#daserf">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#nioupale"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#daserf">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Code+Signing"/>
@@ -7834,16 +8449,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#delphacy">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Delphacy</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#derusbi">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#derusbi">
     <rdfs:label>Derusbi</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#derusbi">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#photo"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#derusbi">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Audio+Capture"/>
@@ -7936,13 +8548,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#disttrack">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Disttrack</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dofoil">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dofoil">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Dofoil</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dogcall">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -7990,7 +8602,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#driftwood">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>DRIFTWOOD</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dsquery">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -7999,34 +8611,31 @@
     <rdfs:label>dsquery</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dsquery">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#dsquery.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#dsquery">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Account+Discovery"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dsquery">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Permission+Groups+Discovery"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#dsquery">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#dsquery.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dsquery.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dsquery.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>dsquery.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#duebrew">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#duebrew">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>DUEBREW</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dustysky">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dustysky">
     <rdfs:label>DustySky</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#dustysky">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#ned+worm"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dustysky">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Fallback+Channels"/>
@@ -8069,12 +8678,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#elise">
     <rdfs:label>Elise</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#elise">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#bkdr_esile"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#elise">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#page"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#elise">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Account+Discovery"/>
@@ -8191,25 +8794,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#enfal">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Enfal</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#epic">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#epic">
     <rdfs:label>Epic</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#epic">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#tadjmakhal"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#epic">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#tavdig"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#epic">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#wipbot"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#epic">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#worldcupsec"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#epic">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Code+Signing"/>
@@ -8221,7 +8812,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#euroapt">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>EuroAPT</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#evilgrab">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -8251,7 +8842,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#eviltoss">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>EVILTOSS</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#fakem">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -8338,16 +8929,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#fiendcry">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>FIENDCRY</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#finfisher">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#finfisher">
     <rdfs:label>FinFisher</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#finfisher">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#finspy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#finfisher">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Access+Token+Manipulation"/>
@@ -8416,13 +9004,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#finspy">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>FinSpy</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#flamer">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#flamer">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Flamer</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#flashflood">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -8482,9 +9070,6 @@
     <rdfs:label>FTP</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ftp">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#ftp.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#ftp">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Commonly+Used+Port"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ftp">
@@ -8494,28 +9079,25 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ftp.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>ftp.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gamefish">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gamefish">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>GAMEFISH</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gameover+zeus">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gameover+zeus">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Gameover ZeuS</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gazer">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gazer">
     <rdfs:label>Gazer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#gazer">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#whitebear"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#gazer">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Code+Signing"/>
@@ -8620,16 +9202,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ghost+push">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Ghost Push</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#glooxmail">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#glooxmail">
     <rdfs:label>GLOOXMAIL</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#glooxmail">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#trojan.gtalk"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#glooxmail">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Web+Service"/>
@@ -8671,19 +9250,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hammerduke">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>HammerDuke</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hammertoss">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hammertoss">
     <rdfs:label>HAMMERTOSS</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#hammertoss">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#hammerduke"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#hammertoss">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#netduke"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hammertoss">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Custom+Cryptographic+Protocol"/>
@@ -8743,7 +9316,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#havex">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Havex</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#havij">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -8758,7 +9331,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#haymaker">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>HAYMAKER</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hcdloader">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -8777,9 +9350,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hdoor">
     <rdfs:label>HDoor</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#hdoor">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#custom+hdoor"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hdoor">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Disabling+Security+Tools"/>
@@ -8896,12 +9466,6 @@
     <rdfs:label>HTTPBrowser</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#httpbrowser">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#httpdump"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#httpbrowser">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#token+control"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#httpbrowser">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#httpbrowser">
@@ -8956,25 +9520,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#httpdump">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>HttpDump</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#huc+packet+transmit+tool">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#huc+packet+transmit+tool">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>HUC Packet Transmit Tool</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hydraq">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hydraq">
     <rdfs:label>Hydraq</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#hydraq">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#9002+rat"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#hydraq">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#aurora"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#hydraq">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Access+Token+Manipulation"/>
@@ -9040,16 +9598,16 @@
     <rdfs:label>ipconfig</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ipconfig">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#ipconfig.exe"/>
+    <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Configuration+Discovery"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ipconfig">
-    <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Configuration+Discovery"/>
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#ipconfig.exe"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ipconfig.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ipconfig.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>ipconfig.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#isminjector">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -9083,21 +9641,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#jhuhugit">
     <rdfs:label>JHUHUGIT</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#jhuhugit">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#gamefish"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#jhuhugit">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#jkeyskw"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#jhuhugit">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#sednit"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#jhuhugit">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#seduploader"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#jhuhugit">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#sofacycarberp"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#jhuhugit">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Clipboard+Data"/>
@@ -9160,7 +9703,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#jkeyskw">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>JKEYSKW</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#jpin">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -9229,7 +9772,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#kaba">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Kaba</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#karae">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -9478,7 +10021,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#korplug">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Korplug</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#kwampirs">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -9553,7 +10096,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#lecna">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Lecna</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#linfo">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -9622,9 +10165,6 @@
     <rdfs:label>Lurid</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#lurid">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#enfal"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#lurid">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Custom+Cryptographic+Protocol"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#lurid">
@@ -9634,7 +10174,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#mal%2Fminer-c">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Mal/Miner-C</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#meek">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -9652,19 +10192,19 @@
     <rdfs:label>menuPass</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#menuPass">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#APT10"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#APT10"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#menuPass">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#CVNX"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#CVNX"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#menuPass">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#HOGFISH"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#HOGFISH"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#menuPass">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Red+Apollo"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Red+Apollo"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#menuPass">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#Stone+Panda"/>
+    <atk:threatActorAlias rdf:resource="http://attack.mitre.org/attack#Stone+Panda"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#mimikatz">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -9703,7 +10243,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#minidionis">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>MiniDionis</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#miniduke">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -9973,13 +10513,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#msil%2Fcrimson">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>MSIL/Crimson</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#muirim">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#muirim">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Muirim</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#murkytop">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10120,19 +10660,19 @@
     <rdfs:label>nbtstat</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nbtstat">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#nbtstat.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#nbtstat">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Configuration+Discovery"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nbtstat">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Connections+Discovery"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#nbtstat">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#nbtstat.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nbtstat.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nbtstat.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>nbtstat.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ndiskmonitor">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10159,13 +10699,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ned+worm">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>NeD Worm</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nemesisgemina">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nemesisgemina">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>NemesisGemina</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nerex">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10190,9 +10730,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#net">
     <rdfs:label>Net</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#net">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#net.exe"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#net">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Account+Discovery"/>
@@ -10237,9 +10774,6 @@
     <rdfs:label>Net Crawler</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#net+crawler">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#netc"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#net+crawler">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Brute+Force"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#net+crawler">
@@ -10255,19 +10789,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#net.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>net.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netc">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netc">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>NetC</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netduke">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netduke">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>NetDuke</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#neteagle">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10312,9 +10846,6 @@
     <rdfs:label>netsh</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netsh">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#netsh.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#netsh">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Connection+Proxy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netsh">
@@ -10326,11 +10857,14 @@
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netsh">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Security+Software+Discovery"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#netsh">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#netsh.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netsh.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netsh.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>netsh.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netstat">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10339,16 +10873,16 @@
     <rdfs:label>netstat</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netstat">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#netstat.exe"/>
+    <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Connections+Discovery"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netstat">
-    <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Connections+Discovery"/>
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#netstat.exe"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netstat.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netstat.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>netstat.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nettraveler">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10366,7 +10900,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netui">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>NETUI</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#netwire">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10396,9 +10930,6 @@
     <rdfs:label>Nidiran</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nidiran">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#backdoor.nidiran"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#nidiran">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Commonly+Used+Port"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nidiran">
@@ -10417,16 +10948,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#nioupale">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Nioupale</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#oldbait">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#oldbait">
     <rdfs:label>OLDBAIT</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#oldbait">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#sasfis"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#oldbait">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Credential+Dumping"/>
@@ -10522,9 +11050,6 @@
     <rdfs:label>Orz</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#orz">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#airbreak"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#orz">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#orz">
@@ -10594,13 +11119,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#osx%2Fkeydnap">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>OSX/Keydnap</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#osx%2Fmacdownloader">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#osx%2Fmacdownloader">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>OSX/MacDownloader</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#owaauth">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10636,7 +11161,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#page">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Page</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#pasam">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10681,7 +11206,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#peer-to-peer+zeus">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Peer-to-Peer ZeuS</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#phoreal">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10705,13 +11230,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#photo">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>PHOTO</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#photominer">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#photominer">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>PhotoMiner</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#pinchduke">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10741,22 +11266,19 @@
     <rdfs:label>Ping</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ping">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#ping.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#ping">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Remote+System+Discovery"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ping.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#ping.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>ping.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#pirpi">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#pirpi">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Pirpi</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#pisloader">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -10834,15 +11356,6 @@
     <rdfs:label>PlugX</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#plugx">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#kaba"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#plugx">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#korplug"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#plugx">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#sogu"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#plugx">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#plugx">
@@ -10903,19 +11416,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#poison+ivy">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Poison Ivy</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#poisonivy">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#poisonivy">
     <rdfs:label>PoisonIvy</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#poisonivy">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#darkmoon"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#poisonivy">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#poison+ivy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#poisonivy">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Application+Window+Discovery"/>
@@ -11069,9 +11576,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#powersource">
     <rdfs:label>POWERSOURCE</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#powersource">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#dnsmessenger"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#powersource">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#NTFS+File+Attributes"/>
@@ -11296,7 +11800,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#projectsauron">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>ProjectSauron</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#proxysvc">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -11365,7 +11869,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#psvc">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>PSVC</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#psylo">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -11462,9 +11966,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#punchtrack">
     <rdfs:label>PUNCHTRACK</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#punchtrack">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#psvc"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#punchtrack">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Data+Staged"/>
@@ -11644,9 +12145,6 @@
     <rdfs:label>QuasarRAT</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#quasarrat">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#xrat"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#quasarrat">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Code+Signing"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#quasarrat">
@@ -11767,15 +12265,6 @@
     <rdfs:label>RawPOS</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#rawpos">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#driftwood"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#rawpos">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#duebrew"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#rawpos">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#fiendcry"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#rawpos">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Data+Encrypted"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#rawpos">
@@ -11795,9 +12284,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#redleaves">
     <rdfs:label>RedLeaves</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#redleaves">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#bugjuice"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#redleaves">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
@@ -11863,9 +12349,6 @@
     <rdfs:label>Reg</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#reg">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#reg.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#reg">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Credentials+in+Registry"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#reg">
@@ -11878,7 +12361,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#reg.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>reg.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#remotecmd">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -11900,12 +12383,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#remsec">
     <rdfs:label>Remsec</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#remsec">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#backdoor.remsec"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#remsec">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#projectsauron"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#remsec">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Account+Discovery"/>
@@ -12010,7 +12487,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#retefe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Retefe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#rgdoor">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12151,16 +12628,16 @@
     <rdfs:label>route</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#route">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#route.exe"/>
+    <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Configuration+Discovery"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#route">
-    <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Network+Configuration+Discovery"/>
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#route.exe"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#route.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#route.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>route.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#rtm">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12289,12 +12766,6 @@
     <rdfs:label>Sakula</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sakula">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#sakurel"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#sakula">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#viper"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#sakula">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Bypass+User+Account+Control"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sakula">
@@ -12331,13 +12802,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sakurel">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Sakurel</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sasfis">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sasfis">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Sasfis</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#schtasks">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12346,22 +12817,22 @@
     <rdfs:label>schtasks</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#schtasks">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#schtasks.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#schtasks">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Scheduled+Task"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://attack.mitre.org/attack#schtasks">
+    <atk:toolAlias rdf:resource="http://attack.mitre.org/attack#schtasks.exe"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#schtasks.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#schtasks.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>schtasks.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#scorpion">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#scorpion">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Scorpion</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sdelete">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12379,25 +12850,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#seadaddy">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>SeaDaddy</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#seadesk">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#seadesk">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>SeaDesk</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#seaduke">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#seaduke">
     <rdfs:label>SeaDuke</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#seaduke">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#seadaddy"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#seaduke">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#seadesk"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#seaduke">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
@@ -12469,19 +12934,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sednit">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Sednit</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sedreco">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sedreco">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Sedreco</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#seduploader">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#seduploader">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Seduploader</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#shipshape">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12503,12 +12968,6 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#shotput">
     <rdfs:label>SHOTPUT</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#shotput">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#backdoor.apt.cookiecutter"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#shotput">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#pirpi"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#shotput">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Account+Discovery"/>
@@ -12547,7 +13006,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#skywiper">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>sKyWIper</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#slowdrift">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12607,13 +13066,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sofacycarberp">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>SofacyCarberp</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sogu">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sogu">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Sogu</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#soundbite">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12640,7 +13099,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#sourface">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>SOURFACE</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#spaceship">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12670,7 +13129,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#splm">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>SPLM</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#spwebmember">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12799,22 +13258,19 @@
     <rdfs:label>Systeminfo</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#systeminfo">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#systeminfo.exe"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#systeminfo">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#System+Information+Discovery"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#systeminfo.exe">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#systeminfo.exe">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>systeminfo.exe</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tadjmakhal">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tadjmakhal">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>TadjMakhal</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tasklist">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12835,7 +13291,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tavdig">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Tavdig</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tdtess">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12865,9 +13321,6 @@
     <rdfs:label>TEXTMATE</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#textmate">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#dnsmessenger"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#textmate">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#textmate">
@@ -12877,7 +13330,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tinybaron">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>TinyBaron</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tinytyphon">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12931,7 +13384,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#token+control">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Token Control</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tor">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12949,19 +13402,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#totbrick">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Totbrick</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trojan+manuscript">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trojan+manuscript">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Trojan Manuscript</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trojan.gtalk">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trojan.gtalk">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Trojan.GTALK</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trojan.karagany">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -12994,13 +13447,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trojan.maljava">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Trojan.Maljava</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trojan.zeroaccess">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#trojan.zeroaccess">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Trojan.Zeroaccess</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#truvasys">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -13018,7 +13471,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#tspy_trickload">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>TSPY_TRICKLOAD</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#turnedup">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -13138,9 +13591,6 @@
     <rdfs:label>UPPERCUT</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#uppercut">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#anel"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#uppercut">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Command-Line+Interface"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#uppercut">
@@ -13186,19 +13636,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#usb+stealer">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>USB Stealer</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#usbstealer">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#usbstealer">
     <rdfs:label>USBStealer</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#usbstealer">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#usb+stealer"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#usbstealer">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#win32%2Fusbstealer"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#usbstealer">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Automated+Collection"/>
@@ -13264,7 +13708,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#viper">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>VIPER</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#volgmer">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -13342,7 +13786,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#wce">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>WCE</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#webc2">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -13357,13 +13801,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#webhp">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>webhp</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#whitebear">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#whitebear">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>WhiteBear</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#wiarp">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -13390,22 +13834,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#win32%2Fagent.uaw">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Win32/Agent.UAW</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#win32%2Fusbstealer">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#win32%2Fusbstealer">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Win32/USBStealer</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#windows+credential+editor">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#windows+credential+editor">
     <rdfs:label>Windows Credential Editor</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#windows+credential+editor">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#wce"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#windows+credential+editor">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Credential+Dumping"/>
@@ -13546,19 +13987,19 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#wipbot">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Wipbot</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#worldcupsec">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#worldcupsec">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>WorldCupSec</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#x-agent">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#x-agent">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>X-Agent</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#x-agent+for+android">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#MobileTool"/>
@@ -13576,13 +14017,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#x-tunnel">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>X-Tunnel</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xagent">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xagent">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>Xagent</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xagentosx">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -13627,7 +14068,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xaps">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>XAPS</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xcmd">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
@@ -13642,19 +14083,13 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xrat">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>xRAT</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xtunnel">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xtunnel">
     <rdfs:label>XTunnel</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#xtunnel">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#x-tunnel"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://attack.mitre.org/attack#xtunnel">
-    <atk:alias rdf:resource="http://attack.mitre.org/attack#xaps"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#xtunnel">
     <atk:implements rdf:resource="http://attack.mitre.org/attack#Binary+Padding"/>
@@ -14182,7 +14617,7 @@
     <rdf:type rdf:resource="http://attack.mitre.org/attack#EnterpriseTool"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#dnsmessenger">
-    <rdfs:label>alias</rdfs:label>
+    <rdfs:label>DNSMessenger</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://attack.mitre.org/attack#Abuse+Device+Administrator+Access+to+Prevent+Removal">
     <rdf:type rdf:resource="http://attack.mitre.org/attack#MobileTechnique"/>
