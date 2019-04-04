@@ -68,7 +68,7 @@ def fetch_json(url: str, proxy_string: Optional[str], timeout: int = 60, verify_
     """
     try:
         f = open('cache/'+url.split('/')[-1], 'r')
-        print("Found file {} to load".format('cache/'+url.split('/')[-1]))
+        #print("Found file {} to load".format('cache/'+url.split('/')[-1]))
         return json.load(f)
     except:
         proxies = {

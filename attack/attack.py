@@ -59,7 +59,11 @@ class SetEncoder(json.JSONEncoder):
     
 #def handle_fact(fact):
 #    print(json.dumps(fact, cls=SetEncoder))
-    
+
+def add_description(individual, obj):
+    if len(list(g[individual : RDFS.comment])) == 0:
+        g.add( (individual, RDFS.comment, Literal(obj.description, lang='en')) )
+
 def parseargs() -> argparse.Namespace:
     """ Parse arguments """
     parser = worker.parseargs('Mitre ATT&CK worker')
@@ -79,13 +83,21 @@ def ent(s):
 
 def get_attack(url: str, proxy_string: str, timeout: int) -> MemoryStore:
     """Fetch Mitre ATT&CK JSON data in Stix2 format and return a Stix2 memory store"""
+    print("starting get_attack")
     attack = worker.fetch_json(url, proxy_string, timeout)
 
     # Create memory store
     mem = MemoryStore()
 
+    #print("parsing the data")
+    
+    #print(parse(attack, allow_custom=True))
+
+    #print("storing the data in memory storage")
+    
     # Add all objects to the memory store
     for obj in parse(attack, allow_custom=True).objects:
+        #print(obj)
         mem.add(obj)
 
     return mem
@@ -127,7 +139,10 @@ def add_techniques(client, attack: MemoryStore, ns, attackType) -> List[stix2.At
             #    .source("technique", technique.name)
             #    .destination("tactic", tactic.phase_name)
             #)
-            accomplishes_property = define_object_property(ns, 'accomplishes', 'accomplishes', attackType+'Technique', attackType+'Tactic')
+            accomplishes_property = define_object_property(
+                ns,
+                'accomplishes', 'accomplishes',
+                'Technique', 'Tactic')
             
             technique_individual = define_individual(ns, technique.name, technique.name, attackType+'Technique')
             tactic_individual = define_individual(ns, tactic.phase_name, tactic.phase_name, attackType+'Tactic')
@@ -142,9 +157,12 @@ def add_techniques(client, attack: MemoryStore, ns, attackType) -> List[stix2.At
 
     return notify
 
+def name_individual(ns, name):
+    return ns[ent(''.join(x for x in name.title() if not x.isspace()))]
+
 def define_individual(ns, individual, individual_label, individual_type):
     #subject = ns[ent(individual)]
-    subject = ns[ent(''.join(x for x in individual.title() if not x.isspace()))]
+    subject = name_individual(ns, individual)
     g.add( (subject, RDF.type, ns[individual_type]) )
     g.add( (subject, RDFS.label, Literal(individual_label)) )
     return subject
@@ -194,16 +212,18 @@ def add_groups(client, attack: MemoryStore, ns, attackType) -> List[stix2.Attack
                 #    .bidirectional("threatActor", group.name, "threatActor", alias)
                 #)
                 # TODO: we use alias elsewhere and should really use a different name in both cases
+                
                 group_individual = define_individual(ns, group.name, group.name, attackType+'ThreatActor')
-                g.add( (group_individual, ns.threatActorAlias, ns[ent(alias)]) )
+                add_description(group_individual, group)
 
-                g.add( (ns[ent(alias)], RDF.type, ns[attackType+'ThreatActor']) )
+                alias_individual = define_individual(ns, alias, alias, attackType+'ThreatActor')
 
+                g.add( (group_individual, OWL.sameAs, alias_individual) )
+                
                 g.add( (ns[attackType+'ThreatActor'], RDFS.label, Literal(attackType.lower()+' threat actor')) )
                 g.add( (ns[attackType+'ThreatActor'], RDFS.subClassOf, ns.ThreatActor) )
                 g.add( (ns.ThreatActor, RDFS.label, Literal('threat actor')) )
 
-                define_object_property(ns, 'threatActorAlias', 'threat actor alias', attackType+'ThreatActor', attackType+'ThreatActor', [OWL.SymmetricProperty, OWL.ReflexiveProperty, OWL.TransitiveProperty])
 
         #   ATT&CK concept   STIX Properties
         #   ==========================================================================
@@ -228,13 +248,28 @@ def add_groups(client, attack: MemoryStore, ns, attackType) -> List[stix2.Attack
             #for fact in chain:
             #    handle_fact(fact)
             # Any* should probably be bnodes
-            classifiedAs_property = define_object_property(ns, 'classifiedAs', 'classified as', attackType+'Content', attackType+'Tool')
-            observedIn_property = define_object_property(ns, 'observedIn', 'observed in', attackType+'Content', attackType+'Incident')
-            incident_property = define_object_property(ns, 'incident', 'incident', attackType+'Content', attackType+'Incident')
-            attributedTo_property = define_object_property(ns, 'attributedTo', 'attributed to', attackType+'Incident', attackType+'ThreatActor')
+            classifiedAs_property = define_object_property(
+                ns,
+                'classifiedAs', 'classified as',
+                'Content', 'Tool')
+            observedIn_property = define_object_property(
+                ns,
+                'observedIn', 'observed in',
+                'Content', 'Incident')
+            incident_property = define_object_property(
+                ns,
+                'incident', 'incident',
+                'Content', 'Incident')
+            attributedTo_property = define_object_property(
+                ns,
+                'attributedTo', 'attributed to',
+                'Incident', 'ThreatActor')
 
             tool_individual = define_individual(ns, tool.name.lower(), tool.name, attackType+'Tool')
+            add_description(tool_individual, tool)
+
             group_individual = define_individual(ns, group.name, group.name, attackType+'ThreatActor')
+            add_description(group_individual, group)
             anyContent = BNode()
             anyIncident = BNode()
             g.add( (anyContent, classifiedAs_property, tool_individual) )
@@ -288,15 +323,26 @@ def add_groups(client, attack: MemoryStore, ns, attackType) -> List[stix2.Attack
             #for fact in chain:
             #    handle_fact(fact)
             anyIncident = BNode()
-            observedIn_property = define_object_property(ns, 'observedIn', 'observed in', attackType+'Content', attackType+'Incident')
-            incident_property = define_object_property(ns, 'incident', 'incident', attackType+'Content', attackType+'Incident')
-            attributedTo_property = define_object_property(ns, 'attributedTo', 'attributed to', attackType+'Incident', attackType+'ThreatActor')
+            observedIn_property = define_object_property(
+                ns,
+                'observedIn', 'observed in',
+                'Content', 'Incident')
+            incident_property = define_object_property(
+                ns,
+                'incident', 'incident',
+                'Content', 'Incident')
+            attributedTo_property = define_object_property(
+                ns,
+                'attributedTo', 'attributed to',
+                'Incident', 'ThreatActor')
 
+            group_individual = define_individual(ns, group.name, group.name, attackType+'ThreatActor')
             technique_individual = define_individual(ns, technique.name, technique.name, attackType+'Technique')
             g.add( (technique_individual, observedIn_property, anyIncident) )
             g.add( (technique_individual, incident_property, anyIncident) )
-            
-            g.add( (anyIncident, attributedTo_property, ns[ent(group.name)]) )
+            add_description(technique_individual, technique)
+
+            g.add( (anyIncident, attributedTo_property, group_individual) )
             g.add( (anyIncident, RDF.type, ns[attackType+'Incident']) )
             g.add( (anyIncident, RDFS.label, Literal('any incident')) )
 
@@ -305,8 +351,6 @@ def add_groups(client, attack: MemoryStore, ns, attackType) -> List[stix2.Attack
             
             g.add( (ns[attackType+'Technique'], RDFS.label, Literal(attackType.lower()+' technique')) )
             g.add( (ns[attackType+'Technique'], RDFS.subClassOf, ns.Technique) )
-            
-            define_individual(ns, group.name, group.name, attackType+'ThreatActor')
             
             g.add( (ns.Technique, RDFS.label, Literal('technique')) )
 
@@ -350,19 +394,17 @@ def add_software(client, attack: MemoryStore, ns, attackType) -> List[stix2.Atta
                 #    client.fact("alias")
                 #    .bidirectional("tool", software.name.lower(), "tool", alias.lower())
                 #)
-                # TODO: we use alias elsewhere and should really use a different name in both cases
-                
                 software_individual = define_individual(ns, software.name, software.name, attackType+'Tool')
-                alias_individual = define_individual(ns, alias.lower(), alias, attackType+'Tool')
-                g.add( (software_individual, ns.toolAlias, alias_individual) )
+                add_description(software_individual, software)
+
+                alias_individual = define_individual(ns, alias, alias, attackType+'Tool')
+
+                g.add( (software_individual, OWL.sameAs, alias_individual) )
                 
                 g.add( (ns[attackType+'Tool'], RDFS.label, Literal(attackType.lower()+' tool')) )
                 g.add( (ns[attackType+'Tool'], RDFS.subClassOf, ns.Tool) )
                                 
                 g.add( (ns.Tool, RDFS.label, Literal('tool')) )
-
-                define_object_property(ns, 'toolAlias', 'tool alias', attackType+'Tool', attackType+'Tool', [OWL.SymmetricProperty, OWL.ReflexiveProperty, OWL.TransitiveProperty])
-
 
         #   ATT&CK concept   STIX Properties
         #   ==========================================================================
@@ -378,11 +420,17 @@ def add_software(client, attack: MemoryStore, ns, attackType) -> List[stix2.Atta
             #    .source("tool", software.name.lower())
             #    .destination("technique", technique.name)
             #)
-            implements_property = define_object_property(ns, 'implements', 'implements', attackType+'Tool', attackType+'Technique')
+            implements_property = define_object_property(
+                ns,
+                'implements', 'implements',
+                'Tool', 'Technique')
 
             software_individual = define_individual(ns, software.name.lower(), software.name, attackType+'Tool')
             technique_individual = define_individual(ns, technique.name, technique.name, attackType+'Technique')
+            add_description(technique_individual, technique)
+            
             g.add( (software_individual, implements_property, technique_individual) )
+            add_description(software_individual, software)
             
             g.add( (ns[attackType+'Tool'], RDFS.label, Literal(attackType.lower()+' tool')) )
             g.add( (ns[attackType+'Tool'], RDFS.subClassOf, ns.Tool) )
@@ -393,7 +441,6 @@ def add_software(client, attack: MemoryStore, ns, attackType) -> List[stix2.Atta
             g.add( (ns.Tool, RDFS.label, Literal('tool')) )
 
             g.add( (ns.Technique, RDFS.label, Literal('technique')) )
-
 
     return notify
 
@@ -497,9 +544,9 @@ def main() -> None:
     MAJOR_VERSION = "1.0"
     with open("MINOR_VERSION", 'r') as f:
         MINOR_VERSION = float(f.read())
-        
+    print("Former MINOR_VERSION: {}".format(MINOR_VERSION))    
     MINOR_VERSION += 0.001
-    MINOR_VERSION = str(MINOR_VERSION)
+    MINOR_VERSION = "{0:.3f}".format(MINOR_VERSION)
     with open("MINOR_VERSION", 'w') as f:
         f.write(MINOR_VERSION)
     print("Versions major: {}, minor: {}".format(MAJOR_VERSION, MINOR_VERSION))
