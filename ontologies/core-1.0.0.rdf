@@ -3,6 +3,7 @@
      xml:base="http://ontologies.ti-semantics.com/core"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:uvo="http://ontologies.ti-semantics.com/uvo#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -11,6 +12,9 @@
         <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/core-1.0.0"/>
         <terms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment xml:lang="en">Core concepts for the Unified Threat Intelligence Model ontologies.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Incorporating CVE, CVSS, CPE, CWE, etc. Eventually, this will be related strongly to VDO, once that is published.</rdfs:comment>
+        <rdfs:label xml:lang="en">Unified vulnerability ontology</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-126r3.pdf</rdfs:seeAlso>
     </owl:Ontology>
     
 
@@ -35,9 +39,88 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/uvo#summary -->
+
+    <owl:AnnotationProperty rdf:about="http://ontologies.ti-semantics.com/uvo#summary">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/uvo#Entry"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://purl.org/dc/terms/license -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#reference -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/core#reference">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+        <xpath>/cpe-item/references/reference</xpath>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#uses -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/core#uses">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#ThreatActor"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Tool"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#deprecated -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/core#deprecated">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Declares this individual to be deprected if true or not if false.</rdfs:comment>
+        <rdfs:label xml:lang="en">deprecated</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#deprecationDate -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/core#deprecationDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Time and date when the individual was deprecated.</rdfs:comment>
+        <rdfs:label xml:lang="en">date of deprecation</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/uvo#referenceURL -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/uvo#referenceURL">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -66,6 +149,43 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#Malware -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Malware">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
+        <owl:disjointWith rdf:resource="http://ontologies.ti-semantics.com/core#Tool"/>
+        <rdfs:comment xml:lang="en">Malware is a type of TTP that is also known as malicious code and malicious software, and refers to a program that is inserted into a system, usually covertly, with the intent of compromising the confidentiality, integrity, or availability of the victim&apos;s data, applications, or operating system (OS) or of otherwise annoying or disrupting the victim. Malware such as viruses and worms are usually designed to perform these nefarious functions in such a way that users are unaware of them, at least initially.
+ 
+A Malware individual characterizes, identifies, and categorizes malware samples and families via a text description property. This provides detailed information about how the malware works and what it does. Relationships from Malware can capture what the malware targets (Vulnerability and Identity) and link it to other Malware individuals that it is a variant of.</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">http://docs.oasis-open.org/cti/stix/v2.0/cs01/part2-stix-objects/stix-v2.0-cs01-part2-stix-objects.html#_Toc496714319</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#PatchReference -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#PatchReference">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+        <rdfs:label>PATCH</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Platform -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Platform">
+        <rdfs:comment xml:lang="en">In this context, platform refers to applications, operating systems, and hardware devices present among an enterprise’s computing assets. A computer or hardware device and/or associated operating system, or a virtual environment, on which software can be installed or run. Examples of platforms include Linux™, Microsoft Windows Vista®, and Java™.</rdfs:comment>
+        <rdfs:label xml:lang="en">Platform</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Reference -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Reference"/>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/core#Software -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Software"/>
@@ -75,6 +195,85 @@
     <!-- http://ontologies.ti-semantics.com/core#System -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#System"/>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#ThreatActor -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#ThreatActor">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment xml:lang="en">Threat Actors are actual individuals, groups, or organizations believed to be operating with malicious intent. A Threat Actor is not an Intrusion Set but may support or be affiliated with various Intrusion Sets, groups, or organizations over time.
+ 
+Threat Actors leverage their resources, and possibly the resources of an Intrusion Set, to conduct attacks and run Campaigns against targets.
+ 
+Threat Actors can be characterized by their motives, capabilities, goals, sophistication level, past activities, resources they have access to, and their role in the organization.</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">http://docs.oasis-open.org/cti/stix/v2.0/cs01/part2-stix-objects/stix-v2.0-cs01-part2-stix-objects.html#_Toc496714328</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Tool -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Tool">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
+        <rdfs:comment xml:lang="en">Tools are legitimate software that can be used by threat actors to perform attacks. Knowing how and when threat actors use such tools can be important for understanding how campaigns are executed. Unlike malware, these tools or software packages are often found on a system and have legitimate purposes for power users, system administrators, network administrators, or even normal users. Remote access tools (e.g., RDP) and network scanning tools (e.g., Nmap) are examples of Tools that may be used by a Threat Actor during an attack.
+ 
+The Tool individual characterizes the properties of these software tools and can be used as a basis for making an assertion about how a Threat Actor uses them during an attack. It contains properties to name and describe the tool, a list of Kill Chain Phases the tool can be used to carry out, and the version of the tool.
+ 
+A Tool individual must not be used to characterize malware. Further, a Tool must not be used to characterise tools used as part of a course of action in response to an attack. Tools used during response activities can be included directly as part of a course of action.</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">http://docs.oasis-open.org/cti/stix/v2.0/cs01/part2-stix-objects/stix-v2.0-cs01-part2-stix-objects.html#_Toc496714331</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#UnknownReference -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#UnknownReference">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+        <rdfs:label>UNKNOWN</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#VendorAdvisoryReference -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#VendorAdvisoryReference">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+        <rdfs:label>VENDOR_ADVISORY</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Vulnerability -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Vulnerability">
+        <xpath>/nvdcve20:nvd/nvdcve20:entry</xpath>
+        <rdfs:comment xml:lang="en">A Vulnerability is any weakness in the computational logic found in products or devices that could be exploited by a threat source.
+
+A Vulnerability is &quot;a mistake in software that can be directly used by a hacker to gain access to a system or network&quot;. For example, if a piece of malware exploits CVE-2015-12345, a Malware individal could be linked to a Vulnerability individual that references CVE-2015-12345.
+ 
+A Vulnerability individual is primarily used to link to external definitions of vulnerabilities or to describe 0-day vulnerabilities that do not yet have an external definition. Typically, other individuals assert relationships to Vulnerability objects when a specific vulnerability is targeted and exploited as part of malicious cyber activity. As such, Vulnerability objects can be used as a linkage to the asset management and compliance process.</rdfs:comment>
+        <rdfs:comment xml:lang="en">mandatory</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#VulnerableSoftwareList -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#VulnerableSoftwareList"/>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#VulnerableSoftwareProduct -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#VulnerableSoftwareProduct"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
 </rdf:RDF>
 
 

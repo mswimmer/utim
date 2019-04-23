@@ -190,15 +190,6 @@
     <!-- http://ontologies.ti-semantics.com/weakness#author -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#author">
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.oasis-open.org/ciq_xpil#Organization"/>
-                    <rdf:Description rdf:about="http://www.oasis-open.org/ciq_xpil#Party"/>
-                    <rdf:Description rdf:about="http://www.oasis-open.org/ciq_xpil#Person"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies references to one or more individuals that authored the submitted, contributed, or modified the Weakness, View, Category, or CompoundElement.</rdfs:comment>
         <rdfs:label>Author</rdfs:label>
     </owl:ObjectProperty>
@@ -208,7 +199,6 @@
     <!-- http://ontologies.ti-semantics.com/weakness#authorOrganization -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#authorOrganization">
-        <rdfs:range rdf:resource="http://www.oasis-open.org/ciq_xpil#Organization"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies one or more references tothe organization which submitted, contributed, or modified the Weakness, View, Category, or CompoundElement</rdfs:comment>
         <rdfs:label>Author Organization</rdfs:label>
     </owl:ObjectProperty>
@@ -469,15 +459,6 @@ Each Compound_Element represents a meaningful 	aggregation of several weaknesses
     <!-- http://ontologies.ti-semantics.com/weakness#referenceAuthor -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referenceAuthor">
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.oasis-open.org/ciq_xpil#Organization"/>
-                    <rdf:Description rdf:about="http://www.oasis-open.org/ciq_xpil#Party"/>
-                    <rdf:Description rdf:about="http://www.oasis-open.org/ciq_xpil#Person"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a reference to one or more individuals or organizations that authored the material</rdfs:comment>
         <rdfs:label>Reference Author</rdfs:label>
     </owl:ObjectProperty>
@@ -487,7 +468,6 @@ Each Compound_Element represents a meaningful 	aggregation of several weaknesses
     <!-- http://ontologies.ti-semantics.com/weakness#referencePublisher -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#referencePublisher">
-        <rdfs:range rdf:resource="http://www.oasis-open.org/ciq_xpil#Organization"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the publisher of the reference material, if one exists</rdfs:comment>
         <rdfs:label>Reference Publisher</rdfs:label>
     </owl:ObjectProperty>
@@ -1591,6 +1571,12 @@ The name should focus on the weakness being described in the entry and should 	a
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#Catalog -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Catalog"/>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/weakness#ArchitectureParadigm -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#ArchitectureParadigm">
@@ -2491,7 +2477,7 @@ Although this may sound similar to Source  Taxonomy, Source Taxonomy is designed
     <!-- http://ontologies.ti-semantics.com/weakness#WeaknessCatalog -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#WeaknessCatalog">
-        <rdfs:subClassOf rdf:resource="https://mswimmer.github.io/utim/core#Catalog"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Catalog"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a collection of software security issues (flaws, faults, bugs, vulnerabilities, weaknesses, etc).  The name used by CWE is usually &quot;CWE&quot;.  However, if this collection is a subset of CWE, then a more appropriate name should be used.</rdfs:comment>
         <rdfs:label>Weakness Catalog</rdfs:label>
     </owl:Class>
@@ -2529,12 +2515,6 @@ Although this may sound similar to Source  Taxonomy, Source Taxonomy is designed
     
 
 
-    <!-- http://www.oasis-open.org/ciq_xpil#Organization -->
-
-    <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Organization"/>
-    
-
-
     <!-- http://www.oasis-open.org/ciq_xpil#Party -->
 
     <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Party"/>
@@ -2544,12 +2524,6 @@ Although this may sound similar to Source  Taxonomy, Source Taxonomy is designed
     <!-- http://www.oasis-open.org/ciq_xpil#Person -->
 
     <owl:Class rdf:about="http://www.oasis-open.org/ciq_xpil#Person"/>
-    
-
-
-    <!-- https://mswimmer.github.io/utim/core#Catalog -->
-
-    <owl:Class rdf:about="https://mswimmer.github.io/utim/core#Catalog"/>
 </rdf:RDF>
 
 
