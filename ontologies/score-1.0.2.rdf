@@ -10,7 +10,7 @@
      xmlns:score="http://ontologies.ti-semantics.com/score#"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ontologies.ti-semantics.com/score">
-        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/score-3.0-1.7-0.1"/>
+        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/score-1.0.2"/>
         <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.0"/>
         <terms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment xml:lang="en">This ontology provides a vocabulary and representation for a unified form of the Common Vulnerability Scoring System (CVSS) which provides an open framework for communicating the characteristics and impacts of IT vulnerabilities.</rdfs:comment>
@@ -108,8 +108,6 @@
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/score#greaterScoreThan">
         <owl:inverseOf rdf:resource="http://ontologies.ti-semantics.com/score#lesserScoreThan"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
-        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
         <rdfs:comment xml:lang="en">A given score for a metric is greater than the subject metric score by some arbitrary amount.</rdfs:comment>
     </owl:ObjectProperty>
     
@@ -217,8 +215,6 @@
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/score#lesserScoreThan">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
-        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
         <rdfs:comment xml:lang="en">A given metric score is less than the subject metric score by some arbitrary amount.</rdfs:comment>
     </owl:ObjectProperty>
     
@@ -496,7 +492,7 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
     <!-- http://ontologies.ti-semantics.com/score#CVSSMetric -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#CVSSMetric">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Metric"/>
     </owl:Class>
     
 
@@ -1883,7 +1879,7 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     <!-- http://ontologies.ti-semantics.com/score#EnvironmentalMetric -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#EnvironmentalMetric">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Metric"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the characteristics of a vulnerability that are relevant and unique to a particular user&apos;s environment.</rdfs:comment>
         <rdfs:comment xml:lang="en">These metrics enable the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user’s organization, measured in terms of complementary/alternative security controls in place, Confidentiality, Integrity, and Availability. The metrics are the modified equivalent of base metrics and are assigned metrics value based on the component placement in organization infrastructure.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
@@ -1901,7 +1897,7 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     <!-- http://ontologies.ti-semantics.com/score#ExploitabilityMetric -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#ExploitabilityMetric">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Metric"/>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
     </owl:Class>
     
@@ -1910,7 +1906,7 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     <!-- http://ontologies.ti-semantics.com/score#ImpactMetric -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#ImpactMetric">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Metric"/>
         <rdfs:comment xml:lang="en">The Impact metrics refer to the properties of the impacted component. Whether a successfully exploited vulnerability affects one or more components, the impact metrics are scored according to the component that suffers the worst outcome that is most directly and predictably associated with a successful attack. That is, analysts should constrain impacts to a reasonable, final outcome which they are confident an attacker is able to achieve.
 
 If a scope change has not occurred, the Impact metrics should reflect the confidentiality, integrity, and availability (CIA) impact to the vulnerable component. However, if a scope change has occurred, then the Impact metrics should reflect the CIA impact to either the vulnerable component, or the impacted component, whichever suffers the most severe outcome.</rdfs:comment>
@@ -1919,18 +1915,11 @@ If a scope change has not occurred, the Impact metrics should reflect the confid
     
 
 
-    <!-- http://ontologies.ti-semantics.com/score#Metric -->
-
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#Metric">
-        <rdfs:comment xml:lang="en">A standard of measure of a degree to which a software system or process possesses some property.</rdfs:comment>
-        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.wikidata.org/wiki/Special:EntityData/Q657339</rdfs:seeAlso>
-    </owl:Class>
-    
-
-
     <!-- http://ontologies.ti-semantics.com/score#MetricGroup -->
 
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#MetricGroup"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#MetricGroup">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Metric"/>
+    </owl:Class>
     
 
 
@@ -1953,7 +1942,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <!-- http://ontologies.ti-semantics.com/score#TemporalMetric -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#TemporalMetric">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#Metric"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Metric"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the characteristics of a vulnerability that change over time but not among user environments.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-Temporal-Metrics</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-2-Temporal-Metrics</rdfs:isDefinedBy>
@@ -2892,12 +2881,12 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2ConfirmedReportConfidence">
         <rdfs:label xml:lang="en">Confirmed</rdfs:label>
         <rdfs:comment xml:lang="en">The vulnerability has been acknowledged by the vendor or author of the affected technology. The vulnerability may also be Confirmed when its existence is confirmed from an external event such as publication of functional or proof-of-concept exploit code or widespread exploitation.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-3-Report-Confidence-RC</rdfs:isDefinedBy>
         <cvss_v2_code>C</cvss_v2_code>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-3-Report-Confidence-RC</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2FunctionalExploitability">
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-1-Exploitability-E</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Functional</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-1-Exploitability-E</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Functional exploit code is available. The code works in most situations where the vulnerability exists.</rdfs:comment>
         <cvss_v2_code>F</cvss_v2_code>
     </rdf:Description>
@@ -2952,12 +2941,12 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2LowAccessComplexity">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-1-2-Access-Complexity-AC</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Low</rdfs:label>
         <rdfs:comment xml:lang="en">Specialized access conditions or extenuating circumstances do not exist. The following are examples:
 - The affected product typically requires access to a wide range of systems and users, possibly anonymous and untrusted (e.g., Internet-facing web or mail server).
 - The affected configuration is default or ubiquitous.
 - The attack can be performed manually and requires little skill or additional information gathering.
 - The race condition is a lazy one (i.e., it is technically a race but easily winnable).</rdfs:comment>
-        <rdfs:label xml:lang="en">Low</rdfs:label>
         <cvss_v2_code>L</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2LowAvailabilityRequirement">
@@ -3045,8 +3034,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v2_code>N</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NoAvailabilityImpact">
-        <rdfs:comment xml:lang="en">There is no impact to the availability of the system.</rdfs:comment>
         <rdfs:label xml:lang="en">None</rdfs:label>
+        <rdfs:comment xml:lang="en">There is no impact to the availability of the system.</rdfs:comment>
         <cvss_v2_code>N</cvss_v2_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
     </rdf:Description>
@@ -3081,13 +3070,13 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedCollateralDamagePotential">
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
-        <cvss_v2_code>ND</cvss_v2_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
+        <cvss_v2_code>ND</cvss_v2_code>
         <rdfs:label xml:lang="en">Not Defined</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedConfidentialityRequirement">
-        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
+        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedExploitability">
@@ -3110,8 +3099,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedTargetCount">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-2-Target-Distribution-TD</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Not Defined</rdfs:label>
-        <cvss_v2_code>ND</cvss_v2_code>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
+        <cvss_v2_code>ND</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2OfficialFixRemediation">
         <rdfs:label xml:lang="en">Official Fix</rdfs:label>
@@ -3161,8 +3150,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2UnconfirmedReportConfidence">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-3-Report-Confidence-RC</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">There is a single unconfirmed source or possibly multiple conflicting reports. There is little confidence in the validity of the reports. An example is a rumor that surfaces from the hacker underground.</rdfs:comment>
         <cvss_v2_code>UC</cvss_v2_code>
+        <rdfs:comment xml:lang="en">There is a single unconfirmed source or possibly multiple conflicting reports. There is little confidence in the validity of the reports. An example is a rumor that surfaces from the hacker underground.</rdfs:comment>
         <rdfs:label xml:lang="en">Unconfirmed</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2UncorroboratedReportConfidence">
@@ -3179,8 +3168,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2WorkaroundRemediation">
         <rdfs:comment xml:lang="en">There is an unofficial, non-vendor solution available. In some cases, users of the affected technology will create a patch of their own or provide steps to work around or otherwise mitigate the vulnerability.</rdfs:comment>
-        <cvss_v2_code>W</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-2-2-Remediation-Level-RL</rdfs:isDefinedBy>
+        <cvss_v2_code>W</cvss_v2_code>
         <rdfs:label xml:lang="en">Workaround</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3AdjacentAttackVector">
@@ -3252,8 +3241,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-1-3-Privileges-Required-PR</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3LocalAttackVector">
-        <rdfs:label xml:lang="en">Local</rdfs:label>
         <rdfs:comment xml:lang="en">A vulnerability exploitable with Local access means that the vulnerable component is not bound to the network stack, and the attacker’s path is via read/write/execute capabilities. In some cases, the attacker may be logged in locally in order to exploit the vulnerability, otherwise, she may rely on User Interaction to execute a malicious file.</rdfs:comment>
+        <rdfs:label xml:lang="en">Local</rdfs:label>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-1-1-Attack-Vector-AV</rdfs:isDefinedBy>
         <cvss_v3_code xml:lang="en">L</cvss_v3_code>
     </rdf:Description>
@@ -3314,8 +3303,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NoIntegrityImpact">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-3-2-Integrity-Impact-I</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">None</rdfs:label>
         <rdfs:comment xml:lang="en">There is no loss of integrity within the impacted component.</rdfs:comment>
+        <rdfs:label xml:lang="en">None</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
         <cvss_v3_code xml:lang="en">N</cvss_v3_code>
         <rdfs:comment xml:lang="en">There is no impact to the integrity of the system.</rdfs:comment>
@@ -3350,8 +3339,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedExploitCodeMaturity">
-        <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to a scoring equation to skip this metric.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to a scoring equation to skip this metric.</rdfs:comment>
         <cvss_v3_code xml:lang="en">X</cvss_v3_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedRemediation">
@@ -3379,8 +3368,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">P</cvss_v3_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3ProofOfConceptExploitCodeMaturity">
-        <cvss_v3_code xml:lang="en">P</cvss_v3_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
+        <cvss_v3_code xml:lang="en">P</cvss_v3_code>
         <rdfs:comment xml:lang="en">Proof-of-concept exploit code is available, or an attack demonstration is not practical for most systems. The code or technique is not functional in all situations and may require substantial modification by a skilled attacker.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3ReasonableReportConfidence">
