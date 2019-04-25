@@ -9,7 +9,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ontologies.ti-semantics.com/weakness">
-        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/weakness-v1.0.2"/>
+        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/weakness-1.0.2"/>
         <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.2"/>
         <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment xml:lang="en">Ontology for describing weaknesses in software and systems from the perspective of incidence response and threat intelligence. A weakness in this context is a mistake or condition that, if left unaddressed, could under the proper conditions contribute to a cyber-enabled capability being vulnerable to attack, allowing an adversary to make items function in unintended ways.</rdfs:comment>
