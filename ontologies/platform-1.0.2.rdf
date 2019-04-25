@@ -14,8 +14,8 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ontologies.ti-semantics.com/platform">
-        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/platform-2.3-1.0.1"/>
-        <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.0"/>
+        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/platform-1.0.2"/>
+        <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.2"/>
         <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology that provides a vocabulary and representation for the Common Platform Enumeration (CPE) which provides a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&apos;s computing assets.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7697.pdf</rdfs:isDefinedBy>
@@ -33,6 +33,32 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#deprecated -->
+
+    <owl:AnnotationProperty rdf:about="http://ontologies.ti-semantics.com/core#deprecated">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#deprecationDate -->
+
+    <owl:AnnotationProperty rdf:about="http://ontologies.ti-semantics.com/core#deprecationDate">
+        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#reference -->
+
+    <owl:AnnotationProperty rdf:about="http://ontologies.ti-semantics.com/core#reference">
+        <rdfs:comment xml:lang="en">A reference that an indivual has to some other external resource.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+    </owl:AnnotationProperty>
     
 
 
@@ -59,15 +85,6 @@
     
 
 
-    <!-- http://ontologies.ti-semantics.com/core#reference -->
-
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#reference">
-        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
-        <rdfs:comment xml:lang="en">A reference that an indivual has to some other external resource.</rdfs:comment>
-    </rdf:Description>
-    
-
-
     <!-- http://ontologies.ti-semantics.com/platform#deprecation -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#deprecation">
@@ -85,9 +102,6 @@
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#factReference">
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalTest"/>
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
-        <rdfs:comment xml:lang="en">A reference to a Platform individual</rdfs:comment>
-        <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
-        <rdfs:label xml:lang="en">fact reference</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -141,20 +155,9 @@
 
     <!-- http://ontologies.ti-semantics.com/core#deprecated -->
 
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#deprecated">
-        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/core#deprecated">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
-    </rdf:Description>
-    
-
-
-    <!-- http://ontologies.ti-semantics.com/core#deprecationDate -->
-
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#deprecationDate">
-        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
-        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
-    </rdf:Description>
+    </owl:DatatypeProperty>
     
 
 
@@ -248,11 +251,11 @@
 
     <!-- http://ontologies.ti-semantics.com/uvo#referenceURL -->
 
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/uvo#referenceURL">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/uvo#referenceURL">
         <rdfs:comment xml:lang="en">This is a URI (intended to be a URL, and point to a real resource) and is used to point to extra descriptive material, for example a supplier&apos;s web site or platform documentation.</rdfs:comment>
         <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
         <rdfs:label xml:lang="en">reference URL</rdfs:label>
-    </rdf:Description>
+    </owl:DatatypeProperty>
     
 
 
@@ -264,14 +267,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://ontologies.ti-semantics.com/core#Platform -->
-
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Platform">
-        <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
-    </rdf:Description>
     
 
 
@@ -319,15 +314,15 @@
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#LogicalTest">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#factReference"/>
-                <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#operator"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalOperator"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#operator"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalOperator"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#factReference"/>
+                <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -419,6 +414,28 @@
         <rdf:type rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalOperator"/>
         <rdfs:comment>cpe-lang</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Platform">
+        <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#deprecated">
+        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/platform#factReference">
+        <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
+        <rdfs:label xml:lang="en">fact reference</rdfs:label>
+        <rdfs:comment xml:lang="en">A reference to a Platform individual</rdfs:comment>
+    </rdf:Description>
 </rdf:RDF>
 
 
