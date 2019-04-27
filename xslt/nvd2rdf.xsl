@@ -32,6 +32,11 @@
   <xsl:param name="BASEURI"/>
   <xsl:variable name="VULN">http://ontologies.ti-semantics.com/vulnerability#</xsl:variable>
 
+  <xsl:function name="fn:toISOdate">
+    <xsl:param name="datestr" />
+    <xsl:value-of select="replace(normalize-space($datestr), '(\d{4})(\d{2})(\d{2})','$1-$2-$3')"/>
+  </xsl:function>
+  
   <xsl:function name="fn:datetype">
     <xsl:param name="datestr"/>
     <xsl:value-of select="if(string(normalize-space($datestr)) castable as xsd:dateTime) then 'xsd:dateTime' else if(string(normalize-space($datestr)) castable as xsd:date) then 'xsd:date' else 'rdfs:Literal'" />
@@ -61,11 +66,11 @@
     <rdf:RDF>
       <xsl:apply-templates />
 
-      <rdf:Description rdf:type="{$VULN}NVD12Catalog">
+      <rdf:Description rdf:type="{$VULN}NVD12Catalog" rdf:about="{$BASEURI}">
 	<xsl:for-each select="//nvd1feed:entry">
 	  <vuln:vulnerability>
 	    <rdf:Description rdf:about="{fn:nvd12URI(@name)}"
-		rdf:type="{$VULN}NVD12Vulnerability" />
+		rdf:type="{$VULN}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
       </rdf:Description>
@@ -78,11 +83,11 @@
     <rdf:RDF>
       <xsl:apply-templates />
       
-      <rdf:Description rdf:type="{$VULN}NVD20Catalog">
+      <rdf:Description rdf:type="{$VULN}NVD20Catalog" rdf:about="{$BASEURI}">
 	<xsl:for-each select="//nvdfeed:entry">
 	  <vuln:vulnerability>
 	    <rdf:Description rdf:about="{fn:nvd20URI(@id)}"
-		rdf:type="{$VULN}NVD20Vulnerability" />
+		rdf:type="{$VULN}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
       </rdf:Description>
@@ -94,11 +99,11 @@
     <rdf:RDF>
       <xsl:apply-templates />
 
-      <rdf:Description rdf:type="{$VULN}NVD12Catalog">
+      <rdf:Description rdf:type="{$VULN}CVECatalog"  rdf:about="{$BASEURI}">
 	<xsl:for-each select="//cvefeed:item">
 	  <vuln:vulnerability>
 	    <rdf:Description rdf:about="{fn:cveURI(@name)}"
-		rdf:type="{$VULN}CVEVulnerability" />
+		rdf:type="{$VULN}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
       </rdf:Description>
@@ -115,7 +120,7 @@
 
   <!-- NVD 2.0 entry -->
   <xsl:template match="//nvdfeed:entry">
-    <rdf:Description rdf:about="{fn:nvd20URI(@id)}" rdf:type="{$VULN}NVD20Vulnerability" >
+    <rdf:Description rdf:about="{fn:nvd20URI(@id)}" rdf:type="{$VULN}Vulnerability" >
 
       <vuln:id>
         <xsl:value-of select="@id"/>
@@ -140,10 +145,6 @@
       <xsl:apply-templates select="scapvuln:cvss" />
       <xsl:apply-templates select="scapvuln:vulnerable-configuration" />
 
-      <!-- TODO: not tested -->
-      <xsl:apply-templates select="scapvuln:assessment_check" />
-      <xsl:apply-templates select="scapvuln:scanner" />
-      
     </rdf:Description>
   </xsl:template>
   
@@ -159,7 +160,7 @@
     <xsl:variable name="TYPE">
       <xsl:choose>
         <xsl:when test="@type='CAN'"><xsl:value-of select="$VULN" />CandidateVulnerability</xsl:when>
-        <xsl:when test="@type='CVE'"><xsl:value-of select="$VULN" />NVD12Vulnerability</xsl:when>
+        <xsl:when test="@type='CVE'"><xsl:value-of select="$VULN" />Vulnerability</xsl:when>
 	<xsl:otherwise><xsl:value-of select="$VULN" />Vulnerability</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -194,10 +195,10 @@
       <rdf:type>
 	<xsl:choose>
           <xsl:when test="@type='CAN'">
-            <rdf:Description rdf:about="{$VULN}CandidateEntry" />
+            <rdf:Description rdf:about="{$VULN}CandidateVulnerability" />
           </xsl:when>
           <xsl:when test="@type='CVE'">
-            <rdf:Description rdf:about="{$VULN}CVEEntry" />
+            <rdf:Description rdf:about="{$VULN}Vulnerability" />
           </xsl:when>
 	</xsl:choose>
       </rdf:type>
@@ -206,6 +207,8 @@
         <xsl:value-of select="@name"/>
       </vuln:id>
 
+      <xsl:apply-templates select="cvefeed:phase" />
+      
       <rdfs:comment>
         <xsl:value-of select="cvefeed:desc"/>
       </rdfs:comment>
@@ -214,6 +217,32 @@
       <!-- we will skip votes and comments because these were
 	   eventually phased out -->
     </rdf:Description>
+  </xsl:template>
+
+  <xsl:template match="cvefeed:phase">
+      <xsl:choose>
+	<xsl:when test="text()='Assigned'">
+	  <vuln:published rdf:datatype="xsd:date">
+	    <xsl:value-of select="fn:toISOdate(@date)" />
+	  </vuln:published>
+	</xsl:when>
+	<xsl:when test="text()='Modified'">
+	  <vuln:modified rdf:datatype="xsd:date">
+	    <xsl:value-of select="fn:toISOdate(@date)" />
+	  </vuln:modified>
+	</xsl:when>
+	<xsl:when test="text()='Proposed'">
+	  <vuln:proposed rdf:datatype="xsd:date">
+	    <xsl:value-of select="fn:toISOdate(@date)" />
+	  </vuln:proposed>
+	</xsl:when>
+	<xsl:when test="text()='Interim'">
+	  <vuln:interim rdf:datatype="xsd:date">
+	    <xsl:value-of select="fn:toISOdate(@date)" />
+	  </vuln:interim>
+	</xsl:when>
+      </xsl:choose>
+
   </xsl:template>
   
   <xsl:template match="scapvuln:vulnerable-software-list">
@@ -276,10 +305,11 @@
 	    <xsl:value-of select="@url" />
 	  </vuln:referenceURL>
 	</xsl:if>
-	<vuln:referenceTitle xml:lang="en">
-	  <xsl:value-of select="text()" />
-	</vuln:referenceTitle>
-	
+	<xsl:if test="text()!=@url">
+	  <vuln:referenceTitle xml:lang="en">
+	    <xsl:value-of select="text()" />
+	  </vuln:referenceTitle>
+	</xsl:if>	
       </rdf:Description>
     </vuln:reference>
   </xsl:template>
@@ -306,9 +336,11 @@
 	  </vuln:referenceURL>
 	</xsl:if>
 
-	<vuln:referenceTitle xml:lang="en">
-	  <xsl:value-of select="text()" />
-	</vuln:referenceTitle>
+	<xsl:if test="text()!=@url">
+	  <vuln:referenceTitle xml:lang="en">
+	    <xsl:value-of select="text()" />
+	  </vuln:referenceTitle>
+	</xsl:if>	
 	
       </rdf:Description>
     </vuln:reference>
@@ -318,9 +350,12 @@
     <vuln:referenceURL rdf:datatype="xsd:anyURI">
       <xsl:value-of select="@href"/>
     </vuln:referenceURL>
-    <vuln:referenceTitle xml:lang="{@xml:lang}">
-      <xsl:value-of select="text()"/>
-    </vuln:referenceTitle>
+    
+    <xsl:if test="text()!=@url">
+      <vuln:referenceTitle xml:lang="{@xml:lang}">
+	<xsl:value-of select="text()" />
+      </vuln:referenceTitle>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="scapvuln:source">
@@ -335,42 +370,4 @@
     </vuln:score>
   </xsl:template>
   
-  <!-- vuln:assessment_check -->
-  <xsl:template match="scapvuln:assessment_check">
-    <vuln:assessmentCheck>
-      <rdf:Description>
-        <vuln:assessmentCheckName>
-          <xsl:value-of select="@name"/>
-        </vuln:assessmentCheckName>
-        <vuln:assessmentCheckURL>
-          <xsl:value-of select="@href"/>
-        </vuln:assessmentCheckURL>
-      </rdf:Description>
-    </vuln:assessmentCheck>
-  </xsl:template>
-
-  <!-- vuln:scanner -->
-  <xsl:template match="scapvuln:scanner">
-    <vuln:scanner>
-      <rdf:Description>
-        <xsl:apply-templates select="scapvuln:definition" />
-      </rdf:Description>
-    </vuln:scanner>
-  </xsl:template>
-  
-  <!-- vuln:definition -->
-  <xsl:template match="scapvuln:definition">
-    <rdf:Description>
-      <vuln:definitionName>
-        <xsl:value-of select="@name"/>
-      </vuln:definitionName>
-      <vuln:definitionURL>
-        <xsl:value-of select="@href"/>
-      </vuln:definitionURL>
-      <vuln:definitionSystem>
-        <xsl:value-of select="@system"/>
-      </vuln:definitionSystem>
-    </rdf:Description>
-  </xsl:template>
-
 </xsl:stylesheet>

@@ -61,6 +61,26 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/weakness#weakness -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/weakness#weakness">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/weakness#WeaknessCatalog"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Weakness"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Data properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -106,6 +126,13 @@
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/weakness#WeaknessCatalog">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Catalog"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/weakness#weakness"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontologies.ti-semantics.com/core#Weakness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Characterizes a collection of software security issues (flaws, faults, bugs, vulnerabilities, weaknesses, etc).  The name used by CWE is usually &quot;CWE&quot;.  However, if this collection is a subset of CWE, then a more appropriate name should be used.</rdfs:comment>
         <rdfs:label>Weakness Catalog</rdfs:label>
     </owl:Class>
