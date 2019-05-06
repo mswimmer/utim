@@ -44,7 +44,7 @@
 
   <xsl:function name="fn:cveURI">
     <xsl:param name="entryId"/>
-    <xsl:value-of select="$BASEURI" />#<xsl:value-of select="$entryId"/>
+        urn:X-cve:<xsl:value-of select="$entryId"/>
   </xsl:function>
 
   <xsl:function name="fn:nvd12URI">
