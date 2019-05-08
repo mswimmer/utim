@@ -191,13 +191,11 @@ A Tool individual must not be used to characterize malware. Further, a Tool must
     <!-- http://ontologies.ti-semantics.com/core#Vulnerability -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Vulnerability">
-        <xpath>/nvdcve20:nvd/nvdcve20:entry</xpath>
         <rdfs:comment xml:lang="en">A Vulnerability is any weakness in the computational logic found in products or devices that could be exploited by a threat source.
 
 A Vulnerability is &quot;a mistake in software that can be directly used by a hacker to gain access to a system or network&quot;. For example, if a piece of malware exploits CVE-2015-12345, a Malware individal could be linked to a Vulnerability individual that references CVE-2015-12345.
  
 A Vulnerability individual is primarily used to link to external definitions of vulnerabilities or to describe 0-day vulnerabilities that do not yet have an external definition. Typically, other individuals assert relationships to Vulnerability objects when a specific vulnerability is targeted and exploited as part of malicious cyber activity. As such, Vulnerability objects can be used as a linkage to the asset management and compliance process.</rdfs:comment>
-        <rdfs:comment xml:lang="en">mandatory</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://csrc.nist.gov/CSRC/media/Publications/nistir/8138/draft/documents/nistir_8138_draft.pdf</rdfs:isDefinedBy>
     </owl:Class>
     

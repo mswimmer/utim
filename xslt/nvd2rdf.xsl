@@ -9,7 +9,8 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:dc="http://purl.org/dc/terms/"
-    xmlns:fn="http://ontologies.ti-semantics.com/fn"
+    xmlns:tifn="http://ontologies.ti-semantics.com/fn"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions"
 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 
@@ -32,29 +33,29 @@
   <xsl:param name="BASEURI"/>
   <xsl:variable name="VULN">http://ontologies.ti-semantics.com/vulnerability#</xsl:variable>
 
-  <xsl:function name="fn:toISOdate">
+  <xsl:function name="tifn:toISOdate">
     <xsl:param name="datestr" />
     <xsl:value-of select="replace(normalize-space($datestr), '(\d{4})(\d{2})(\d{2})','$1-$2-$3')"/>
   </xsl:function>
   
-  <xsl:function name="fn:datetype">
+  <xsl:function name="tifn:datetype">
     <xsl:param name="datestr"/>
     <xsl:value-of select="if(string(normalize-space($datestr)) castable as xsd:dateTime) then 'xsd:dateTime' else if(string(normalize-space($datestr)) castable as xsd:date) then 'xsd:date' else 'rdfs:Literal'" />
   </xsl:function>
 
-  <xsl:function name="fn:cveURI">
+  <xsl:function name="tifn:cveURI">
     <xsl:param name="entryId"/>
-        urn:X-cve:<xsl:value-of select="$entryId"/>
+    <xsl:value-of select="fn:concat('urn:X-cve:', $entryId)" />
   </xsl:function>
 
-  <xsl:function name="fn:nvd12URI">
+  <xsl:function name="tifn:cweURI">
     <xsl:param name="entryId"/>
-    <xsl:value-of select="$BASEURI" />#<xsl:value-of select="$entryId"/>
+    <xsl:value-of select="fn:concat('urn:X-cwe:', $entryId)" />
   </xsl:function>
-  
-  <xsl:function name="fn:nvd20URI">
+
+  <xsl:function name="tifn:cweDefinedURI">
     <xsl:param name="entryId"/>
-    <xsl:value-of select="$BASEURI" />#<xsl:value-of select="$entryId"/>
+    <xsl:value-of select="fn:concat('https://cwe.mitre.org/data/definitions/', fn:replace($entryId, 'CWE-', ''), '.html') " />
   </xsl:function>
   
   <xsl:output method="xml" encoding="UTF-8"/>
@@ -69,7 +70,7 @@
       <rdf:Description rdf:type="{$VULN}NVD12Catalog" rdf:about="{$BASEURI}">
 	<xsl:for-each select="//nvd1feed:entry">
 	  <vuln:vulnerability>
-	    <rdf:Description rdf:about="{fn:nvd12URI(@name)}"
+	    <rdf:Description rdf:about="{tifn:cveURI(@name)}"
 		rdf:type="{$VULN}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
@@ -86,7 +87,7 @@
       <rdf:Description rdf:type="{$VULN}NVD20Catalog" rdf:about="{$BASEURI}">
 	<xsl:for-each select="//nvdfeed:entry">
 	  <vuln:vulnerability>
-	    <rdf:Description rdf:about="{fn:nvd20URI(@id)}"
+	    <rdf:Description rdf:about="{tifn:cveURI(@id)}"
 		rdf:type="{$VULN}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
@@ -102,7 +103,7 @@
       <rdf:Description rdf:type="{$VULN}CVECatalog"  rdf:about="{$BASEURI}">
 	<xsl:for-each select="//cvefeed:item">
 	  <vuln:vulnerability>
-	    <rdf:Description rdf:about="{fn:cveURI(@name)}"
+	    <rdf:Description rdf:about="{tifn:cveURI(@name)}"
 		rdf:type="{$VULN}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
@@ -120,7 +121,7 @@
 
   <!-- NVD 2.0 entry -->
   <xsl:template match="//nvdfeed:entry">
-    <rdf:Description rdf:about="{fn:nvd20URI(@id)}" rdf:type="{$VULN}Vulnerability" >
+    <rdf:Description rdf:about="{tifn:cveURI(@id)}" rdf:type="{$VULN}Vulnerability" >
 
       <vuln:id>
         <xsl:value-of select="@id"/>
@@ -132,11 +133,11 @@
 
       <xsl:apply-templates select="scapvuln:cwe" />
       
-      <vuln:published rdf:datatype="{fn:datetype(scapvuln:published-datetime)}">
+      <vuln:published rdf:datatype="{tifn:datetype(scapvuln:published-datetime)}">
         <xsl:value-of select="scapvuln:published-datetime"/>
       </vuln:published>
       
-      <vuln:modified rdf:datatype="{fn:datetype(scapvuln:last-modified-datetime)}">
+      <vuln:modified rdf:datatype="{tifn:datetype(scapvuln:last-modified-datetime)}">
         <xsl:value-of select="scapvuln:last-modified-datetime"/>
       </vuln:modified>
 
@@ -150,8 +151,9 @@
   
   <xsl:template match="scapvuln:cwe">
     <vuln:weakness>
-      <xsl:variable name="CWE">http://cve.mitre.org/data/<xsl:value-of select="@id" /></xsl:variable>
-      <rdf:Description rdf:about="{$CWE}" rdf:type="core:Weakness" />
+      <rdf:Description rdf:about="{tifn:cweURI(@id)}" rdf:type="core:Weakness">
+	<rdfs:isDefinedBy rdf:datatype="xsd:anyURI"><xsl:value-of select="tifn:cweDefinedURI(@id)"/></rdfs:isDefinedBy>
+      </rdf:Description>
     </vuln:weakness>
   </xsl:template>
   
@@ -165,7 +167,7 @@
       </xsl:choose>
     </xsl:variable>
     
-    <rdf:Description  rdf:about="{fn:nvd12URI(@name)}" rdf:type="{$TYPE}">
+    <rdf:Description  rdf:about="{tifn:cveURI(@name)}" rdf:type="{$TYPE}">
 
       <vuln:id>
         <xsl:value-of select="@name"/>
@@ -175,11 +177,11 @@
         <xsl:value-of select="nvd1feed:desc/nvd1feed:descript"/>
       </rdfs:comment>
 
-      <vuln:published rdf:datatype="{fn:datetype(@published)}">
+      <vuln:published rdf:datatype="{tifn:datetype(@published)}">
         <xsl:value-of select="@published"/>
       </vuln:published>
       
-      <vuln:modified rdf:datatype="{fn:datetype(@modified)}">
+      <vuln:modified rdf:datatype="{tifn:datetype(@modified)}">
         <xsl:value-of select="@modified"/>
       </vuln:modified>
 
@@ -191,7 +193,7 @@
  
   <!-- CVE Item (entry) -->
   <xsl:template match="//cvefeed:item">
-    <rdf:Description  rdf:about="{fn:cveURI(@name)}">
+    <rdf:Description  rdf:about="{tifn:cveURI(@name)}">
       <rdf:type>
 	<xsl:choose>
           <xsl:when test="@type='CAN'">
@@ -223,22 +225,22 @@
       <xsl:choose>
 	<xsl:when test="text()='Assigned'">
 	  <vuln:published rdf:datatype="xsd:date">
-	    <xsl:value-of select="fn:toISOdate(@date)" />
+	    <xsl:value-of select="tifn:toISOdate(@date)" />
 	  </vuln:published>
 	</xsl:when>
 	<xsl:when test="text()='Modified'">
 	  <vuln:modified rdf:datatype="xsd:date">
-	    <xsl:value-of select="fn:toISOdate(@date)" />
+	    <xsl:value-of select="tifn:toISOdate(@date)" />
 	  </vuln:modified>
 	</xsl:when>
 	<xsl:when test="text()='Proposed'">
 	  <vuln:proposed rdf:datatype="xsd:date">
-	    <xsl:value-of select="fn:toISOdate(@date)" />
+	    <xsl:value-of select="tifn:toISOdate(@date)" />
 	  </vuln:proposed>
 	</xsl:when>
 	<xsl:when test="text()='Interim'">
 	  <vuln:interim rdf:datatype="xsd:date">
-	    <xsl:value-of select="fn:toISOdate(@date)" />
+	    <xsl:value-of select="tifn:toISOdate(@date)" />
 	  </vuln:interim>
 	</xsl:when>
       </xsl:choose>
