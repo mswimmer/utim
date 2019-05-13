@@ -578,6 +578,7 @@ Other vulnerabilities, however, may require additional steps in order to be expl
         <cvss_v2_code xml:lang="en">AR</cvss_v2_code>
         <rdfs:comment xml:lang="en">These metrics enable the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user&apos;s organization, measured in terms of Availability. That is, if an IT asset supports a business function for which Availability is most important, the analyst can assign a greater value to Availability relative to Confidentiality and Integrity. Each security requirement has three possible values: Low, Medium, or High.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Availability Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -600,7 +601,7 @@ Other vulnerabilities, however, may require additional steps in order to be expl
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the intrinsic and fundamental characteristics of a vulnerability that are constant with time and across user environments</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
-        <rdfs:label>CVSS Base Metrics</rdfs:label>
+        <rdfs:label xml:lang="en">Base Metrics</rdfs:label>
     </owl:Class>
     
 
@@ -666,6 +667,7 @@ Other vulnerabilities, however, may require additional steps in order to be expl
 Note that the Confidentiality Requirement will not affect the Environmental score if the (Modified Base) confidentiality impact is set to None. Also, increasing the Confidentiality Requirement from Medium to High will not change the Environmental score when the (Modified Base) impact metrics are set to High. This is because the modified impact sub score (part of the Modified Base score that calculates impact) is already at a maximum value of 10.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Confidentiality Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -682,6 +684,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2EnvironmentalMetricGroup">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv2MetricGroup"/>
+        <rdfs:label xml:lang="en">Environmental Metrics</rdfs:label>
     </owl:Class>
     
 
@@ -788,6 +791,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:comment xml:lang="en">This metric enables the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user&apos;s organization, measured in terms of Integrity. That is, if an IT asset supports a business function for which Integrityis most important, the analyst can assign a greater value to Integrity relative to Confidentiality and Availability. Each security requirement has three possible values: Low, Medium, or High.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Integrity Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1166,6 +1170,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2TemporalMetricGroup">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv2MetricGroup"/>
+        <rdfs:label xml:lang="en">Temporal Metrics</rdfs:label>
     </owl:Class>
     
 
@@ -1277,6 +1282,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">AR</cvss_v3_code>
         <rdfs:comment xml:lang="en">These metrics enable the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user&apos;s organization, measured in terms of Availability. That is, if an IT asset supports a business function for which Availability is most important, the analyst can assign a greater value to Availability relative to Confidentiality and Integrity. Each security requirement has three possible values: Low, Medium, or High.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Availability Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1285,6 +1291,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3BaseMetricGroup">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv3MetricGroup"/>
+        <rdfs:label xml:lang="en">Base Metrics</rdfs:label>
     </owl:Class>
     
 
@@ -1321,6 +1328,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 Note that the Confidentiality Requirement will not affect the Environmental score if the (Modified Base) confidentiality impact is set to None. Also, increasing the Confidentiality Requirement from Medium to High will not change the Environmental score when the (Modified Base) impact metrics are set to High. This is because the modified impact sub score (part of the Modified Base score that calculates impact) is already at a maximum value of 10.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Confidentiality Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1337,6 +1345,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3EnvironmentalMetricGroup">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv3MetricGroup"/>
+        <rdfs:label xml:lang="en">Environmental Metrics</rdfs:label>
     </owl:Class>
     
 
@@ -1401,6 +1410,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">H</cvss_v3_code>
         <rdfs:comment xml:lang="en">Loss of Confidentiality is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">High Confidentiality Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1428,6 +1438,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">H</cvss_v3_code>
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">High Integrity Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1461,6 +1472,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:comment xml:lang="en">This metric enables the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user&apos;s organization, measured in terms of Integrity. That is, if an IT asset supports a business function for which Integrityis most important, the analyst can assign a greater value to Integrity relative to Confidentiality and Availability. Each security requirement has three possible values: Low, Medium, or High.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Integrity Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1512,6 +1524,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">L</cvss_v3_code>
         <rdfs:comment xml:lang="en">Loss of Confidentiality is likely to have only a limited adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Low Confidentiality Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1531,6 +1544,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">L</cvss_v3_code>
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have only a limited adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Low Integrity Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1558,6 +1572,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">M</cvss_v3_code>
         <rdfs:comment xml:lang="en">Loss of Confidentiality is likely to have a serious adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Medium Confidentiality Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1569,6 +1584,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">M</cvss_v3_code>
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have a serious adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Medium Integrity Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -1669,6 +1685,7 @@ The intent of this metric is to define the mitigations in place for a given envi
         <cvss_v3_code xml:lang="en">X</cvss_v3_code>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Confidentiality Requirement Not Defined</rdfs:label>
     </owl:Class>
     
 
@@ -1688,6 +1705,7 @@ The intent of this metric is to define the mitigations in place for a given envi
         <cvss_v3_code xml:lang="en">X</cvss_v3_code>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Integrity Requirement Not Defined</rdfs:label>
     </owl:Class>
     
 
@@ -1732,6 +1750,7 @@ The intent of this metric is to define the mitigations in place for a given envi
         <cvss_v3_code>PR</cvss_v3_code>
         <rdfs:comment xml:lang="en">This metric describes the level of privileges an attacker must possess before successfully exploiting the vulnerability. This metric if greatest if no privileges are required.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#2-1-3-Privileges-Required-PR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Privileges Required</rdfs:label>
     </owl:Class>
     
 
@@ -1811,6 +1830,7 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3TemporalMetricGroup">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv3MetricGroup"/>
+        <rdfs:label xml:lang="en">Temporal Metrics</rdfs:label>
     </owl:Class>
     
 
@@ -1880,17 +1900,10 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/score#EnvironmentalMetric">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Metric"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the characteristics of a vulnerability that are relevant and unique to a particular user&apos;s environment.</rdfs:comment>
         <rdfs:comment xml:lang="en">These metrics enable the analyst to customize the CVSS score depending on the importance of the affected IT asset to a user’s organization, measured in terms of complementary/alternative security controls in place, Confidentiality, Integrity, and Availability. The metrics are the modified equivalent of base metrics and are assigned metrics value based on the component placement in organization infrastructure.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
         <rdfs:label>CVSS Environmental Metrics</rdfs:label>
     </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ontologies.ti-semantics.com/score#EnvironmentalMetric"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
-        <owl:annotatedTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines the characteristics of a vulnerability that are relevant and unique to a particular user&apos;s environment.</owl:annotatedTarget>
-        <rdfs:comment>Previous text</rdfs:comment>
-    </owl:Axiom>
     
 
 
@@ -1935,6 +1948,7 @@ Confidentiality impact (MC) metric has increased weight if the Confidentiality R
 Note that the Confidentiality Requirement will not affect the Environmental score if the (Modified Base) confidentiality impact is set to None. Also, increasing the Confidentiality Requirement from Medium to High will not change the Environmental score when the (Modified Base) impact metrics are set to High. This is because the modified impact sub score (part of the Modified Base score that calculates impact) is already at a maximum value of 10.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Security Requirement</rdfs:label>
     </owl:Class>
     
 
@@ -2857,8 +2871,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2AdjacentAccessVector">
         <rdfs:label xml:lang="en">Adjacent</rdfs:label>
         <rdfs:comment xml:lang="en">A vulnerability exploitable with adjacent network access requires the attacker to have access to either the broadcast or collision domain of the vulnerable software.  Examples of local networks include local IP subnet, Bluetooth, IEEE 802.11, and local Ethernet segment.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
         <cvss_v2_code>A</cvss_v2_code>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2CompleteAvailabilityImpact">
         <cvss_v2_code>C</cvss_v2_code>
@@ -2881,8 +2895,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2ConfirmedReportConfidence">
         <rdfs:label xml:lang="en">Confirmed</rdfs:label>
         <rdfs:comment xml:lang="en">The vulnerability has been acknowledged by the vendor or author of the affected technology. The vulnerability may also be Confirmed when its existence is confirmed from an external event such as publication of functional or proof-of-concept exploit code or widespread exploitation.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-3-Report-Confidence-RC</rdfs:isDefinedBy>
         <cvss_v2_code>C</cvss_v2_code>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-3-Report-Confidence-RC</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2FunctionalExploitability">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-1-Exploitability-E</rdfs:isDefinedBy>
@@ -2901,8 +2915,9 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-1-2-Access-Complexity-AC</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighAvailabilityRequirement">
-        <cvss_v2_code xml:lang="en">H</cvss_v2_code>
         <rdfs:comment xml:lang="en">Loss of Availability is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
+        <cvss_v2_code xml:lang="en">H</cvss_v2_code>
+        <rdfs:label xml:lang="en">High Availability Requirement</rdfs:label>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighCollateralDamagePotential">
@@ -2912,6 +2927,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:label xml:lang="en">High</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighConfidentialityRequirement">
+        <rdfs:label xml:lang="en">High Confidentiality Requirement</rdfs:label>
         <cvss_v2_code xml:lang="en">H</cvss_v2_code>
         <rdfs:comment xml:lang="en">Loss of Confidentiality is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
@@ -2924,6 +2940,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighIntegrityRequirement">
         <cvss_v2_code xml:lang="en">H</cvss_v2_code>
+        <rdfs:label xml:lang="en">High Integrity Requirement</rdfs:label>
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
     </rdf:Description>
@@ -2941,15 +2958,16 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2LowAccessComplexity">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-1-2-Access-Complexity-AC</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Low</rdfs:label>
         <rdfs:comment xml:lang="en">Specialized access conditions or extenuating circumstances do not exist. The following are examples:
 - The affected product typically requires access to a wide range of systems and users, possibly anonymous and untrusted (e.g., Internet-facing web or mail server).
 - The affected configuration is default or ubiquitous.
 - The attack can be performed manually and requires little skill or additional information gathering.
 - The race condition is a lazy one (i.e., it is technically a race but easily winnable).</rdfs:comment>
+        <rdfs:label xml:lang="en">Low</rdfs:label>
         <cvss_v2_code>L</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2LowAvailabilityRequirement">
+        <rdfs:label xml:lang="en">Low Availability Requirement</rdfs:label>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <cvss_v2_code xml:lang="en">L</cvss_v2_code>
         <rdfs:comment xml:lang="en">Loss of Availability is likely to have only a limited adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
@@ -2963,10 +2981,12 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2LowConfidentialityRequirement">
         <cvss_v2_code xml:lang="en">L</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Low Confidentiality Requirement</rdfs:label>
         <rdfs:comment xml:lang="en">Loss of Confidentiality is likely to have only a limited adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2LowIntegrityRequirement">
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have only a limited adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
+        <rdfs:label xml:lang="en">Low Integrity Requirement</rdfs:label>
         <cvss_v2_code xml:lang="en">L</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
     </rdf:Description>
@@ -2985,10 +3005,12 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2MediumAvailabilityRequirement">
         <cvss_v2_code xml:lang="en">M</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Medium Availability Requirement</rdfs:label>
         <rdfs:comment xml:lang="en">Loss of Availability is likely to have a serious adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2MediumConfidentialityRequirement">
         <cvss_v2_code xml:lang="en">M</cvss_v2_code>
+        <rdfs:label xml:lang="en">Medium Confidentiality Requirement</rdfs:label>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Loss of Confidentiality is likely to have a serious adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
     </rdf:Description>
@@ -3002,12 +3024,13 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v2_code xml:lang="en">M</cvss_v2_code>
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have a serious adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Medium Integrity Requirement</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2MediumTargetCount">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-2-Target-Distribution-TD</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Medium</rdfs:label>
-        <rdfs:comment xml:lang="en">Targets exist inside the environment, but on a medium scale. Between 26% - 75% of the total environment is at risk.</rdfs:comment>
         <cvss_v2_code>M</cvss_v2_code>
+        <rdfs:comment xml:lang="en">Targets exist inside the environment, but on a medium scale. Between 26% - 75% of the total environment is at risk.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2MultipleAuthentications">
         <cvss_v2_code>M</cvss_v2_code>
@@ -3064,6 +3087,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
     </owl:Axiom>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedAvailabilityRequirement">
+        <rdfs:label xml:lang="en">Availability Requirement Not Defined</rdfs:label>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
         <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
@@ -3075,20 +3099,22 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:label xml:lang="en">Not Defined</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedConfidentialityRequirement">
-        <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
+        <rdfs:label xml:lang="en">Confidentiality Requirement Not Defined</rdfs:label>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedExploitability">
         <cvss_v2_code>ND</cvss_v2_code>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Not Defined</rdfs:comment>
+        <rdfs:label xml:lang="en">Not Defined</rdfs:label>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-1-Exploitability-E</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedIntegrityRequirement">
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
         <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Integrity Requirement Not Defined</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedRemediation">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-2-2-Remediation-Level-RL</rdfs:isDefinedBy>
@@ -3099,8 +3125,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedTargetCount">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-2-Target-Distribution-TD</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">Not Defined</rdfs:label>
-        <cvss_v2_code>ND</cvss_v2_code>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
+        <cvss_v2_code>ND</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2OfficialFixRemediation">
         <rdfs:label xml:lang="en">Official Fix</rdfs:label>
@@ -3137,8 +3163,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v2_code>S</cvss_v2_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2TemporaryFixRemediation">
-        <rdfs:comment xml:lang="en">There is an official but temporary fix available. This includes instances where the vendor issues a temporary hotfix, tool, or workaround.</rdfs:comment>
         <cvss_v2_code>T</cvss_v2_code>
+        <rdfs:comment xml:lang="en">There is an official but temporary fix available. This includes instances where the vendor issues a temporary hotfix, tool, or workaround.</rdfs:comment>
         <rdfs:label xml:lang="en">Temporary Fix</rdfs:label>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-2-2-Remediation-Level-RL</rdfs:isDefinedBy>
     </rdf:Description>
@@ -3150,8 +3176,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2UnconfirmedReportConfidence">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-3-Report-Confidence-RC</rdfs:isDefinedBy>
-        <cvss_v2_code>UC</cvss_v2_code>
         <rdfs:comment xml:lang="en">There is a single unconfirmed source or possibly multiple conflicting reports. There is little confidence in the validity of the reports. An example is a rumor that surfaces from the hacker underground.</rdfs:comment>
+        <cvss_v2_code>UC</cvss_v2_code>
         <rdfs:label xml:lang="en">Unconfirmed</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2UncorroboratedReportConfidence">
@@ -3216,6 +3242,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:comment xml:lang="en">Loss of Availability is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <cvss_v3_code xml:lang="en">H</cvss_v3_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">High Availability Requirement</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3HighConfidentialityImpact">
         <rdfs:label xml:lang="en">High</rdfs:label>
@@ -3224,8 +3251,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code xml:lang="en">H</cvss_v3_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3HighExploitCodeMaturity">
-        <cvss_v3_code xml:lang="en">H</cvss_v3_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
+        <cvss_v3_code xml:lang="en">H</cvss_v3_code>
         <rdfs:comment xml:lang="en">Functional autonomous code exists, or no exploit is required (manual trigger) and details are widely available. Exploit code works in every situation, or is actively being delivered via an autonomous agent (such as a worm or virus). Network-connected systems are likely to encounter scanning or exploitation attempts. Exploit development has reached the level of reliable, widely-available, easy-to-use automated tools.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3HighIntegrityImpact">
@@ -3258,6 +3285,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <cvss_v3_code>L</cvss_v3_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3LowAvailabilityRequirement">
+        <rdfs:label xml:lang="en">Low Availability Requirement</rdfs:label>
         <rdfs:comment xml:lang="en">Loss of Availability is likely to have only a limited adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <cvss_v3_code xml:lang="en">L</cvss_v3_code>
@@ -3270,8 +3298,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3LowIntegrityImpact">
         <cvss_v3_code>L</cvss_v3_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-3-2-Integrity-Impact-I</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">Low</rdfs:label>
         <rdfs:comment xml:lang="en">Modification of data is possible, but the attacker does not have control over the consequence of a modification, or the amount of modification is constrained. The data modification does not have a direct, serious impact on the impacted component.</rdfs:comment>
+        <rdfs:label xml:lang="en">Low</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3LowPrivilegesRequired">
         <rdfs:comment xml:lang="en">The attacker is authorized with (i.e. requires) privileges that provide basic user capabilities that could normally affect only settings and files owned by a user. Alternatively, an attacker with Low privileges may have the ability to cause an impact only to non-sensitive resources.</rdfs:comment>
@@ -3283,6 +3311,7 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:comment xml:lang="en">Loss of Availability is likely to have a serious adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <cvss_v3_code xml:lang="en">M</cvss_v3_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Medium Availability Requirement</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NetworkAttackVector">
         <rdfs:comment xml:lang="en">A vulnerability exploitable with network access means the vulnerable component is bound to the network stack and the attacker&apos;s path is through OSI layer 3 (the network layer). Such a vulnerability is often termed “remotely exploitable” and can be thought of as an attack being exploitable one or more network hops away (e.g. across layer 3 boundaries from routers). An example of a network attack is an attacker causing a denial of service (DoS) by sending a specially crafted TCP packet from across the public Internet (e.g. CVE-2004-0230).</rdfs:comment>
@@ -3305,8 +3334,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-3-2-Integrity-Impact-I</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">There is no loss of integrity within the impacted component.</rdfs:comment>
         <rdfs:label xml:lang="en">None</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
         <cvss_v3_code xml:lang="en">N</cvss_v3_code>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">There is no impact to the integrity of the system.</rdfs:comment>
     </rdf:Description>
     <owl:Axiom>
@@ -3336,11 +3365,12 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedAvailabilityRequirement">
         <cvss_v3_code xml:lang="en">X</cvss_v3_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">Availability Requirement Not Defined</rdfs:label>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedExploitCodeMaturity">
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to a scoring equation to skip this metric.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
         <cvss_v3_code xml:lang="en">X</cvss_v3_code>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedRemediation">
@@ -3379,8 +3409,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
         <rdfs:comment xml:lang="en">Significant details are published, but researchers either do not have full confidence in the root cause, or do not have access to source code to fully confirm all of the interactions that may lead to the result. Reasonable confidence exists, however, that the bug is reproducible and at least one impact is able to be verified (proof-of-concept exploits may provide this). An example is a detailed write-up of research into a vulnerability with an explanation (possibly obfuscated or “left as an exercise to the reader”) that gives assurances on how to reproduce the results.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3RequiredUserInteraction">
-        <cvss_v3_code xml:lang="en">R</cvss_v3_code>
         <rdfs:label xml:lang="en">Required</rdfs:label>
+        <cvss_v3_code xml:lang="en">R</cvss_v3_code>
         <rdfs:comment xml:lang="en">Successful exploitation of this vulnerability requires a user to take some action before the vulnerability can be exploited. For example, a successful exploit may only be possible during the installation of an application by a system administrator.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#2-1-4-User-Interaction-UI</rdfs:isDefinedBy>
     </rdf:Description>
@@ -3405,8 +3435,8 @@ Note that the Confidentiality Requirement will not affect the Environmental scor
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3UnknownReportConfidence">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-3-Report-Confidence-RC</rdfs:isDefinedBy>
         <cvss_v3_code>U</cvss_v3_code>
-        <rdfs:comment>There are reports of impacts that indicate a vulnerability is present. The reports indicate that the cause of the vulnerability is unknown, or reports may differ on the cause or impacts of the vulnerability. Reporters are uncertain of the true nature of the vulnerability, and there is little confidence in the validity of the reports or whether a static Base score can be applied given the differences described. An example is a bug report which notes that an intermittent but non-reproducible crash occurs, with evidence of memory corruption suggesting that denial of service, or possible more serious impacts, may result.</rdfs:comment>
         <rdfs:label xml:lang="en">Unknown</rdfs:label>
+        <rdfs:comment>There are reports of impacts that indicate a vulnerability is present. The reports indicate that the cause of the vulnerability is unknown, or reports may differ on the cause or impacts of the vulnerability. Reporters are uncertain of the true nature of the vulnerability, and there is little confidence in the validity of the reports or whether a static Base score can be applied given the differences described. An example is a bug report which notes that an intermittent but non-reproducible crash occurs, with evidence of memory corruption suggesting that denial of service, or possible more serious impacts, may result.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3UnprovenExploitCodeMaturity">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>

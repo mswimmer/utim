@@ -60,12 +60,6 @@
     
 
 
-    <!-- http://ontologies.ti-semantics.com/core#xpath -->
-
-    <owl:AnnotationProperty rdf:about="http://ontologies.ti-semantics.com/core#xpath"/>
-    
-
-
     <!-- http://purl.org/dc/terms/license -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
@@ -248,7 +242,6 @@
     <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#negate">
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/platform#LogicalTest"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <core:xpath xml:lang="negate]">//logical-test[</core:xpath>
         <rdfs:comment xml:lang="en">Specifies whether the result of applying the operator should be negated. Possible values are “TRUE” and “FALSE”. Ignored if missing.</rdfs:comment>
         <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
         <rdfs:label xml:lang="en">negate</rdfs:label>
@@ -277,29 +270,11 @@
     
 
 
-    <!-- http://ontologies.ti-semantics.com/core#Platform -->
-
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Platform">
-        <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
-    </rdf:Description>
-    
-
-
-    <!-- http://ontologies.ti-semantics.com/core#Reference -->
-
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Reference">
-        <rdfs:comment xml:lang="en">Superclass for references made to external resources.</rdfs:comment>
-        <rdfs:label xml:lang="en">Reference</rdfs:label>
-    </rdf:Description>
-    
-
-
     <!-- http://ontologies.ti-semantics.com/platform#AdditionalInformation -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#AdditionalInformation">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/platform#Deprecation"/>
         <rdfs:comment xml:lang="en">Deprecation is of type Additional Information Discovery.</rdfs:comment>
-        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
     </owl:Class>
     
 
@@ -308,7 +283,6 @@
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#Deprecation">
         <rdfs:comment xml:lang="en">Specifies the deprecation information for a specific deprecation of a given identifier name.  If a name is deprecated multiple times, there would be a separate instance of the deprecation element for each deprecation.</rdfs:comment>
-        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
         <rdfs:label xml:lang="en">Deprecation</rdfs:label>
     </owl:Class>
     
@@ -318,7 +292,6 @@
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#LogicalOperator">
         <rdfs:comment xml:lang="en">Operator applied to fact-ref, check-fact-ref and logical-test elements. Only instances allowed are AND and OR.</rdfs:comment>
-        <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
         <rdfs:label xml:lang="en">Operator</rdfs:label>
     </owl:Class>
     
@@ -348,7 +321,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines a logical test of a platform.</rdfs:comment>
-        <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://ontologies.ti-semantics.com/platform"/>
         <rdfs:label>Logical Test</rdfs:label>
     </owl:Class>
@@ -360,7 +332,6 @@
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#NameCorrection">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/platform#Deprecation"/>
         <rdfs:comment xml:lang="en">Deprecation is of type Identifier Name Correction.</rdfs:comment>
-        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
     </owl:Class>
     
 
@@ -370,7 +341,6 @@
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#NameRemoval">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/platform#Deprecation"/>
         <rdfs:comment xml:lang="en">Deprecation is of type Identifier Name Removal.</rdfs:comment>
-        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
     </owl:Class>
     
 
@@ -404,7 +374,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies reference information associated with a CPE</rdfs:comment>
-        <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
         <rdfs:label>Reference</rdfs:label>
     </owl:Class>
     

@@ -29,15 +29,6 @@
     
 
 
-    <!-- http://ontologies.ti-semantics.com/core#xpath -->
-
-    <owl:AnnotationProperty rdf:about="http://ontologies.ti-semantics.com/core#xpath">
-        <rdfs:comment xml:lang="en">XPath of the element</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:AnnotationProperty>
-    
-
-
     <!-- http://purl.org/dc/terms/license -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
