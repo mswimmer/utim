@@ -38,9 +38,9 @@
     <xsl:value-of select="replace(normalize-space($datestr), '(\d{4})(\d{2})(\d{2})','$1-$2-$3')"/>
   </xsl:function>
   
-  <xsl:function name="tifn:datetype">
+  <xsl:function name="tifn:toDateTime">
     <xsl:param name="datestr"/>
-    <xsl:value-of select="if(string(normalize-space($datestr)) castable as xsd:dateTime) then 'xsd:dateTime' else if(string(normalize-space($datestr)) castable as xsd:date) then 'xsd:date' else 'rdfs:Literal'" />
+    <xsl:value-of select="if(string(normalize-space($datestr)) castable as xsd:date) then concat($datestr, 'T00:00:00+00:00') else $datestr" />
   </xsl:function>
 
   <xsl:function name="tifn:cveURI">
@@ -133,12 +133,12 @@
 
       <xsl:apply-templates select="scapvuln:cwe" />
       
-      <vuln:published rdf:datatype="{tifn:datetype(scapvuln:published-datetime)}">
-        <xsl:value-of select="scapvuln:published-datetime"/>
+      <vuln:published rdf:datatype="xsd:dateTime" >
+        <xsl:value-of select="tifn:toDateTime(scapvuln:published-datetime)"/>
       </vuln:published>
       
-      <vuln:modified rdf:datatype="{tifn:datetype(scapvuln:last-modified-datetime)}">
-        <xsl:value-of select="scapvuln:last-modified-datetime"/>
+      <vuln:modified rdf:datatype="xsd:dateTime" >
+        <xsl:value-of select="tifn:toDateTime(scapvuln:last-modified-datetime)"/>
       </vuln:modified>
 
       <xsl:apply-templates select="scapvuln:vulnerable-software-list" />
@@ -177,12 +177,12 @@
         <xsl:value-of select="nvd1feed:desc/nvd1feed:descript"/>
       </rdfs:comment>
 
-      <vuln:published rdf:datatype="{tifn:datetype(@published)}">
-        <xsl:value-of select="@published"/>
+      <vuln:published rdf:datatype="xsd:dateType">
+        <xsl:value-of select="tifn:toDateTime(@published)"/>
       </vuln:published>
       
-      <vuln:modified rdf:datatype="{tifn:datetype(@modified)}">
-        <xsl:value-of select="@modified"/>
+      <vuln:modified rdf:datatype="xsd:dateType">
+        <xsl:value-of select="tifn:toDateTime(@modified)"/>
       </vuln:modified>
 
       <xsl:apply-templates select="nvd1feed:refs" />
@@ -224,23 +224,23 @@
   <xsl:template match="cvefeed:phase">
       <xsl:choose>
 	<xsl:when test="text()='Assigned'">
-	  <vuln:published rdf:datatype="xsd:date">
-	    <xsl:value-of select="tifn:toISOdate(@date)" />
+	  <vuln:published rdf:datatype="xsd:dateTime">
+	    <xsl:value-of select="tifn:toDateTime(tifn:toISOdate(@date))" />
 	  </vuln:published>
 	</xsl:when>
 	<xsl:when test="text()='Modified'">
-	  <vuln:modified rdf:datatype="xsd:date">
-	    <xsl:value-of select="tifn:toISOdate(@date)" />
+	  <vuln:modified rdf:datatype="xsd:dateTime">
+	    <xsl:value-of select="tifn:toDateTime(tifn:toISOdate(@date))" />
 	  </vuln:modified>
 	</xsl:when>
 	<xsl:when test="text()='Proposed'">
-	  <vuln:proposed rdf:datatype="xsd:date">
-	    <xsl:value-of select="tifn:toISOdate(@date)" />
+	  <vuln:proposed rdf:datatype="xsd:dateTime">
+	    <xsl:value-of select="tifn:toDateTime(tifn:toISOdate(@date))" />
 	  </vuln:proposed>
 	</xsl:when>
 	<xsl:when test="text()='Interim'">
-	  <vuln:interim rdf:datatype="xsd:date">
-	    <xsl:value-of select="tifn:toISOdate(@date)" />
+	  <vuln:interim rdf:datatype="xsd:dateTime">
+	    <xsl:value-of select="tifn:toDateTime(tifn:toISOdate(@date))" />
 	  </vuln:interim>
 	</xsl:when>
       </xsl:choose>

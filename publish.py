@@ -50,8 +50,12 @@ ontologies = [
     # TODO: need to implement versioning for attack
     {'file': 'ontologies/attack.rdf', 'bucket':s3ontos, 'key': 'attack.rdf', 'ct':'application/rdf+xml'},
 
-    {'file': 'ontologies/index.html', 'bucket':s3ontos, 'key': 'index.html', 'ct':'text/html'},
-    {'file': 'ontologies/404.html', 'bucket':s3ontos, 'key': '404.html', 'ct':'text/html'}
+    {'file': 'ontologies/index.html', 'bucket': s3ontos, 'key': 'index.html', 'ct':'text/html'},
+    {'file': 'ontologies/404.html', 'bucket': s3ontos, 'key': '404.html', 'ct':'text/html'},
+    {'file': 'cpe-dict2rdf.xsl', 'bucket': s3ontos, 'key': 'cpe-dict2rdf.xsl', 'ct':'application/xslt+xml'},
+    {'file': 'cvss2rdf.xsl', 'bucket':s3ontos, 'key': 'cvss2rdf.xsl', 'ct':'application/xslt+xml'},
+    {'file': 'cpe-lang2rdf.xsl', 'bucket':s3ontos, 'key': 'cpe-lang2rdf.xsl', 'ct':'application/xslt+xml'},
+    {'file': 'cve2rdf.xsl', 'bucket': s3ontos, 'key': 'cve2rdf.xsl', 'ct':'application/xslt+xml'}
     ]
 
 # useful functions to stay DRY
