@@ -14,7 +14,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ontologies.ti-semantics.com/platform">
-        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/platform-1.0.2"/>
+        <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/platform-1.0.3"/>
         <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.2"/>
         <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology that provides a vocabulary and representation for the Common Platform Enumeration (CPE) which provides a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&apos;s computing assets.</rdfs:comment>
@@ -79,9 +79,9 @@
 
     <!-- http://ontologies.ti-semantics.com/core#reference -->
 
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#reference">
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/core#reference">
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
-    </rdf:Description>
+    </owl:ObjectProperty>
     
 
 
@@ -267,6 +267,24 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Catalog -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Catalog"/>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Platform -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Platform"/>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Reference -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Reference"/>
     
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://ontologies.ti-semantics.com/core-1.0.3" uri="core-1.0.3.rdf"/>
+    <uri id="User Entered Import Resolution" name="http://www.w3.org/2006/time#" uri="file:/Users/morton_swimmer/data/Projects/SymbolicAI/symbolic-AI-TAC/stix/time.owl"/>
+    <uri id="User Entered Import Resolution" name="http://purl.org/dc/elements/1.1/" uri="file:/Users/morton_swimmer/data/Projects/SymbolicAI/ClioPatria/rdf/base/dcelements.rdf"/>
+    <uri id="Imports Wizard Entry" name="http://ontologies.ti-semantics.com/weakness-1.0.2" uri="weakness-1.0.2.rdf"/>
+    <uri id="Imports Wizard Entry" name="http://ontologies.ti-semantics.com/core-1.0.2" uri="core-1.0.2.rdf"/>
+    <uri id="Imports Wizard Entry" name="http://ontologies.ti-semantics.com/weakness-v1.0.2" uri="http://ontologies.ti-semantics.com/weakness-1.0.2"/>
+    <uri id="Imports Wizard Entry" name="http://ontologies.ti-semantics.com/weakness-v1.0.2" uri="weakness-3.1-v1.0.1.rdf"/>
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/prov-o-inverses-20130430" uri="http://www.w3.org/ns/prov#"/>
+    <uri id="Imports Wizard Entry" name="http://xmlns.com/foaf/0.1/" uri="http://xmlns.com/foaf/spec/"/>
+    <uri id="Imports Wizard Entry" name="http://ontologies.ti-semantics.com/core-1.0.0" uri="core-1.0.0.rdf"/>
+    <uri id="User Entered Import Resolution" name="https://mswimmer.github.io/utim/core-1.0.0" uri="core-1.0.0.rdf"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1560285501470" name="http://ontologies.ti-semantics.com/core" uri="core-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1560285501470" name="http://ontologies.ti-semantics.com/cti" uri="cti.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1560285501470" name="http://ontologies.ti-semantics.com/platform" uri="platform-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1560285501470" name="http://ontologies.ti-semantics.com/score" uri="score-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1560285501470" name="http://ontologies.ti-semantics.com/vulnerability" uri="vulnerability-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1560285501470" name="http://ontologies.ti-semantics.com/weakness" uri="weakness-1.0.3.rdf"/>
+    </group>
+</catalog>
