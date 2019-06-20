@@ -27,25 +27,25 @@ www = [
     ]
     
 ontologies = [
-    {'file': 'ontologies/platform-1.0.2.rdf', 'bucket':s3ontos, 'key': 'platform-1.0.2.rdf', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/platform-1.0.2.rdf', 'bucket':s3ontos, 'key': 'platform-1.0.2', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/platform-1.0.2.rdf', 'bucket':s3ontos, 'key': 'platform', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/platform-1.0.3.rdf', 'bucket':s3ontos, 'key': 'platform-1.0.3.rdf', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/platform-1.0.3.rdf', 'bucket':s3ontos, 'key': 'platform-1.0.3', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/platform-1.0.3.rdf', 'bucket':s3ontos, 'key': 'platform', 'ct':'application/rdf+xml'},
     
-    {'file': 'ontologies/core-1.0.2.rdf', 'bucket':s3ontos, 'key': 'core-1.0.2.rdf', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/core-1.0.2.rdf', 'bucket':s3ontos, 'key': 'core-1.0.2', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/core-1.0.2.rdf', 'bucket':s3ontos, 'key': 'core', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/core-1.0.3.rdf', 'bucket':s3ontos, 'key': 'core-1.0.3.rdf', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/core-1.0.3.rdf', 'bucket':s3ontos, 'key': 'core-1.0.3', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/core-1.0.3.rdf', 'bucket':s3ontos, 'key': 'core', 'ct':'application/rdf+xml'},
 
-    {'file': 'ontologies/score-1.0.2.rdf', 'bucket':s3ontos, 'key': 'score-1.0.2.rdf', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/score-1.0.2.rdf', 'bucket':s3ontos, 'key': 'score-1.0.2', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/score-1.0.2.rdf', 'bucket':s3ontos, 'key': 'score', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/score-1.0.3.rdf', 'bucket':s3ontos, 'key': 'score-1.0.3.rdf', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/score-1.0.3.rdf', 'bucket':s3ontos, 'key': 'score-1.0.3', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/score-1.0.3.rdf', 'bucket':s3ontos, 'key': 'score', 'ct':'application/rdf+xml'},
 
-    {'file': 'ontologies/vulnerability-1.0.2.rdf', 'bucket':s3ontos, 'key': 'vulnerability-1.0.2.rdf', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/vulnerability-1.0.2.rdf', 'bucket':s3ontos, 'key': 'vulnerability-1.0.2', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/vulnerability-1.0.2.rdf', 'bucket':s3ontos, 'key': 'vulnerability', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/vulnerability-1.0.3.rdf', 'bucket':s3ontos, 'key': 'vulnerability-1.0.3.rdf', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/vulnerability-1.0.3.rdf', 'bucket':s3ontos, 'key': 'vulnerability-1.0.3', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/vulnerability-1.0.3.rdf', 'bucket':s3ontos, 'key': 'vulnerability', 'ct':'application/rdf+xml'},
 
-    {'file': 'ontologies/weakness-1.0.2.rdf', 'bucket':s3ontos, 'key': 'weakness-1.0.2.rdf', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/weakness-1.0.2.rdf', 'bucket':s3ontos, 'key': 'weakness-1.0.2', 'ct':'application/rdf+xml'},
-    {'file': 'ontologies/weakness-1.0.2.rdf', 'bucket':s3ontos, 'key': 'weakness', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/weakness-1.0.3.rdf', 'bucket':s3ontos, 'key': 'weakness-1.0.3.rdf', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/weakness-1.0.3.rdf', 'bucket':s3ontos, 'key': 'weakness-1.0.3', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/weakness-1.0.3.rdf', 'bucket':s3ontos, 'key': 'weakness', 'ct':'application/rdf+xml'},
     
     # TODO: need to implement versioning for attack
     {'file': 'ontologies/attack.rdf', 'bucket':s3ontos, 'key': 'attack.rdf', 'ct':'application/rdf+xml'},
