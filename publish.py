@@ -46,6 +46,10 @@ ontologies = [
     {'file': 'ontologies/weakness-1.0.3.rdf', 'bucket':s3ontos, 'key': 'weakness-1.0.3.rdf', 'ct':'application/rdf+xml'},
     {'file': 'ontologies/weakness-1.0.3.rdf', 'bucket':s3ontos, 'key': 'weakness-1.0.3', 'ct':'application/rdf+xml'},
     {'file': 'ontologies/weakness-1.0.3.rdf', 'bucket':s3ontos, 'key': 'weakness', 'ct':'application/rdf+xml'},
+
+    {'file': 'ontologies/cti-1.0.3.rdf', 'bucket':s3ontos, 'key': 'cti-1.0.3.rdf', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/cti-1.0.3.rdf', 'bucket':s3ontos, 'key': 'cti-1.0.3', 'ct':'application/rdf+xml'},
+    {'file': 'ontologies/cti-1.0.3.rdf', 'bucket':s3ontos, 'key': 'cti', 'ct':'application/rdf+xml'},
     
     # TODO: need to implement versioning for attack
     {'file': 'ontologies/attack.rdf', 'bucket':s3ontos, 'key': 'attack.rdf', 'ct':'application/rdf+xml'},
