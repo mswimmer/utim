@@ -12,12 +12,11 @@
     <uri id="Imports Wizard Entry" name="http://ontologies.ti-semantics.com/core-1.0.0" uri="core-1.0.0.rdf"/>
     <uri id="User Entered Import Resolution" name="https://mswimmer.github.io/utim/core-1.0.0" uri="core-1.0.0.rdf"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1560945148598" name="http://ontologies.ti-semantics.com/core" uri="core-1.0.3.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1560945148598" name="duplicate:http://ontologies.ti-semantics.com/cti" uri="cti.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1560945148598" name="duplicate:http://ontologies.ti-semantics.com/cti" uri="cti.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1560945148598" name="http://ontologies.ti-semantics.com/platform" uri="platform-1.0.3.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1560945148598" name="http://ontologies.ti-semantics.com/score" uri="score-1.0.3.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1560945148598" name="http://ontologies.ti-semantics.com/vulnerability" uri="vulnerability-1.0.3.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1560945148598" name="http://ontologies.ti-semantics.com/weakness" uri="weakness-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1562840722495" name="http://ontologies.ti-semantics.com/core" uri="core-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1562840722495" name="http://ontologies.ti-semantics.com/cti" uri="cti-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1562840722495" name="http://ontologies.ti-semantics.com/platform" uri="platform-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1562840722495" name="http://ontologies.ti-semantics.com/score" uri="score-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1562840722495" name="http://ontologies.ti-semantics.com/vulnerability" uri="vulnerability-1.0.3.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1562840722495" name="http://ontologies.ti-semantics.com/weakness" uri="weakness-1.0.3.rdf"/>
     </group>
 </catalog>

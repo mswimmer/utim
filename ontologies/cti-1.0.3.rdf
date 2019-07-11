@@ -139,6 +139,15 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/cti#accomplishes -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#accomplishes">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/cti#Technique"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#Tactic"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/cti#attributedTo -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#attributedTo">
@@ -205,7 +214,6 @@ derived-from is an explicit relationship between  two separate objects and MUST 
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#goal">
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/cti#IntrusionSet"/>
-        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#Goal"/>
         <rdfs:label xml:lang="en">goal</rdfs:label>
     </owl:ObjectProperty>
     
@@ -222,7 +230,20 @@ derived-from is an explicit relationship between  two separate objects and MUST 
     <!-- http://ontologies.ti-semantics.com/cti#hasObjective -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#hasObjective">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Campaign"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/member"/>
+                        <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#Objective"/>
+        <rdfs:comment xml:lang="en">State what objectives a Threat Actor or Campaign may have</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -236,6 +257,12 @@ derived-from is an explicit relationship between  two separate objects and MUST 
         <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <rdfs:label xml:lang="en">impersonates</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/cti#implements -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#implements"/>
     
 
 
@@ -332,7 +359,6 @@ For example, an attributed-to Relationship from the Red Orca Intrusion Set to th
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#observableObject">
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/cti#ObservedData"/>
-        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#ObservableObject"/>
     </owl:ObjectProperty>
     
 
@@ -421,28 +447,24 @@ This property MUST reference only Identity SDOs.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#sightingOf">
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/cti#Sighting"/>
-        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Malware"/>
-        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
-        <rdfs:comment xml:lang="en">An ID reference to the SDO that was sighted (e.g., Indicator or Malware). 
-
-For example, if this is a Sighting of an Indicator, that Indicator’s ID would be the value of this property.</rdfs:comment>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#Sightable"/>
+        <rdfs:comment xml:lang="en">Reference to something that was sighted (e.g., Indicator or Malware).</rdfs:comment>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ontologies.ti-semantics.com/cti#targets -->
+    <!-- http://ontologies.ti-semantics.com/cti#targetsExploit -->
 
-    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#targets">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Vulnerability"/>
-                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:label xml:lang="en">targets</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#targetsExploit">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/cti#targetsVictim -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#targetsVictim">
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#Identity"/>
     </owl:ObjectProperty>
     
 
@@ -531,6 +553,16 @@ Note that &apos;Identity&apos; is a disputed entity in this ontology.</rdfs:comm
     
 
 
+    <!-- http://ontologies.ti-semantics.com/cti#compromised -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/cti#compromised">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">This defines that the state of some asset is compromised.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/cti#externalReference -->
 
     <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/cti#externalReference">
@@ -568,6 +600,8 @@ For RDF purposes these identifiers must use some IRI form, eg: a URN or CVE or C
     <!-- http://ontologies.ti-semantics.com/cti#hasPatternReference -->
 
     <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/cti#hasPatternReference">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
         <rdfs:comment xml:lang="en">As an alternative to a pattern, we cal also just reference a pattern by some token. This is important in the case where a proprietary product provides detection, but the pattern it uses is not known.</rdfs:comment>
     </owl:DatatypeProperty>
     
@@ -707,7 +741,9 @@ If the valid_until property is omitted, then there is no constraint on the lates
 
     <!-- http://ontologies.ti-semantics.com/core#Activity -->
 
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Activity"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Activity">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
+    </owl:Class>
     
 
 
@@ -726,7 +762,19 @@ If the valid_until property is omitted, then there is no constraint on the lates
     <!-- http://ontologies.ti-semantics.com/core#Malware -->
 
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Malware">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#TacticTechniqueProcedure"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Software"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#implements"/>
+                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#Technique"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">TODO: Need to differentiate between Tool and Malware so that we can create a necessary and sufficent equivalent class declaration</rdfs:comment>
     </rdf:Description>
     
 
@@ -736,17 +784,35 @@ If the valid_until property is omitted, then there is no constraint on the lates
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#ThreatActor">
         <owl:equivalentClass>
             <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
-                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/member"/>
+                                <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/member"/>
-                        <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#hasObjective"/>
+                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#MaliciousObjective"/>
                     </owl:Restriction>
-                </owl:unionOf>
+                </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment xml:lang="en">It is nessary and sufficient that a ThreatActor is wither a person, an organization or a group of people.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
+        <rdfs:comment xml:lang="en">It is nessary and sufficient that a ThreatActor is either a person, an organization or a group of people and that they have malicious objectives.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Tool -->
+
+    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Tool">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
+        <rdfs:comment xml:lang="en">TODO: Need to differentiate between Tool and Malware so that we can create a necessary and sufficent equivalent class declaration</rdfs:comment>
     </rdf:Description>
     
 
@@ -790,7 +856,6 @@ If the valid_until property is omitted, then there is no constraint on the lates
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
         <rdfs:comment xml:lang="en">An Indicator of unexpected, or unusual activity that may not necessarily be malicious or indicate compromise. This type of activity may include reconnaissance-like behavior such as port scans or version identification, network behavior anomalies, and asset and/or user behavioral anomalies.</rdfs:comment>
     </owl:Class>
     
@@ -819,8 +884,8 @@ If the valid_until property is omitted, then there is no constraint on the lates
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
         <rdfs:comment xml:lang="en">Indicator of suspected anonymization tools or infrastructure (proxy, TOR, VPN, etc.).</rdfs:comment>
+        <rdfs:label xml:lang="en">Anonymization Indicator</rdfs:label>
     </owl:Class>
     
 
@@ -844,54 +909,33 @@ This section including vocabulary items and their descriptions is based on the T
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#targets"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Vulnerability"/>
-                                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
-                                        </owl:unionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#uses"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Malware"/>
-                                            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#ToolLabel"/>
-                                        </owl:unionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:unionOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Procedure"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#name"/>
-                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#targetsExploit"/>
+                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#targetsVictim"/>
+                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#Identity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#uses"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Malware"/>
+                                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#ToolLabel"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#TacticTechniqueProcedure"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#killChainPhase"/>
-                <owl:allValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#externalReference"/>
-                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Attack Patterns are a type of TTP that describe ways that adversaries attempt to compromise targets. Attack Patterns are used to help categorize attacks, generalize specific attacks to the patterns that they follow, and provide detailed information about how attacks are performed. An example of an attack pattern is &quot;spear phishing&quot;: a common type of attack where an attacker sends a carefully crafted e-mail message to a party with the intent of getting them to click a link or open an attachment to deliver malware. Attack Patterns can also be more specific; spear phishing as practiced by a particular threat actor (e.g., they might generally say that the target won a contest) can also be an Attack Pattern.
-The Attack Pattern SDO contains textual descriptions of the pattern along with references to externally-defined taxonomies of attacks such as CAPEC. Relationships from Attack Pattern can be used to relate it to what it targets (Vulnerabilities and Identities) and which tools and malware use it (Tool and Malware).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Attack Patterns are a type of Procedure that describe ways that adversaries attempt to compromise targets. Attack Patterns are used to help categorize attacks, generalize specific attacks to the patterns that they follow, and provide detailed information about how attacks are performed. 
+An example of an attack pattern is &quot;spear phishing&quot;: a common type of attack where an attacker sends a carefully crafted e-mail message to a party with the intent of getting them to click a link or open an attachment to deliver malware. Attack Patterns can also be more specific; spear phishing as practiced by a particular threat actor (e.g., they might generally say that the target won a contest) can also be an Attack Pattern.
+
+Relationships from Attack Pattern can be used to relate it to what it targets (Vulnerabilities and Identities) and which tools and malware use it (Tool and Malware).</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">http://docs.oasis-open.org/cti/stix/v2.0/cs01/part2-stix-objects/stix-v2.0-cs01-part2-stix-objects.html#_Toc496714301</rdfs:isDefinedBy>
     </owl:Class>
     <owl:Axiom>
@@ -900,64 +944,30 @@ The Attack Pattern SDO contains textual descriptions of the pattern along with r
         <owl:annotatedTarget>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#targets"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Vulnerability"/>
-                                            <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
-                                        </owl:unionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#uses"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:unionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Malware"/>
-                                            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#ToolLabel"/>
-                                        </owl:unionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:unionOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Procedure"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#name"/>
-                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#targetsExploit"/>
+                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#targetsVictim"/>
+                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#Identity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#uses"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Malware"/>
+                                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#ToolLabel"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:annotatedTarget>
         <rdfs:comment>An attack pattern may target an identiy and/or a vulnerability, and/or it uses some malware or tool.</rdfs:comment>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ontologies.ti-semantics.com/cti#AttackPattern"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#killChainPhase"/>
-                <owl:allValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <rdfs:comment xml:lang="en">The list of Kill Chain Phases for which this Attack Pattern is used.
-This references some kill chain ontology external to this one.</rdfs:comment>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ontologies.ti-semantics.com/cti#AttackPattern"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#externalReference"/>
-                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <rdfs:comment xml:lang="en">A list of external references which refer to non-STIX information. This property MAY be used to provide one or more Attack Pattern identifiers, such as a CAPEC ID. When specifying a CAPEC ID, the source_name property of the external reference MUST be set to capec and the external_id property MUST be formatted as CAPEC-[id].
-The domain needs to be a IRI of some sort. In the case of CAPEX, or CVE, it could be a URN.</rdfs:comment>
     </owl:Axiom>
     
 
@@ -997,7 +1007,6 @@ This section including vocabulary items and their descriptions is based on the T
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
         <rdfs:comment xml:lang="en">Indicator of patterns of behavior that indicate attribution to a particular Threat Actor or Campaign.</rdfs:comment>
     </owl:Class>
     
@@ -1034,8 +1043,16 @@ This section including vocabulary items and their descriptions is based on the T
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
         <rdfs:comment xml:lang="en">Activity that is not suspicious or malicious in and of itself, but when combined with other activity may indicate suspicious or malicious behavior.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/cti#BenignObjective -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#BenignObjective">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Objective"/>
+        <rdfs:comment xml:lang="en">An objective that is benign in intent.</rdfs:comment>
     </owl:Class>
     
 
@@ -1043,6 +1060,7 @@ This section including vocabulary items and their descriptions is based on the T
     <!-- http://ontologies.ti-semantics.com/cti#Campaign -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Campaign">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1093,22 +1111,59 @@ Campaigns can be characterized by their objectives and the incidents they cause,
                     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Indicator"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#detects"/>
-                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#CompromisedState"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#compromised"/>
+                                <owl:allValuesFrom>
+                                    <rdfs:Datatype>
+                                        <owl:oneOf>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </owl:oneOf>
+                                    </rdfs:Datatype>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
         <rdfs:comment xml:lang="en">Indicator of assets that are suspected to be compromised.</rdfs:comment>
     </owl:Class>
-    
-
-
-    <!-- http://ontologies.ti-semantics.com/cti#CompromisedState -->
-
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#CompromisedState">
-        <rdfs:comment xml:lang="en">Assets that are suspected to be compromised. This is not an activity, but the state of the asset.</rdfs:comment>
-    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://ontologies.ti-semantics.com/cti#CompromisedIndicator"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#equivalentClass"/>
+        <owl:annotatedTarget>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Indicator"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#detects"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#compromised"/>
+                                <owl:allValuesFrom>
+                                    <rdfs:Datatype>
+                                        <owl:oneOf>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </owl:oneOf>
+                                    </rdfs:Datatype>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">TODO: What we really want to say is this is an Indicator of some asset being in the compromised state. How do we get there?</rdfs:comment>
+    </owl:Axiom>
     
 
 
@@ -1160,16 +1215,10 @@ Campaigns can be characterized by their objectives and the incidents they cause,
     
 
 
-    <!-- http://ontologies.ti-semantics.com/cti#Goal -->
-
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Goal"/>
-    
-
-
     <!-- http://ontologies.ti-semantics.com/cti#GovernmentLocalSector -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#GovernmentLocalSector">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#IndustrySector"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#GovernmentSector"/>
     </owl:Class>
     
 
@@ -1177,7 +1226,7 @@ Campaigns can be characterized by their objectives and the incidents they cause,
     <!-- http://ontologies.ti-semantics.com/cti#GovernmentNationalSector -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#GovernmentNationalSector">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#IndustrySector"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#GovernmentSector"/>
     </owl:Class>
     
 
@@ -1185,7 +1234,8 @@ Campaigns can be characterized by their objectives and the incidents they cause,
     <!-- http://ontologies.ti-semantics.com/cti#GovernmentPublicSector -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#GovernmentPublicSector">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#IndustrySector"/>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#GovernmentSector"/>
+        <rdfs:comment xml:lang="en">emergency services, sanitation</rdfs:comment>
     </owl:Class>
     
 
@@ -1193,6 +1243,14 @@ Campaigns can be characterized by their objectives and the incidents they cause,
     <!-- http://ontologies.ti-semantics.com/cti#GovernmentRegionalSector -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#GovernmentRegionalSector">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#GovernmentSector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/cti#GovernmentSector -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#GovernmentSector">
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#IndustrySector"/>
     </owl:Class>
     
@@ -1235,6 +1293,18 @@ When specifying a hashing algorithm not already defined within the hash-algorith
                     <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Group"/>
                     <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
                     <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/member"/>
+                        <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/member"/>
+                        <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/member"/>
+                        <owl:someValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+                    </owl:Restriction>
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -1242,7 +1312,7 @@ When specifying a hashing algorithm not already defined within the hash-algorith
 group-identity becomes foaf:group
 individual-identity becomes foaf:Person
 organization-identity becomes foaf:organization
-unknown-identity just stick with the Identify class
+unknown-identity just stick with the Identity class
 class-identity will need to be qualified with restrictions on whatever the most relevant superclass is</rdfs:comment>
         <rdfs:comment xml:lang="en">Identities can represent actual individuals, organizations, or groups (e.g., ACME, Inc.) as well as classes of individuals, organizations, or groups (e.g., the finance sector).</rdfs:comment>
     </owl:Class>
@@ -1252,7 +1322,7 @@ class-identity will need to be qualified with restrictions on whatever the most 
     <!-- http://ontologies.ti-semantics.com/cti#Indicator -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Indicator">
-        <owl:equivalentClass>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Class>
@@ -1273,7 +1343,7 @@ class-identity will need to be qualified with restrictions on whatever the most 
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </owl:equivalentClass>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Indicators are linked to patterns by the hasPattern or hasPatternReference properties and specify some indication of comprimise or other states that are relevant for an incident and are seen in Sightings.
 
 While optional, it&apos;s also highly advised to use the killChainPhase property to specify where in a given Kill Chain, this indicator will be found.</rdfs:comment>
@@ -1285,7 +1355,6 @@ While optional, it&apos;s also highly advised to use the killChainPhase property
     <!-- http://ontologies.ti-semantics.com/cti#IndustrySector -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#IndustrySector">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Identity"/>
         <rdfs:comment xml:lang="en">Industry sector is an open vocabulary that describes industrial and commercial sectors. It is intended to be holistic; it has been derived from several other lists and is not limited to &quot;critical infrastructure&quot; sectors.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">http://docs.oasis-open.org/cti/stix/v2.0/cs01/part1-stix-core/stix-v2.0-cs01-part1-stix-core.html#_Toc496709301</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">industry-sector</rdfs:label>
@@ -1354,8 +1423,16 @@ The JSON MTI serialization uses the JSON object type [RFC7159] when representing
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
         <rdfs:comment xml:lang="en">Patterns of suspected malicious objects and/or activity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/cti#MaliciousObjective -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#MaliciousObjective">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Objective"/>
+        <rdfs:comment xml:lang="en">An objective that is malicious in intent.</rdfs:comment>
     </owl:Class>
     
 
@@ -1403,27 +1480,15 @@ The JSON MTI serialization uses the JSON object type [RFC7159] when representing
 
     <!-- http://ontologies.ti-semantics.com/cti#Observable -->
 
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Observable"/>
-    
-
-
-    <!-- http://ontologies.ti-semantics.com/cti#ObservableObject -->
-
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#ObservableObject"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Observable">
+        <rdfs:label xml:lang="en">Observable</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://ontologies.ti-semantics.com/cti#ObservedData -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#ObservedData">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#observableObject"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://ontologies.ti-semantics.com/cti#ObservableObject"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#firstSeen"/>
@@ -1442,10 +1507,29 @@ The JSON MTI serialization uses the JSON object type [RFC7159] when representing
                 <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Examples
+Observed Data of a File object
+{
+  &quot;type&quot;: &quot;observed-data&quot;,
+  &quot;id&quot;: &quot;observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf&quot;,
+  &quot;created_by_ref&quot;: &quot;identity--f431f809-377b-45e0-aa1c-6a4751cae5ff&quot;,
+  &quot;created&quot;: &quot;2016-04-06T19:58:16.000Z&quot;,
+  &quot;modified&quot;: &quot;2016-04-06T19:58:16.000Z&quot;,
+  &quot;first_observed&quot;: &quot;2015-12-21T19:00:00Z&quot;,
+  &quot;last_observed&quot;: &quot;2015-12-21T19:00:00Z&quot;,
+  &quot;number_observed&quot;: 50,
+  &quot;objects&quot;: {
+    &quot;0&quot;: {
+      &quot;type&quot;: &quot;file&quot;,
+      ...
+    }
+  }
+}</rdfs:comment>
         <rdfs:comment xml:lang="en">Observed Data conveys information that was observed on systems and networks using the Cyber Observable specification defined in parts 3 and 4 of this specification. For example, Observed Data can capture the observation of an IP address, a network connection, a file, or a registry key. Observed Data is not an intelligence assertion, it is simply information: this file was seen, without any context for what it means.
 Observed Data captures both a single observation of a single entity (file, network connection) as well as the aggregation of multiple observations of an entity. When the number_observed property is 1 the Observed Data is of a single entity. When the number_observed property is greater than 1, the observed data consists of several instances of an entity collected over the time window specified by the first_observed and last_observed properties. When used to collect aggregate data, it is likely that some fields in the Cyber Observable Object (e.g., timestamp fields) will be omitted because they would differ for each of the individual observations.
 Observed Data may be used by itself (without relationships) to convey raw data collected from network and host-based detection tools. A firewall could emit a single Observed Data instance containing a single Network Traffic object for each connection it sees. The firewall could also aggregate data and instead send out an Observed Data instance every ten minutes with an IP address and an appropriate number_observed value to indicate the number of times that IP address was observed in that window.
 Observed Data may also be related to other SDOs to represent raw data that is relevant to those objects. The Sighting object, which captures the sighting of an Indicator, Malware, or other SDO, uses Observed Data to represent the raw information that led to the creation of the Sighting (e.g., what was actually seen that suggested that a particular instance of malware was active).</rdfs:comment>
+        <rdfs:comment xml:lang="en">TODO: is this &apos;event&apos; in the ACT data model?</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">http://docs.oasis-open.org/cti/stix/v2.0/cs01/part2-stix-objects/stix-v2.0-cs01-part2-stix-objects.html#_Toc496714322</rdfs:isDefinedBy>
     </owl:Class>
     
@@ -1459,22 +1543,25 @@ Observed Data may also be related to other SDOs to represent raw data that is re
     
 
 
+    <!-- http://ontologies.ti-semantics.com/cti#Procedure -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Procedure">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
+        <rdfs:comment xml:lang="en">Procedures are representations of the behavior or modus operandi of cyber adversaries. They describe the &apos;how&apos; of a adversarial behavior at a macro level.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/cti#Report -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Report">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Catalog"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#reportLabel"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://ontologies.ti-semantics.com/cti#ReportLabel"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Reports are specialized catalogues. They collect threat intelligence focused on one or more topics, such as a description of a threat actor, malware, or attack technique, including context and related details. They are used to group related threat intelligence together so that it can be published as a comprehensive cyber threat story.
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+        <rdfs:comment xml:lang="en">Reports are expected to have one or more ReportLabel but we&apos;ll refrain from making that a necessary condition.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Reports collect threat intelligence focused on one or more topics (via foaf:topic), such as a description of a threat actor, malware, or attack technique, including context and related details. They are used to group related threat intelligence together so that it can be published as a comprehensive cyber threat story.
 
 For example, a threat report produced by ACME Defense Corp. discussing the Glass Gazelle campaign should be represented using Report.
 
-While a report typically contains a narrative associated with the topic, that is hard to capture in a quantifiable way. Howver, indicators, goals, tactics, etc should should be exposed through this type of object.</rdfs:comment>
+While a report typically contains a narrative associated with the topic, that is hard to capture in a quantifiable way. However, indicators, goals, tactics, etc should should be exposed through this type of object.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">http://docs.oasis-open.org/cti/stix/v2.0/cs01/part2-stix-objects/stix-v2.0-cs01-part2-stix-objects.html#_Toc496714325</rdfs:isDefinedBy>
     </owl:Class>
     
@@ -1499,28 +1586,40 @@ While a report typically contains a narrative associated with the topic, that is
     
 
 
+    <!-- http://ontologies.ti-semantics.com/cti#Sightable -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Sightable">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Malware"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#ThreatActor"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Tool"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#AttackPattern"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Campaign"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Identity"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Indicator"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#IntrusionSet"/>
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#ObservedData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Something that can be sighted.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/cti#Sighting -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Sighting">
         <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Observable"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#sightingOf"/>
-                        <owl:allValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Malware"/>
-                                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Indicator"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:allValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#sightingOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontologies.ti-semantics.com/cti#Indicator"/>
+            </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
         <rdfs:comment xml:lang="en">A Sighting denotes the belief that something in CTI (e.g., an indicator, malware, tool, threat actor, etc.) was seen. Sightings are used to track who and what are being targeted, how attacks are carried out, and to track trends in attack behavior.</rdfs:comment>
         <rdfs:comment xml:lang="en">Examples
 Sighting of Indicator, without Observed Data
@@ -1565,24 +1664,28 @@ Sighting of Indicator, with Observed Data (what exactly was seen) and where it w
     }
   }
 ]</rdfs:comment>
+        <rdfs:comment xml:lang="en">TODO: is this &apos;event&apos; in the ACT Framework?</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">http://docs.oasis-open.org/cti/stix/v2.0/cs01/part2-stix-objects/stix-v2.0-cs01-part2-stix-objects.html#_Toc496714342</rdfs:isDefinedBy>
     </owl:Class>
     
 
 
-    <!-- http://ontologies.ti-semantics.com/cti#TacticTechniqueProcedure -->
+    <!-- http://ontologies.ti-semantics.com/cti#Tactic -->
 
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#TacticTechniqueProcedure">
-        <rdfs:comment xml:lang="en">TTPs are representations of the behavior or modus operandi of cyber adversaries.
-TTPs are “descriptive” in nature and are for characterizing the how and what of adversary behavior (what they are doing and how they are doing it). They are abstracted from specific observed instances within individual specific Incidents so that they may be more generally applicable in developing contextual understanding across Incidents, Campaign and Threat Actors.
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Tactic"/>
+    
 
-Some simple examples of TTPs:
 
-* characterization of a particular malware family (e.g. Poison Ivy)
-* characterization of a particular malware variant instance (e.g. a specific variant of Zotob.B discovered on a web server)
-* characterization of particular attack patterns (e.g. Subverting Environment Variable Values (CAPEC-13) for exploitation)
-* characterization of infrastructure used by attackers (e.g. IPs used for malware C2)
-* characterization of victim targeting (e.g. HR information of law firms)</rdfs:comment>
-        <rdfs:label xml:lang="en">TTP</rdfs:label>
+    <!-- http://ontologies.ti-semantics.com/cti#Technique -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Technique">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#accomplishes"/>
+                <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#Tactic"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
     </owl:Class>
     
 
@@ -1640,7 +1743,12 @@ Threat actor roles are not mutually exclusive. For example, an actor can be both
     <!-- http://ontologies.ti-semantics.com/cti#Tool -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Tool">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#TacticTechniqueProcedure"/>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#implements"/>
+                <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#Technique"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/Software"/>
         <rdfs:comment xml:lang="en">Tools are legitimate software that can be used by threat actors to perform attacks. Knowing how and when threat actors use such tools can be important for understanding how campaigns are executed. Unlike malware, these tools or software packages are often found on a system and have legitimate purposes for power users, system administrators, network administrators, or even normal users. Remote access tools (e.g., RDP) and network scanning tools (e.g., Nmap) are examples of Tools that may be used by a Threat Actor during an attack.
 The Tool SDO characterizes the properties of these software tools and can be used as a basis for making an assertion about how a Threat Actor uses them during an attack. It contains properties to name and describe the tool, a list of Kill Chain Phases the tool can be used to carry out, and the version of the tool.
@@ -2926,7 +3034,19 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <rdfs:label xml:lang="en">worm</rdfs:label>
     </owl:NamedIndividual>
     <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator EquivalentTo Thing</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf IntrusionSet</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
         <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">label Range ReportLabel</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
@@ -2934,24 +3054,25 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">label Range ReportLabel</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
         <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
 (ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">label Range ReportLabel</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">label Range ReportLabel</ontodebug:axiom>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
+(ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
@@ -2963,45 +3084,7 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf IntrusionSet</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
-(ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf IntrusionSet</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
-(ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">label Range ReportLabel</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
@@ -3009,8 +3092,33 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator EquivalentTo Thing</ontodebug:axiom>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf IntrusionSet</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
+(ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
         <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator EquivalentTo ((hasPatternReference only token) and (validFrom only dateTime)) or (hasPattern only string)</ontodebug:axiom>
@@ -3051,9 +3159,9 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#contributor-006"/>
         <rdfs:comment xml:lang="en-us">An entity responsible for making contributions to the resource.</rdfs:comment>
         <dcterms:issued>1999-07-02</dcterms:issued>
+        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:label xml:lang="en-us">Contributor</rdfs:label>
-        <dcterms:modified>2008-01-14</dcterms:modified>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/coverage">
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#coverage-006"/>
@@ -3067,15 +3175,15 @@ These actors typically have access to significant support, resources, training, 
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
         <rdfs:comment xml:lang="en-us">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
-        <rdfs:label xml:lang="en-us">Date</rdfs:label>
         <dcterms:description xml:lang="en-us">Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</dcterms:description>
+        <rdfs:label xml:lang="en-us">Date</rdfs:label>
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#date-006"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
         <dcterms:modified>2008-01-14</dcterms:modified>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:comment xml:lang="en-us">An account of the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:label xml:lang="en-us">Description</rdfs:label>
         <dcterms:modified>2008-01-14</dcterms:modified>
         <dcterms:issued>1999-07-02</dcterms:issued>
@@ -3086,8 +3194,8 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:description xml:lang="en-us">Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</dcterms:description>
         <rdfs:comment xml:lang="en-us">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#format-007"/>
-        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:label xml:lang="en-us">Format</rdfs:label>
         <dcterms:issued>1999-07-02</dcterms:issued>
     </rdf:Description>
@@ -3095,8 +3203,8 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
         <dcterms:description xml:lang="en-us">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </dcterms:description>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dcterms:modified>2008-01-14</dcterms:modified>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:comment xml:lang="en-us">An unambiguous reference to the resource within a given context.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Identifier</rdfs:label>
     </rdf:Description>
@@ -3115,18 +3223,18 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#publisher-006"/>
         <rdfs:label xml:lang="en-us">Publisher</rdfs:label>
         <dcterms:description xml:lang="en-us">Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.</dcterms:description>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:comment xml:lang="en-us">An entity responsible for making the resource available.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/relation">
+        <rdfs:label xml:lang="en-us">Relation</rdfs:label>
+        <dcterms:description xml:lang="en-us">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </dcterms:description>
         <dcterms:issued>1999-07-02</dcterms:issued>
         <rdfs:comment xml:lang="en-us">A related resource.</rdfs:comment>
-        <dcterms:description xml:lang="en-us">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </dcterms:description>
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#relation-006"/>
-        <rdfs:label xml:lang="en-us">Relation</rdfs:label>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dcterms:modified>2008-01-14</dcterms:modified>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
         <dcterms:issued>1999-07-02</dcterms:issued>
@@ -3149,17 +3257,17 @@ These actors typically have access to significant support, resources, training, 
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/subject">
         <rdfs:comment xml:lang="en-us">The topic of the resource.</rdfs:comment>
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#subject-006"/>
-        <dcterms:modified>2008-01-14</dcterms:modified>
         <dcterms:description xml:lang="en-us">Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary. To describe the spatial or temporal topic of the resource, use the Coverage element.</dcterms:description>
+        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:label xml:lang="en-us">Subject</rdfs:label>
         <dcterms:issued>1999-07-02</dcterms:issued>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#title-006"/>
-        <rdfs:comment xml:lang="en-us">A name given to the resource.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Title</rdfs:label>
         <dcterms:modified>2008-01-14</dcterms:modified>
+        <rdfs:comment xml:lang="en-us">A name given to the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
     </rdf:Description>
@@ -3168,9 +3276,9 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:description xml:lang="en-us">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</dcterms:description>
         <rdfs:label xml:lang="en-us">Type</rdfs:label>
         <dcterms:modified>2008-01-14</dcterms:modified>
+        <dcterms:issued>1999-07-02</dcterms:issued>
         <rdfs:comment xml:lang="en-us">The nature or genre of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
-        <dcterms:issued>1999-07-02</dcterms:issued>
     </rdf:Description>
     
 
@@ -3183,15 +3291,6 @@ These actors typically have access to significant support, resources, training, 
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Activity"/>
-            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Catalog"/>
-            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Goal"/>
-            <rdf:Description rdf:about="http://ontologies.ti-semantics.com/cti#Identity"/>
-        </owl:members>
-    </rdf:Description>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
         <owl:distinctMembers rdf:parseType="Collection">

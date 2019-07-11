@@ -55,6 +55,12 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/cti#implements -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#implements"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -173,7 +179,6 @@ The Course of Action SDO contains a textual description of the action; a reserve
     <!-- http://ontologies.ti-semantics.com/core#Malware -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Malware">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
         <owl:disjointWith rdf:resource="http://ontologies.ti-semantics.com/core#Tool"/>
         <rdfs:comment xml:lang="en">Malware is a type of TTP that is also known as malicious code and malicious software, and refers to a program that is inserted into a system, usually covertly, with the intent of compromising the confidentiality, integrity, or availability of the victim&apos;s data, applications, or operating system (OS) or of otherwise annoying or disrupting the victim. Malware such as viruses and worms are usually designed to perform these nefarious functions in such a way that users are unaware of them, at least initially.
  
@@ -243,7 +248,17 @@ Threat Actors can be characterized by their motives, capabilities, goals, sophis
     <!-- http://ontologies.ti-semantics.com/core#Tool -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Tool">
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Software"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#implements"/>
+                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/cti#Technique"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Tools are legitimate software that can be used by threat actors to perform attacks. Knowing how and when threat actors use such tools can be important for understanding how campaigns are executed. Unlike malware, these tools or software packages are often found on a system and have legitimate purposes for power users, system administrators, network administrators, or even normal users. Remote access tools (e.g., RDP) and network scanning tools (e.g., Nmap) are examples of Tools that may be used by a Threat Actor during an attack.
  
 The Tool individual characterizes the properties of these software tools and can be used as a basis for making an assertion about how a Threat Actor uses them during an attack. It contains properties to name and describe the tool, a list of Kill Chain Phases the tool can be used to carry out, and the version of the tool.
@@ -273,6 +288,12 @@ A Vulnerability individual is primarily used to link to external definitions of 
         <rdfs:comment xml:lang="en">This describes a fault in a system or software that may be exploited by an Threat Actor.</rdfs:comment>
         <rdfs:label xml:lang="en">Weakness</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/cti#Technique -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Technique"/>
     
 
 
