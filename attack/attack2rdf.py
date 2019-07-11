@@ -286,8 +286,8 @@ def parse():
     if doc["type"] == "bundle" and doc["spec_version"] == "2.0" and 'objects' in doc:
         #print(len(doc['objects']))
         process_objects(n, g, doc['objects'])
-    print(missed)
-    print(missed_e)
+    #print(missed)
+    #print(missed_e)
     g.bind('dcterms', DCTERMS)
     g.bind('dc', DC)
     g.bind('core', CORE)
