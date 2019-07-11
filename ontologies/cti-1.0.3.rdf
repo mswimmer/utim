@@ -78,6 +78,22 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/cti#mitreType -->
+
+    <owl:AnnotationProperty rdf:about="http://ontologies.ti-semantics.com/cti#mitreType">
+        <rdfs:comment xml:lang="en">The &apos;type&apos; as given in the JSON data.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/cti#mitreVerb -->
+
+    <owl:AnnotationProperty rdf:about="http://ontologies.ti-semantics.com/cti#mitreVerb">
+        <rdfs:comment xml:lang="en">The name of the label for some property in the Mitre JSON, like &apos;type&apos; or &apos;created_by_ref&apos; that this entitiy corresponds to. This doesn&apos;t mean that its an exact equivalence.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://purl.org/dc/terms/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator">
@@ -449,6 +465,16 @@ This property MUST reference only Identity SDOs.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/cti#Sighting"/>
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#Sightable"/>
         <rdfs:comment xml:lang="en">Reference to something that was sighted (e.g., Indicator or Malware).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/cti#tactic -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#tactic">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/cti#Matrix"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/cti#Tactic"/>
+        <mitreVerb rdf:datatype="http://www.w3.org/2001/XMLSchema#token">tactic_refs</mitreVerb>
     </owl:ObjectProperty>
     
 
@@ -1456,6 +1482,14 @@ The JSON MTI serialization uses the JSON object type [RFC7159] when representing
     
 
 
+    <!-- http://ontologies.ti-semantics.com/cti#Matrix -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Matrix">
+        <mitreType xml:lang="en">x-mitre-matrix</mitreType>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/cti#MiningIndustrySector -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#MiningIndustrySector">
@@ -1672,7 +1706,9 @@ Sighting of Indicator, with Observed Data (what exactly was seen) and where it w
 
     <!-- http://ontologies.ti-semantics.com/cti#Tactic -->
 
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Tactic"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/cti#Tactic">
+        <mitreVerb xml:lang="en">x-mitre-tactic</mitreVerb>
+    </owl:Class>
     
 
 
