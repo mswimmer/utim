@@ -15,7 +15,6 @@ def read_file(filename):
         return json.loads(f.read())
 
 missed = {}
-missed_e = {}
 
 ##### ELEMENTS #####
 
@@ -27,6 +26,17 @@ def do_s_p_l(n, g, s, p, o):
 
 def do_s_p_lt(n, g, s, p, o, t):
     g.add( (s, p, Literal(o, datatype=t)) )
+
+def do_s_p_la(n, g, s, p, o):
+    for i in o:
+        g.add( (s, p, Literal(i)) )
+    
+def do_s_p_ea(n, g, s, p, o):
+    for i in o:
+        g.add( (s, p, n[urllib.parse.quote_plus(i)]) )
+
+def do_s_p_e(n, g, s, p, o):
+    g.add( (s, p, n[urllib.parse.quote_plus(o)]) )
 
 def do_aliases(n, g, s, o):
     for i in o:
@@ -107,7 +117,18 @@ def do_x_mitre_permissions_required(n, g, s, o):
     """
     for i in o:
         refnode = n[urllib.parse.quote_plus(i)]
-        g.add( (s, SCORE['hasPrivilegesRequired'], refnode) )
+        g.add( (s, n.mitrePermissionsRequired, refnode) )
+        if i in ["User", "Remote Desktop Users"]:
+            g.add( (refnode, RDF.type, SCORE.CVSSv3LowPrivilegesRequired) )
+        elif i in ["Administrator", "root", "SYSTEM"]:
+            g.add( (refnode, RDF.type, SCORE.CVSSv3HighPrivilegesRequired) )
+        else:
+            print("WARNING: unknown privileges type '{}'".format(i))
+
+def do_x_mitre_effective_permissions(n, g, s, o):
+    for i in o:
+        refnode = n[urllib.parse.quote_plus(i)]
+        g.add( (s, n.mitreEffectivePermissions, refnode) )
         if i in ["User", "Remote Desktop Users"]:
             g.add( (refnode, RDF.type, SCORE.CVSSv3LowPrivilegesRequired) )
         elif i in ["Administrator", "root", "SYSTEM"]:
@@ -148,31 +169,41 @@ def do_object_marking_refs(n, g, s, o):
         refnode = n[i]
         g.add( (s, DCTERMS.rights, refnode) )
         g.add( (refnode, RDF.type, DCTERMS.RightsStatement) )
+        
+def do_definition(n, g, s, o):
+    """
+      "definition": {
+        "statement": "Copyright 2017, The MITRE Corporation"
+      }
 
+    """
+    for i in o.keys():
+        g.add( (s, n[i], Literal(o[i])) )
+        
 xer = {
     "external_references":          lambda n, g, s, o: do_external_references(n, g, s, o),
     "x_mitre_permissions_required": lambda n, g, s, o: do_x_mitre_permissions_required(n, g, s, o),
     "created_by_ref":               lambda n, g, s, o: do_created_by_ref(n, g, s, o),
     "x_mitre_platforms":            lambda n, g, s, o: do_x_mitre_platforms(n, g, s, o),
     "object_marking_refs":          lambda n, g, s, o: do_object_marking_refs(n, g, s, o),
-    "x_mitre_version":              lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_data_sources":         lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_detection":            lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_contributors":         lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_effective_permissions":lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_system_requirements":  lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_remote_support":       lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_network_requirements": lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_defense_bypassed":     lambda n, g, s, o: do_default_e(n, g, s, o),
-    "source_ref":                   lambda n, g, s, o: do_default_e(n, g, s, o),
-    'relationship_type':            lambda n, g, s, o: do_default_e(n, g, s, o),
-    "target_ref":                   lambda n, g, s, o: do_default_e(n, g, s, o),
-    "identity_class":               lambda n, g, s, o: do_default_e(n, g, s, o),
-    "revoked":                      lambda n, g, s, o: do_default_e(n, g, s, o),
-    "definition_type":              lambda n, g, s, o: do_default_e(n, g, s, o),
-    "definition":                   lambda n, g, s, o: do_default_e(n, g, s, o),
-    "labels":                       lambda n, g, s, o: do_default_e(n, g, s, o),
-    "x_mitre_aliases":              lambda n, g, s, o: do_default_e(n, g, s, o),
+    "x_mitre_version":              lambda n, g, s, o: do_s_p_l(n, g, s, n.mitreVersion, o),
+    "x_mitre_data_sources":         lambda n, g, s, o: do_s_p_ea(n, g, s, n.mitreDataSource, o),
+    "x_mitre_detection":            lambda n, g, s, o: do_s_p_l(n, g, s, n.mitreDetection, o),
+    "x_mitre_contributors":         lambda n, g, s, o: do_s_p_la(n, g, s, n.mitreContributors, o),
+    "x_mitre_effective_permissions":lambda n, g, s, o: do_x_mitre_effective_permissions(n, g, s, o),
+    "x_mitre_system_requirements":  lambda n, g, s, o: do_s_p_la(n, g, s, n.mitreSystemRequirements, o),
+    "x_mitre_remote_support":       lambda n, g, s, o: do_s_p_lt(n, g, s, n.mitreRemoteSupport, o, XSD.boolean),
+    "x_mitre_network_requirements": lambda n, g, s, o: do_s_p_lt(n, g, s, n.mitreNetworkRequirements, o, XSD.boolean),
+    "x_mitre_defense_bypassed":     lambda n, g, s, o: do_s_p_ea(n, g, s, n.mitreDefenseBypassed, o),
+#    "source_ref":                   lambda n, g, s, o: do_default_e(n, g, s, o),
+#    'relationship_type':            lambda n, g, s, o: do_default_e(n, g, s, o),
+#    "target_ref":                   lambda n, g, s, o: do_default_e(n, g, s, o),
+#    "identity_class":               lambda n, g, s, o: do_default_e(n, g, s, o),
+    "revoked":                      lambda n, g, s, o: do_s_p_lt(n, g, s, CTI.revoked, o, XSD.boolean),
+    "definition_type":              lambda n, g, s, o: do_s_p_e(n, g, s, n.definitionType, o),
+    "definition":                   lambda n, g, s, o: do_definition(n, g, s, o),
+    "labels":                       lambda n, g, s, o: do_s_p_ea(n, g, s, CTI.label, o),
+    "x_mitre_aliases":              lambda n, g, s, o: do_s_p_la(n, g, s, n.mitreAliases, o),
     "name":                         lambda n, g, s, o: do_s_p_l(n, g, s, DCTERMS.title, o),
     "description":                  lambda n, g, s, o: do_s_p_l(n, g, s, DCTERMS.description, o),
     "kill_chain_phases":            lambda n, g, s, o: do_kill_chain_phase(n, g, s, o),
@@ -183,17 +214,7 @@ xer = {
     "tactic_refs":                  lambda n, g, s, o: do_tactic_refs(n, g, s, o),
 }
     
-
 ##### OBJECTS ######
-
-
-def do_default_o(n, g, o):
-    if 'id' in o:
-        s = n[o['id']]
-        if 'type' in o:
-            missed[o['type']] = missed.get(o['type'], 0) + 1
-            g.add( (s, RDF.type, n[o['type']]) )
-        g += process_element(n, s, o)
 
 def do_marking_definition(n, g, o):
     """
@@ -212,14 +233,14 @@ def do_marking_definition(n, g, o):
         s = n[o['id']]
         if 'type' in o:
             g.add( (s, RDF.type, DCTERMS.RightsStatement) )
-        g += process_element(n, s, o)
+        process_element(n, g, s, o)
 
 def do_identity(n, g, o):
     if 'id' in o:
         s = n[o['id']]
         if 'type' in o:
             g.add( (s, RDF.type, DCTERMS.Agent) )
-        g += process_element(n, s, o, exclusion=['id', 'type', 'identity_class'])
+        process_element(n, g, s, o, exclusion=['id', 'type', 'identity_class'])
 
 def do_relationship(n, g, o):
     sub = n[o['source_ref']]
@@ -248,28 +269,196 @@ def do_relationship(n, g, o):
     for i in o['object_marking_refs']:
         g.add ( (statementId, DCTERMS.rights, n[i]) )
 
+def do_attack_pattern(n, g, o):
+    """
+    {
+          "id": "attack-pattern--01df3350-ce05-4bdf-bdf8-0a919a66d4a8",
+          "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+          "name": ".bash_profile and .bashrc",
+          "description": "...",
+          "external_references": [ { ... }, { ... } ],
+          "object_marking_refs": [ "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168" ],
+          "x_mitre_version": "1.0",
+          "x_mitre_data_sources": [ ... ],
+          "x_mitre_detection": "...",
+          "x_mitre_permissions_required": [ "...", ...],
+          "x_mitre_platforms": [ "...", ... ],
+          "type": "attack-pattern",
+          "kill_chain_phases": [{ ... }, ...],
+          "modified": "2018-10-31T13:45:13.024Z",
+          "created": "2017-12-14T16:46:06.044Z"
+    }
+    """
+    if 'id' in o:
+        s = n[o['id']]
+        g.add( (s, RDF.type, CTI.AttackPattern) )
+        process_element(n, g, s, o)
+    else:
+        print("Missing 'id'", o)
+        
+def do_course_of_action(n, g, o):
+    """
+    {
+      "id": "course-of-action--4f170666-7edb-4489-85c2-9affa28a72e0",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "name": ".bash_profile and .bashrc Mitigation",
+      "description": "...",
+      "external_references": [{ ... }],
+      "object_marking_refs": [ "...", ... ],
+      "x_mitre_version": "1.0",
+      "type": "course-of-action",
+      "modified": "2018-10-17T00:14:20.652Z",
+      "created": "2018-10-17T00:14:20.652Z"
+    }
+    """
+    if 'id' in o:
+        s = n[o['id']]
+        g.add( (s, RDF.type, CTI.CourseOfAction) )
+        process_element(n, g, s, o)
+    else:
+        print("Missing 'id'", o)
+
+def do_intrusion_set(n, g, o):
+    """
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--6a2e693f-24e5-451a-9f88-b36a108e5662",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "name": "APT1",
+      "description": "...",
+      "object_marking_refs": [ "...", ... ],
+      "x_mitre_version": "1.0",
+      "external_references": [{ ... }, ... ],
+      "aliases": [ "APT1", ... ],
+      "modified": "2018-10-17T00:14:20.652Z",
+      "created": "2017-05-31T21:31:47.955Z"
+    }
+    """
+    if 'id' in o:
+        s = n[o['id']]
+        g.add( (s, RDF.type, CTI.IntrusionSet) )
+        process_element(n, g, s, o)
+    else:
+        print("Missing 'id'", o)
+
+def do_malware(n, g, o):
+    """
+    {
+      "id": "malware--7bec698a-7e20-4fd3-bb6a-12787770fb1a",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "name": "3PARA RAT",
+      "description": "...",
+      "external_references": [ {...}, ... ],
+      "object_marking_refs": [ "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168" ],
+      "x_mitre_version": "1.0",
+      "x_mitre_aliases": [ "3PARA RAT" ],
+      "x_mitre_platforms": [ "Windows" ],
+      "type": "malware",
+      "labels": [ "malware" ],
+      "modified": "2018-10-17T00:14:20.652Z",
+      "created": "2017-05-31T21:32:44.131Z"
+    }
+    """
+    if 'id' in o:
+        s = n[o['id']]
+        g.add( (s, RDF.type, CTI.Malware) )
+        process_element(n, g, s, o)
+    else:
+        print("Missing 'id'", o)
+
+def do_tool(n, g, o):
+    """
+    {
+      "id": "tool--30489451-5886-4c46-90c9-0dff9adc5252",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "name": "Arp",
+      "description": "...",
+      "object_marking_refs": ["marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168" ],
+      "external_references": [ { ... }, ... ],
+      "x_mitre_version": "1.0",
+      "x_mitre_aliases": [ ... ],
+      "x_mitre_platforms": [ ... ],
+      "type": "tool",
+      "labels": [ ... ],
+      "modified": "2018-10-17T00:14:20.652Z",
+      "created": "2017-05-31T21:33:02.428Z"
+    }
+    """
+    if 'id' in o:
+        s = n[o['id']]
+        g.add( (s, RDF.type, CTI.Tool) )
+        process_element(n, g, s, o)
+    else:
+        print("Missing 'id'", o)
+        
+def do_x_mitre_matrix(n, g, o):
+    """
+    {
+      "type": "x-mitre-matrix",
+      "id": "x-mitre-matrix--eafc1b4c-5e56-4965-bd4e-66a6a89c88cc",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2018-10-17T00:14:20.652Z",
+      "modified": "2018-11-06T19:05:34.143Z",
+      "name": "Enterprise ATT&CK",
+      "description": "...",
+      "tactic_refs": [ ... ],
+      "external_references": [{ ...}, ... ],
+      "object_marking_refs": [ "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168" ]
+    }
+    """
+    if 'id' in o:
+        s = n[o['id']]
+        g.add( (s, RDF.type, CTI.Matrix) )
+        process_element(n, g, s, o)
+    else:
+        print("Missing 'id'", o)
+        
+def do_x_mitre_tactic(n, g, o):
+    """
+    {
+      "type": "x-mitre-tactic",
+      "id": "x-mitre-tactic--d108ce10-2419-4cf9-a774-46161d6c6cfe",
+      "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+      "created": "2018-10-17T00:14:20.652Z",
+      "modified": "2018-10-17T00:14:20.652Z",
+      "name": "Collection",
+      "description": "...",
+      "external_references": [{...}],
+      "object_marking_refs": ["marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"],
+      "x_mitre_shortname": "collection"
+    }
+    """
+    if 'id' in o:
+        s = n[o['id']]
+        g.add( (s, RDF.type, CTI.Tactic) )
+        process_element(n, g, s, o)
+    else:
+        print("Missing 'id'", o)
+
+    
+#####################
+        
 xo = {
-    'attack-pattern':     lambda n, g, o: do_default_o(n, g, o),
-    'course-of-action':   lambda n, g, o: do_default_o(n, g, o),
+    'attack-pattern':     lambda n, g, o: do_attack_pattern(n, g, o),
+    'course-of-action':   lambda n, g, o: do_course_of_action(n, g, o),
     'identity':           lambda n, g, o: do_identity(n, g, o),
-    'intrusion-set':      lambda n, g, o: do_default_o(n, g, o),
-    'malware':            lambda n, g, o: do_default_o(n, g, o),
+    'intrusion-set':      lambda n, g, o: do_intrusion_set(n, g, o),
+    'malware':            lambda n, g, o: do_malware(n, g, o),
     'marking-definition': lambda n, g, o: do_marking_definition(n, g, o),
     'relationship':       lambda n, g, o: do_relationship(n, g, o),
-    'tool':               lambda n, g, o: do_default_o(n, g, o),
-    'x-mitre-matrix':     lambda n, g, o: do_default_o(n, g, o),
-    'x-mitre-tactic':     lambda n, g, o: do_default_o(n, g, o),
+    'tool':               lambda n, g, o: do_tool(n, g, o),
+    'x-mitre-matrix':     lambda n, g, o: do_x_mitre_matrix(n, g, o),
+    'x-mitre-tactic':     lambda n, g, o: do_x_mitre_tactic(n, g, o),
 }
 
-def process_element(n, s, o, exclusion=['id', 'type']):
-    g = Graph()
+def process_element(n, g, s, o, exclusion=['id', 'type']):
     for k in o.keys():
         if not k in exclusion:
             if k in xer:
                 xer[k](n, g, s, o[k])
             else:
-                print("WARNING: Don't know how to process data element '{}'".format(k))
-    return g
+                missed[k] = missed.get(k, 0) + 1
+                #print("WARNING: Don't know how to process data element '{}'".format(k))
 
 def process_objects(n, g, objs):
     for ao in objs:
@@ -286,8 +475,7 @@ def parse():
     if doc["type"] == "bundle" and doc["spec_version"] == "2.0" and 'objects' in doc:
         #print(len(doc['objects']))
         process_objects(n, g, doc['objects'])
-    #print(missed)
-    #print(missed_e)
+    print(missed)
     g.bind('dcterms', DCTERMS)
     g.bind('dc', DC)
     g.bind('core', CORE)
