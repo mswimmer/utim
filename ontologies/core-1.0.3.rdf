@@ -47,10 +47,21 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#comprisedOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/core#comprisedOf">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Hardware"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/core#reference -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/core#reference">
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+        <rdfs:comment xml:lang="en">Relates some entity to some external resource.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -76,6 +87,9 @@
 
     <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/core#externalID">
         <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/core#id"/>
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+        <rdfs:comment xml:lang="en">This is an ID given by some other entity, not a part of the RDF model. For instance, &quot;CAPEC-158&quot; or &quot;S0049&quot;. It is not meaningful on it&apos;s own, but together with a referenceSource or some other qualifier, may be useful.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -150,6 +164,14 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#Application -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Application">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/core#Attack -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Attack">
@@ -170,9 +192,22 @@
     <!-- http://ontologies.ti-semantics.com/core#CourseOfAction -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#CourseOfAction">
-        <rdfs:comment xml:lang="en">A Course of Action is an action taken either to prevent an attack or to respond to an attack that is in progress. It may describe technical, automatable responses (applying patches, reconfiguring firewalls) but can also describe higher level actions like employee training or policy changes. For example, a course of action to mitigate a vulnerability could describe applying the patch that fixes it.
-The Course of Action SDO contains a textual description of the action; a reserved action property also serves as placeholder for future inclusion of machine automatable courses of action. Relationships from the Course of Action can be used to link it to the Vulnerabilities or behaviors (Tool, Malware, Attack Pattern) that it mitigates.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Course of Action is an action taken either to prevent an attack or to respond to an attack that is in progress. It may describe technical, automatable responses (applying patches, reconfiguring firewalls) but can also describe higher level actions like employee training or policy changes. For example, a course of action to mitigate a vulnerability could describe applying the patch that fixes it.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Firmware -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Firmware">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Hardware -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Hardware"/>
     
 
 
@@ -197,9 +232,37 @@ A Malware individual characterizes, identifies, and categorizes malware samples 
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#OperatingSystem -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#OperatingSystem">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/core#Platform -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Platform">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/core#comprisedOf"/>
+                        <owl:someValuesFrom rdf:resource="http://ontologies.ti-semantics.com/core#Application"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/core#comprisedOf"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://ontologies.ti-semantics.com/core#Hardware"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/core#comprisedOf"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://ontologies.ti-semantics.com/core#OperatingSystem"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:comment xml:lang="en">In this context, platform refers to applications, operating systems, and hardware devices present among an enterprise’s computing assets. A computer or hardware device and/or associated operating system, or a virtual environment, on which software can be installed or run. Examples of platforms include Linux™, Microsoft Windows Vista®, and Java™.</rdfs:comment>
         <rdfs:label xml:lang="en">Platform</rdfs:label>
     </owl:Class>
@@ -209,7 +272,8 @@ A Malware individual characterizes, identifies, and categorizes malware samples 
     <!-- http://ontologies.ti-semantics.com/core#Reference -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Reference">
-        <rdfs:comment xml:lang="en">A reference to an external, human readable, resource. For RDF resources, use rdfs:seeAlso.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A reference is some identifiable external resource. Ideally, it would have a referenceURL, but in some cases we have to work with a referenceSource and an externalID to help locate this resource.
+For references to other RDF resources, we could also use rdf:seeAlso.</rdfs:comment>
         <rdfs:label xml:lang="en">Reference</rdfs:label>
     </owl:Class>
     
@@ -219,7 +283,6 @@ A Malware individual characterizes, identifies, and categorizes malware samples 
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Software">
         <owl:equivalentClass rdf:resource="http://purl.org/dc/dcmitype/Software"/>
-        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
     </owl:Class>
     
 

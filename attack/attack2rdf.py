@@ -4,15 +4,21 @@ from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from rdflib.namespace import RDF, RDFS, XSD, DC, DCTERMS
 import hashlib
 import urllib
+import argparse
+import sys
 
 CORE = Namespace("http://ontologies.ti-semantics.com/core#")
 CTI = Namespace("http://ontologies.ti-semantics.com/cti#")
 PLATFORM = Namespace("http://ontologies.ti-semantics.com/platform#")
 SCORE = Namespace("http://ontologies.ti-semantics.com/score#")
 
-def read_file(filename):
-    with open(filename, 'r') as f:
-        return json.loads(f.read())
+argparser = argparse.ArgumentParser(description='Convert ATT&CK JSON files to RDF.')
+argparser.add_argument('--namespace', type=str, default="http://ti-semantics.com/attack#", help='Namespace for this input file')
+argparser.add_argument('infile', nargs='?', type=argparse.FileType('r'), default=sys.stdin, help='Input JSON file')
+argparser.add_argument('outfile', nargs='?', type=argparse.FileType('w'), default=sys.stdout, help='Output Turtle (RDF) file')
+
+def read_file(f):
+    return json.loads(f.read())
 
 missed = {}
 
@@ -202,7 +208,8 @@ xer = {
     "revoked":                      lambda n, g, s, o: do_s_p_lt(n, g, s, CTI.revoked, o, XSD.boolean),
     "definition_type":              lambda n, g, s, o: do_s_p_e(n, g, s, n.definitionType, o),
     "definition":                   lambda n, g, s, o: do_definition(n, g, s, o),
-    "labels":                       lambda n, g, s, o: do_s_p_ea(n, g, s, CTI.label, o),
+    
+    "labels":                       lambda n, g, s, o: do_s_p_ea(n, g, s, CTI.label, o), # The may be redundant with type
     "x_mitre_aliases":              lambda n, g, s, o: do_s_p_la(n, g, s, n.mitreAliases, o),
     "name":                         lambda n, g, s, o: do_s_p_l(n, g, s, DCTERMS.title, o),
     "description":                  lambda n, g, s, o: do_s_p_l(n, g, s, DCTERMS.description, o),
@@ -250,24 +257,27 @@ def do_relationship(n, g, o):
         prd = CTI.revokedBy
     elif o['relationship_type'] == 'uses':
         prd = CTI.uses
-            
-    prd = n[o['relationship_type']]
+    else:
+        missed[o['relationship_type']] = missed.get(o['relationship_type'], 0) + 1
+        prd = None
     obj = n[o['target_ref']]
-    # non-reified version:
-    g.add( (sub, prd, obj) )
-    # reified version:
-    statementId = BNode()
-    g.add( (statementId, RDF.type, RDF.Statement) )
-    g.add( (statementId, RDF.subject, sub) )
-    g.add( (statementId, RDF.predicate, prd) )
-    g.add( (statementId, RDF.object, obj) )
-    # and now we can make statements about this relationship
-    g.add ( (statementId, DCTERMS.creator, n[o['created_by_ref']]) )
-    g.add ( (statementId, DCTERMS.created, Literal(o['created'], datatype=XSD.dateTime)) )
-    g.add ( (statementId, DCTERMS.modified, Literal(o['modified'], datatype=XSD.dateTime)) )
-    g.add ( (statementId, DCTERMS.identifier, Literal(o['id'])) )
-    for i in o['object_marking_refs']:
-        g.add ( (statementId, DCTERMS.rights, n[i]) )
+            
+    if sub and prd and obj:
+        # non-reified version:
+        g.add( (sub, prd, obj) )
+        # reified version:
+        statementId = BNode()
+        g.add( (statementId, RDF.type, RDF.Statement) )
+        g.add( (statementId, RDF.subject, sub) )
+        g.add( (statementId, RDF.predicate, prd) )
+        g.add( (statementId, RDF.object, obj) )
+        # and now we can make statements about this relationship
+        g.add ( (statementId, DCTERMS.creator, n[o['created_by_ref']]) )
+        g.add ( (statementId, DCTERMS.created, Literal(o['created'], datatype=XSD.dateTime)) )
+        g.add ( (statementId, DCTERMS.modified, Literal(o['modified'], datatype=XSD.dateTime)) )
+        g.add ( (statementId, DCTERMS.identifier, Literal(o['id'])) )
+        for i in o['object_marking_refs']:
+            g.add ( (statementId, DCTERMS.rights, n[i]) )
 
 def do_attack_pattern(n, g, o):
     """
@@ -467,15 +477,15 @@ def process_objects(n, g, objs):
     
 #####
     
-def parse():
-    doc = read_file('cache/enterprise-attack.json')
-    n = Namespace("http://ti-semantics.com/attack#")
+def parse(infile, namespace, outfile):
+    doc = read_file(infile)
+    n = Namespace(namespace)
     g = Graph()
     #print(doc["type"], doc["spec_version"])
     if doc["type"] == "bundle" and doc["spec_version"] == "2.0" and 'objects' in doc:
         #print(len(doc['objects']))
         process_objects(n, g, doc['objects'])
-    print(missed)
+    sys.stderr.write("unknown JSON keys: " + str(missed) + '\n')
     g.bind('dcterms', DCTERMS)
     g.bind('dc', DC)
     g.bind('core', CORE)
@@ -485,8 +495,11 @@ def parse():
     g.bind('cti', CTI)
     g.bind('attack', n)
     #print(g.serialize(format='turtle').decode('utf-8'))
-    with open('cache/enterprise-attack.ttl', 'w') as f:
-        f.write(g.serialize(format='turtle', encoding='utf-8').decode('utf-8'))
-        
-parse()
+    outfile.write(g.serialize(format='turtle', encoding='utf-8').decode('utf-8'))
+
+
+args = argparser.parse_args()
+print(args)
+
+parse(args.infile, args.namespace, args.outfile)
 

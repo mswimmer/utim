@@ -1,0 +1,3 @@
+[submodule "attack/cti"]
+	path = attack/cti
+	url = https://github.com/mitre/cti.git
