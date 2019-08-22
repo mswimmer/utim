@@ -1,7 +1,7 @@
 import json
 import rdflib
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
-from rdflib.namespace import RDF, RDFS, XSD, DC, DCTERMS
+from rdflib.namespace import RDF, RDFS, XSD, DC, DCTERMS, FOAF
 import hashlib
 import urllib
 import argparse
@@ -14,6 +14,7 @@ SCORE = Namespace("http://ontologies.ti-semantics.com/score#")
 
 argparser = argparse.ArgumentParser(description='Convert ATT&CK JSON files to RDF.')
 argparser.add_argument('--namespace', type=str, default="http://ti-semantics.com/attack#", help='Namespace for this input file')
+argparser.add_argument('--type', type=str, default="enterprise", help='Namespace for this input file')
 argparser.add_argument('infile', nargs='?', type=argparse.FileType('r'), default=sys.stdin, help='Input JSON file')
 argparser.add_argument('outfile', nargs='?', type=argparse.FileType('w'), default=sys.stdout, help='Output Turtle (RDF) file')
 
@@ -50,7 +51,10 @@ def do_aliases(n, g, s, o):
 
 def do_kill_chain_phase(n, g, s, o):
     for i in o:
-        g.add( (s, n['killChainPhase'], n[i["kill_chain_name"]+'__'+i["phase_name"]]) )
+        kill_chain_phase = n['kill-chain-phase__'+i["kill_chain_name"]+'__'+i["phase_name"]]
+        g.add( (s, CTI.killChainPhase, kill_chain_phase) )
+        g.add( (kill_chain_phase, RDF.type, CTI.KillChainPhase) )
+        g.add( (kill_chain_phase, DCTERMS.title, Literal(i["phase_name"])) )
 
 def do_tactic_refs(n, g, s, o):
     """
@@ -110,7 +114,7 @@ def do_external_references(n, g, s, o):
     for i in o:
         do_external_reference(n, g, s, o, i)
 
-def do_x_mitre_permissions_required(n, g, s, o):
+def do_x_mitre_permissions_required(n, g, s, o, t=CTI.permissionsRequired):
     """
       "x_mitre_permissions_required": [
         "Administrator",
@@ -122,25 +126,35 @@ def do_x_mitre_permissions_required(n, g, s, o):
     ...
     """
     for i in o:
-        refnode = n[urllib.parse.quote_plus(i)]
-        g.add( (s, n.mitrePermissionsRequired, refnode) )
-        if i in ["User", "Remote Desktop Users"]:
-            g.add( (refnode, RDF.type, SCORE.CVSSv3LowPrivilegesRequired) )
-        elif i in ["Administrator", "root", "SYSTEM"]:
-            g.add( (refnode, RDF.type, SCORE.CVSSv3HighPrivilegesRequired) )
+        #refnode = n[urllib.parse.quote_plus(i)]
+        #g.add( (s, n.mitrePermissionsRequired, refnode) )
+        if i in ["User"]:
+            g.add( (s, t, CORE.LocalUser) )
+        elif i in ["Remote Desktop Users"]:
+            g.add( (s, t, CORE.RemoteUser) )
+        elif i in ["Administrator"]:
+            g.add( (s, t, CORE.WindowsAdministrator) )
+        elif i in ["root"]:
+            g.add( (s, t, CORE.UnixRoot) )
+        elif i in ["SYSTEM"]:
+            g.add( (s, t, CORE.WindowsSystemUser) )
+#        if i in ["User", "Remote Desktop Users"]:
+#            g.add( (refnode, RDF.type, SCORE.CVSSv3LowPrivilegesRequired) )
+#        elif i in ["Administrator", "root", "SYSTEM"]:
+#            g.add( (refnode, RDF.type, SCORE.CVSSv3HighPrivilegesRequired) )
         else:
             print("WARNING: unknown privileges type '{}'".format(i))
 
-def do_x_mitre_effective_permissions(n, g, s, o):
-    for i in o:
-        refnode = n[urllib.parse.quote_plus(i)]
-        g.add( (s, n.mitreEffectivePermissions, refnode) )
-        if i in ["User", "Remote Desktop Users"]:
-            g.add( (refnode, RDF.type, SCORE.CVSSv3LowPrivilegesRequired) )
-        elif i in ["Administrator", "root", "SYSTEM"]:
-            g.add( (refnode, RDF.type, SCORE.CVSSv3HighPrivilegesRequired) )
-        else:
-            print("WARNING: unknown privileges type '{}'".format(i))
+#def do_x_mitre_effective_permissions(n, g, s, o):
+#    for i in o:
+#        refnode = n[urllib.parse.quote_plus(i)]
+#        g.add( (s, n.mitreEffectivePermissions, refnode) )
+#        if i in ["User", "Remote Desktop Users"]:
+#            g.add( (refnode, RDF.type, SCORE.CVSSv3LowPrivilegesRequired) )
+#        elif i in ["Administrator", "root", "SYSTEM"]:
+#            g.add( (refnode, RDF.type, SCORE.CVSSv3HighPrivilegesRequired) )
+#        else:
+#            print("WARNING: unknown privileges type '{}'".format(i))
             
 def do_created_by_ref(n, g, s, o):
     """
@@ -161,7 +175,7 @@ def do_x_mitre_platforms(n, g, s, o):
       ],
     """
     for i in o:
-        refnode = n[i]
+        refnode = n['platform--' + i]
         g.add( (s, PLATFORM['platform'], refnode) )
         g.add( (refnode, RDF.type, CORE.Platform) )
 
@@ -183,24 +197,86 @@ def do_definition(n, g, s, o):
       }
 
     """
-    for i in o.keys():
-        g.add( (s, n[i], Literal(o[i])) )
+    g.add( (s, DCTERMS.description, Literal(o['statement'])) )
+    #for i in o.keys():
+    #    g.add( (s, n[i], Literal(o[i])) )
+
+def do_contributor(n, g, s, o):
+    for i in o:
+        refnode = n['mitre-contributor--' + urllib.parse.quote_plus(i)]
+        g.add( (s, DCTERMS.contributor, refnode) )
+        g.add( (refnode, RDF.type, DCTERMS.Agent) )
+
+def do_data_source(n, g, s, o):
+    for i in o:
+        ds = n['mitre-data-source--'+urllib.parse.quote_plus(i)]
+        g.add( (s, CTI.observedData, ds) )
+        g.add( (ds, RDF.type, CTI.ObservedData) )
+        g.add( (ds, RDFS.label, Literal(i)) )
+
+defense_mapping = {
+            'Anti-virus': 'AntiVirus',
+            'Application whitelisting': 'ApplicationWhitelisting',
+            'Autoruns Analysis': 'AutorunsAnalysis',
+            'Binary Analysis': 'BinaryAnalysis',
+            'Data Execution Prevention': 'DataExecutionPrevention',
+            'Defensive network service scanning': 'DefensiveNetworkServiceScanning', # TODO: look up definition
+            'Digital Certificate Validation': 'DigitalCertificateValidation', # TODO: look up definition
+            'Exploit Prevention': 'ExploitPrevention', # TODO: look up definition
+            'File monitoring': 'FileMonitoring',
+            'File system access controls': 'FileSystemAccessControls',
+            'Firewall': 'Firewall',
+            'Heuristic detection': 'HeuristicDetection', # TODO: look up definition
+            'Host forensic analysis': 'HostForensicAnalysis', # TODO: look up definition
+            'Host intrusion prevention systems': 'HostIntrusionPreventionSystems', # TODO: look up definition
+            'Log analysis': 'LogAnalysis', # TODO: look up definition
+            'Network intrusion detection system': 'NetworkIntrusionDetectionSystem', # TODO: look up definition
+            'Process whitelisting': 'ProcessWhitelisting', # TODO: look up definition
+            'Signature-based detection': 'SignatureBasedDetection', # TODO: look up definition
+            'Static File Analysis': 'StaticFileAnalysis', # TODO: look up definition
+            'System access controls': 'SystemAccessControls', # TODO: look up definition
+            'User Mode Signature Validation': 'UserModeSignatureValidation', # TODO: look up definition
+            'Whitelisting by file name or path': 'FilePathWhitelisting', # TODO: look up definition
+            'Windows User Account Control': 'WindowsUserAccountControl' # TODO: look up definition
+}
         
+def do_mitre_defense_bypassed(n, g, s, o):
+    for i in o:
+        g.add( (s, CTI.detectionBypassed, CTI[defense_mapping[i]]) )
+        
+def do_mitre_detection(n, g, s, o):
+    m = hashlib.sha256()
+    m.update(o.encode('utf-8'))
+    refnode = n['detection_'+m.hexdigest()]
+    g.add( (s, CTI.hasDetection, refnode) )
+    g.add( (refnode, RDF.type, CTI.Detection) )
+    g.add( (refnode, DCTERMS.description, Literal(o)) )
+    
+def do_mitre_system_requirements(n, g, s, o):
+    for i in o:
+        m = hashlib.sha256()
+        m.update(i.encode('utf-8'))
+        refnode = n['requirement_'+m.hexdigest()]
+        g.add( (s, CTI.attackRequirement, refnode) )
+        g.add( (refnode, RDF.type, CTI.AttackRequirement) )
+        g.add( (refnode, DCTERMS.description, Literal(i)) )
+    
 xer = {
     "external_references":          lambda n, g, s, o: do_external_references(n, g, s, o),
     "x_mitre_permissions_required": lambda n, g, s, o: do_x_mitre_permissions_required(n, g, s, o),
     "created_by_ref":               lambda n, g, s, o: do_created_by_ref(n, g, s, o),
     "x_mitre_platforms":            lambda n, g, s, o: do_x_mitre_platforms(n, g, s, o),
     "object_marking_refs":          lambda n, g, s, o: do_object_marking_refs(n, g, s, o),
-    "x_mitre_version":              lambda n, g, s, o: do_s_p_l(n, g, s, n.mitreVersion, o),
-    "x_mitre_data_sources":         lambda n, g, s, o: do_s_p_ea(n, g, s, n.mitreDataSource, o),
-    "x_mitre_detection":            lambda n, g, s, o: do_s_p_l(n, g, s, n.mitreDetection, o),
-    "x_mitre_contributors":         lambda n, g, s, o: do_s_p_la(n, g, s, n.mitreContributors, o),
-    "x_mitre_effective_permissions":lambda n, g, s, o: do_x_mitre_effective_permissions(n, g, s, o),
-    "x_mitre_system_requirements":  lambda n, g, s, o: do_s_p_la(n, g, s, n.mitreSystemRequirements, o),
+    #"x_mitre_version":              lambda n, g, s, o: do_s_p_l(n, g, s, n.mitreVersion, o),
+    #"x_mitre_data_sources":         lambda n, g, s, o: do_s_p_ea(n, g, s, n.mitreDataSource, o),
+    "x_mitre_data_sources":         lambda n, g, s, o: do_data_source(n, g, s, o),
+    "x_mitre_detection":            lambda n, g, s, o: do_mitre_detection(n, g, s, o),
+    "x_mitre_contributors":         lambda n, g, s, o: do_contributor(n, g, s, o),
+    "x_mitre_effective_permissions":lambda n, g, s, o: do_x_mitre_permissions_required(n, g, s, o, t=CTI.effectivePermissionsRequired),
+    "x_mitre_system_requirements":  lambda n, g, s, o: do_mitre_system_requirements(n, g, s, o),
     "x_mitre_remote_support":       lambda n, g, s, o: do_s_p_lt(n, g, s, n.mitreRemoteSupport, o, XSD.boolean),
-    "x_mitre_network_requirements": lambda n, g, s, o: do_s_p_lt(n, g, s, n.mitreNetworkRequirements, o, XSD.boolean),
-    "x_mitre_defense_bypassed":     lambda n, g, s, o: do_s_p_ea(n, g, s, n.mitreDefenseBypassed, o),
+    "x_mitre_network_requirements": lambda n, g, s, o: do_s_p_lt(n, g, s, CTI.networkRequired, o, XSD.boolean),
+    "x_mitre_defense_bypassed":     lambda n, g, s, o: do_mitre_defense_bypassed(n, g, s, o),
 #    "source_ref":                   lambda n, g, s, o: do_default_e(n, g, s, o),
 #    'relationship_type':            lambda n, g, s, o: do_default_e(n, g, s, o),
 #    "target_ref":                   lambda n, g, s, o: do_default_e(n, g, s, o),
@@ -209,8 +285,8 @@ xer = {
     "definition_type":              lambda n, g, s, o: do_s_p_e(n, g, s, n.definitionType, o),
     "definition":                   lambda n, g, s, o: do_definition(n, g, s, o),
     
-    "labels":                       lambda n, g, s, o: do_s_p_ea(n, g, s, CTI.label, o), # The may be redundant with type
-    "x_mitre_aliases":              lambda n, g, s, o: do_s_p_la(n, g, s, n.mitreAliases, o),
+    #"labels":                       lambda n, g, s, o: do_s_p_ea(n, g, s, CTI.label, o), # The may be redundant with type
+    "x_mitre_aliases":              lambda n, g, s, o: do_s_p_la(n, g, s, CTI.alias, o),
     "name":                         lambda n, g, s, o: do_s_p_l(n, g, s, DCTERMS.title, o),
     "description":                  lambda n, g, s, o: do_s_p_l(n, g, s, DCTERMS.description, o),
     "kill_chain_phases":            lambda n, g, s, o: do_kill_chain_phase(n, g, s, o),
@@ -240,7 +316,7 @@ def do_marking_definition(n, g, o):
         s = n[o['id']]
         if 'type' in o:
             g.add( (s, RDF.type, DCTERMS.RightsStatement) )
-        process_element(n, g, s, o)
+        process_element(n, g, s, o, exclusion=['id', 'type', 'definition_type'])
 
 def do_identity(n, g, o):
     if 'id' in o:
@@ -401,7 +477,7 @@ def do_tool(n, g, o):
     else:
         print("Missing 'id'", o)
         
-def do_x_mitre_matrix(n, g, o):
+def do_x_mitre_matrix(n, g, o, matrix_type):
     """
     {
       "type": "x-mitre-matrix",
@@ -418,7 +494,12 @@ def do_x_mitre_matrix(n, g, o):
     """
     if 'id' in o:
         s = n[o['id']]
-        g.add( (s, RDF.type, CTI.Matrix) )
+        if matrix_type == 'enterprise':
+            g.add( (s, RDF.type, CTI.EnterpriseMatrix) )
+        elif matrix_type == 'pre':
+            g.add( (s, RDF.type, CTI.PreMatrix) )
+        elif matrix_type == 'mobile':
+            g.add( (s, RDF.type, CTI.MobileMatrix) )
         process_element(n, g, s, o)
     else:
         print("Missing 'id'", o)
@@ -457,37 +538,43 @@ xo = {
     'marking-definition': lambda n, g, o: do_marking_definition(n, g, o),
     'relationship':       lambda n, g, o: do_relationship(n, g, o),
     'tool':               lambda n, g, o: do_tool(n, g, o),
-    'x-mitre-matrix':     lambda n, g, o: do_x_mitre_matrix(n, g, o),
+    #'x-mitre-matrix':     lambda n, g, o: do_x_mitre_matrix(n, g, o),
     'x-mitre-tactic':     lambda n, g, o: do_x_mitre_tactic(n, g, o),
 }
 
 def process_element(n, g, s, o, exclusion=['id', 'type']):
-    for k in o.keys():
-        if not k in exclusion:
-            if k in xer:
-                xer[k](n, g, s, o[k])
-            else:
-                missed[k] = missed.get(k, 0) + 1
-                #print("WARNING: Don't know how to process data element '{}'".format(k))
+    if o.get("x_mitre_version", "1.0") in ["1.0", "1.1", "1.2", "2.0", "2.1"]:
+        for k in o.keys():
+            if not k in exclusion:
+                if k in xer:
+                    xer[k](n, g, s, o[k])
+                else:
+                    missed[k] = missed.get(k, 0) + 1
+                    #print("WARNING: Don't know how to process data element '{}'".format(k))
+    else:
+        print("Warning: unknown mitre object version '" + o["x_mitre_version"]+"'")
 
-def process_objects(n, g, objs):
+def process_objects(n, g, objs, matrix_type):
     for ao in objs:
-        # print(ao['type'])
-        xo[ao['type']](n, g, ao)
+        if ao['type'] == 'x-mitre-matrix':
+            do_x_mitre_matrix(n, g, ao, matrix_type)
+        else:
+            xo[ao['type']](n, g, ao)
     
 #####
     
-def parse(infile, namespace, outfile):
+def parse(infile, namespace, outfile, matrix_type):
     doc = read_file(infile)
     n = Namespace(namespace)
     g = Graph()
     #print(doc["type"], doc["spec_version"])
     if doc["type"] == "bundle" and doc["spec_version"] == "2.0" and 'objects' in doc:
         #print(len(doc['objects']))
-        process_objects(n, g, doc['objects'])
+        process_objects(n, g, doc['objects'], matrix_type)
     sys.stderr.write("unknown JSON keys: " + str(missed) + '\n')
     g.bind('dcterms', DCTERMS)
     g.bind('dc', DC)
+    g.bind('foaf', FOAF)
     g.bind('core', CORE)
     g.bind('score', SCORE)
     g.bind('plat', PLATFORM)
@@ -499,7 +586,7 @@ def parse(infile, namespace, outfile):
 
 
 args = argparser.parse_args()
-print(args)
+#print(args)
 
-parse(args.infile, args.namespace, args.outfile)
+parse(args.infile, args.namespace, args.outfile, args.type)
 

@@ -15,6 +15,7 @@
         <rdfs:comment xml:lang="en">Core concepts for the ontology of computer security properties and classes for use in threat intelligence and incidence response.</rdfs:comment>
         <rdfs:label xml:lang="en">Core Computer Security Ontology</rdfs:label>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-126r3.pdf</rdfs:seeAlso>
+        <owl:versionInfo xml:lang="en">Be warned that this version is under heavy development</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -211,6 +212,14 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#LocalUser -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#LocalUser">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/core#Malware -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Malware">
@@ -279,10 +288,27 @@ For references to other RDF resources, we could also use rdf:seeAlso.</rdfs:comm
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#RemoteUser -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#RemoteUser">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/core#Software -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Software">
         <owl:equivalentClass rdf:resource="http://purl.org/dc/dcmitype/Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Superuser -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Superuser">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:isDefinedBy xml:lang="en">https://en.wikipedia.org/wiki/Superuser</rdfs:isDefinedBy>
     </owl:Class>
     
 
@@ -332,6 +358,16 @@ A Tool individual must not be used to characterize malware. Further, a Tool must
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#UnixRoot -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#UnixRoot">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Superuser"/>
+        <rdfs:comment xml:lang="en">In Unix-like computer OSes (such as Linux), root is the conventional name of the user who has all rights or permissions (to all files and programs) in all modes (single- or multi-user). Alternative names include baron in BeOS and avatar on some Unix variants. BSD often provides a toor (&quot;root&quot; written backward) account in addition to a root account. Regardless of the name, the superuser always has a user ID of 0. The root user can do many things an ordinary user cannot, such as changing the ownership of files and binding to network ports numbered below 1024.</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">https://en.wikipedia.org/wiki/Superuser#Unix_and_Unix-like</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/core#Vulnerability -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Vulnerability">
@@ -350,6 +386,25 @@ A Vulnerability individual is primarily used to link to external definitions of 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Weakness">
         <rdfs:comment xml:lang="en">This describes a fault in a system or software that may be exploited by an Threat Actor.</rdfs:comment>
         <rdfs:label xml:lang="en">Weakness</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#WindowsAdministrator -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#WindowsAdministrator">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Superuser"/>
+        <rdfs:comment xml:lang="en">An administrator is someone who can make changes on a computer that will affect other users of the computer. Administrators can change security settings, install software and hardware, access all files on the computer, and make changes to other user accounts. To log on as an administrator, you need to have a user account on the computer with an Administrator account type.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#WindowsSystemUser -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#WindowsSystemUser">
+        <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/core#Superuser"/>
+        <rdfs:comment xml:lang="en">The system account and the administrator account (Administrators group) have the same file privileges, but they have different functions. The system account is used by the operating system and by services that run under Windows. There are many services and processes within Windows that need the capability to log on internally (for example during a Windows installation). The system account was designed for that purpose; it is an internal account, does not show up in User Manager, cannot be added to any groups, and cannot have user rights assigned to it. On the other hand, the system account does show up on an NTFS volume in File Manager in the Permissions portion of the Security menu. By default, the system account is granted full control to all files on an NTFS volume. Here the system account has the same functional privileges as the administrator account.</rdfs:comment>
+        <rdfs:isDefinedBy xml:lang="en">https://support.microsoft.com/en-sg/help/120929/how-the-system-account-is-used-in-windows</rdfs:isDefinedBy>
     </owl:Class>
     
 
@@ -373,5 +428,5 @@ A Vulnerability individual is primarily used to link to external definitions of 
 
 
 
-<!-- Generated by the OWL API (version 4.5.7.2018-12-02T02:23:35Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 

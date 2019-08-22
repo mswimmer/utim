@@ -15,12 +15,13 @@
      xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ontologies.ti-semantics.com/platform">
         <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/platform-1.0.3"/>
-        <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.2"/>
+        <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.3"/>
         <dcterms:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology that provides a vocabulary and representation for the Common Platform Enumeration (CPE) which provides a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&apos;s computing assets.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7697.pdf</rdfs:isDefinedBy>
         <rdfs:label>Ontology based on the Common Platform Enumeration (CPE)</rdfs:label>
         <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://nvd.nist.gov/products/cpe</rdfs:seeAlso>
+        <owl:versionInfo xml:lang="en">Be warned that this version is still under heavy development</owl:versionInfo>
     </owl:Ontology>
     
 
