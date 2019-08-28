@@ -236,7 +236,7 @@ A Malware individual characterizes, identifies, and categorizes malware samples 
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Metric">
         <rdfs:comment xml:lang="en">A security metric is a measurement of risk associated with some aspect of computer security. A standard of measure of a degree to which a software system or process possesses some property.</rdfs:comment>
-        <rdfs:label xml:lang="en">Metric</rdfs:label>
+        <rdfs:label xml:lang="en">Security metric</rdfs:label>
     </owl:Class>
     
 
