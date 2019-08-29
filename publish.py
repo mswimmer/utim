@@ -6,8 +6,8 @@ from datetime import datetime
 REGION = "eu-west-1"
 PROFILE = "personal.iam"
 
-print("auto-commit on publish")
-os.system("git commit -a -m \"auto-commit on publish\"")
+#print("auto-commit on publish")
+#os.system("git commit -a -m \"auto-commit on publish\"")
 
 session = boto3.Session(profile_name=PROFILE, region_name=REGION)
 s3_client = session.client('s3')
