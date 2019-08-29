@@ -52,7 +52,7 @@ ontologies = [
     {'file': 'ontologies/cti-1.0.3.rdf', 'bucket':s3ontos, 'key': 'cti', 'ct':'application/rdf+xml'},
     
     # TODO: need to implement versioning for attack
-    {'file': 'ontologies/attack.rdf', 'bucket':s3ontos, 'key': 'attack.rdf', 'ct':'application/rdf+xml'},
+#    {'file': 'ontologies/attack.rdf', 'bucket':s3ontos, 'key': 'attack.rdf', 'ct':'application/rdf+xml'},
 
     {'file': 'ontologies/index.html', 'bucket': s3ontos, 'key': 'index.html', 'ct':'text/html'},
     {'file': 'ontologies/404.html', 'bucket': s3ontos, 'key': '404.html', 'ct':'text/html'},
