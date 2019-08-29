@@ -35,8 +35,8 @@ function processCVE {
 	echo "${basename}.xml was already decompressed"
     fi
     
-    echo "<a href=\"http://${BUCKET}/${basename}.rdf.gz\" alt=\"${basename}\">${basename}.rdf.gz</a>" >> ${CVEFILELIST}
-    echo "<a href=\"http://${BUCKET}/${basename}.ttl.gz\" alt=\"${basename}\">${basename}.ttl.gz</a>" >> ${CVEFILELIST}
+    echo "<a href=\"http://${BUCKET}/${basename}.rdf.gz\">${basename}.rdf.gz</a>" >> ${CVEFILELIST}
+    echo "<a href=\"http://${BUCKET}/${basename}.ttl.gz\">${basename}.ttl.gz</a>" >> ${CVEFILELIST}
     
 }
 
