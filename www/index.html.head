@@ -51,13 +51,5 @@
     
     <p>An ontology of weaknesses. Based on CWE. <a href="http://ontologies.ti-semantics.com/weakness">weakness</a></p>
 
-    <h2>attack</h2>
-    
-    <p>A synthetic ontology of the Mitre ATT&CK framework based on
-    mnemonic.no's ACT Platform code. <a
-    href="http://ontologies.ti-semantics.com/attack.rdf">attack.rdf</a>. This
-    is still highly experimental.</p>
+    <h1>Example converted data</h1>
 
-  </body>
-  
-</html>

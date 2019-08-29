@@ -94,6 +94,12 @@ def validate_all(file_list):
 
 # Do actual stuff
 
+with open('www/index.html', 'wb') as outFile:
+    with open('www/index.html.head', 'rb') as h, open('cve_file_list.html', 'rb') as l, open('www/index.html.tail', 'rb') as t:
+        outFile.write(ch.read())
+        outFile.write(l.read())
+        outFile.write(t.read())
+
 if validate_all(www):
     transfer_all(www)
 else:
@@ -104,3 +110,4 @@ if validate_all(ontologies):
 else:
     print("ontologies didn't validate")
 
+os.remove("www/index.html")
