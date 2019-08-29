@@ -96,7 +96,7 @@ def validate_all(file_list):
 
 with open('www/index.html', 'wb') as outFile:
     with open('www/index.html.head', 'rb') as h, open('cve_file_list.html', 'rb') as l, open('www/index.html.tail', 'rb') as t:
-        outFile.write(ch.read())
+        outFile.write(h.read())
         outFile.write(l.read())
         outFile.write(t.read())
 
