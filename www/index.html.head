@@ -51,5 +51,9 @@
     
     <p>An ontology of weaknesses. Based on CWE. <a href="http://ontologies.ti-semantics.com/weakness">weakness</a></p>
 
-    <h1>Example converted data</h1>
+    <h2>CTI</h2>
+    
+    <p>An ontology of computer security threat intelligence. Based on
+    STIX and ATT&CK. <a href="http://ontologies.ti-semantics.com/cti">CTI</a></p>
 
+    <h1>Example converted data</h1>
