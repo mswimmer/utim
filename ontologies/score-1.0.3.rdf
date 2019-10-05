@@ -135,11 +135,21 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/score#hasBaseSeverity -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/score#hasBaseSeverity">
+        <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#hasMetric"/>
+        <rdfs:comment xml:lang="en">TODO: research and classify properly</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/score#hasConfidentialityImpact -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/score#hasConfidentialityImpact">
         <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#hasImpactMetric"/>
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv2ConfidentialityImpact"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv3ConfidentialityImpact"/>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
     </owl:ObjectProperty>
     
@@ -522,6 +532,18 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
     
 
 
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_vector -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_vector">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A CVSS score is also represented as a vector string, a compressed textual representation of the values used to derive the score.</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a compressed textual representation that reflects the values used to drive the CVSS score</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
+        <rdfs:label>CVSS v2 Vector</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/score#cvss_v3_baseScore -->
 
     <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v3_baseScore">
@@ -637,18 +659,6 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
     
 
 
-    <!-- http://ontologies.ti-semantics.com/score#vector -->
-
-    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#vector">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">A CVSS score is also represented as a vector string, a compressed textual representation of the values used to derive the score.</rdfs:comment>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a compressed textual representation that reflects the values used to drive the CVSS score</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
-        <rdfs:label>CVSS v2 Vector</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -726,7 +736,7 @@ If a scope change has not occurred, the Impact metrics should reflect the confid
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#MetricGroup"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/score#vector"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/score#cvss_v2_vector"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
             </owl:Restriction>
@@ -880,13 +890,13 @@ Other vulnerabilities, however, may require additional steps in order to be expl
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv2MetricGroup"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/score#generationTime"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/score#cvss_v2_vector"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/score#vector"/>
+                <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/score#generationTime"/>
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
