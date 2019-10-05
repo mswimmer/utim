@@ -292,14 +292,16 @@
 
     <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_environmentalScore">
         <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#cvss_score"/>
+        <rdfs:label xml:lang="en">CVSS Environmental score</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://ontologies.ti-semantics.com/score#cvss_expoitSubscore -->
+    <!-- http://ontologies.ti-semantics.com/score#cvss_exploitabilitySubscore -->
 
-    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_expoitSubscore">
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_exploitabilitySubscore">
         <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#cvss_score"/>
+        <rdfs:label xml:lang="en">CVSS Exploitability subscore</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -376,22 +378,22 @@ AdjustedTemporal = TemporalScore recomputed with the BaseScore&apos;s Impact sub
 AdjustedImpact = min(10,10.41*(1-(1-ConfImpact*ConfReq)*(1-IntegImpact*IntegReq)
                      *(1-AvailImpact*AvailReq)))</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">CVSS v2 Environment score</rdfs:label>
+        <rdfs:label xml:lang="en">CVSS v2 Environmental score</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_exploitSubscore -->
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_exploitabilitySubscore -->
 
-    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_exploitSubscore">
-        <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#cvss_expoitSubscore"/>
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_exploitabilitySubscore">
+        <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#cvss_exploitabilitySubscore"/>
         <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#cvss_v2_score"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
         <rdfs:comment xml:lang="en">Specifies the base exploit sub-score asisgned to a vulnerability by a source
 
 Exploitability = 20* AccessVector*AccessComplexity*Authentication</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
-        <rdfs:label xml:lang="en">CVSS v2 Exploit subscore</rdfs:label>
+        <rdfs:label xml:lang="en">CVSS v2 Exploitability subscore</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -408,6 +410,50 @@ Exploitability = 20* AccessVector*AccessComplexity*Authentication</rdfs:comment>
 Impact = 10.41*(1-(1-ConfImpact)*(1-IntegImpact)*(1-AvailImpact))</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">CVSS v2 Impact subscore</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_insufficientInformation -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_insufficientInformation">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">TODO: Found in the JSON 1.1 NVD feed, but need to find the actual definition</rdfs:comment>
+        <rdfs:label xml:lang="en">CVSS v2 Insufficient information</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_obtainAllPrivilege -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_obtainAllPrivilege">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">TODO: Found in the JSON 1.1 NVD feed, but need to find the actual definition</rdfs:comment>
+        <rdfs:label xml:lang="en">CVSS v2 obtain all privilege</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_obtainOtherPrivilege -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_obtainOtherPrivilege">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">TODO: Found in the JSON 1.1 NVD feed, but need to find the actual definition</rdfs:comment>
+        <rdfs:label xml:lang="en">CVSS v2 obtain other privilege</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_obtainUserPrivilege -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_obtainUserPrivilege">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">TODO: Found in the JSON 1.1 NVD feed, but need to find the actual definition</rdfs:comment>
+        <rdfs:label xml:lang="en">CVSS v2 obtain user privilege</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -437,6 +483,17 @@ Impact = 10.41*(1-(1-ConfImpact)*(1-IntegImpact)*(1-AvailImpact))</rdfs:comment>
     
 
 
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_severity -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_severity">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+        <rdfs:comment xml:lang="en">TODO: Found in the JSON 1.1 NVD feed, but need to find the actual definition</rdfs:comment>
+        <rdfs:label xml:lang="en">CVSS v2 severity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/score#cvss_v2_temporalScore -->
 
     <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_temporalScore">
@@ -450,6 +507,17 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
                 *RemediationLevel*ReportConfidence)</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
         <rdfs:label>Temporal Score</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v2_userInteractionRequired -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v2_userInteractionRequired">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Vulnerability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">TODO: This is similar to the CVSS v3 user interaction and needs homogenization</rdfs:comment>
+        <rdfs:label xml:lang="en">CVSS v2 user interaction required</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -475,21 +543,21 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies a score, between 0 and 10, that represents the characteristics of a vulnerability that change over time but not among user environments.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
-        <rdfs:label>Environment Score</rdfs:label>
+        <rdfs:label xml:lang="en">CVSS v3 Environmental score</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://ontologies.ti-semantics.com/score#cvss_v3_exploitSubscore -->
+    <!-- http://ontologies.ti-semantics.com/score#cvss_v3_exploitabilitySubscore -->
 
-    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v3_exploitSubscore">
-        <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#cvss_expoitSubscore"/>
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/score#cvss_v3_exploitabilitySubscore">
+        <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#cvss_exploitabilitySubscore"/>
         <rdfs:subPropertyOf rdf:resource="http://ontologies.ti-semantics.com/score#cvss_v3_score"/>
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/score#CVSSv3ExploitabilityMetric"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the base exploit sub-score asisgned to a vulnerability by a source</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
-        <rdfs:label>Exploit Subscore</rdfs:label>
+        <rdfs:label xml:lang="en">CVSS v3 Exploitability subscore</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -503,7 +571,7 @@ TemporalScore = round_to_1_decimal(BaseScore*Exploitability
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies the base impact sub-score assigned to a vulnerability by a source</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/cvss-v30-specification-v1.7.pdf</rdfs:isDefinedBy>
-        <rdfs:label>Impact Sub-score</rdfs:label>
+        <rdfs:label xml:lang="en">CVSS v3 Impact subscore</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -3246,13 +3314,13 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2AdjacentAccessVector">
         <rdfs:label xml:lang="en">CVSS v2 Adjacent access vector</rdfs:label>
         <rdfs:comment xml:lang="en">A vulnerability exploitable with adjacent network access requires the attacker to have access to either the broadcast or collision domain of the vulnerable software.  Examples of local networks include local IP subnet, Bluetooth, IEEE 802.11, and local Ethernet segment.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
         <cvss_v2_code>A</cvss_v2_code>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2CompleteAvailabilityImpact">
         <cvss_v2_code>C</cvss_v2_code>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">CVSS v2 Complete availability impact</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">There is a total shutdown of the affected resource. The attacker can render the resource completely unavailable.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2CompleteConfidentialityImpact">
@@ -3269,8 +3337,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2ConfirmedReportConfidence">
         <rdfs:comment xml:lang="en">The vulnerability has been acknowledged by the vendor or author of the affected technology. The vulnerability may also be Confirmed when its existence is confirmed from an external event such as publication of functional or proof-of-concept exploit code or widespread exploitation.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-3-Report-Confidence-RC</rdfs:isDefinedBy>
         <cvss_v2_code>C</cvss_v2_code>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-2-3-Report-Confidence-RC</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">CVSS v2 Confirmed report confidence</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2FunctionalExploitability">
@@ -3290,15 +3358,15 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:label xml:lang="en">CVSS v2 High access complexity</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighAvailabilityRequirement">
+        <rdfs:comment xml:lang="en">Loss of Availability is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:label xml:lang="en">CVSS v2 High availability requirement</rdfs:label>
         <cvss_v2_code xml:lang="en">H</cvss_v2_code>
-        <rdfs:comment xml:lang="en">Loss of Availability is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighCollateralDamagePotential">
         <rdfs:comment xml:lang="en">A successful exploit of this vulnerability may result in catastrophic physical or property damage and loss. Or, there may be a catastrophic loss of revenue or productivity.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
         <cvss_v2_code>H</cvss_v2_code>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">CVSS v2 High collateral damage potential</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighConfidentialityRequirement">
@@ -3316,8 +3384,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighIntegrityRequirement">
         <cvss_v2_code xml:lang="en">H</cvss_v2_code>
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have a catastrophic adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">CVSS v2 High integrity requirement</rdfs:label>
+        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2HighTargetCount">
         <cvss_v2_code>H</cvss_v2_code>
@@ -3362,8 +3430,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2LowIntegrityRequirement">
         <rdfs:comment xml:lang="en">Loss of Integrity is likely to have only a limited adverse effect on the organization or individuals associated with the organization (e.g., employees, customers).</rdfs:comment>
         <rdfs:label xml:lang="en">CVSS v2 Low integrity requirement</rdfs:label>
-        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <cvss_v2_code xml:lang="en">L</cvss_v2_code>
+        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2LowMediumCollateralDamagePotential">
         <cvss_v2_code>LM</cvss_v2_code>
@@ -3414,8 +3482,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:comment xml:lang="en">Exploiting the vulnerability requires that the attacker authenticate two or more times, even if the same credentials are used each time. An example is an attacker authenticating to an operating system in addition to providing credentials to access an application hosted on that system.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NetworkAccessVector">
-        <rdfs:label xml:lang="en">CVSS v2 Network access vector</rdfs:label>
         <rdfs:comment xml:lang="en">A vulnerability exploitable with network access means the vulnerable software is bound to the network stack and the attacker does not require local network access or local access. Such a vulnerability is often termed &quot;remotely exploitable&quot;. An example of a network attack is an RPC buffer overflow.</rdfs:comment>
+        <rdfs:label xml:lang="en">CVSS v2 Network access vector</rdfs:label>
         <cvss_v2_code>N</cvss_v2_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide</rdfs:isDefinedBy>
     </rdf:Description>
@@ -3450,8 +3518,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:label xml:lang="en">CVSS v2 No confidentiality impact</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NoIntegrityImpact">
-        <cvss_v3_code xml:lang="en">N</cvss_v3_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
+        <cvss_v3_code xml:lang="en">N</cvss_v3_code>
         <rdfs:label xml:lang="en">CVSS v2 No integrity impact</rdfs:label>
         <rdfs:comment xml:lang="en">There is no impact to the integrity of the system.</rdfs:comment>
     </rdf:Description>
@@ -3474,8 +3542,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-1-Collateral-Damage-Potential-CDP</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedConfidentialityRequirement">
-        <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-3-3-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
+        <cvss_v2_code xml:lang="en">ND</cvss_v2_code>
         <rdfs:label xml:lang="en">CVSS v2 Not-defined confidentiality requirement</rdfs:label>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
     </rdf:Description>
@@ -3500,8 +3568,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2NotDefinedTargetCount">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-3-2-Target-Distribution-TD</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">CVSS v2 Not-defined target distribution</rdfs:label>
-        <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
         <cvss_v2_code>ND</cvss_v2_code>
+        <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2OfficialFixRemediation">
         <rdfs:comment xml:lang="en">A complete vendor solution is available. Either the vendor has issued an official patch, or an upgrade is available.</rdfs:comment>
@@ -3540,8 +3608,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2TemporaryFixRemediation">
         <rdfs:label xml:lang="en">CVSS v2 Temporary fix remediation</rdfs:label>
-        <rdfs:comment xml:lang="en">There is an official but temporary fix available. This includes instances where the vendor issues a temporary hotfix, tool, or workaround.</rdfs:comment>
         <cvss_v2_code>T</cvss_v2_code>
+        <rdfs:comment xml:lang="en">There is an official but temporary fix available. This includes instances where the vendor issues a temporary hotfix, tool, or workaround.</rdfs:comment>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-2-2-Remediation-Level-RL</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2UnavailableRemediation">
@@ -3570,8 +3638,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv2WorkaroundRemediation">
         <rdfs:comment xml:lang="en">There is an unofficial, non-vendor solution available. In some cases, users of the affected technology will create a patch of their own or provide steps to work around or otherwise mitigate the vulnerability.</rdfs:comment>
-        <cvss_v2_code>W</cvss_v2_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/v2/guide#2-2-2-Remediation-Level-RL</rdfs:isDefinedBy>
+        <cvss_v2_code>W</cvss_v2_code>
         <rdfs:label xml:lang="en">CVSS v2 Workaround remediation</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3AdjacentAttackVector">
@@ -3629,8 +3697,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3HighExploitCodeMaturity">
         <rdfs:label xml:lang="en">CVSS v3 High exploit code maturity</rdfs:label>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
         <cvss_v3_code xml:lang="en">H</cvss_v3_code>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Functional autonomous code exists, or no exploit is required (manual trigger) and details are widely available. Exploit code works in every situation, or is actively being delivered via an autonomous agent (such as a worm or virus). Network-connected systems are likely to encounter scanning or exploitation attempts. Exploit development has reached the level of reliable, widely-available, easy-to-use automated tools.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3HighIntegrityImpact">
@@ -3712,8 +3780,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#2-3-2-Integrity-Impact-I</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">CVSS v3 No integrity impact</rdfs:label>
         <rdfs:comment xml:lang="en">There is no loss of integrity within the impacted component.</rdfs:comment>
-        <cvss_v3_code xml:lang="en">N</cvss_v3_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/v2/guide#2-1-5-Integrity-Impact-I</rdfs:isDefinedBy>
+        <cvss_v3_code xml:lang="en">N</cvss_v3_code>
         <rdfs:comment xml:lang="en">There is no impact to the integrity of the system.</rdfs:comment>
     </rdf:Description>
     <owl:Axiom>
@@ -3741,34 +3809,34 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:label xml:lang="en">CVSS v3 No user interaction</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedAvailabilityRequirement">
-        <cvss_v3_code xml:lang="en">X</cvss_v3_code>
         <rdfs:label xml:lang="en">CVSS v3 Not-defined availability requirement</rdfs:label>
+        <cvss_v3_code xml:lang="en">X</cvss_v3_code>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#4-1-Security-Requirements-CR-IR-AR</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to the equation to skip this metric.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedExploitCodeMaturity">
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to a scoring equation to skip this metric.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.first.org/cvss/specification-document#3-1-Exploit-Code-Maturity-E</rdfs:isDefinedBy>
         <cvss_v3_code xml:lang="en">X</cvss_v3_code>
         <rdfs:label xml:lang="en">CVSS v3 Not-defined exploit code maturity</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedRemediation">
         <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to a scoring equation to skip this metric.</rdfs:comment>
-        <cvss_v3_code>X</cvss_v3_code>
         <rdfs:label xml:lang="en">CVSS v3 Not-defined remediation</rdfs:label>
+        <cvss_v3_code>X</cvss_v3_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-2-Remediation-Level-RL</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3NotDefinedReportConfidence">
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-3-Report-Confidence-RC</rdfs:isDefinedBy>
-        <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to a scoring equation to skip this metric.</rdfs:comment>
         <cvss_v3_code>X</cvss_v3_code>
         <rdfs:label xml:lang="en">CVSS v3 Not-defined report confidence</rdfs:label>
+        <rdfs:comment xml:lang="en">Assigning this value to the metric will not influence the score. It is a signal to a scoring equation to skip this metric.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3OfficialFixRemediation">
         <cvss_v3_code>O</cvss_v3_code>
         <rdfs:comment xml:lang="en">A complete vendor solution is available. Either the vendor has issued an official patch, or an upgrade is available.</rdfs:comment>
-        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-2-Remediation-Level-RL</rdfs:isDefinedBy>
         <rdfs:label xml:lang="en">CVSS v3 Official fix remediation</rdfs:label>
+        <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-2-Remediation-Level-RL</rdfs:isDefinedBy>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3PhysicalAttackVector">
         <rdfs:label xml:lang="en">CVSS v3 Physical attack vector</rdfs:label>
@@ -3783,8 +3851,8 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:comment xml:lang="en">Proof-of-concept exploit code is available, or an attack demonstration is not practical for most systems. The code or technique is not functional in all situations and may require substantial modification by a skilled attacker.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/score#CVSSv3ReasonableReportConfidence">
-        <rdfs:label xml:lang="en">CVSS v3 Reasonable report confidence</rdfs:label>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-3-Report-Confidence-RC</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">CVSS v3 Reasonable report confidence</rdfs:label>
         <cvss_v3_code>R</cvss_v3_code>
         <rdfs:comment xml:lang="en">Significant details are published, but researchers either do not have full confidence in the root cause, or do not have access to source code to fully confirm all of the interactions that may lead to the result. Reasonable confidence exists, however, that the bug is reproducible and at least one impact is able to be verified (proof-of-concept exploits may provide this). An example is a detailed write-up of research into a vulnerability with an explanation (possibly obfuscated or “left as an exercise to the reader”) that gives assurances on how to reproduce the results.</rdfs:comment>
     </rdf:Description>
@@ -3829,6 +3897,9 @@ A scope change would not occur, for example, with a vulnerability in Microsoft W
         <rdfs:label xml:lang="en">CVSS v3 Workaround remediation</rdfs:label>
         <cvss_v3_code>W</cvss_v3_code>
         <rdfs:isDefinedBy xml:lang="en">https://www.first.org/cvss/specification-document#3-2-Remediation-Level-RL</rdfs:isDefinedBy>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
+        <rdfs:label xml:lang="en">CVSS v2 severity</rdfs:label>
     </rdf:Description>
     
 
