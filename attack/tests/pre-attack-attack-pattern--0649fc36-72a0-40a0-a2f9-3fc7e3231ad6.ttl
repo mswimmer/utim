@@ -6,7 +6,7 @@
 @prefix cti:   <http://ontologies.ti-semantics.com/cti#> .
 
 :attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6
-        a                   :attack-pattern ;
+        a                   cti:AttackPattern ;
         core:reference      [ a                     core:Reference ;
                               core:referenceSource  "mitre-pre-attack" ;
                               core:referenceURL     <https://attack.mitre.org/techniques/T1356> ;
