@@ -1,0 +1,38 @@
+    [ 
+        <https://attack.mitre.org/pre-attack#objects>
+        [
+            <https://attack.mitre.org/pre-attack#created> "2017-12-14T16:46:06.044Z" ;
+            <https://attack.mitre.org/pre-attack#created_by_ref> "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5" ;
+            <https://attack.mitre.org/pre-attack#description> "Callbacks are malware communications seeking instructions. An adversary will test their malware to ensure the appropriate instructions are conveyed and the callback software can be reached. (Citation: LeeBeaconing)" ;
+            <https://attack.mitre.org/pre-attack#external_references>
+            [
+                <https://attack.mitre.org/pre-attack#external_id> "T1356" ;
+                <https://attack.mitre.org/pre-attack#source_name> "mitre-pre-attack" ;
+                <https://attack.mitre.org/pre-attack#url> "https://attack.mitre.org/techniques/T1356"
+                ] ;
+            <https://attack.mitre.org/pre-attack#external_references>
+            [
+                <https://attack.mitre.org/pre-attack#description> "Tony Lee. (2012, December 11). Testing Your Defenses - Beaconing. Retrieved March 9, 2017." ;
+                <https://attack.mitre.org/pre-attack#source_name> "LeeBeaconing"
+                ] ;
+            <https://attack.mitre.org/pre-attack#id> "attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6" ;
+            <https://attack.mitre.org/pre-attack#kill_chain_phases>
+            [
+                <https://attack.mitre.org/pre-attack#kill_chain_name> "mitre-pre-attack" ;
+                <https://attack.mitre.org/pre-attack#phase_name> "test-capabilities"
+                ] ;
+            <https://attack.mitre.org/pre-attack#modified> "2018-10-17T00:14:20.652Z" ;
+            <https://attack.mitre.org/pre-attack#name> "Test callback functionality" ;
+            <https://attack.mitre.org/pre-attack#object_marking_refs> "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168" ;
+            <https://attack.mitre.org/pre-attack#type> "attack-pattern" ;
+            <https://attack.mitre.org/pre-attack#x_mitre_detectable_by_common_defenses> "No" ;
+            <https://attack.mitre.org/pre-attack#x_mitre_detectable_by_common_defenses_explanation> "Adversary controls the test and defender likely has no visibility." ;
+            <https://attack.mitre.org/pre-attack#x_mitre_difficulty_for_adversary> "Yes" ;
+            <https://attack.mitre.org/pre-attack#x_mitre_difficulty_for_adversary_explanation> "Adversary controls or acquires all pieces of infrastructure and can test outside of defender's visibility." ;
+            <https://attack.mitre.org/pre-attack#x_mitre_old_attack_id> "PRE-T1133" ;
+            <https://attack.mitre.org/pre-attack#x_mitre_version> "1.0"
+          ] ;
+        ] .
+        
+        
+        

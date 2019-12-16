@@ -71,7 +71,7 @@
 	<xsl:for-each select="//nvd1feed:entry">
 	  <vuln:vulnerability>
 	    <rdf:Description rdf:about="{tifn:cveURI(@name)}"
-		rdf:type="{$VULN}Vulnerability" />
+		rdf:type="{$CORE}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
       </rdf:Description>
@@ -88,7 +88,7 @@
 	<xsl:for-each select="//nvdfeed:entry">
 	  <vuln:vulnerability>
 	    <rdf:Description rdf:about="{tifn:cveURI(@id)}"
-		rdf:type="{$VULN}Vulnerability" />
+		rdf:type="{$CORE}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
       </rdf:Description>
@@ -104,7 +104,7 @@
 	<xsl:for-each select="//cvefeed:item">
 	  <vuln:vulnerability>
 	    <rdf:Description rdf:about="{tifn:cveURI(@name)}"
-		rdf:type="{$VULN}Vulnerability" />
+		rdf:type="{$CORE}Vulnerability" />
 	  </vuln:vulnerability>
 	</xsl:for-each>
       </rdf:Description>
@@ -121,7 +121,7 @@
 
   <!-- NVD 2.0 entry -->
   <xsl:template match="//nvdfeed:entry">
-    <rdf:Description rdf:about="{tifn:cveURI(@id)}" rdf:type="{$VULN}Vulnerability" >
+    <rdf:Description rdf:about="{tifn:cveURI(@id)}" rdf:type="{$CORE}Vulnerability" >
 
       <vuln:id>
         <xsl:value-of select="@id"/>
@@ -151,7 +151,7 @@
   
   <xsl:template match="scapvuln:cwe">
     <vuln:weakness>
-      <rdf:Description rdf:about="{tifn:cweURI(@id)}" rdf:type="core:Weakness">
+      <rdf:Description rdf:about="{tifn:cweURI(@id)}" rdf:type="{$CORE}Weakness">
 	<rdfs:isDefinedBy rdf:datatype="xsd:anyURI"><xsl:value-of select="tifn:cweDefinedURI(@id)"/></rdfs:isDefinedBy>
       </rdf:Description>
     </vuln:weakness>
@@ -200,7 +200,7 @@
             <rdf:Description rdf:about="{$VULN}CandidateVulnerability" />
           </xsl:when>
           <xsl:when test="@type='CVE'">
-            <rdf:Description rdf:about="{$VULN}Vulnerability" />
+            <rdf:Description rdf:about="{$CORE}Vulnerability" />
           </xsl:when>
 	</xsl:choose>
       </rdf:type>

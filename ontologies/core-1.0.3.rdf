@@ -54,6 +54,7 @@
         <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Hardware"/>
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Software"/>
+        <rdfs:label xml:lang="en">comprised of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -63,13 +64,16 @@
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/core#reference">
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
         <rdfs:comment xml:lang="en">Relates some entity to some external resource.</rdfs:comment>
+        <rdfs:label xml:lang="en">reference</rdfs:label>
     </owl:ObjectProperty>
     
 
 
     <!-- http://ontologies.ti-semantics.com/cti#implements -->
 
-    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#implements"/>
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/cti#implements">
+        <rdfs:label xml:lang="en">implements</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
