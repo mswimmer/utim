@@ -1,0 +1,75 @@
+[ <https://attack.mitre.org/pre-attack#id>
+          "bundle--803f51fd-e986-493c-9ab1-0b33b42a4dec" ;
+  <https://attack.mitre.org/pre-attack#objects>
+          [ <https://attack.mitre.org/pre-attack#created>
+                    "2017-12-14T16:46:06.044Z" ;
+            <https://attack.mitre.org/pre-attack#created_by_ref>
+                    "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5" ;
+            <https://attack.mitre.org/pre-attack#description>
+                    "An adversary will assess collected information such as software/hardware versions, vulnerabilities, patch level, etc.  They will analyze technical scanning results to identify weaknesses in the confirmation or architecture. (Citation: SurveyDetectionStrategies) (Citation: CyberReconPaper) (Citation: RSA-APTRecon) (Citation: FireEyeAPT28)" ;
+            <https://attack.mitre.org/pre-attack#external_references>
+                    [ <https://attack.mitre.org/pre-attack#description>
+                              "H. P. Sanghvi and M. S. Dahiya. (2013, February). Cyber Reconnaissance: An Alarm before Cyber Attack. Retrieved March 5, 2017." ;
+                      <https://attack.mitre.org/pre-attack#source_name>
+                              "CyberReconPaper"
+                    ] ;
+            <https://attack.mitre.org/pre-attack#external_references>
+                    [ <https://attack.mitre.org/pre-attack#description>
+                              "Rotem Kerner. (2015, October). RECONNAISSANCE: A Walkthrough of the “APT” Intelligence Gathering Process. Retrieved March 1, 2017." ;
+                      <https://attack.mitre.org/pre-attack#source_name>
+                              "RSA-APTRecon"
+                    ] ;
+            <https://attack.mitre.org/pre-attack#external_references>
+                    [ <https://attack.mitre.org/pre-attack#description>
+                              "Jamal Raiyn. (2014). A survey of Cyber Attack Detection Strategies. Retrieved March 5, 2017." ;
+                      <https://attack.mitre.org/pre-attack#source_name>
+                              "SurveyDetectionStrategies"
+                    ] ;
+            <https://attack.mitre.org/pre-attack#external_references>
+                    [ <https://attack.mitre.org/pre-attack#description>
+                              "FireEye, Inc. (2014). APT 28: A Window into Russia’s Cyber Espionage Operations?. Retrieved March 1, 2017." ;
+                      <https://attack.mitre.org/pre-attack#source_name>
+                              "FireEyeAPT28"
+                    ] ;
+            <https://attack.mitre.org/pre-attack#external_references>
+                    [ <https://attack.mitre.org/pre-attack#external_id>
+                              "T1287" ;
+                      <https://attack.mitre.org/pre-attack#source_name>
+                              "mitre-pre-attack" ;
+                      <https://attack.mitre.org/pre-attack#url>
+                              "https://attack.mitre.org/techniques/T1287"
+                    ] ;
+            <https://attack.mitre.org/pre-attack#id>
+                    "attack-pattern--773950e1-090c-488b-a480-9ff236312e31" ;
+            <https://attack.mitre.org/pre-attack#kill_chain_phases>
+                    [ <https://attack.mitre.org/pre-attack#kill_chain_name>
+                              "mitre-pre-attack" ;
+                      <https://attack.mitre.org/pre-attack#phase_name>
+                              "technical-weakness-identification"
+                    ] ;
+            <https://attack.mitre.org/pre-attack#modified>
+                    "2018-10-17T00:14:20.652Z" ;
+            <https://attack.mitre.org/pre-attack#name>
+                    "Analyze data collected" ;
+            <https://attack.mitre.org/pre-attack#object_marking_refs>
+                    "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168" ;
+            <https://attack.mitre.org/pre-attack#type>
+                    "attack-pattern" ;
+            <https://attack.mitre.org/pre-attack#x_mitre_detectable_by_common_defenses>
+                    "No" ;
+            <https://attack.mitre.org/pre-attack#x_mitre_detectable_by_common_defenses_explanation>
+                    "This can be done offline after the data has been collected." ;
+            <https://attack.mitre.org/pre-attack#x_mitre_difficulty_for_adversary>
+                    "Yes" ;
+            <https://attack.mitre.org/pre-attack#x_mitre_difficulty_for_adversary_explanation>
+                    "Many of the common tools highlight these weaknesses automatically.  Adversary can \"dry run\" against the target using known exploits or burner devices to determine key identifiers of software, hardware, and services." ;
+            <https://attack.mitre.org/pre-attack#x_mitre_old_attack_id>
+                    "PRE-T1064" ;
+            <https://attack.mitre.org/pre-attack#x_mitre_version>
+                    "1.0"
+          ] ;
+  <https://attack.mitre.org/pre-attack#spec_version>
+          "2.0" ;
+  <https://attack.mitre.org/pre-attack#type>
+          "bundle"
+] .

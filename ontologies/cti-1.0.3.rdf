@@ -17,9 +17,6 @@
      xmlns:ontodebug="http://ainf.aau.at/ontodebug#">
     <owl:Ontology rdf:about="http://ontologies.ti-semantics.com/cti#">
         <owl:versionIRI rdf:resource="http://ontologies.ti-semantics.com/cti-1.0.3#"/>
-        <owl:imports rdf:resource="http://ontologies.ti-semantics.com/core-1.0.3"/>
-        <owl:imports rdf:resource="http://ontologies.ti-semantics.com/platform-1.0.3"/>
-        <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
         <ontodebug:testCase>
             <rdf:Description/>
         </ontodebug:testCase>
@@ -641,6 +638,18 @@ Note that &apos;Identity&apos; is a disputed entity in this ontology.</rdfs:comm
     
 
 
+    <!-- http://ontologies.ti-semantics.com/platform#platform -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#platform"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/member -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/member"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -884,9 +893,15 @@ If the valid_until property is omitted, then there is no constraint on the lates
     
 
 
+    <!-- http://ontologies.ti-semantics.com/core#Catalog -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Catalog"/>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/core#CourseOfAction -->
 
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#CourseOfAction">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#CourseOfAction">
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/cti#mitigates"/>
@@ -902,13 +917,13 @@ If the valid_until property is omitted, then there is no constraint on the lates
                 </owl:someValuesFrom>
             </owl:Restriction>
         </owl:equivalentClass>
-    </rdf:Description>
+    </owl:Class>
     
 
 
     <!-- http://ontologies.ti-semantics.com/core#Malware -->
 
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Malware">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Malware">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -945,13 +960,25 @@ If the valid_until property is omitted, then there is no constraint on the lates
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">TODO: Need to differentiate between Tool and Malware so that we can create a necessary and sufficent equivalent class declaration</rdfs:comment>
-    </rdf:Description>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Platform -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Platform"/>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Software -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Software"/>
     
 
 
     <!-- http://ontologies.ti-semantics.com/core#ThreatActor -->
 
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#ThreatActor">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#ThreatActor">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -974,13 +1001,13 @@ If the valid_until property is omitted, then there is no constraint on the lates
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
         <rdfs:comment xml:lang="en">It is nessary and sufficient that a ThreatActor is either a person, an organization or a group of people and that they have malicious objectives.</rdfs:comment>
-    </rdf:Description>
+    </owl:Class>
     
 
 
     <!-- http://ontologies.ti-semantics.com/core#Tool -->
 
-    <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#Tool">
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Tool">
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ontologies.ti-semantics.com/platform#platform"/>
@@ -990,7 +1017,13 @@ If the valid_until property is omitted, then there is no constraint on the lates
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Behavior"/>
         <rdfs:subClassOf rdf:resource="http://ontologies.ti-semantics.com/cti#Observable"/>
         <rdfs:comment xml:lang="en">TODO: Need to differentiate between Tool and Malware so that we can create a necessary and sufficent equivalent class declaration</rdfs:comment>
-    </rdf:Description>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/core#Vulnerability -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/core#Vulnerability"/>
     
 
 
@@ -2277,6 +2310,12 @@ This SDO MUST NOT be used to characterize malware. Further, Tool MUST NOT be use
     
 
 
+    <!-- http://purl.org/dc/dcmitype/Software -->
+
+    <owl:Class rdf:about="http://purl.org/dc/dcmitype/Software"/>
+    
+
+
     <!-- http://www.w3.org/2006/time#TemporalEntity -->
 
     <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
@@ -2286,6 +2325,30 @@ This SDO MUST NOT be used to characterize malware. Further, Tool MUST NOT be use
     <!-- http://xmlns.com/foaf/0.1/Agent -->
 
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Document -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Document"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Group -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Group"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
     
 
 
@@ -3520,6 +3583,10 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <rdfs:label xml:lang="en">worm</rdfs:label>
     </owl:NamedIndividual>
     <rdf:Description>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+    </rdf:Description>
+    <rdf:Description>
         <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">label Range ReportLabel</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
@@ -3532,11 +3599,6 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
-(ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
-    </rdf:Description>
-    <rdf:Description>
         <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
@@ -3566,13 +3628,12 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
-(ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator SubClassOf label min 1 IndicatorLabel</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator EquivalentTo ((hasPatternReference only token) and (validFrom only dateTime)) or (hasPattern only string)</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
         <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator EquivalentTo ((hasPatternReference only token) and (validFrom only dateTime)) or (hasPattern only string)</ontodebug:axiom>
@@ -3591,8 +3652,9 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicator EquivalentTo ((hasPatternReference only token) and (validFrom only dateTime)) or (hasPattern only string)</ontodebug:axiom>
-        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ontodebug:type>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
+(ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
+        <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
         <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">label Range ReportLabel</ontodebug:axiom>
@@ -3607,7 +3669,8 @@ Unpredictable is not a miscellaneous or default category. Unpredictable means a 
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     <rdf:Description>
-        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Report SubClassOf label min 1 ReportLabel</ontodebug:axiom>
+        <ontodebug:axiom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Campaign SubClassOf (campaignAttributedTo some 
+(ThreatActor or IntrusionSet)) and (hasActivity some AdversarialActivity) and (hasObjective some Objective)</ontodebug:axiom>
         <ontodebug:type rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ontodebug:type>
     </rdf:Description>
     
@@ -3645,14 +3708,14 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#contributor-006"/>
         <rdfs:comment xml:lang="en-us">An entity responsible for making contributions to the resource.</rdfs:comment>
         <dcterms:issued>1999-07-02</dcterms:issued>
+        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:label xml:lang="en-us">Contributor</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
-        <dcterms:modified>2008-01-14</dcterms:modified>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/coverage">
-        <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#coverage-006"/>
-        <rdfs:label xml:lang="en-us">Coverage</rdfs:label>
         <dcterms:modified>2008-01-14</dcterms:modified>
+        <rdfs:label xml:lang="en-us">Coverage</rdfs:label>
+        <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#coverage-006"/>
         <dcterms:description xml:lang="en-us">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</dcterms:description>
         <dcterms:issued>1999-07-02</dcterms:issued>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
@@ -3660,9 +3723,9 @@ These actors typically have access to significant support, resources, training, 
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
         <rdfs:comment xml:lang="en-us">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
+        <dcterms:description xml:lang="en-us">Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</dcterms:description>
         <rdfs:label xml:lang="en-us">Date</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
-        <dcterms:description xml:lang="en-us">Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</dcterms:description>
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#date-006"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
         <dcterms:modified>2008-01-14</dcterms:modified>
@@ -3679,9 +3742,9 @@ These actors typically have access to significant support, resources, training, 
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/format">
         <dcterms:description xml:lang="en-us">Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</dcterms:description>
         <rdfs:comment xml:lang="en-us">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
+        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#format-007"/>
-        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:label xml:lang="en-us">Format</rdfs:label>
         <dcterms:issued>1999-07-02</dcterms:issued>
     </rdf:Description>
@@ -3689,19 +3752,19 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
         <dcterms:description xml:lang="en-us">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </dcterms:description>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dcterms:modified>2008-01-14</dcterms:modified>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:comment xml:lang="en-us">An unambiguous reference to the resource within a given context.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Identifier</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#language-007"/>
-        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:label xml:lang="en-us">Language</rdfs:label>
+        <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
-        <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
         <dcterms:description xml:lang="en-us">Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].</dcterms:description>
+        <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
         <rdfs:comment xml:lang="en-us">A language of the resource.</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/publisher">
@@ -3715,12 +3778,12 @@ These actors typically have access to significant support, resources, training, 
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/relation">
         <rdfs:comment xml:lang="en-us">A related resource.</rdfs:comment>
-        <dcterms:description xml:lang="en-us">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </dcterms:description>
-        <rdfs:label xml:lang="en-us">Relation</rdfs:label>
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#relation-006"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en-us">Relation</rdfs:label>
+        <dcterms:description xml:lang="en-us">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </dcterms:description>
         <dcterms:modified>2008-01-14</dcterms:modified>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
         <dcterms:issued>1999-07-02</dcterms:issued>
@@ -3746,13 +3809,13 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:description xml:lang="en-us">Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary. To describe the spatial or temporal topic of the resource, use the Coverage element.</dcterms:description>
         <dcterms:modified>2008-01-14</dcterms:modified>
         <rdfs:label xml:lang="en-us">Subject</rdfs:label>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dcterms:issued>1999-07-02</dcterms:issued>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
         <dcterms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#title-006"/>
-        <rdfs:label xml:lang="en-us">Title</rdfs:label>
         <dcterms:modified>2008-01-14</dcterms:modified>
+        <rdfs:label xml:lang="en-us">Title</rdfs:label>
         <rdfs:comment xml:lang="en-us">A name given to the resource.</rdfs:comment>
         <dcterms:issued>1999-07-02</dcterms:issued>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
@@ -3762,9 +3825,9 @@ These actors typically have access to significant support, resources, training, 
         <dcterms:description xml:lang="en-us">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</dcterms:description>
         <rdfs:label xml:lang="en-us">Type</rdfs:label>
         <dcterms:modified>2008-01-14</dcterms:modified>
-        <dcterms:issued>1999-07-02</dcterms:issued>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:comment xml:lang="en-us">The nature or genre of the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <dcterms:issued>1999-07-02</dcterms:issued>
     </rdf:Description>
     
 

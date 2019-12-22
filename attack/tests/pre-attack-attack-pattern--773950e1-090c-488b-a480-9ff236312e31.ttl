@@ -1,0 +1,64 @@
+@prefix :      <https://attack.mitre.org/pre-attack#> .
+@prefix core:  <http://ontologies.ti-semantics.com/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix vuln:  <http://ontologies.ti-semantics.com/vulnerability#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix cti:   <http://ontologies.ti-semantics.com/cti#> .
+
+:attack-pattern--773950e1-090c-488b-a480-9ff236312e31
+        a                   cti:AttackPattern ;
+        core:reference      [ a                     core:Reference ;
+                              core:referenceSource  "FireEyeAPT28"^^xsd:token ;
+                              terms:description     "FireEye, Inc. (2014). APT 28: A Window into Russia’s Cyber Espionage Operations?. Retrieved March 1, 2017."
+                            ] ;
+        core:reference      [ a                     core:Reference ;
+                              core:referenceSource  "SurveyDetectionStrategies"^^xsd:token ;
+                              terms:description     "Jamal Raiyn. (2014). A survey of Cyber Attack Detection Strategies. Retrieved March 5, 2017."
+                            ] ;
+        core:reference      [ a                     core:Reference ;
+                              core:referenceSource  "RSA-APTRecon"^^xsd:token ;
+                              terms:description     "Rotem Kerner. (2015, October). RECONNAISSANCE: A Walkthrough of the “APT” Intelligence Gathering Process. Retrieved March 1, 2017."
+                            ] ;
+        core:reference      [ a                     core:Reference ;
+                              core:referenceSource  "mitre-pre-attack"^^xsd:token ;
+                              core:referenceURL     <https://attack.mitre.org/techniques/T1287> ;
+                              terms:id              "T1287"^^xsd:token
+                            ] ;
+        core:reference      [ a                     core:Reference ;
+                              core:referenceSource  "CyberReconPaper"^^xsd:token ;
+                              terms:description     "H. P. Sanghvi and M. S. Dahiya. (2013, February). Cyber Reconnaissance: An Alarm before Cyber Attack. Retrieved March 5, 2017."
+                            ] ;
+        cti:killChainPhase  [ a                  cti:KillChainPhase ;
+                              cti:killChainName  "mitre-pre-attack" ;
+                              cti:phaseName      "technical-weakness-identification"^^xsd:token
+                            ] ;
+        cti:killChainPhase  [ a                  cti:KillChainPhase ;
+                              cti:killChainName  "mitre-pre-attack" ;
+                              cti:phaseName      "technical-weakness-identification"^^xsd:token
+                            ] ;
+        cti:killChainPhase  [ a                  cti:KillChainPhase ;
+                              cti:killChainName  "mitre-pre-attack" ;
+                              cti:phaseName      "technical-weakness-identification"^^xsd:token
+                            ] ;
+        cti:killChainPhase  [ a                  cti:KillChainPhase ;
+                              cti:killChainName  "mitre-pre-attack" ;
+                              cti:phaseName      "technical-weakness-identification"^^xsd:token
+                            ] ;
+        cti:killChainPhase  [ a                  cti:KillChainPhase ;
+                              cti:killChainName  "mitre-pre-attack" ;
+                              cti:phaseName      "technical-weakness-identification"^^xsd:token
+                            ] ;
+        terms:created       "2017-12-14T16:46:06.044Z"^^xsd:dateTime ;
+        terms:creator       :identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5 ;
+        terms:description   "An adversary will assess collected information such as software/hardware versions, vulnerabilities, patch level, etc.  They will analyze technical scanning results to identify weaknesses in the confirmation or architecture. (Citation: SurveyDetectionStrategies) (Citation: CyberReconPaper) (Citation: RSA-APTRecon) (Citation: FireEyeAPT28)"@en ;
+        terms:modified      "2018-10-17T00:14:20.652Z"^^xsd:dateTime ;
+        terms:rightsHolder  :marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168 ;
+        terms:title         "Analyze data collected"@en ;
+        :x_mitre_detectable_by_common_defenses
+                false ;
+        :x_mitre_detectable_by_common_defenses_explanation
+                "This can be done offline after the data has been collected."@en ;
+        :x_mitre_difficulty_for_adversary
+                false ;
+        :x_mitre_difficulty_for_adversary_explanation
+                "Many of the common tools highlight these weaknesses automatically.  Adversary can \"dry run\" against the target using known exploits or burner devices to determine key identifiers of software, hardware, and services."@en .

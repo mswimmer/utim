@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:core="http://ontologies.ti-semantics.com/core#" xmlns:cti="http://ontologies.ti-semantics.com/cti#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:terms="http://purl.org/dc/terms/" xmlns:vuln="http://ontologies.ti-semantics.com/vulnerability#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns="https://attack.mitre.org/pre-attack#">
+  <rdf:Description rdf:nodeID="genid1">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">FireEyeAPT28</core:referenceSource>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <terms:description>FireEye, Inc. (2014). APT 28: A Window into Russia’s Cyber Espionage Operations?. Retrieved March 1, 2017.</terms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">SurveyDetectionStrategies</core:referenceSource>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <terms:description>Jamal Raiyn. (2014). A survey of Cyber Attack Detection Strategies. Retrieved March 5, 2017.</terms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">RSA-APTRecon</core:referenceSource>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <terms:description>Rotem Kerner. (2015, October). RECONNAISSANCE: A Walkthrough of the “APT” Intelligence Gathering Process. Retrieved March 1, 2017.</terms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">mitre-pre-attack</core:referenceSource>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <core:referenceURL rdf:resource="https://attack.mitre.org/techniques/T1287"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <terms:id rdf:datatype="http://www.w3.org/2001/XMLSchema#token">T1287</terms:id>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid5">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid5">
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">CyberReconPaper</core:referenceSource>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid5">
+    <terms:description>H. P. Sanghvi and M. S. Dahiya. (2013, February). Cyber Reconnaissance: An Alarm before Cyber Attack. Retrieved March 5, 2017.</terms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid6">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid6">
+    <cti:killChainName>mitre-pre-attack</cti:killChainName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid6">
+    <cti:phaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#token">technical-weakness-identification</cti:phaseName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid7">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid7">
+    <cti:killChainName>mitre-pre-attack</cti:killChainName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid7">
+    <cti:phaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#token">technical-weakness-identification</cti:phaseName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid8">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid8">
+    <cti:killChainName>mitre-pre-attack</cti:killChainName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid8">
+    <cti:phaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#token">technical-weakness-identification</cti:phaseName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid9">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid9">
+    <cti:killChainName>mitre-pre-attack</cti:killChainName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid9">
+    <cti:phaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#token">technical-weakness-identification</cti:phaseName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid10">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid10">
+    <cti:killChainName>mitre-pre-attack</cti:killChainName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid10">
+    <cti:phaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#token">technical-weakness-identification</cti:phaseName>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#AttackPattern"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <core:reference rdf:nodeID="genid1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <core:reference rdf:nodeID="genid2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <core:reference rdf:nodeID="genid3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <core:reference rdf:nodeID="genid4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <core:reference rdf:nodeID="genid5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <cti:killChainPhase rdf:nodeID="genid6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <cti:killChainPhase rdf:nodeID="genid7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <cti:killChainPhase rdf:nodeID="genid8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <cti:killChainPhase rdf:nodeID="genid9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <cti:killChainPhase rdf:nodeID="genid10"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-14T16:46:06.044Z</terms:created>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <terms:creator rdf:resource="https://attack.mitre.org/pre-attack#identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <terms:description xml:lang="en">An adversary will assess collected information such as software/hardware versions, vulnerabilities, patch level, etc.  They will analyze technical scanning results to identify weaknesses in the confirmation or architecture. (Citation: SurveyDetectionStrategies) (Citation: CyberReconPaper) (Citation: RSA-APTRecon) (Citation: FireEyeAPT28)</terms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-10-17T00:14:20.652Z</terms:modified>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <terms:rightsHolder rdf:resource="https://attack.mitre.org/pre-attack#marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <terms:title xml:lang="en">Analyze data collected</terms:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <x_mitre_detectable_by_common_defenses rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</x_mitre_detectable_by_common_defenses>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <x_mitre_detectable_by_common_defenses_explanation xml:lang="en">This can be done offline after the data has been collected.</x_mitre_detectable_by_common_defenses_explanation>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <x_mitre_difficulty_for_adversary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</x_mitre_difficulty_for_adversary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <x_mitre_difficulty_for_adversary_explanation xml:lang="en">Many of the common tools highlight these weaknesses automatically.  Adversary can "dry run" against the target using known exploits or burner devices to determine key identifiers of software, hardware, and services.</x_mitre_difficulty_for_adversary_explanation>
+  </rdf:Description>
+</rdf:RDF>

@@ -30,7 +30,7 @@ CONSTRUCT {
 			   terms:id ?external_references_external_id ;
 			   terms:description ?external_references_description_str ;
 			   core:referenceURL ?external_references_url ;
-			   core:referenceSource ?external_references_source_name_str
+			   core:referenceSource ?external_references_source_name
   			 ] .
   
 } WHERE {
@@ -65,6 +65,7 @@ CONSTRUCT {
 				 :source_name ?external_references_source_name_str ;
 			       ] .
     }
+    BIND( STRDT(?external_references_source_name_str, xsd:token) AS  ?external_references_source_name ) .
   }
 
   OPTIONAL {

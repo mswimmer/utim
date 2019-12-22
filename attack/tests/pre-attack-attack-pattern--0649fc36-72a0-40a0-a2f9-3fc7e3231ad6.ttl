@@ -8,12 +8,12 @@
 :attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6
         a                   cti:AttackPattern ;
         core:reference      [ a                     core:Reference ;
-                              core:referenceSource  "mitre-pre-attack" ;
+                              core:referenceSource  "mitre-pre-attack"^^xsd:token ;
                               core:referenceURL     <https://attack.mitre.org/techniques/T1356> ;
                               terms:id              "T1356"^^xsd:token
                             ] ;
         core:reference      [ a                     core:Reference ;
-                              core:referenceSource  "LeeBeaconing" ;
+                              core:referenceSource  "LeeBeaconing"^^xsd:token ;
                               terms:description     "Tony Lee. (2012, December 11). Testing Your Defenses - Beaconing. Retrieved March 9, 2017."
                             ] ;
         cti:killChainPhase  [ a                  cti:KillChainPhase ;

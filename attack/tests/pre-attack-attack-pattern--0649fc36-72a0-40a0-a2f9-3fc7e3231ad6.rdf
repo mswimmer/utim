@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:core="http://ontologies.ti-semantics.com/core#" xmlns:cti="http://ontologies.ti-semantics.com/cti#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:terms="http://purl.org/dc/terms/" xmlns:vuln="http://ontologies.ti-semantics.com/vulnerability#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns="https://attack.mitre.org/pre-attack#">
+  <rdf:Description rdf:nodeID="genid1">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">mitre-pre-attack</core:referenceSource>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <core:referenceURL rdf:resource="https://attack.mitre.org/techniques/T1356"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid1">
+    <terms:id rdf:datatype="http://www.w3.org/2001/XMLSchema#token">T1356</terms:id>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">LeeBeaconing</core:referenceSource>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <terms:description>Tony Lee. (2012, December 11). Testing Your Defenses - Beaconing. Retrieved March 9, 2017.</terms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <cti:killChainName>mitre-pre-attack</cti:killChainName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid3">
+    <cti:phaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#token">test-capabilities</cti:phaseName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#KillChainPhase"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <cti:killChainName>mitre-pre-attack</cti:killChainName>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid4">
+    <cti:phaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#token">test-capabilities</cti:phaseName>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <rdf:type rdf:resource="http://ontologies.ti-semantics.com/cti#AttackPattern"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <core:reference rdf:nodeID="genid1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <core:reference rdf:nodeID="genid2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <cti:killChainPhase rdf:nodeID="genid3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <cti:killChainPhase rdf:nodeID="genid4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-12-14T16:46:06.044Z</terms:created>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <terms:creator rdf:resource="https://attack.mitre.org/pre-attack#identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <terms:description xml:lang="en">Callbacks are malware communications seeking instructions. An adversary will test their malware to ensure the appropriate instructions are conveyed and the callback software can be reached. (Citation: LeeBeaconing)</terms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2018-10-17T00:14:20.652Z</terms:modified>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <terms:rightsHolder rdf:resource="https://attack.mitre.org/pre-attack#marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <terms:title xml:lang="en">Test callback functionality</terms:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <x_mitre_detectable_by_common_defenses rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</x_mitre_detectable_by_common_defenses>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <x_mitre_detectable_by_common_defenses_explanation xml:lang="en">Adversary controls the test and defender likely has no visibility.</x_mitre_detectable_by_common_defenses_explanation>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <x_mitre_difficulty_for_adversary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</x_mitre_difficulty_for_adversary>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <x_mitre_difficulty_for_adversary_explanation xml:lang="en">Adversary controls or acquires all pieces of infrastructure and can test outside of defender's visibility.</x_mitre_difficulty_for_adversary_explanation>
+  </rdf:Description>
+</rdf:RDF>
