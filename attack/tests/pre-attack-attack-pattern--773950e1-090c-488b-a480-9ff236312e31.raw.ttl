@@ -9,9 +9,23 @@
                     "An adversary will assess collected information such as software/hardware versions, vulnerabilities, patch level, etc.  They will analyze technical scanning results to identify weaknesses in the confirmation or architecture. (Citation: SurveyDetectionStrategies) (Citation: CyberReconPaper) (Citation: RSA-APTRecon) (Citation: FireEyeAPT28)" ;
             <https://attack.mitre.org/pre-attack#external_references>
                     [ <https://attack.mitre.org/pre-attack#description>
+                              "Jamal Raiyn. (2014). A survey of Cyber Attack Detection Strategies. Retrieved March 5, 2017." ;
+                      <https://attack.mitre.org/pre-attack#source_name>
+                              "SurveyDetectionStrategies"
+                    ] ;
+            <https://attack.mitre.org/pre-attack#external_references>
+                    [ <https://attack.mitre.org/pre-attack#description>
                               "H. P. Sanghvi and M. S. Dahiya. (2013, February). Cyber Reconnaissance: An Alarm before Cyber Attack. Retrieved March 5, 2017." ;
                       <https://attack.mitre.org/pre-attack#source_name>
                               "CyberReconPaper"
+                    ] ;
+            <https://attack.mitre.org/pre-attack#external_references>
+                    [ <https://attack.mitre.org/pre-attack#external_id>
+                              "T1287" ;
+                      <https://attack.mitre.org/pre-attack#source_name>
+                              "mitre-pre-attack" ;
+                      <https://attack.mitre.org/pre-attack#url>
+                              "https://attack.mitre.org/techniques/T1287"
                     ] ;
             <https://attack.mitre.org/pre-attack#external_references>
                     [ <https://attack.mitre.org/pre-attack#description>
@@ -21,23 +35,9 @@
                     ] ;
             <https://attack.mitre.org/pre-attack#external_references>
                     [ <https://attack.mitre.org/pre-attack#description>
-                              "Jamal Raiyn. (2014). A survey of Cyber Attack Detection Strategies. Retrieved March 5, 2017." ;
-                      <https://attack.mitre.org/pre-attack#source_name>
-                              "SurveyDetectionStrategies"
-                    ] ;
-            <https://attack.mitre.org/pre-attack#external_references>
-                    [ <https://attack.mitre.org/pre-attack#description>
                               "FireEye, Inc. (2014). APT 28: A Window into Russia’s Cyber Espionage Operations?. Retrieved March 1, 2017." ;
                       <https://attack.mitre.org/pre-attack#source_name>
                               "FireEyeAPT28"
-                    ] ;
-            <https://attack.mitre.org/pre-attack#external_references>
-                    [ <https://attack.mitre.org/pre-attack#external_id>
-                              "T1287" ;
-                      <https://attack.mitre.org/pre-attack#source_name>
-                              "mitre-pre-attack" ;
-                      <https://attack.mitre.org/pre-attack#url>
-                              "https://attack.mitre.org/techniques/T1287"
                     ] ;
             <https://attack.mitre.org/pre-attack#id>
                     "attack-pattern--773950e1-090c-488b-a480-9ff236312e31" ;

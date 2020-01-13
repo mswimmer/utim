@@ -17,7 +17,8 @@ CONSTRUCT {
           :x_mitre_difficulty_for_adversary ?x_mitre_difficulty_for_adversary;
           :x_mitre_difficulty_for_adversary_explanation ?x_mitre_difficulty_for_adversary_explanation;
           :x_mitre_detectable_by_common_defenses ?x_mitre_detectable_by_common_defenses;
-          :x_mitre_detectable_by_common_defenses_explanation ?x_mitre_detectable_by_common_defenses_explanation .
+          :x_mitre_detectable_by_common_defenses_explanation ?x_mitre_detectable_by_common_defenses_explanation ;
+          :x_mitre_old_attack_id ?x_mitre_old_attack_id_str .
   # create a kill chain phase object
   ?id_url cti:killChainPhase [
 			       a cti:KillChainPhase ;

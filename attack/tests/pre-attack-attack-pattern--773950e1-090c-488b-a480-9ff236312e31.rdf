@@ -4,19 +4,22 @@
     <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid1">
-    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">FireEyeAPT28</core:referenceSource>
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">SurveyDetectionStrategies</core:referenceSource>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid1">
-    <terms:description>FireEye, Inc. (2014). APT 28: A Window into Russia’s Cyber Espionage Operations?. Retrieved March 1, 2017.</terms:description>
+    <terms:description>Jamal Raiyn. (2014). A survey of Cyber Attack Detection Strategies. Retrieved March 5, 2017.</terms:description>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid2">
     <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid2">
-    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">SurveyDetectionStrategies</core:referenceSource>
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">mitre-pre-attack</core:referenceSource>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid2">
-    <terms:description>Jamal Raiyn. (2014). A survey of Cyber Attack Detection Strategies. Retrieved March 5, 2017.</terms:description>
+    <core:referenceURL rdf:resource="https://attack.mitre.org/techniques/T1287"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="genid2">
+    <terms:id rdf:datatype="http://www.w3.org/2001/XMLSchema#token">T1287</terms:id>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid3">
     <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
@@ -31,13 +34,10 @@
     <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid4">
-    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">mitre-pre-attack</core:referenceSource>
+    <core:referenceSource rdf:datatype="http://www.w3.org/2001/XMLSchema#token">FireEyeAPT28</core:referenceSource>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid4">
-    <core:referenceURL rdf:resource="https://attack.mitre.org/techniques/T1287"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="genid4">
-    <terms:id rdf:datatype="http://www.w3.org/2001/XMLSchema#token">T1287</terms:id>
+    <terms:description>FireEye, Inc. (2014). APT 28: A Window into Russia’s Cyber Espionage Operations?. Retrieved March 1, 2017.</terms:description>
   </rdf:Description>
   <rdf:Description rdf:nodeID="genid5">
     <rdf:type rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
@@ -155,5 +155,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
     <x_mitre_difficulty_for_adversary_explanation xml:lang="en">Many of the common tools highlight these weaknesses automatically.  Adversary can "dry run" against the target using known exploits or burner devices to determine key identifiers of software, hardware, and services.</x_mitre_difficulty_for_adversary_explanation>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--773950e1-090c-488b-a480-9ff236312e31">
+    <x_mitre_old_attack_id>PRE-T1064</x_mitre_old_attack_id>
   </rdf:Description>
 </rdf:RDF>

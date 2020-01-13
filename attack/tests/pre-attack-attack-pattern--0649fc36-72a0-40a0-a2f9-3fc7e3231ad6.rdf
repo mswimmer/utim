@@ -84,4 +84,7 @@
   <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
     <x_mitre_difficulty_for_adversary_explanation xml:lang="en">Adversary controls or acquires all pieces of infrastructure and can test outside of defender's visibility.</x_mitre_difficulty_for_adversary_explanation>
   </rdf:Description>
+  <rdf:Description rdf:about="https://attack.mitre.org/pre-attack#attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6">
+    <x_mitre_old_attack_id>PRE-T1133</x_mitre_old_attack_id>
+  </rdf:Description>
 </rdf:RDF>

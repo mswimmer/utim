@@ -6,30 +6,30 @@
 @prefix cti:   <http://ontologies.ti-semantics.com/cti#> .
 
 :attack-pattern--0649fc36-72a0-40a0-a2f9-3fc7e3231ad6
-        a                   cti:AttackPattern ;
-        core:reference      [ a                     core:Reference ;
-                              core:referenceSource  "mitre-pre-attack"^^xsd:token ;
-                              core:referenceURL     <https://attack.mitre.org/techniques/T1356> ;
-                              terms:id              "T1356"^^xsd:token
-                            ] ;
-        core:reference      [ a                     core:Reference ;
-                              core:referenceSource  "LeeBeaconing"^^xsd:token ;
-                              terms:description     "Tony Lee. (2012, December 11). Testing Your Defenses - Beaconing. Retrieved March 9, 2017."
-                            ] ;
-        cti:killChainPhase  [ a                  cti:KillChainPhase ;
-                              cti:killChainName  "mitre-pre-attack" ;
-                              cti:phaseName      "test-capabilities"^^xsd:token
-                            ] ;
-        cti:killChainPhase  [ a                  cti:KillChainPhase ;
-                              cti:killChainName  "mitre-pre-attack" ;
-                              cti:phaseName      "test-capabilities"^^xsd:token
-                            ] ;
-        terms:created       "2017-12-14T16:46:06.044Z"^^xsd:dateTime ;
-        terms:creator       :identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5 ;
-        terms:description   "Callbacks are malware communications seeking instructions. An adversary will test their malware to ensure the appropriate instructions are conveyed and the callback software can be reached. (Citation: LeeBeaconing)"@en ;
-        terms:modified      "2018-10-17T00:14:20.652Z"^^xsd:dateTime ;
-        terms:rightsHolder  :marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168 ;
-        terms:title         "Test callback functionality"@en ;
+        a                       cti:AttackPattern ;
+        core:reference          [ a                     core:Reference ;
+                                  core:referenceSource  "mitre-pre-attack"^^xsd:token ;
+                                  core:referenceURL     <https://attack.mitre.org/techniques/T1356> ;
+                                  terms:id              "T1356"^^xsd:token
+                                ] ;
+        core:reference          [ a                     core:Reference ;
+                                  core:referenceSource  "LeeBeaconing"^^xsd:token ;
+                                  terms:description     "Tony Lee. (2012, December 11). Testing Your Defenses - Beaconing. Retrieved March 9, 2017."
+                                ] ;
+        cti:killChainPhase      [ a                  cti:KillChainPhase ;
+                                  cti:killChainName  "mitre-pre-attack" ;
+                                  cti:phaseName      "test-capabilities"^^xsd:token
+                                ] ;
+        cti:killChainPhase      [ a                  cti:KillChainPhase ;
+                                  cti:killChainName  "mitre-pre-attack" ;
+                                  cti:phaseName      "test-capabilities"^^xsd:token
+                                ] ;
+        terms:created           "2017-12-14T16:46:06.044Z"^^xsd:dateTime ;
+        terms:creator           :identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5 ;
+        terms:description       "Callbacks are malware communications seeking instructions. An adversary will test their malware to ensure the appropriate instructions are conveyed and the callback software can be reached. (Citation: LeeBeaconing)"@en ;
+        terms:modified          "2018-10-17T00:14:20.652Z"^^xsd:dateTime ;
+        terms:rightsHolder      :marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168 ;
+        terms:title             "Test callback functionality"@en ;
         :x_mitre_detectable_by_common_defenses
                 false ;
         :x_mitre_detectable_by_common_defenses_explanation
@@ -37,4 +37,5 @@
         :x_mitre_difficulty_for_adversary
                 false ;
         :x_mitre_difficulty_for_adversary_explanation
-                "Adversary controls or acquires all pieces of infrastructure and can test outside of defender's visibility."@en .
+                "Adversary controls or acquires all pieces of infrastructure and can test outside of defender's visibility."@en ;
+        :x_mitre_old_attack_id  "PRE-T1133" .
