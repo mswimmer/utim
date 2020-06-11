@@ -1,4 +1,5 @@
-BASE <https://attack.mitre.org/pre-attack>
+#BASE <https://attack.mitre.org/pre-attack>
+#BASE <https://attack.mitre.org/enterprise-attack>
 PREFIX : <#>
 PREFIX core: <http://ontologies.ti-semantics.com/core#>
 PREFIX vuln: <http://ontologies.ti-semantics.com/vulnerability#>
@@ -81,12 +82,13 @@ CONSTRUCT {
 #  }
   
   
-  BIND( URI("https://attack.mitre.org/pre-attack#" + ?id_str) AS ?id_url ) .
+  #BIND( URI("https://attack.mitre.org/pre-attack#" + ?id_str) AS ?id_url ) .
+  BIND( URI(":" + ?id_str) AS ?id_url ) .
   
+  #BIND( URI("https://attack.mitre.org/pre-attack#"+?type_str) as ?type) .
+  BIND( URI(":" + ?type_str) as ?type) .
   
-  
-  BIND( URI("https://attack.mitre.org/pre-attack#"+?type_str) as ?type) .
-  
-  BIND( URI("https://attack.mitre.org/pre-attack#"+?created_by_ref) as ?created_by)
+  #BIND( URI("https://attack.mitre.org/pre-attack#"+?created_by_ref) as ?created_by)
+  BIND( URI(":" + ?created_by_ref) as ?created_by)
   
 }

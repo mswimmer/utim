@@ -584,7 +584,6 @@ def parse(infile, namespace, outfile, matrix_type):
     #print(g.serialize(format='turtle').decode('utf-8'))
     outfile.write(g.serialize(format='turtle', encoding='utf-8').decode('utf-8'))
 
-
 args = argparser.parse_args()
 #print(args)
 
