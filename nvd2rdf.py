@@ -30,33 +30,51 @@ def first(q, o, fn=None):
     else:
       return a[0]
 
-def firstDateTime(q, o):
-  return Literal(first(q,o), datatype=XSD.dateTime)
+#def firstDateTime(q, o):
+#  return Literal(first(q,o), datatype=XSD.dateTime)
 
-def firstDateTimeP(p, q, o):
-  return (p, firstDateTime(q, o))
+#def firstDateTimeP(p, q, o):
+#  return (p, firstDateTime(q, o))
 
-def firstString(q, o):
-  return Literal(first(q, o))
+def allDateTime(p, q, o):
+  return [(p, Literal(dt, datatype=XSD.dateTime)) for dt in all(q, o)]
 
-def firstStringP(p, q, o):
-  return (p, firstString(q, o))
+#def firstString(q, o):
+#  return Literal(first(q, o))
 
-def firstURL(q, o):
-  return Literal(first(q, o), datatype=XSD.anyURI)
+#def firstStringP(p, q, o):
+#  return (p, firstString(q, o))
 
-def firstURLP(p, q, o):
-  return (p, firstURL(q, o))
+def allString(p, q, o):
+  return [(p, Literal(s)) for s in all(q, o)]
+
+def allLangString(p, q, o):
+  """ Expects and object like this:
+    {
+      "lang": "en",
+      "value": "In mediaserver, there is a possible out of bounds ..."
+    }
+  """
+  return [ (p, Literal(first("$.value", s), lang=first("$.lang", s))) for s in all(q, o) ]
+
+#def firstURL(q, o):
+#  return Literal(first(q, o), datatype=XSD.anyURI)
+
+#def firstURLP(p, q, o):
+#  return (p, firstURL(q, o))
+
+def allURL(p, q, o):
+  return [(p, Literal(u, datatype=XSD.anyURI)) for u in all(q, o)]
 
 def findin(jp, doc, value):
   return value in [m.value for m in parse(jp).find(doc)]
 
-def rdfobject(g, s, rdftype, items):
-  g.add((s, RDF.type, rdftype))
-  for (p, o) in items:
-    if p and o:
-      #print("adding", s, p, o)
-      g.add((s, p, o))
+#def rdfobject(g, s, rdftype, items):
+#  g.add((s, RDF.type, rdftype))
+#  for (p, o) in items:
+#    if p and o:
+#      #print("adding", s, p, o)
+#      g.add((s, p, o))
     #else:
     #  print("not adding", s, p, o)
 
@@ -108,7 +126,7 @@ class NVD2RDF:
       </rdf:RDF>
     </xsl:template>
     """
-    rdfobject(self.g, self.baseURI, VULN.NVD20Catalog, [ (CORE.vulnerability, self.cve(match.value)) for match in parse('$.CVE_Items[*]').find(self.collection)])
+    self.rdfobject(self.baseURI, VULN.NVD20Catalog, [ (CORE.vulnerability, self.cve(match.value)) for match in parse('$.CVE_Items[*]').find(self.collection)])
     #self.g.add((self.baseURI, RDF.type, VULN.NVD20Catalog))
 
   def cve(self, o):
@@ -127,18 +145,102 @@ class NVD2RDF:
       findin('$.cve.data_format', o, "MITRE") and \
       findin('$.cve.data_version', o, "4.0"):
         id = first('$.cve.CVE_data_meta.ID', o)
-        #print("id", id)
         s = cveURI(id)
-        #print("s", s)
-        comments = [ (RDFS.comment, Literal(first("$.value", commento), lang=first("$.lang", commento))) for commento in all("$.cve.description.description_data.[*]", o) ]
-        #print(all("$.cve.references.reference_data[*]", o))
-        references = [ (VULN.reference, self.reference(r) ) for r in all("$.cve.references.reference_data[*]", o) ]
-        rdfobject(self.g, s, CORE.Vulnerability, \
+        self.rdfobject(s, CORE.Vulnerability, \
           [ (VULN.id, Literal(id)) ] + \
-          [ firstDateTimeP(DCTERMS.issued, "$.publishedDate", o) ] + \
-          [ firstDateTimeP(DCTERMS.modified, "$.lastModifiedDate", o) ] + \
-          comments + references )
+          allDateTime(DCTERMS.issued, "$.publishedDate", o)  + \
+          allDateTime(DCTERMS.modified, "$.lastModifiedDate", o)  + \
+          allLangString(RDFS.comment, "$.cve.description.description_data.[*]", o) + \
+          self.allReferences(VULN.reference, "$.cve.references.reference_data[*]", o) + \
+          self.allConfigurations( VULN.vulnerableConfiguration, "$.cve.configurations", o) + \
+          self.allImpacts(VULN.score, "$.cve.impact", o) + \
+          self.allCWEs(VULN.xxx, "$.cve.problemtype", o) )
         return s
+
+  def allReferences(self, p, q, o):
+    return [ (p, self.reference(r) ) for r in all(q, o) ]
+
+  def allConfigurations(self, p, q, o):
+    """
+      {
+        "CVE_data_version": "4.0",
+        "nodes": [
+          {
+            "operator": "OR",
+            "cpe_match": [
+              {
+                "vulnerable": true,
+                "cpe23Uri": "cpe:2.3:o:google:android:10.0:*:*:*:*:*:*:*"
+              }
+            ]
+          }
+        ]
+      }
+    """
+    return []
+
+  def allImpacts(self, p, q, o):
+    """
+      {
+        "baseMetricV3": {
+          "cvssV3": {
+            "version": "3.1",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "attackVector": "LOCAL",
+            "attackComplexity": "LOW",
+            "privilegesRequired": "LOW",
+            "userInteraction": "NONE",
+            "scope": "UNCHANGED",
+            "confidentialityImpact": "HIGH",
+            "integrityImpact": "HIGH",
+            "availabilityImpact": "HIGH",
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH"
+          },
+          "exploitabilityScore": 1.8,
+          "impactScore": 5.9
+        },
+        "baseMetricV2": {
+          "cvssV2": {
+            "version": "2.0",
+            "vectorString": "AV:L/AC:L/Au:N/C:P/I:P/A:P",
+            "accessVector": "LOCAL",
+            "accessComplexity": "LOW",
+            "authentication": "NONE",
+            "confidentialityImpact": "PARTIAL",
+            "integrityImpact": "PARTIAL",
+            "availabilityImpact": "PARTIAL",
+            "baseScore": 4.6
+          },
+          "severity": "MEDIUM",
+          "exploitabilityScore": 3.9,
+          "impactScore": 6.4,
+          "acInsufInfo": false,
+          "obtainAllPrivilege": false,
+          "obtainUserPrivilege": false,
+          "obtainOtherPrivilege": false,
+          "userInteractionRequired": false
+        }
+      }
+    """
+    return []
+
+  def allCWEs(self, p, q, o):
+    """
+      {
+        "problemtype_data": [
+          {
+            "description": [
+              {
+                "lang": "en",
+                "value": "CWE-787"
+              }
+            ]
+          }
+        ]
+      }
+    """
+    return []
 
   def reference(self, o):
     """
@@ -186,12 +288,18 @@ class NVD2RDF:
     s = BNode()
     tags = [ (RDF.type, VULN["".join([t.capitalize() for t in tag.split()])+"Reference"]) for tag in all("$.tags[*]", o) ]
     #print(tags)
-    rdfobject(self.g, s, VULN.Reference, \
-      [ firstStringP(VULN.referenceSource, '$.refsource', o) ] + \
-      [ firstURLP(VULN.referenceURL, "$.url", o) ] + \
-      [ firstStringP(VULN.referenceTitle, '$.name', o) ] + \
+    self.rdfobject(s, VULN.Reference, \
+      allString(VULN.referenceSource, '$.refsource', o) + \
+      allURL(VULN.referenceURL, "$.url", o) + \
+      allString(VULN.referenceTitle, '$.name', o) + \
       tags )
     return s
+
+  def rdfobject(self, s, rdftype, items):
+    self.g.add((s, RDF.type, rdftype))
+    for (p, o) in items:
+      if p and o:
+        self.g.add((s, p, o))
 
 rdfcves = NVD2RDF(nvdfile, "https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent/2020-06-19T12:00:08-04:00/")
 g = rdfcves.convert()
