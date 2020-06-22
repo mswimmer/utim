@@ -1,5 +1,6 @@
 from jsonpath_ng import jsonpath, parse
 import json
+from urllib.parse import urlparse
 from rdflib import Graph, Literal, RDF, URIRef, Namespace, BNode
 from rdflib.namespace import RDF, RDFS, XSD, DC, DCTERMS, FOAF
 import dateutil.parser
@@ -10,8 +11,8 @@ PLATFORM = Namespace("http://ontologies.ti-semantics.com/platform#")
 SCORE = Namespace("http://ontologies.ti-semantics.com/score#")
 VULN = Namespace("http://ontologies.ti-semantics.com/vulnerability#")
 
-nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
-#nvdfile = "collections/nvdcve-1.1-recent.json"
+#nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
+nvdfile = "collections/nvdcve-1.1-recent.json"
 
 def all(q, o, fn=None):
   a = [ m.value for m in parse(q).find(o) ]
@@ -66,10 +67,12 @@ def cweURI(id):
 def cvssv3IRI(q, o):
   for i in all(q, o):
     return URIRef('urn:'+i)
+  return BNode()
 
 def cvssv2IRI(q, o):
   for i in all(q, o):
-    return URIRef('urn:CVSS:2.0'+i)
+    return URIRef('urn:CVSS:2.0/'+i)
+  return BNode()
 
 class NVD2RDF:
   def __init__(self, filename, baseURI):
@@ -206,14 +209,18 @@ class NVD2RDF:
         }
       }
     """
-    #print(o)
     metrics = list()
     for impact in all(q, o):
-      #tuples = list()
-      #tuples += 
-      #tuples += self.mapCVSSv2(all("$.baseMetricV2.cvssV2", impact))
-      metrics.append((CORE.score, self.rdfobject(cvssv3IRI("$.baseMetricV3.cvssV3.vectorString", impact), SCORE.CVSSv3BaseMetricGroup, self.mapCVSSv3(all("$.baseMetricV3.cvssV3", impact)))))
-      metrics.append((CORE.score, self.rdfobject(cvssv2IRI("$.baseMetricV2.cvssV2.vectorString", impact), SCORE.CVSSv2BaseMetricGroup, self.mapCVSSv2(all("$.baseMetricV2.cvssV2", impact)))))
+      if len(impact) == 0:
+        print("Empty impact in: ", o)
+      else:
+        cvssv3MetricGroup = self.mapCVSSv3(all("$.baseMetricV3.cvssV3", impact))
+        if len(cvssv3MetricGroup) == 0:
+          metrics.append((CORE.score, self.rdfobject(cvssv3IRI("$.baseMetricV3.cvssV3.vectorString", impact), SCORE.CVSSv3BaseMetricGroup, cvssv3MetricGroup)))
+        cvssv2MetricGroup = self.mapCVSSv2(all("$.baseMetricV2.cvssV2", impact))
+        if len(cvssv2MetricGroup) == 0:
+          metrics.append((CORE.score, self.rdfobject(cvssv2IRI("$.baseMetricV2.cvssV2.vectorString", impact), SCORE.CVSSv2BaseMetricGroup, cvssv2MetricGroup)))
+
     return metrics
 
   def mapCVSSv3(self, impact):
@@ -232,6 +239,8 @@ class NVD2RDF:
         tuples += self.baseScoreV3(all("$.baseScore", i))
         tuples += self.baseSeverityV3(all("$.baseSeverity", i))
         tuples += self.vectorStringV3(all("$.vectorString", i))
+      else:
+        print("Unknown CVSS V3 version: ", all("$.version", i))
     return tuples
 
   """(hasMetric some CVSSv2AccessComplexity) and 
@@ -252,11 +261,13 @@ class NVD2RDF:
         tuples += self.integrityImpactV2(all("$.integrityImpact", i))
         tuples += self.baseScoreV2(all("$.baseScore", i))
         tuples += self.vectorStringV2(all("$.vectorString", i))
+      else:
+        print("Unknown CVSS V2 version: ", all("$.version", i))
     return tuples
 
   def mapTo(self, av, p, mapping, error):
     for i in av:
-      print(i)
+      # print(i)
       if i in mapping:
         return [(p, mapping[i])]
       else:
@@ -443,6 +454,12 @@ class NVD2RDF:
     """
     #print(o)
     s = BNode()
+    for url in all("$.url", o):
+      parsed_url = urlparse(url)
+      if parsed_url.scheme:
+        s = URIRef(url)
+        break
+    
     tags = [ (RDF.type, VULN["".join([t.capitalize() for t in tag.split()])+"Reference"]) for tag in all("$.tags[*]", o) ]
     #print(tags)
     self.rdfobject(s, VULN.Reference, \
@@ -470,4 +487,4 @@ g.bind('vuln', VULN)
 g.bind('rdf', RDF)
 g.bind('cti', CTI)
 
-print(g.serialize(format='turtle').decode("utf-8"))
+g.serialize(destination=nvdfile.replace(".json", ".ttl"), format='turtle', encoding="utf-8")
