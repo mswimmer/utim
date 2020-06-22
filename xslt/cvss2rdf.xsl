@@ -103,7 +103,7 @@
           </xsl:choose>
 	</score:hasIntegrityImpact>
         
-        <score:hasAvailabilityImpact>
+  <score:hasAvailabilityImpact>
           <xsl:choose>
             <xsl:when test="starts-with(cvss:availability-impact, 'PARTIAL')">
               <rdf:Description rdf:about="{$SCORE}CVSSv2PartialAvailabilityImpact"></rdf:Description>

@@ -10,8 +10,8 @@ PLATFORM = Namespace("http://ontologies.ti-semantics.com/platform#")
 SCORE = Namespace("http://ontologies.ti-semantics.com/score#")
 VULN = Namespace("http://ontologies.ti-semantics.com/vulnerability#")
 
-#nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
-nvdfile = "collections/nvdcve-1.1-recent.json"
+nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
+#nvdfile = "collections/nvdcve-1.1-recent.json"
 
 def all(q, o, fn=None):
   a = [ m.value for m in parse(q).find(o) ]
@@ -30,20 +30,8 @@ def first(q, o, fn=None):
     else:
       return a[0]
 
-#def firstDateTime(q, o):
-#  return Literal(first(q,o), datatype=XSD.dateTime)
-
-#def firstDateTimeP(p, q, o):
-#  return (p, firstDateTime(q, o))
-
 def allDateTime(p, q, o):
   return [(p, Literal(dt, datatype=XSD.dateTime)) for dt in all(q, o)]
-
-#def firstString(q, o):
-#  return Literal(first(q, o))
-
-#def firstStringP(p, q, o):
-#  return (p, firstString(q, o))
 
 def allString(p, q, o):
   return [(p, Literal(s)) for s in all(q, o)]
@@ -57,26 +45,11 @@ def allLangString(p, q, o):
   """
   return [ (p, Literal(first("$.value", s), lang=first("$.lang", s))) for s in all(q, o) ]
 
-#def firstURL(q, o):
-#  return Literal(first(q, o), datatype=XSD.anyURI)
-
-#def firstURLP(p, q, o):
-#  return (p, firstURL(q, o))
-
 def allURL(p, q, o):
   return [(p, Literal(u, datatype=XSD.anyURI)) for u in all(q, o)]
 
 def findin(jp, doc, value):
   return value in [m.value for m in parse(jp).find(doc)]
-
-#def rdfobject(g, s, rdftype, items):
-#  g.add((s, RDF.type, rdftype))
-#  for (p, o) in items:
-#    if p and o:
-#      #print("adding", s, p, o)
-#      g.add((s, p, o))
-    #else:
-    #  print("not adding", s, p, o)
 
 def cveURI(id):
   """
@@ -86,6 +59,17 @@ def cveURI(id):
   </xsl:function>
   """
   return URIRef('urn:X-cve:' + id)
+
+def cweURI(id):
+  return URIRef('urn:X-cwe:' + id)
+
+def cvssv3IRI(q, o):
+  for i in all(q, o):
+    return URIRef('urn:'+i)
+
+def cvssv2IRI(q, o):
+  for i in all(q, o):
+    return URIRef('urn:CVSS:2.0'+i)
 
 class NVD2RDF:
   def __init__(self, filename, baseURI):
@@ -105,7 +89,6 @@ class NVD2RDF:
           print("unknown data version")
           print([m.value for m in parse('$.CVE_data_type').find(self.collection)], [m.value for m in parse('$.CVE_data_format').find(self.collection)],[m.value for m in parse('$.CVE_data_version').find(self.collection)])
           raise(BaseException("unknown data version"))
-    print(self.ts)
 
   def convert(self):
     self.catalog()
@@ -153,8 +136,8 @@ class NVD2RDF:
           allLangString(RDFS.comment, "$.cve.description.description_data.[*]", o) + \
           self.allReferences(VULN.reference, "$.cve.references.reference_data[*]", o) + \
           self.allConfigurations( VULN.vulnerableConfiguration, "$.cve.configurations", o) + \
-          self.allImpacts(VULN.score, "$.cve.impact", o) + \
-          self.allCWEs(VULN.xxx, "$.cve.problemtype", o) )
+          self.allImpacts(VULN.score, "$.impact", o) + \
+          self.allCWEs(VULN.weakness, "$.cve.problemtype.[*].problemtype_data.[*].description.[*].value", o) )
         return s
 
   def allReferences(self, p, q, o):
@@ -223,6 +206,179 @@ class NVD2RDF:
         }
       }
     """
+    #print(o)
+    metrics = list()
+    for impact in all(q, o):
+      #tuples = list()
+      #tuples += 
+      #tuples += self.mapCVSSv2(all("$.baseMetricV2.cvssV2", impact))
+      metrics.append((CORE.score, self.rdfobject(cvssv3IRI("$.baseMetricV3.cvssV3.vectorString", impact), SCORE.CVSSv3BaseMetricGroup, self.mapCVSSv3(all("$.baseMetricV3.cvssV3", impact)))))
+      metrics.append((CORE.score, self.rdfobject(cvssv2IRI("$.baseMetricV2.cvssV2.vectorString", impact), SCORE.CVSSv2BaseMetricGroup, self.mapCVSSv2(all("$.baseMetricV2.cvssV2", impact)))))
+    return metrics
+
+  def mapCVSSv3(self, impact):
+    #print(impact)
+    tuples = list()
+    for i in impact:
+      if "3.1" in all("$.version", i):
+        tuples += self.attackVectorV3(all("$.attackVector", i))
+        tuples += self.attackComplexityV3(all("$.attackComplexity", i))
+        tuples += self.privilegesRequiredV3(all("$.privilegesRequired", i))
+        tuples += self.userInteractionV3(all("$.userInteraction", i))
+        tuples += self.scopeV3(all("$.scope", i))
+        tuples += self.confidentialityImpactV3(all("$.confidentialityImpact", i))
+        tuples += self.integrityImpactV3(all("$.integrityImpact", i))
+        tuples += self.availabilityImpactV3(all("$.availabilityImpact", i))
+        tuples += self.baseScoreV3(all("$.baseScore", i))
+        tuples += self.baseSeverityV3(all("$.baseSeverity", i))
+        tuples += self.vectorStringV3(all("$.vectorString", i))
+    return tuples
+
+  """(hasMetric some CVSSv2AccessComplexity) and 
+  (hasMetric some CVSSv2AccessVector) and 
+  (hasMetric some CVSSv2Authentication) and 
+  (hasMetric some CVSSv2AvailabilityImpact) and 
+  (hasMetric some CVSSv2ConfidentialityImpact) and 
+  (hasMetric some CVSSv2IntegrityImpact)"""
+  def mapCVSSv2(self, impact):
+    tuples = list()
+    for i in impact:
+      if "2.0" in all("$.version", i):
+        tuples += self.accessComplexityV2(all("$.accessComplexity", id))
+        tuples += self.accessVectorV2(all("$.accessVector", i))
+        tuples += self.authenticationV2(all("$.authentication", i))
+        tuples += self.availabilityImpactV2(all("$.availabilityImpact", i))
+        tuples += self.confidentialityImpactV2(all("$.confidentialityImpact", i))
+        tuples += self.integrityImpactV2(all("$.integrityImpact", i))
+        tuples += self.baseScoreV2(all("$.baseScore", i))
+        tuples += self.vectorStringV2(all("$.vectorString", i))
+    return tuples
+
+  def mapTo(self, av, p, mapping, error):
+    for i in av:
+      print(i)
+      if i in mapping:
+        return [(p, mapping[i])]
+      else:
+        raise BaseException(error)
+    return []
+
+  def vectorStringV2(self, vs):
+    return ([(SCORE.cvss_v2_vector, Literal(i)) for i in vs])
+
+  def vectorStringV3(self, vs):
+    return ([(SCORE.cvss_v3_vector, Literal(i)) for i in vs])
+
+  def attackVectorV3(self, av):
+    return self.mapTo(av, SCORE.hasAttackVector, { 
+      'ADJACENT_NETWORK': SCORE.CVSSv3NetworkAttackVector, 
+      'LOCAL' :  SCORE.CVSSv3LocalAttackVector,
+      'NETWORK': SCORE.CVSSv3NetworkAttackVector,
+      'PHYSICAL': SCORE.CVSSv3PhysicalAttackVector
+    }, "unknown attackVector")
+    
+  def attackComplexityV3(self, ac):
+    return self.mapTo(ac, SCORE.hasAttackComplexity, {
+      'LOW': SCORE.CVSSv3LowAttackComplexity,
+      'MEDIUM': SCORE.CVSSv3MediumAttackComplexity,
+      'HIGH': SCORE.CVSSv3MediumAttackComplexity
+    }, "unknown attackComplexity")
+
+  def confidentialityImpactV3(self, ci):
+    return self.mapTo(ci, SCORE.hasConfidentialityImpact, {
+      'LOW': SCORE.CVSSv3LowConfidentialityImpact,
+      'HIGH': SCORE.CVSSv3HighConfidentialityImpact
+    }, "unknown confidentialityImpact")
+
+  def confidentialityImpactV2(self, ci):
+    return self.mapTo(ci, SCORE.hasConfidentialityImpact, {
+      'PARTIAL': SCORE.CVSSv2PartialConfidentialityImpact,
+      'COMPLETE': SCORE.CVSSv2CompleteConfidentialityImpact,
+      'NONE': SCORE.CVSSv2NoConfidentialityImpact
+    }, "unknown confidentialityImpact")
+
+  def confidentialityImpactV3(self, ci): 
+    return self.mapTo(ci, SCORE.hasConfidentialityImpact, {
+      'HIGH': SCORE.CVSSv3HighConfidentialityImpact,
+      'LOW': SCORE.CVSSv3LowConfidentialityImpact,
+      'NONE': SCORE.CVSSv3NoConfidentialityImpact
+    }, "unknown confidentialityImpact")
+
+  def privilegesRequiredV3(self, pr):
+    return self.mapTo(pr, SCORE.hasPrivilegesRequired, {
+      'HIGH': SCORE.CVSSv3HighPrivilegesRequired,
+      'LOW': SCORE.CVSSv3LowPrivilegesRequired,
+      'NONE': SCORE.CVSSv3NoPrivilegesRequired
+    }, "unknown privilegesRequired")
+
+  def userInteractionV3(self, ia):
+    return self.mapTo(ia, SCORE.hasUserInteraction, {
+      'REQUIRED': SCORE.CVSSv3RequiredUserInteraction,
+      'NONE': SCORE.CVSSv3NoUserInteraction
+    }, "unknown userInteraction")
+
+  def scopeV3(self, sc): 
+    return self.mapTo(sc, SCORE.hasScope, {
+      'CHANGED': SCORE.CVSSv3ChangedScope,
+      'UNCHANGED': SCORE.CVSSv3UnchangedScope
+    }, "unknown scope")
+
+  def integrityImpactV3(self, ii):
+    return self.mapTo(ii, SCORE.hasIntegrityImpact, {
+      'NONE': SCORE.CVSSv3NoIntegrityImpact,
+      'LOW': SCORE.CVSSv3LowIntegrityImpact,
+      'HIGH': SCORE.CVSSv3HighIntegrityImpact
+    }, "unknown integrityImpact")
+
+  def integrityImpactV2(self, ii): 
+    return self.mapTo(ii, SCORE.hasIntegrityImpact, {
+      'PARTIAL': SCORE.CVSSv2PartialIntegrityImpact,
+      'COMPLETE': SCORE.CVSSv2CompleteIntegrityImpact,
+      'NONE': SCORE.CVSSv2NoIntegrityImpact
+    }, "unknown integrityImpact")
+
+  def availabilityImpactV3(self, ai):
+    return self.mapTo(ai, SCORE.hasAvailabilityImpact, {
+     'NONE': SCORE.CVSSv3NoAvailabilityImpact,
+     'LOW': SCORE.CVSSv3LowAvailabilityImpact,
+     'HIGH': SCORE.CVSSv3HighAvailabilityImpact
+    }, "unknown availabilityImpact")
+
+  def availabilityImpactV2(self, ai): 
+    return self.mapTo(ai, SCORE.hasAvailabilityImpact, {
+     'PARTIAL': SCORE.CVSSv2PartialAvailabilityImpact,
+     'COMPLETE': SCORE.CVSSv2CompleteAvailabilityImpact,
+     'NONE': SCORE.CVSSv2NoAvailabilityImpact
+    }, "unknown availabilityImpact")
+
+  def baseScoreV3(self, bs): 
+    return []
+
+  def baseSeverityV3(self, bs): 
+    return []
+
+  def accessVectorV2(self, av): 
+    return self.mapTo(av, SCORE.hasAccessVector, { 
+      'ADJACENT_NETWORK': SCORE.CVSSv2AdjacentAccessVector,
+      'LOCAL' :  SCORE.CVSSv2LocalAccessVector,
+      'NETWORK': SCORE.CVSSv2NetworkAccessVector
+    }, "unknown attackVector")
+
+  def accessComplexityV2(self, ac): 
+    return self.mapTo(ac, SCORE.hasAccessComplexity, {
+      'LOW': SCORE.CVSSv2LowAccessComplexity,
+      'MEDIUM': SCORE.CVSSv2MediumAccessComplexity,
+      'HIGH': SCORE.CVSSv2MediumAccessComplexity
+    }, "unknown accessComplexity")
+
+  def authenticationV2(self, a): 
+    return self.mapTo(a, SCORE.hasAuthentication, {
+     'NONE':  SCORE.CVSSv2NoAuthentication,
+     'SINGLE': SCORE.CVSSv2SingleAuthentication,
+     'MULTIPLE': SCORE.CVSSv2MultipleAuthentications
+    }, "unknown authentication")
+
+  def baseScoreV2(self, bs): 
     return []
 
   def allCWEs(self, p, q, o):
@@ -240,7 +396,8 @@ class NVD2RDF:
         ]
       }
     """
-    return []
+    #print([(p, cweURI(s)) for s in all(q, o) if s.startswith('CWE-')])
+    return [(p, cweURI(s)) for s in all(q, o) if s.startswith('CWE-')]
 
   def reference(self, o):
     """
