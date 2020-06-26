@@ -4,6 +4,9 @@ from urllib.parse import urlparse
 from rdflib import Graph, Literal, RDF, URIRef, Namespace, BNode
 from rdflib.namespace import RDF, RDFS, XSD, DC, DCTERMS, FOAF
 import dateutil.parser
+import hashlib
+from requests.utils import requote_uri
+
 
 CORE = Namespace("http://ontologies.ti-semantics.com/core#")
 CTI = Namespace("http://ontologies.ti-semantics.com/cti#")
@@ -11,8 +14,10 @@ PLATFORM = Namespace("http://ontologies.ti-semantics.com/platform#")
 SCORE = Namespace("http://ontologies.ti-semantics.com/score#")
 VULN = Namespace("http://ontologies.ti-semantics.com/vulnerability#")
 
-#nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
 nvdfile = "collections/nvdcve-1.1-recent.json"
+#nvdfile = "collections/nvdcve-1.1-CVE-2020-10732.json"
+#nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
+#nvdfile = "collections/nvdcve-1.1-CVE-2020-13150.json"
 
 def all(q, o, fn=None):
   a = [ m.value for m in parse(q).find(o) ]
@@ -22,17 +27,11 @@ def all(q, o, fn=None):
   else:
     return a
 
-def first(q, o, fn=None):
-  #TODO could be optimised
-  a = all(q,o)
-  if len(a) > 0:
-    if fn:
-      fn(a[0])
-    else:
-      return a[0]
-
 def allDateTime(p, q, o):
   return [(p, Literal(dt, datatype=XSD.dateTime)) for dt in all(q, o)]
+
+def allFloat(p, q, o):
+  return [(p, Literal(dt, datatype=XSD.decimal)) for dt in all(q, o)]
 
 def allString(p, q, o):
   return [(p, Literal(s)) for s in all(q, o)]
@@ -44,7 +43,7 @@ def allLangString(p, q, o):
       "value": "In mediaserver, there is a possible out of bounds ..."
     }
   """
-  return [ (p, Literal(first("$.value", s), lang=first("$.lang", s))) for s in all(q, o) ]
+  return [ (p, Literal(all("$.value", s)[0], lang=all("$.lang", s)[0])) for s in all(q, o) ]
 
 def allURL(p, q, o):
   return [(p, Literal(u, datatype=XSD.anyURI)) for u in all(q, o)]
@@ -73,6 +72,123 @@ def cvssv2IRI(q, o):
   for i in all(q, o):
     return URIRef('urn:CVSS:2.0/'+i)
   return BNode()
+
+class CPEConfiguration():
+  def __init__(self, filename, baseURI, g=Graph()):
+    with open(filename, 'r') as f:
+      self.collection = json.load(f)
+      self.g = g
+      self.baseURI = baseURI
+
+  def __init__(self, baseURI, g=Graph()):
+    self.g = g
+    self.baseURI = baseURI
+
+  def convert(self):
+    for config in all("$.CVE_Items.[*].configurations", self.collection):
+      if '4.0' in all("$.CVE_data_version", config):
+        tupels = list()
+        for node in all("$.nodes.[*]", config):
+          self.triples(self.configURI(node), PLATFORM.PlatformConfiguration, [(PLATFORM.hasNode, self.config_node(node))])
+      else:
+        print("Unknown configuration version number: ", all("$.CVE_data_version", config))
+      #print()
+    return self.g
+
+  def convert(self, configurations):
+    return_configurations = list()
+    for config in configurations:
+      if '4.0' in all("$.CVE_data_version", config):
+        tupels = list()
+        for node in all("$.nodes.[*]", config):
+          subject = self.configURI(node)
+          self.triples(subject, PLATFORM.PlatformConfiguration, [(PLATFORM.hasNode, self.config_node(node))])
+          return_configurations.append(subject)
+      else:
+        print("Unknown configuration version number: ", all("$.CVE_data_version", config))
+      #print()
+    return return_configurations
+
+  def config_node(self, node):
+    if 'OR' in all("$.operator", node):
+      nodeType = PLATFORM.ORNode
+    elif 'AND' in all("$.operator", node):
+      nodeType = PLATFORM.ANDNode
+    else:
+      raise BaseException("[config_node] Unknown operator: ", all("$.operator", node))
+    subject = BNode()
+    self.triples(subject, nodeType, self.children(node) + self.cpe_match(node))
+    return subject
+
+  def children(self, node):
+    tupels = list()
+    for i in all("$.children.[*]", node):
+      tupels += self.config_child(i)
+    #print("Found children tupels: ", tupels)
+    return tupels
+
+  def cpe_match(self, node):
+    tupels = list()
+    for i in all("$.cpe_match.[*]", node):
+      tupels.append((PLATFORM.match, self.config_cpe_match(i)))
+    return tupels
+
+  def config_cpe_match(self, cm):
+    #sprint("cpe_match: ", cm)
+    #print("vulnerable: ", all("$.vulnerable", cm))
+    if all("$.vulnerable", cm)[0]:
+      v = PLATFORM.VulnerableConfiguration
+    else:
+      v = PLATFORM.NotVulnerableConfiguration
+    subject = BNode()
+    self.triples(subject, v, [(PLATFORM.hasPlatform, self.cpeURI(all("$.cpe23Uri", cm)[0]))] + \
+      self.versionStartExcluding(cm) + self.versionStartIncluding(cm) + self.versionEndExcluding(cm) + self.versionEndIncluding(cm))
+    return subject
+
+  def config_child(self, child):
+    #print("Child: ", child)
+    if 'OR' in all("$.operator", child):
+      #return [(PLATFORM.orChild, self.config_cpe_match(cm)) for cm in all("$.cpe_match.[*]", child)]
+      tupels = list()
+      for cm in all("$.cpe_match.[*]", child):
+        node = BNode()
+        self.triples(node, PLATFORM.ORNode, self.cpe_match(child))
+        tupels += [(PLATFORM.hasNode, node) ]
+      return tupels
+    elif 'AND' in all("$.operator", child):
+      return [(PLATFORM.andChild, self.config_child(c)) for c in all("$.children.[*]", child)]
+    else:
+      raise BaseException("[config_child] Unknown operator: ", all("$.operator", child))
+
+  def triples(self, subject, rdftype, items):  
+    self.g.add((subject, RDF.type, rdftype))
+    #print(items)
+    for (p, o) in items:
+      if p and o:
+        self.g.add((subject, p, o))
+    return subject
+
+  def configURI(self, config):
+    hash_object = hashlib.sha1(json.dumps(config, sort_keys=True).encode('utf-8'))
+    hex_dig = hash_object.hexdigest()
+    #print(hex_dig)
+    return URIRef(self.baseURI + "platform_configuration_"+hex_dig)
+
+  def cpeURI(self, id):
+    #id.replace("\\'", "'")
+    return URIRef(requote_uri('urn:X-cpe:' + id.replace("\\'", "'")))
+
+  def versionStartExcluding(self, cm):
+    return [(XSD.minExclusive, Literal(i)) for i in all("$.versionStartExcluding", cm)]
+
+  def versionStartIncluding(self, cm):
+    return [(XSD.minInclusive, Literal(i)) for i in all("$.versionStartIncluding", cm)]
+
+  def versionEndExcluding(self, cm):
+    return [(XSD.maxExclusive, Literal(i)) for i in all("$.versionEndExcluding", cm)]
+
+  def versionEndIncluding(self, cm):
+    return [(XSD.maxInclusive, Literal(i)) for i in all("$.versionEndIncluding", cm)]
 
 class NVD2RDF:
   def __init__(self, filename, baseURI):
@@ -130,7 +246,7 @@ class NVD2RDF:
     if findin('$.cve.data_type', o, "CVE") and \
       findin('$.cve.data_format', o, "MITRE") and \
       findin('$.cve.data_version', o, "4.0"):
-        id = first('$.cve.CVE_data_meta.ID', o)
+        id = all('$.cve.CVE_data_meta.ID', o)[0]
         s = cveURI(id)
         self.rdfobject(s, CORE.Vulnerability, \
           [ (VULN.id, Literal(id)) ] + \
@@ -138,7 +254,7 @@ class NVD2RDF:
           allDateTime(DCTERMS.modified, "$.lastModifiedDate", o)  + \
           allLangString(RDFS.comment, "$.cve.description.description_data.[*]", o) + \
           self.allReferences(VULN.reference, "$.cve.references.reference_data[*]", o) + \
-          self.allConfigurations( VULN.vulnerableConfiguration, "$.cve.configurations", o) + \
+          self.allConfigurations( VULN.vulnerableConfiguration, "$.configurations", o) + \
           self.allImpacts(VULN.score, "$.impact", o) + \
           self.allCWEs(VULN.weakness, "$.cve.problemtype.[*].problemtype_data.[*].description.[*].value", o) )
         return s
@@ -163,8 +279,10 @@ class NVD2RDF:
         ]
       }
     """
-    return []
-
+    
+    platform = CPEConfiguration(self.baseURI, self.g)
+    return [(p, c) for c in platform.convert(all(q, o))]
+    
   def allImpacts(self, p, q, o):
     """
       {
@@ -215,10 +333,10 @@ class NVD2RDF:
         print("Empty impact in: ", o)
       else:
         cvssv3MetricGroup = self.mapCVSSv3(all("$.baseMetricV3.cvssV3", impact))
-        if len(cvssv3MetricGroup) == 0:
+        if not len(cvssv3MetricGroup) == 0:
           metrics.append((CORE.score, self.rdfobject(cvssv3IRI("$.baseMetricV3.cvssV3.vectorString", impact), SCORE.CVSSv3BaseMetricGroup, cvssv3MetricGroup)))
         cvssv2MetricGroup = self.mapCVSSv2(all("$.baseMetricV2.cvssV2", impact))
-        if len(cvssv2MetricGroup) == 0:
+        if not len(cvssv2MetricGroup) == 0:
           metrics.append((CORE.score, self.rdfobject(cvssv2IRI("$.baseMetricV2.cvssV2.vectorString", impact), SCORE.CVSSv2BaseMetricGroup, cvssv2MetricGroup)))
 
     return metrics
@@ -236,9 +354,9 @@ class NVD2RDF:
         tuples += self.confidentialityImpactV3(all("$.confidentialityImpact", i))
         tuples += self.integrityImpactV3(all("$.integrityImpact", i))
         tuples += self.availabilityImpactV3(all("$.availabilityImpact", i))
-        tuples += self.baseScoreV3(all("$.baseScore", i))
-        tuples += self.baseSeverityV3(all("$.baseSeverity", i))
-        tuples += self.vectorStringV3(all("$.vectorString", i))
+        tuples += allFloat(SCORE.cvss_v3_baseScore, "$.baseScore", i)
+        tuples += allString(SCORE.cvss_v3_severity, "$.baseSeverity", i)
+        tuples += allString(SCORE.cvss_v3_vector, "$.vectorString", i)
       else:
         print("Unknown CVSS V3 version: ", all("$.version", i))
     return tuples
@@ -253,14 +371,14 @@ class NVD2RDF:
     tuples = list()
     for i in impact:
       if "2.0" in all("$.version", i):
-        tuples += self.accessComplexityV2(all("$.accessComplexity", id))
+        tuples += self.accessComplexityV2(all("$.accessComplexity", i))
         tuples += self.accessVectorV2(all("$.accessVector", i))
         tuples += self.authenticationV2(all("$.authentication", i))
         tuples += self.availabilityImpactV2(all("$.availabilityImpact", i))
         tuples += self.confidentialityImpactV2(all("$.confidentialityImpact", i))
         tuples += self.integrityImpactV2(all("$.integrityImpact", i))
-        tuples += self.baseScoreV2(all("$.baseScore", i))
-        tuples += self.vectorStringV2(all("$.vectorString", i))
+        tuples += allFloat(SCORE.cvss_v2_baseScore, "$.baseScore", i)
+        tuples += allString(SCORE.cvss_v2_vector, "$.vectorString", i)
       else:
         print("Unknown CVSS V2 version: ", all("$.version", i))
     return tuples
@@ -273,12 +391,6 @@ class NVD2RDF:
       else:
         raise BaseException(error)
     return []
-
-  def vectorStringV2(self, vs):
-    return ([(SCORE.cvss_v2_vector, Literal(i)) for i in vs])
-
-  def vectorStringV3(self, vs):
-    return ([(SCORE.cvss_v3_vector, Literal(i)) for i in vs])
 
   def attackVectorV3(self, av):
     return self.mapTo(av, SCORE.hasAttackVector, { 
@@ -362,12 +474,6 @@ class NVD2RDF:
      'NONE': SCORE.CVSSv2NoAvailabilityImpact
     }, "unknown availabilityImpact")
 
-  def baseScoreV3(self, bs): 
-    return []
-
-  def baseSeverityV3(self, bs): 
-    return []
-
   def accessVectorV2(self, av): 
     return self.mapTo(av, SCORE.hasAccessVector, { 
       'ADJACENT_NETWORK': SCORE.CVSSv2AdjacentAccessVector,
@@ -388,9 +494,6 @@ class NVD2RDF:
      'SINGLE': SCORE.CVSSv2SingleAuthentication,
      'MULTIPLE': SCORE.CVSSv2MultipleAuthentications
     }, "unknown authentication")
-
-  def baseScoreV2(self, bs): 
-    return []
 
   def allCWEs(self, p, q, o):
     """
