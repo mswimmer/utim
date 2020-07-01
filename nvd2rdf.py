@@ -7,15 +7,17 @@ import dateutil.parser
 import hashlib
 from requests.utils import requote_uri
 
-
 CORE = Namespace("http://ontologies.ti-semantics.com/core#")
 CTI = Namespace("http://ontologies.ti-semantics.com/cti#")
 PLATFORM = Namespace("http://ontologies.ti-semantics.com/platform#")
 SCORE = Namespace("http://ontologies.ti-semantics.com/score#")
 VULN = Namespace("http://ontologies.ti-semantics.com/vulnerability#")
+NVD = Namespace("https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020/")
+REFS = Namespace("https://csrc.nist.gov/publications/references/")
+CPEMATCH = Namespace("https://csrc.nist.gov/schema/cpematch/feed/1.0/")
 
-nvdfile = "collections/nvdcve-1.1-recent.json"
-#nvdfile = "collections/nvdcve-1.1-CVE-2020-10732.json"
+#nvdfile = "collections/nvdcve-1.1-recent.json"
+nvdfile = "collections/nvdcve-1.1-CVE-2020-10732.json"
 #nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
 #nvdfile = "collections/nvdcve-1.1-CVE-2020-13150.json"
 
@@ -37,12 +39,6 @@ def allString(p, q, o):
   return [(p, Literal(s)) for s in all(q, o)]
 
 def allLangString(p, q, o):
-  """ Expects and object like this:
-    {
-      "lang": "en",
-      "value": "In mediaserver, there is a possible out of bounds ..."
-    }
-  """
   return [ (p, Literal(all("$.value", s)[0], lang=all("$.lang", s)[0])) for s in all(q, o) ]
 
 def allURL(p, q, o):
@@ -52,12 +48,6 @@ def findin(jp, doc, value):
   return value in [m.value for m in parse(jp).find(doc)]
 
 def cveURI(id):
-  """
-  <xsl:function name="tifn:cveURI">
-    <xsl:param name="entryId"/>
-    <xsl:value-of select="fn:concat('urn:X-cve:', $entryId)" />
-  </xsl:function>
-  """
   return URIRef('urn:X-cve:' + id)
 
 def cweURI(id):
@@ -65,12 +55,12 @@ def cweURI(id):
 
 def cvssv3IRI(q, o):
   for i in all(q, o):
-    return URIRef('urn:'+i)
+    return URIRef('urn:X-'+i)
   return BNode()
 
 def cvssv2IRI(q, o):
   for i in all(q, o):
-    return URIRef('urn:CVSS:2.0/'+i)
+    return URIRef('urn:X-CVSS:2.0/'+i)
   return BNode()
 
 class CPEConfiguration():
@@ -134,8 +124,6 @@ class CPEConfiguration():
     return tupels
 
   def config_cpe_match(self, cm):
-    #sprint("cpe_match: ", cm)
-    #print("vulnerable: ", all("$.vulnerable", cm))
     if all("$.vulnerable", cm)[0]:
       v = PLATFORM.VulnerableConfiguration
     else:
@@ -146,9 +134,7 @@ class CPEConfiguration():
     return subject
 
   def config_child(self, child):
-    #print("Child: ", child)
     if 'OR' in all("$.operator", child):
-      #return [(PLATFORM.orChild, self.config_cpe_match(cm)) for cm in all("$.cpe_match.[*]", child)]
       tupels = list()
       for cm in all("$.cpe_match.[*]", child):
         node = BNode()
@@ -162,7 +148,6 @@ class CPEConfiguration():
 
   def triples(self, subject, rdftype, items):  
     self.g.add((subject, RDF.type, rdftype))
-    #print(items)
     for (p, o) in items:
       if p and o:
         self.g.add((subject, p, o))
@@ -171,11 +156,9 @@ class CPEConfiguration():
   def configURI(self, config):
     hash_object = hashlib.sha1(json.dumps(config, sort_keys=True).encode('utf-8'))
     hex_dig = hash_object.hexdigest()
-    #print(hex_dig)
-    return URIRef(self.baseURI + "platform_configuration_"+hex_dig)
+    return URIRef(self.baseURI + "cpematch_"+hex_dig)
 
   def cpeURI(self, id):
-    #id.replace("\\'", "'")
     return URIRef(requote_uri('urn:X-cpe:' + id.replace("\\'", "'")))
 
   def versionStartExcluding(self, cm):
@@ -191,7 +174,7 @@ class CPEConfiguration():
     return [(XSD.maxInclusive, Literal(i)) for i in all("$.versionEndIncluding", cm)]
 
 class NVD2RDF:
-  def __init__(self, filename, baseURI):
+  def __init__(self, filename, filedate):
     with open(nvdfile, 'r') as f:
       self.f = f
       self.collection = json.load(f)
@@ -199,11 +182,10 @@ class NVD2RDF:
       if findin('$.CVE_data_type', self.collection, "CVE") and \
         findin('$.CVE_data_format', self.collection, "MITRE") and \
         findin('$.CVE_data_version', self.collection, "4.0"):
-          #print("header checks out")
           for match in parse('$.CVE_data_timestamp').find(self.collection):
             self.ts = dateutil.parser.parse(match.value)
           self.g = Graph()
-          self.baseURI = URIRef(baseURI)
+          self.filedate = filedate
       else:
           print("unknown data version")
           print([m.value for m in parse('$.CVE_data_type').find(self.collection)], [m.value for m in parse('$.CVE_data_format').find(self.collection)],[m.value for m in parse('$.CVE_data_version').find(self.collection)])
@@ -214,35 +196,9 @@ class NVD2RDF:
     return self.g
         
   def catalog(self):
-    """
-    <xsl:template match="/nvdfeed:nvd">
-      <rdf:RDF>
-        <xsl:apply-templates />
-        <rdf:Description rdf:type="{$VULN}NVD20Catalog" rdf:about="{$BASEURI}">
-          <xsl:for-each select="//nvdfeed:entry">
-            <vuln:vulnerability>
-              <rdf:Description rdf:about="{tifn:cveURI(@id)}" rdf:type="{$CORE}Vulnerability" />
-            </vuln:vulnerability>
-          </xsl:for-each>
-        </rdf:Description>
-      </rdf:RDF>
-    </xsl:template>
-    """
-    self.rdfobject(self.baseURI, VULN.NVD20Catalog, [ (CORE.vulnerability, self.cve(match.value)) for match in parse('$.CVE_Items[*]').find(self.collection)])
-    #self.g.add((self.baseURI, RDF.type, VULN.NVD20Catalog))
+    self.rdfobject(NVD[self.filedate], VULN.NVD20Catalog, [ (CORE.vulnerability, self.cve(match.value)) for match in parse('$.CVE_Items[*]').find(self.collection)])
 
   def cve(self, o):
-    """
-    <xsl:template match="//nvdfeed:entry">
-        <rdf:Description rdf:about="{tifn:cveURI(@id)}" rdf:type="{$CORE}Vulnerability" >
-          <xsl:apply-templates select="scapvuln:cwe" />
-          <xsl:apply-templates select="scapvuln:vulnerable-software-list" />
-          <xsl:apply-templates select="scapvuln:references" />
-          <xsl:apply-templates select="scapvuln:cvss" />
-          <xsl:apply-templates select="scapvuln:vulnerable-configuration" />
-        </rdf:Description>
-      </xsl:template>
-    """
     if findin('$.cve.data_type', o, "CVE") and \
       findin('$.cve.data_format', o, "MITRE") and \
       findin('$.cve.data_version', o, "4.0"):
@@ -263,86 +219,39 @@ class NVD2RDF:
     return [ (p, self.reference(r) ) for r in all(q, o) ]
 
   def allConfigurations(self, p, q, o):
-    """
-      {
-        "CVE_data_version": "4.0",
-        "nodes": [
-          {
-            "operator": "OR",
-            "cpe_match": [
-              {
-                "vulnerable": true,
-                "cpe23Uri": "cpe:2.3:o:google:android:10.0:*:*:*:*:*:*:*"
-              }
-            ]
-          }
-        ]
-      }
-    """
-    
-    platform = CPEConfiguration(self.baseURI, self.g)
+    platform = CPEConfiguration(CPEMATCH, self.g)
     return [(p, c) for c in platform.convert(all(q, o))]
     
   def allImpacts(self, p, q, o):
-    """
-      {
-        "baseMetricV3": {
-          "cvssV3": {
-            "version": "3.1",
-            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-            "attackVector": "LOCAL",
-            "attackComplexity": "LOW",
-            "privilegesRequired": "LOW",
-            "userInteraction": "NONE",
-            "scope": "UNCHANGED",
-            "confidentialityImpact": "HIGH",
-            "integrityImpact": "HIGH",
-            "availabilityImpact": "HIGH",
-            "baseScore": 7.8,
-            "baseSeverity": "HIGH"
-          },
-          "exploitabilityScore": 1.8,
-          "impactScore": 5.9
-        },
-        "baseMetricV2": {
-          "cvssV2": {
-            "version": "2.0",
-            "vectorString": "AV:L/AC:L/Au:N/C:P/I:P/A:P",
-            "accessVector": "LOCAL",
-            "accessComplexity": "LOW",
-            "authentication": "NONE",
-            "confidentialityImpact": "PARTIAL",
-            "integrityImpact": "PARTIAL",
-            "availabilityImpact": "PARTIAL",
-            "baseScore": 4.6
-          },
-          "severity": "MEDIUM",
-          "exploitabilityScore": 3.9,
-          "impactScore": 6.4,
-          "acInsufInfo": false,
-          "obtainAllPrivilege": false,
-          "obtainUserPrivilege": false,
-          "obtainOtherPrivilege": false,
-          "userInteractionRequired": false
-        }
-      }
-    """
     metrics = list()
     for impact in all(q, o):
       if len(impact) == 0:
         print("Empty impact in: ", o)
       else:
         cvssv3MetricGroup = self.mapCVSSv3(all("$.baseMetricV3.cvssV3", impact))
-        if not len(cvssv3MetricGroup) == 0:
+        if len(cvssv3MetricGroup) > 0:
           metrics.append((CORE.score, self.rdfobject(cvssv3IRI("$.baseMetricV3.cvssV3.vectorString", impact), SCORE.CVSSv3BaseMetricGroup, cvssv3MetricGroup)))
         cvssv2MetricGroup = self.mapCVSSv2(all("$.baseMetricV2.cvssV2", impact))
-        if not len(cvssv2MetricGroup) == 0:
+        if len(cvssv2MetricGroup) > 0:
           metrics.append((CORE.score, self.rdfobject(cvssv2IRI("$.baseMetricV2.cvssV2.vectorString", impact), SCORE.CVSSv2BaseMetricGroup, cvssv2MetricGroup)))
-
+        allMetrics = self.mapGenCVSSv2(all("$.baseMetricV2.cvssV2", impact))
+        allMetrics += self.mapGenCVSSv3(all("$.baseMetricV3.cvssV3", impact))
+        if len(allMetrics) > 0:
+          metrics.append((CORE.score, self.rdfobject(BNode(), SCORE.CVSSMetric, allMetrics)))
     return metrics
 
   def mapCVSSv3(self, impact):
-    #print(impact)
+    tuples = self.mapGenCVSSv3(impact)
+    for i in impact:
+      if "3.1" in all("$.version", i):
+        tuples += allFloat(SCORE.cvss_v3_baseScore, "$.baseScore", i)
+        tuples += allString(SCORE.cvss_v3_severity, "$.baseSeverity", i)
+        tuples += allString(SCORE.cvss_v3_vector, "$.vectorString", i)
+      else:
+        print("Unknown CVSS V3 version: ", all("$.version", i))
+    return tuples
+
+  def mapGenCVSSv3(self, impact):
     tuples = list()
     for i in impact:
       if "3.1" in all("$.version", i):
@@ -354,20 +263,21 @@ class NVD2RDF:
         tuples += self.confidentialityImpactV3(all("$.confidentialityImpact", i))
         tuples += self.integrityImpactV3(all("$.integrityImpact", i))
         tuples += self.availabilityImpactV3(all("$.availabilityImpact", i))
-        tuples += allFloat(SCORE.cvss_v3_baseScore, "$.baseScore", i)
-        tuples += allString(SCORE.cvss_v3_severity, "$.baseSeverity", i)
-        tuples += allString(SCORE.cvss_v3_vector, "$.vectorString", i)
       else:
         print("Unknown CVSS V3 version: ", all("$.version", i))
     return tuples
 
-  """(hasMetric some CVSSv2AccessComplexity) and 
-  (hasMetric some CVSSv2AccessVector) and 
-  (hasMetric some CVSSv2Authentication) and 
-  (hasMetric some CVSSv2AvailabilityImpact) and 
-  (hasMetric some CVSSv2ConfidentialityImpact) and 
-  (hasMetric some CVSSv2IntegrityImpact)"""
   def mapCVSSv2(self, impact):
+    tuples = self.mapGenCVSSv2(impact)
+    for i in impact:
+      if "2.0" in all("$.version", i):
+        tuples += allFloat(SCORE.cvss_v2_baseScore, "$.baseScore", i)
+        tuples += allString(SCORE.cvss_v2_vector, "$.vectorString", i)
+      else:
+        print("Unknown CVSS V2 version: ", all("$.version", i))
+    return tuples
+
+  def mapGenCVSSv2(self, impact):
     tuples = list()
     for i in impact:
       if "2.0" in all("$.version", i):
@@ -377,8 +287,6 @@ class NVD2RDF:
         tuples += self.availabilityImpactV2(all("$.availabilityImpact", i))
         tuples += self.confidentialityImpactV2(all("$.confidentialityImpact", i))
         tuples += self.integrityImpactV2(all("$.integrityImpact", i))
-        tuples += allFloat(SCORE.cvss_v2_baseScore, "$.baseScore", i)
-        tuples += allString(SCORE.cvss_v2_vector, "$.vectorString", i)
       else:
         print("Unknown CVSS V2 version: ", all("$.version", i))
     return tuples
@@ -496,75 +404,19 @@ class NVD2RDF:
     }, "unknown authentication")
 
   def allCWEs(self, p, q, o):
-    """
-      {
-        "problemtype_data": [
-          {
-            "description": [
-              {
-                "lang": "en",
-                "value": "CWE-787"
-              }
-            ]
-          }
-        ]
-      }
-    """
-    #print([(p, cweURI(s)) for s in all(q, o) if s.startswith('CWE-')])
     return [(p, cweURI(s)) for s in all(q, o) if s.startswith('CWE-')]
 
+  def referenceSubject(self, o):
+    if len(all("$.url", o)) > 0:
+      return self.refURI(all("$.url", o)[0])
+    elif len(all("$.name", o)) > 0:
+      return self.refURI(all("$.name", o)[0])
+    else:
+      return BNode()
+
   def reference(self, o):
-    """
-    <xsl:template match="scapvuln:references">
-      <vuln:reference>
-        <xsl:variable name="TYPE">
-          <xsl:choose>
-            <xsl:when test="starts-with(@reference_type, 'PATCH')">PatchReference</xsl:when>
-            <xsl:when test="starts-with(@reference_type, 'VENDOR_ADVISORY')">VendorAdvisoryReference</xsl:when>
-            <xsl:otherwise>Reference</xsl:otherwise>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="TYPE_URI"><xsl:value-of select="concat($VULN,$TYPE)" /></xsl:variable>
-        <rdf:Description rdf:type="{$TYPE_URI}">
-          <xsl:if test="@deprecated">
-            <vuln:referenceDeprecated rdf:datatype="xsd:boolean">
-              <xsl:value-of select="@deprecated" />
-            </vuln:referenceDeprecated>
-          </xsl:if>
-          <xsl:apply-templates select="scapvuln:source" />
-          <xsl:apply-templates select="scapvuln:reference" />
-        </rdf:Description>
-      </vuln:reference>
-    </xsl:template>
-
-    <xsl:template match="scapvuln:source">
-      <vuln:referenceSource>
-        <xsl:value-of select="text()"/>
-      </vuln:referenceSource>
-    </xsl:template>
-
-    <xsl:template match="scapvuln:reference">
-      <vuln:referenceURL rdf:datatype="xsd:anyURI">
-        <xsl:value-of select="@href"/>
-      </vuln:referenceURL>
-    
-      <xsl:if test="text()!=@url">
-        <vuln:referenceTitle xml:lang="{@xml:lang}">
-	        <xsl:value-of select="text()" />
-        </vuln:referenceTitle>
-      </xsl:if>
-    </xsl:template>
-    """
-    #print(o)
-    s = BNode()
-    for url in all("$.url", o):
-      parsed_url = urlparse(url)
-      if parsed_url.scheme:
-        s = URIRef(url)
-        break
-    
+    s = self.referenceSubject(o)
     tags = [ (RDF.type, VULN["".join([t.capitalize() for t in tag.split()])+"Reference"]) for tag in all("$.tags[*]", o) ]
-    #print(tags)
     self.rdfobject(s, VULN.Reference, \
       allString(VULN.referenceSource, '$.refsource', o) + \
       allURL(VULN.referenceURL, "$.url", o) + \
@@ -578,7 +430,12 @@ class NVD2RDF:
       if p and o:
         self.g.add((s, p, o))
 
-rdfcves = NVD2RDF(nvdfile, "https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent/2020-06-19T12:00:08-04:00/")
+  def refURI(self, s):
+    hash_object = hashlib.sha1(json.dumps(s, sort_keys=True).encode('utf-8'))
+    hex_dig = hash_object.hexdigest()
+    return REFS["ref_"+hex_dig]
+
+rdfcves = NVD2RDF(nvdfile, "2020-06-19T12:00:08-04:00")
 g = rdfcves.convert()
 g.bind('dcterms', DCTERMS)
 g.bind('dc', DC)
@@ -589,5 +446,8 @@ g.bind('plat', PLATFORM)
 g.bind('vuln', VULN)
 g.bind('rdf', RDF)
 g.bind('cti', CTI)
+g.bind('nvd', NVD)
+g.bind('refs', REFS)
+g.bind('cpematch', CPEMATCH)
 
 g.serialize(destination=nvdfile.replace(".json", ".ttl"), format='turtle', encoding="utf-8")
