@@ -16,8 +16,8 @@ NVD = Namespace("https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020/")
 REFS = Namespace("https://csrc.nist.gov/publications/references/")
 CPEMATCH = Namespace("https://csrc.nist.gov/schema/cpematch/feed/1.0/")
 
-#nvdfile = "collections/nvdcve-1.1-recent.json"
-nvdfile = "collections/nvdcve-1.1-CVE-2020-10732.json"
+nvdfile = "collections/nvdcve-1.1-recent.json"
+#nvdfile = "collections/nvdcve-1.1-CVE-2020-10732.json"
 #nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
 #nvdfile = "collections/nvdcve-1.1-CVE-2020-13150.json"
 
@@ -48,10 +48,13 @@ def findin(jp, doc, value):
   return value in [m.value for m in parse(jp).find(doc)]
 
 def cveURI(id):
-  return URIRef('urn:X-cve:' + id)
+  return URIRef('urn:X-CVE:' + id)
 
 def cweURI(id):
-  return URIRef('urn:X-cwe:' + id)
+  return URIRef('urn:X-CWE:' + id)
+
+def cpeURI(id):
+  return URIRef(requote_uri('urn:' + id.replace("cpe", "X-CPE").replace("\\'", "'")))
 
 def cvssv3IRI(q, o):
   for i in all(q, o):
@@ -82,7 +85,6 @@ class CPEConfiguration():
           self.triples(self.configURI(node), PLATFORM.PlatformConfiguration, [(PLATFORM.hasNode, self.config_node(node))])
       else:
         print("Unknown configuration version number: ", all("$.CVE_data_version", config))
-      #print()
     return self.g
 
   def convert(self, configurations):
@@ -96,7 +98,6 @@ class CPEConfiguration():
           return_configurations.append(subject)
       else:
         print("Unknown configuration version number: ", all("$.CVE_data_version", config))
-      #print()
     return return_configurations
 
   def config_node(self, node):
@@ -114,7 +115,6 @@ class CPEConfiguration():
     tupels = list()
     for i in all("$.children.[*]", node):
       tupels += self.config_child(i)
-    #print("Found children tupels: ", tupels)
     return tupels
 
   def cpe_match(self, node):
@@ -129,7 +129,7 @@ class CPEConfiguration():
     else:
       v = PLATFORM.NotVulnerableConfiguration
     subject = BNode()
-    self.triples(subject, v, [(PLATFORM.hasPlatform, self.cpeURI(all("$.cpe23Uri", cm)[0]))] + \
+    self.triples(subject, v, [(PLATFORM.hasPlatform, cpeURI(all("$.cpe23Uri", cm)[0]))] + \
       self.versionStartExcluding(cm) + self.versionStartIncluding(cm) + self.versionEndExcluding(cm) + self.versionEndIncluding(cm))
     return subject
 
@@ -157,9 +157,6 @@ class CPEConfiguration():
     hash_object = hashlib.sha1(json.dumps(config, sort_keys=True).encode('utf-8'))
     hex_dig = hash_object.hexdigest()
     return URIRef(self.baseURI + "cpematch_"+hex_dig)
-
-  def cpeURI(self, id):
-    return URIRef(requote_uri('urn:X-cpe:' + id.replace("\\'", "'")))
 
   def versionStartExcluding(self, cm):
     return [(XSD.minExclusive, Literal(i)) for i in all("$.versionStartExcluding", cm)]
@@ -412,7 +409,7 @@ class NVD2RDF:
     elif len(all("$.name", o)) > 0:
       return self.refURI(all("$.name", o)[0])
     else:
-      return BNode()
+      return self.refURI(o)
 
   def reference(self, o):
     s = self.referenceSubject(o)
