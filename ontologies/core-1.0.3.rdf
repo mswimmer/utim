@@ -118,7 +118,10 @@
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/core#reference">
         <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Reference"/>
-        <rdfs:comment xml:lang="en">Relates some entity to some external resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">DEPRECATED: Use http://purl.org/dc/terms/references instead.
+
+A reference that an indivual has to some other external resource.
+Relates some entity to some external resource.</rdfs:comment>
         <rdfs:label xml:lang="en">reference</rdfs:label>
     </owl:ObjectProperty>
     
@@ -741,9 +744,9 @@ A Vulnerability individual is primarily used to link to external definitions of 
      -->
 
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#ipv4CIDR">
-        <rdfs:label xml:lang="en">IPv4 CIDR</rdfs:label>
         <rdfs:comment xml:lang="en">Specifies the values of one or more IPv4 addresses expressed using CIDR notation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://tools.ietf.org/html/rfc4632</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="en">IPv4 CIDR</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#ipv6CIDR">
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://tools.ietf.org/html/rfc6177</rdfs:isDefinedBy>

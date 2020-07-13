@@ -428,7 +428,9 @@
 
     <!-- http://ontologies.ti-semantics.com/platform#PlatformConfiguration -->
 
-    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#PlatformConfiguration"/>
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#PlatformConfiguration">
+        <rdfs:comment>A Composition of a logical operators on other configurations that eventually need to contain references to a platform and possibly version ranges it applies to.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -497,7 +499,11 @@
         <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
     </rdf:Description>
     <rdf:Description rdf:about="http://ontologies.ti-semantics.com/core#reference">
-        <rdfs:comment xml:lang="en">A reference that an indivual has to some other external resource.</rdfs:comment>
+        <core:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</core:deprecated>
+        <rdfs:comment xml:lang="en">DEPRECATED: Use http://purl.org/dc/terms/references instead.
+
+A reference that an indivual has to some other external resource.
+Relates some entity to some external resource.</rdfs:comment>
     </rdf:Description>
 </rdf:RDF>
 

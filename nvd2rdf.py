@@ -16,10 +16,6 @@ NVD = Namespace("https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020/")
 REFS = Namespace("https://csrc.nist.gov/publications/references/")
 CPEMATCH = Namespace("https://csrc.nist.gov/schema/cpematch/feed/1.0/")
 
-nvdfile = "collections/nvdcve-1.1-recent.json"
-#nvdfile = "collections/nvdcve-1.1-CVE-2020-10732.json"
-#nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
-#nvdfile = "collections/nvdcve-1.1-CVE-2020-13150.json"
 
 def all(q, o, fn=None):
   a = [ m.value for m in parse(q).find(o) ]
@@ -146,7 +142,7 @@ class CPEConfiguration():
     else:
       raise BaseException("[config_child] Unknown operator: ", all("$.operator", child))
 
-  def triples(self, subject, rdftype, items):  
+  def triples(self, subject, rdftype, items):
     self.g.add((subject, RDF.type, rdftype))
     for (p, o) in items:
       if p and o:
@@ -172,7 +168,7 @@ class CPEConfiguration():
 
 class NVD2RDF:
   def __init__(self, filename, filedate):
-    with open(nvdfile, 'r') as f:
+    with open(filename, 'r') as f:
       self.f = f
       self.collection = json.load(f)
       # Plausibility checking
@@ -206,7 +202,7 @@ class NVD2RDF:
           allDateTime(DCTERMS.issued, "$.publishedDate", o)  + \
           allDateTime(DCTERMS.modified, "$.lastModifiedDate", o)  + \
           allLangString(RDFS.comment, "$.cve.description.description_data.[*]", o) + \
-          self.allReferences(VULN.reference, "$.cve.references.reference_data[*]", o) + \
+          self.allReferences(DCTERMS.references, "$.cve.references.reference_data[*]", o) + \
           self.allConfigurations( VULN.vulnerableConfiguration, "$.configurations", o) + \
           self.allImpacts(VULN.score, "$.impact", o) + \
           self.allCWEs(VULN.weakness, "$.cve.problemtype.[*].problemtype_data.[*].description.[*].value", o) )
@@ -432,19 +428,3 @@ class NVD2RDF:
     hex_dig = hash_object.hexdigest()
     return REFS["ref_"+hex_dig]
 
-rdfcves = NVD2RDF(nvdfile, "2020-06-19T12:00:08-04:00")
-g = rdfcves.convert()
-g.bind('dcterms', DCTERMS)
-g.bind('dc', DC)
-g.bind('foaf', FOAF)
-g.bind('core', CORE)
-g.bind('score', SCORE)
-g.bind('plat', PLATFORM)
-g.bind('vuln', VULN)
-g.bind('rdf', RDF)
-g.bind('cti', CTI)
-g.bind('nvd', NVD)
-g.bind('refs', REFS)
-g.bind('cpematch', CPEMATCH)
-
-g.serialize(destination=nvdfile.replace(".json", ".ttl"), format='turtle', encoding="utf-8")

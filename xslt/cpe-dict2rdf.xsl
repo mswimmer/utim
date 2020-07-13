@@ -15,13 +15,20 @@
     xmlns:core="http://ontologies.ti-semantics.com/core#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:tifn="http://ontologies.ti-semantics.com/fn"
     >
   
   <xsl:variable
       name="PLATFORM">http://ontologies.ti-semantics.com/platform#</xsl:variable>
   <xsl:variable
       name="CORE">http://ontologies.ti-semantics.com/core#</xsl:variable>
-  
+
+  <xsl:function name="tifn:cpeURN" as="xs:string?">
+    <xsl:param name="arg" as="xs:string?"/>
+    <xsl:sequence select="concat(concat('urn:X-', upper-case(substring($arg,1,3))),substring($arg,4))"/>
+  </xsl:function>
+
   <xsl:output method="xml" />
   <xsl:strip-space elements="*" />
   <xsl:output indent="yes" />
@@ -46,18 +53,18 @@
       <platform:generatorSchemaVersion><xsl:value-of select="cpe-dict:schema_version"
       /></platform:generatorSchemaVersion>      
       <xsl:for-each select="//cpe-dict:cpe-item">
-	<platform:platform>
-	  <rdf:Description
-	      rdf:about="urn:X-{@name}" 
-	      rdf:type="{$CORE}Platform" />
-	</platform:platform>
+	      <platform:platform>
+	        <rdf:Description
+	          rdf:about="{tifn:cpeURN(@name)}" 
+	          rdf:type="{$CORE}Platform" />
+	      </platform:platform>
       </xsl:for-each>
     </rdf:Description>
   </xsl:template>
   
   <xsl:template match="cpe-dict:cpe-item">
     <rdf:Description
-	rdf:about="urn:X-{@name}" 
+	rdf:about="{tifn:cpeURN(@name)}" 
 	rdf:type="{$CORE}Platform">
       <platform:cpe22uri>
 	<xsl:value-of select="@name" />
@@ -87,17 +94,16 @@
   </xsl:template>
 
   <xsl:template match="cpe-dict:reference">
-    <platform:reference>
-      <rdf:Description
-	  rdf:type="{$PLATFORM}Reference">
-	<platform:referenceURL rdf:datatype="xsd:anyURI">
-	  <xsl:value-of select="@href" />
-	</platform:referenceURL>
-	<rdfs:label>
-	  <xsl:value-of select="text()" />
-	</rdfs:label>
+    <dc:reference>
+      <rdf:Description rdf:type="{$PLATFORM}Reference">
+	      <platform:referenceURL rdf:datatype="xsd:anyURI">
+	        <xsl:value-of select="@href" />
+	      </platform:referenceURL>
+	      <rdfs:label>
+	        <xsl:value-of select="text()" />
+	      </rdfs:label>
       </rdf:Description>
-    </platform:reference>
+    </dc:reference>
   </xsl:template>
 
     <xsl:template match="cpe-23:cpe23-item">
