@@ -6,6 +6,7 @@ from rdflib.namespace import RDF, RDFS, XSD, DC, DCTERMS, FOAF
 import dateutil.parser
 import hashlib
 from requests.utils import requote_uri
+from cpe import CPE
 
 CORE = Namespace("http://ontologies.ti-semantics.com/core#")
 CTI = Namespace("http://ontologies.ti-semantics.com/cti#")
@@ -15,7 +16,6 @@ VULN = Namespace("http://ontologies.ti-semantics.com/vulnerability#")
 NVD = Namespace("https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020/")
 REFS = Namespace("https://csrc.nist.gov/publications/references/")
 CPEMATCH = Namespace("https://csrc.nist.gov/schema/cpematch/feed/1.0/")
-
 
 def all(q, o, fn=None):
   a = [ m.value for m in parse(q).find(o) ]
@@ -125,9 +125,58 @@ class CPEConfiguration():
     else:
       v = PLATFORM.NotVulnerableConfiguration
     subject = BNode()
-    self.triples(subject, v, [(PLATFORM.hasPlatform, cpeURI(all("$.cpe23Uri", cm)[0]))] + \
+    cveStr = all("$.cpe23Uri", cm)[0]
+    self.triples(subject, v, [(PLATFORM.hasPlatform, cpeURI(cveStr))] + \
       self.versionStartExcluding(cm) + self.versionStartIncluding(cm) + self.versionEndExcluding(cm) + self.versionEndIncluding(cm))
+    #print(cveStr)
+
+    c = CPE(cveStr)
+
+    if c.is_hardware():
+      self.g.add((cpeURI(cveStr), RDF.type, PLATFORM.HardwarePlatform))
+    elif c.is_application():
+      self.g.add((cpeURI(cveStr), RDF.type, PLATFORM.ApplicationPlatform))
+    elif c.is_operating_system():
+      self.g.add((cpeURI(cveStr), RDF.type, PLATFORM.OperatingSystemPlatform))
+
+    for i in c.get_edition():
+      self.g.add((cpeURI(cveStr), PLATFORM.edition, self.plEnt(i, "Edition_", cls=PLATFORM.Edition)))
+    for i in c.get_language():
+      self.g.add((cpeURI(cveStr), PLATFORM.language, self.plEnt(i, "Language_", cls=PLATFORM.Language)))
+    for i in c.get_other():
+      self.g.add((cpeURI(cveStr), PLATFORM.other, self.plEnt(i, "Other_", cls=PLATFORM.Other)))
+    for i in c.get_part():
+      self.g.add((cpeURI(cveStr), PLATFORM.part, self.plEnt(i, "Part_", cls=PLATFORM.Part)))
+    for i in c.get_product():
+      self.g.add((cpeURI(cveStr), PLATFORM.product, self.plEnt(i, "Product_", cls=PLATFORM.Product)))
+    for i in c.get_software_edition():
+      self.g.add((cpeURI(cveStr), PLATFORM.softwareEdition, self.plEnt(i, "SoftwareEdition_", cls=PLATFORM.SoftwareEdition)))
+    for i in c.get_target_hardware():
+      self.g.add((cpeURI(cveStr), PLATFORM.targetHardware, self.plEnt(i, "Hardware_", cls=PLATFORM.TargetHardware)))
+    for i in c.get_target_software():
+      self.g.add((cpeURI(cveStr), PLATFORM.targetSoftware, self.plEnt(i, "Software_", cls=PLATFORM.TargetSoftware)))
+    for i in c.get_update():
+      self.g.add((cpeURI(cveStr), PLATFORM.update, self.plEnt(i, "Update_", cls=PLATFORM.Update)))
+    for i in c.get_vendor():
+      self.g.add((cpeURI(cveStr), PLATFORM.vendor, self.plEnt(i, "Vendor_", cls=PLATFORM.Vendor)))
+    for i in c.get_version():
+      self.g.add((cpeURI(cveStr), PLATFORM.version, self.plEnt(i, "Version_", cls=PLATFORM.Version)))
+
     return subject
+
+  def plEnt(self, name, prefix="", postfix="", cls=None):
+    if name == "*":
+      m = "Any"
+    elif name == "-":
+      m = "NotAvailable"
+    else:
+      m = requote_uri(name)
+    s = PLATFORM[prefix+m+postfix]
+    if cls:
+      self.g.add((s, RDF.type, cls))
+    if not name in ["-", "*"]:
+      self.g.add((s, RDFS.label, Literal(name)))
+    return s
 
   def config_child(self, child):
     if 'OR' in all("$.operator", child):
