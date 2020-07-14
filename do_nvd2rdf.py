@@ -11,13 +11,17 @@ NVD = Namespace("https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020/")
 REFS = Namespace("https://csrc.nist.gov/publications/references/")
 CPEMATCH = Namespace("https://csrc.nist.gov/schema/cpematch/feed/1.0/")
 
-nvdfile = "collections/nvdcve-1.1-recent.json"
+#nvdfile = "collections/nvdcve-1.1-recent.json"
 #nvdfile = "collections/nvdcve-1.1-CVE-2020-10732.json"
 #nvdfile = "collections/nvdcve-1.1-CVE-2019-9460.json"
 #nvdfile = "collections/nvdcve-1.1-CVE-2020-13150.json"
+#nvdfile = "collections/CVE-2020-12462.json"
+nvdfile = "collections/CVE-2019-0001.json"
 
 rdfcves = NVD2RDF(nvdfile, "2020-06-19T12:00:08-04:00")
-g = rdfcves.convert()
+g = rdfcves.single()
+#g = rdfcves.catalog()
+
 g.bind('dcterms', DCTERMS)
 g.bind('dc', DC)
 g.bind('foaf', FOAF)

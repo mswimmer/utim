@@ -223,9 +223,9 @@ class NVD2RDF:
       self.f = f
       self.collection = json.load(f)
       # Plausibility checking
-      if findin('$.CVE_data_type', self.collection, "CVE") and \
-        findin('$.CVE_data_format', self.collection, "MITRE") and \
-        findin('$.CVE_data_version', self.collection, "4.0"):
+      if (findin('$.CVE_data_type', self.collection, "CVE") or findin('$.data_type', self.collection, "CVE")) and \
+        (findin('$.CVE_data_format', self.collection, "MITRE") or findin('$.data_format', self.collection, "MITRE")) and \
+        (findin('$.CVE_data_version', self.collection, "4.0") or findin('$.data_version', self.collection, "4.0")):
           for match in parse('$.CVE_data_timestamp').find(self.collection):
             self.ts = dateutil.parser.parse(match.value)
           self.g = Graph()
@@ -235,25 +235,37 @@ class NVD2RDF:
           print([m.value for m in parse('$.CVE_data_type').find(self.collection)], [m.value for m in parse('$.CVE_data_format').find(self.collection)],[m.value for m in parse('$.CVE_data_version').find(self.collection)])
           raise(BaseException("unknown data version"))
 
-  def convert(self):
-    self.catalog()
-    return self.g
+#  def convert(self):
+#    self.catalog()
+#    return self.g
         
   def catalog(self):
-    self.rdfobject(NVD[self.filedate], VULN.NVD20Catalog, [ (CORE.vulnerability, self.cve(match.value)) for match in parse('$.CVE_Items[*]').find(self.collection)])
+    s = NVD[self.filedate]
+    self.rdfobject(s, VULN.NVD20Catalog, [ (CORE.vulnerability, self.cve(match.value)) for match in parse('$.CVE_Items[*]').find(self.collection)])
+    return self.g
+
+  def single(self):
+    self.cve(self.collection)
+    return self.g
 
   def cve(self, o):
-    if findin('$.cve.data_type', o, "CVE") and \
-      findin('$.cve.data_format', o, "MITRE") and \
-      findin('$.cve.data_version', o, "4.0"):
-        id = all('$.cve.CVE_data_meta.ID', o)[0]
+    if (findin('$.cve.data_type', o, "CVE") or findin('$.data_type', o, "CVE")) and \
+      (findin('$.cve.data_format', o, "MITRE") or findin('$.data_format', o, "MITRE")) and \
+      (findin('$.cve.data_version', o, "4.0") or findin('$.data_version', o, "4.0")):
+        id = (all('$.CVE_data_meta.ID', o) + all('$.cve.CVE_data_meta.ID', o))[0]
         s = cveURI(id)
         self.rdfobject(s, CORE.Vulnerability, \
           [ (VULN.id, Literal(id)) ] + \
           allDateTime(DCTERMS.issued, "$.publishedDate", o)  + \
+          allDateTime(DCTERMS.issued, "$.CVE_data_meta.DATE_PUBLIC", o)  + \
+          [ (DCTERMS.publisher, Literal(i)) for i in all("$.CVE_data_meta.ASSIGNER", o) ]  + \
+          [ (DCTERMS.title, Literal(i)) for i in all("$.CVE_data_meta.TITLE", o) ]  + \
+          [ (DCTERMS.accessRights, Literal(i)) for i in all("$.CVE_data_meta.STATE", o) ] + \
           allDateTime(DCTERMS.modified, "$.lastModifiedDate", o)  + \
           allLangString(RDFS.comment, "$.cve.description.description_data.[*]", o) + \
+          allLangString(RDFS.comment, "$.description.description_data.[*]", o) + \
           self.allReferences(DCTERMS.references, "$.cve.references.reference_data[*]", o) + \
+          self.allReferences(DCTERMS.references, "$.references.reference_data[*]", o) + \
           self.allConfigurations( VULN.vulnerableConfiguration, "$.configurations", o) + \
           self.allImpacts(VULN.score, "$.impact", o) + \
           self.allCWEs(VULN.weakness, "$.cve.problemtype.[*].problemtype_data.[*].description.[*].value", o) )
