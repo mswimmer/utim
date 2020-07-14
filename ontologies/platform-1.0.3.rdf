@@ -98,6 +98,17 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/platform#edition -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#edition">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#Edition"/>
+        <rdfs:comment xml:lang="en">Relate the platform to the edition of the platform.</rdfs:comment>
+        <rdfs:label xml:lang="en">edition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/platform#factReference -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#factReference">
@@ -106,6 +117,17 @@
         <rdfs:comment xml:lang="en">A reference to a Platform individual</rdfs:comment>
         <rdfs:comment xml:lang="en">cpe-lang</rdfs:comment>
         <rdfs:label xml:lang="en">fact reference</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/platform#language -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#language">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#Language"/>
+        <rdfs:comment xml:lang="en">Relates a platform to language specific version information.</rdfs:comment>
+        <rdfs:label xml:lang="en">language</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -134,6 +156,17 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/platform#other -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#other">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#Other"/>
+        <rdfs:comment xml:lang="en">Relates a platform to some other version information.</rdfs:comment>
+        <rdfs:label xml:lang="en">other</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/platform#platform -->
 
     <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#platform">
@@ -142,6 +175,35 @@
         <rdfs:comment xml:lang="en">Maps a catalog of platforms to a member platform individual.</rdfs:comment>
         <rdfs:comment xml:lang="en">cpe-dict</rdfs:comment>
         <rdfs:label xml:lang="en">platform</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/platform#product -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#product">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#Product"/>
+        <rdfs:comment xml:lang="en">Relates a platform to a specific product.</rdfs:comment>
+        <rdfs:label xml:lang="en">product</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/platform#softwareEdition -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#softwareEdition">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/platform#SoftwareEdition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/platform#targetHardware -->
+
+    <owl:ObjectProperty rdf:about="http://ontologies.ti-semantics.com/platform#targetHardware">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+        <rdfs:range rdf:resource="http://ontologies.ti-semantics.com/core#Hardware"/>
     </owl:ObjectProperty>
     
 
@@ -286,6 +348,16 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/platform#update -->
+
+    <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/platform#update">
+        <rdfs:domain rdf:resource="http://ontologies.ti-semantics.com/core#Platform"/>
+        <rdfs:comment xml:lang="en">Patch level of platform version.</rdfs:comment>
+        <rdfs:label xml:lang="en">update</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/uvo#referenceURL -->
 
     <owl:DatatypeProperty rdf:about="http://ontologies.ti-semantics.com/uvo#referenceURL">
@@ -339,6 +411,24 @@
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#Deprecation">
         <rdfs:comment xml:lang="en">Specifies the deprecation information for a specific deprecation of a given identifier name.  If a name is deprecated multiple times, there would be a separate instance of the deprecation element for each deprecation.</rdfs:comment>
         <rdfs:label xml:lang="en">Deprecation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/platform#Edition -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#Edition">
+        <rdfs:comment xml:lang="en">The variation of the product (e.g., “Home”, “Enterprise”, “Student”) as an entity.</rdfs:comment>
+        <rdfs:label xml:lang="en">Edition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/platform#Language -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#Language">
+        <rdfs:comment xml:lang="en">Language version of the platform</rdfs:comment>
+        <rdfs:label xml:lang="en">Language</rdfs:label>
     </owl:Class>
     
 
@@ -408,6 +498,15 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/platform#Other -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#Other">
+        <rdfs:comment xml:lang="en">Any other version information of the platform.</rdfs:comment>
+        <rdfs:label xml:lang="en">Other</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/platform#PlatformCatalog -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#PlatformCatalog">
@@ -434,6 +533,15 @@
     
 
 
+    <!-- http://ontologies.ti-semantics.com/platform#Product -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#Product">
+        <rdfs:comment xml:lang="en">The base name (as an entity) of the product, exclusive of vendor, colloquial version, edition, etc.</rdfs:comment>
+        <rdfs:label xml:lang="en">Product</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://ontologies.ti-semantics.com/platform#Reference -->
 
     <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#Reference">
@@ -447,6 +555,12 @@
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Specifies reference information associated with a CPE</rdfs:comment>
         <rdfs:label>Reference</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- http://ontologies.ti-semantics.com/platform#SoftwareEdition -->
+
+    <owl:Class rdf:about="http://ontologies.ti-semantics.com/platform#SoftwareEdition"/>
     
 
 

@@ -139,28 +139,30 @@ class CPEConfiguration():
     elif c.is_operating_system():
       self.g.add((cpeURI(cveStr), RDF.type, PLATFORM.OperatingSystemPlatform))
 
+    vendor = ""
+    for i in c.get_vendor():
+      self.g.add((cpeURI(cveStr), PLATFORM.vendor, self.plEnt(i, "Vendor_", cls=PLATFORM.Vendor)))
+      vendor = i
+    for i in c.get_product():
+      self.g.add((cpeURI(cveStr), PLATFORM.product, self.plEnt(i, "Product_"+vendor+"_", cls=PLATFORM.Product)))
     for i in c.get_edition():
       self.g.add((cpeURI(cveStr), PLATFORM.edition, self.plEnt(i, "Edition_", cls=PLATFORM.Edition)))
     for i in c.get_language():
       self.g.add((cpeURI(cveStr), PLATFORM.language, self.plEnt(i, "Language_", cls=PLATFORM.Language)))
     for i in c.get_other():
       self.g.add((cpeURI(cveStr), PLATFORM.other, self.plEnt(i, "Other_", cls=PLATFORM.Other)))
-    for i in c.get_part():
-      self.g.add((cpeURI(cveStr), PLATFORM.part, self.plEnt(i, "Part_", cls=PLATFORM.Part)))
-    for i in c.get_product():
-      self.g.add((cpeURI(cveStr), PLATFORM.product, self.plEnt(i, "Product_", cls=PLATFORM.Product)))
     for i in c.get_software_edition():
       self.g.add((cpeURI(cveStr), PLATFORM.softwareEdition, self.plEnt(i, "SoftwareEdition_", cls=PLATFORM.SoftwareEdition)))
     for i in c.get_target_hardware():
-      self.g.add((cpeURI(cveStr), PLATFORM.targetHardware, self.plEnt(i, "Hardware_", cls=PLATFORM.TargetHardware)))
+      self.g.add((cpeURI(cveStr), PLATFORM.targetHardware, self.plEnt(i, "Hardware_", cls=CORE.Hardware)))
     for i in c.get_target_software():
-      self.g.add((cpeURI(cveStr), PLATFORM.targetSoftware, self.plEnt(i, "Software_", cls=PLATFORM.TargetSoftware)))
+      self.g.add((cpeURI(cveStr), PLATFORM.targetSoftware, self.plEnt(i, "Software_", cls=CORE.Software)))
     for i in c.get_update():
-      self.g.add((cpeURI(cveStr), PLATFORM.update, self.plEnt(i, "Update_", cls=PLATFORM.Update)))
-    for i in c.get_vendor():
-      self.g.add((cpeURI(cveStr), PLATFORM.vendor, self.plEnt(i, "Vendor_", cls=PLATFORM.Vendor)))
+      if not i == "-":
+        self.g.add((cpeURI(cveStr), PLATFORM.update, Literal(i)))
     for i in c.get_version():
-      self.g.add((cpeURI(cveStr), PLATFORM.version, self.plEnt(i, "Version_", cls=PLATFORM.Version)))
+      if not i == "-":
+        self.g.add((cpeURI(cveStr), PLATFORM.version, Literal(i)))
 
     return subject
 
@@ -170,8 +172,8 @@ class CPEConfiguration():
     elif name == "-":
       m = "NotAvailable"
     else:
-      m = requote_uri(name)
-    s = PLATFORM[prefix+m+postfix]
+      m = name
+    s = PLATFORM[requote_uri(prefix+m+postfix)]
     if cls:
       self.g.add((s, RDF.type, cls))
     if not name in ["-", "*"]:
